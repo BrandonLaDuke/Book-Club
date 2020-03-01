@@ -24,7 +24,7 @@ session_start(); ?>
   <?php if ($_SESSION['admin']) { ?>
           <a class="cp-btn" augmented-ui="br-clip exe" href="adminpanel.php">Control Panel</a>
   <?php } ?>
-          <a class="cart-btn" augmented-ui="br-clip exe" href="cart.php">My Cart</a>
+          <a class="profile-btn" augmented-ui="br-clip exe" href="profile.php?user=<?php echo $_SESSION['userUid']; ?>">My Profile</a>
           <form class="logout" action="includes/logout.inc.php" method="post">
               <button type="submit" augmented-ui="br-clip exe" name="logout-submit">Logout</button>
           </form>

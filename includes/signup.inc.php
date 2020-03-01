@@ -5,12 +5,15 @@ if (isset($_POST['signup-submit'])) {
   require 'dbh.inc.php';
 
   $username = $_POST['uid'];
+  $firstName = null;
+  $lastName = null;
   $email = $_POST['mail'];
   $password = $_POST['pwd'];
   $passwordRepeat = $_POST['pwd-repeat'];
   $admin = 0;
   $profilepic = "/Users/brandonladuke/Sites/sullivan/Book-Club/img/pic.png";
   $about = "";
+  $program = null;
   $website = "";
   $goodreads = "";
   $emailp = isset($_POST['mail']) ? trim($_POST['mail']) : null;
@@ -68,14 +71,14 @@ if (isset($_POST['signup-submit'])) {
         header("Location: ../index.php?error=usertaken&mail=".$email);
         exit();
       } else {
-        $sql = "INSERT INTO users (uidUsers, emailUsers, pwdUsers, profilepic, about, website, goodreads, admin) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO users (uidUsers, firstName, lastName, emailUsers, pwdUsers, profilepic, about, program, website, goodreads, admin) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = mysqli_stmt_init($conn);
         if (!mysqli_stmt_prepare($stmt, $sql)) {
           header("Location: ../index.php?error=sqlerror");
           exit();
         } else {
           $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
-          mysqli_stmt_bind_param($stmt, "ssssssss", $username, $email, $hashedPwd, $profilepic, $about, $website, $goodreads, $admin);
+          mysqli_stmt_bind_param($stmt, "sssssssssss", $username, $firstName, $lastName, $email, $hashedPwd, $profilepic, $about, $program, $website, $goodreads, $admin);
           mysqli_stmt_execute($stmt);
           header("Location: ../index.php?signup=success");
         }
