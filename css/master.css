@@ -7,7 +7,7 @@
 body {
   display: block;
   margin: 10px;
-  background-color: #000;
+  background-color: teal;
   color: #fff;
   min-height: 100vh;
   font-family: sans-serif;
@@ -61,8 +61,8 @@ main {
 .signin > button, .logout > button {
   font-size: 15px;
   padding: 12px 20px;
-  --aug-border-bg: gold;
-  --aug-inset-bg: #000;
+  --aug-border-bg: teal;
+  --aug-inset-bg: teal;
   --aug-width:10px;
   --aug-border: 2px;
   --aug-tr-height: 0px;
@@ -72,7 +72,7 @@ main {
   border: none;
 }
 .header-signup, .cp-btn, .cart-btn {
-  --aug-border-bg: gold;
+  --aug-border-bg: teal;
   --aug-inset-bg: #000;
   --aug-width:10px;
   --aug-border: 2px;
@@ -84,12 +84,12 @@ main {
   display: inline-block;
 }
 .header-signup {
-  --aug-border-bg: gold;
+  --aug-border-bg: teal;
   --aug-inset-bg: #9c1673;
   color:#fff;
 }
 .cp-btn {
-  --aug-inset-bg: #5f0000;
+  --aug-inset-bg: teal;
 }
 .cp-btn:hover {
   --aug-inset-bg: #ff0000;
@@ -122,10 +122,10 @@ main {
   text-align: center;
   font-size: 16px;
   font-family: Retro_Gaming;
-  --aug-border-bg: gold;
-  --aug-inset-bg: gold;
+  --aug-border-bg: #93e9be;
+  --aug-inset-bg: #93e9be;
   --aug-width:10px;
-  color: #000;
+  color: #fff;
   transition: ease all 500ms
 }
 @media (max-width:1140px) {

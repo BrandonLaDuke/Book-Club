@@ -3,15 +3,16 @@
     <!-- Logged In View -->
     <p class="login-status">You are logged in</p>
     <div class="newbook">
-      <form class="" action="index.html" method="post">
+      <form class="add-book" action="includes/add-book.inc.php" method="post" enctype="multipart/form-data">
         <label for="booktitle">Book Title:</label>
         <input type="text" name="booktitle" value="">
         <label for="author">Author:</label>
         <input type="text" name="author" value="">
-        <label for="coverart">Cover Art:</label>
-        <input type="text" name="coverart" value="">
+        <label for="coverart">Upload Cover Art:</label>
+        <input type="file" name="coverart" value="">
         <label for="chosenby">Book Selected By:</label>
         <input type="text" name="chosenby" value="">
+        <button type="submit" name="add-book-submit" value=""></button>
       </form>
     </div>
 
