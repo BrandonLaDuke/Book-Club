@@ -5,15 +5,15 @@ if (isset($_POST['signup-submit'])) {
   require 'dbh.inc.php';
 
   $username = $_POST['uid'];
-  $firstName = null;
-  $lastName = null;
+  $firstName = "";
+  $lastName = "";
   $email = $_POST['mail'];
   $password = $_POST['pwd'];
   $passwordRepeat = $_POST['pwd-repeat'];
   $admin = 0;
-  $profilepic = "/Users/brandonladuke/Sites/sullivan/Book-Club/img/pic.png";
+  $profilepic = "http://localhost/sullivan/Book-Club/img/pic.png";
   $about = "";
-  $program = null;
+  $program = "";
   $website = "";
   $goodreads = "";
   $emailp = isset($_POST['mail']) ? trim($_POST['mail']) : null;
