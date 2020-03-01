@@ -40,7 +40,7 @@ if ($resultCheck > 0) {
 
       <?php if ($row['uidUsers'] === $_SESSION['userUid']) {
         ?>
-        <a href="editprofile.php">Edit Profile</a>
+        <a href="editprofile.php?user=<?php echo $row['uidUsers']; ?>">Edit Profile</a>
         <?php
       } ?>
     </div>
