@@ -10,9 +10,9 @@
         <input type="text" name="author" value="">
         <label for="coverart">Upload Cover Art:</label>
         <input type="file" name="coverart" value="">
-        <label for="chosenby">Book Selected By:</label>
+        <label for="chosenby">Book Selected By (StudentID):</label>
         <input type="text" name="chosenby" value="">
-        <button type="submit" name="add-book-submit" value=""></button>
+        <button type="submit" name="add-book-submit" value="">Submit Book</button>
       </form>
     </div>
 

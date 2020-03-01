@@ -8,6 +8,15 @@
         $match = true;
         ?>
     <!-- Logged In View -->
+    <div class="edit-profilepic">
+      <img src="<?php echo $row['profilepic']; ?>" width="100px" height="100px" alt="">
+      <form class="profilepic-update" action="includes/change-profile-pic.inc.php" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="profilepic-url" value="<?php echo $row['profilepic']; ?>">
+        <input type="hidden" name="username" value="<?php echo $_GET['user']; ?>">
+        <input type="file" name="imagenew" value="">
+        <button type="submit" name="change-profile-pic-submit">Change profile picture</button>
+      </form>
+    </div>
     <div class="editprofile">
       <form class="edit-profile" action="includes/update-profile.inc.php" method="post">
 
