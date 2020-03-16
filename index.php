@@ -39,7 +39,7 @@
           echo '<p class="error" augmented-ui="tl-clip br-clip exe">Aww, that username has already been claimed.</p>';
         }
       } else if ($_GET['signup'] == "success") {
-        echo '<p class="db-success" augmented-ui="tl-clip br-clip exe">Yay! Signup successful!</p>';
+        echo '<p class="db-success" augmented-ui="tl-clip br-clip exe">Yay! Your accound has been created successfully!<br>Please verify it by clicking the activation link that has been sent to your Sullivan email.</p>';
       }?>
       <form class="signup" action="includes/signup.inc.php" method="post">
         <input type="text" name="uid" placeholder="Sullivan ID" value="<?php echo $userN; ?>">

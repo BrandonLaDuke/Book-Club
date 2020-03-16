@@ -42,7 +42,7 @@ if (isset($_POST['update-profile-submit'])) {
         $stmt2 = mysqli_stmt_init($conn);
         mysqli_stmt_execute($stmt2);
         if (!mysqli_stmt_prepare($stmt2, $sql3)) {
-          header("Location: ../editprofile.php?user=$username?error=sqlerror?$sql3");
+          header("Location: ../editprofile.php?user=$username?error=sqlerror");
           exit();
         } else {
           mysqli_stmt_execute($stmt2);
