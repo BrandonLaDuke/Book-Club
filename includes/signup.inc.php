@@ -93,7 +93,7 @@ if (isset($_POST['signup-submit'])) {
           Your account has been created, you can login with the following credentials after you have activated your account by clicking the url below.
 
           --------------------------------------
-          Username: bladuk8617@my.sullivan.edu
+          Username: '.$email.'
           Password: '.$password.'
           --------------------------------------
 
@@ -108,7 +108,7 @@ if (isset($_POST['signup-submit'])) {
           $headers = 'From:noreply@spinelessbound.com' . "\r\n"; // Set from headers
           mail($to, $subject, $message, $headers); // Send our email
           // End email
-          header("Location: ../index.php?signup=success");
+          header("Location: ../index.php?signup=success&mail=" . $msg);
         }
       }
     }

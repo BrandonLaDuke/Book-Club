@@ -37,6 +37,8 @@
           $emailN = $_GET['mail'];
         } else if ($_GET['error'] == "usertaken") {
           echo '<p class="error" augmented-ui="tl-clip br-clip exe">Aww, that username has already been claimed.</p>';
+        } else if ($_GET['error'] == "usernotverified") {
+          echo '<p class="error" augmented-ui="tl-clip br-clip exe">This user has not yet been verified.<br>Please click the verification link in your email to verify your account.</p>';
         }
       } else if ($_GET['signup'] == "success") {
         echo '<p class="db-success" augmented-ui="tl-clip br-clip exe">Yay! Your accound has been created successfully!<br>Please verify it by clicking the activation link that has been sent to your Sullivan email.</p>';

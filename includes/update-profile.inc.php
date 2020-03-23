@@ -40,13 +40,12 @@ if (isset($_POST['update-profile-submit'])) {
         SET firstName = '$firstName', lastName = '$lastName', about = '$about', program = '$program', website = '$website', goodreads = '$goodreads'
         WHERE idUsers = $idU";
         $stmt2 = mysqli_stmt_init($conn);
-        mysqli_stmt_execute($stmt2);
         if (!mysqli_stmt_prepare($stmt2, $sql3)) {
-          header("Location: ../editprofile.php?user=$username?error=sqlerror");
+          header("Location: ../editprofile.php?user=$username&error=sqlerror");
           exit();
         } else {
           mysqli_stmt_execute($stmt2);
-          header("Location: ../profile.php?user=$usernameupdate=success");
+          header("Location: ../profile.php?user=$usernameupdate&success");
         }
       }
     }

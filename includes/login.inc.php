@@ -30,7 +30,7 @@ if (isset($_POST['login-submit'])) {
           header("Location: ../index.php?error=wrongpwd");
           exit();
         } else if($pwdCheck == true) {
-          if ($row['active'] = 1) {
+          if ($row['active'] == 1) {
             session_start();
             $_SESSION['userId'] = $row['idUsers'];
             $_SESSION['userUid'] = $row['uidUsers'];
@@ -38,7 +38,7 @@ if (isset($_POST['login-submit'])) {
             header("Location: ../index.php?login=success");
             exit();
           } else {
-            header("Location: ../index.php?error=usernotverified");
+            header("Location: ../index.php?error=usernotverified&email=$mailuid");
             exit();
           }
         } else {
