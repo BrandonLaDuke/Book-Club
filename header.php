@@ -7,7 +7,6 @@ session_start(); ?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Spineless Bound | Sullivan University Book CLub</title>
-    <link rel="stylesheet" type="text/css" href="https://unpkg.com/augmented-ui/augmented.css">
     <link rel="stylesheet" href="css/master.css">
   </head>
   <body>
@@ -36,9 +35,9 @@ session_start(); ?>
         <form class="signin" action="includes/login.inc.php" method="post">
             <input type="text" name="mailuid" placeholder="Email/Username" augmented-ui="br-clip exe">
             <input type="password" name="pwd" placeholder="Password" augmented-ui="br-clip exe">
-            <button type="submit" name="login-submit" augmented-ui="br-clip exe">Login</button>
+            <button class="btn lined thick" type="submit" name="login-submit" augmented-ui="br-clip exe">Login</button>
         </form>
-        <a href="signup.php" class="header-signup" augmented-ui="br-clip exe">Sign Up</a>
+
  <?php  } ?>
 
 

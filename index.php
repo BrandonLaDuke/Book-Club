@@ -1,6 +1,7 @@
 <?php require "header.php"; ?>
-<main>
+
   <?php if (isset($_SESSION['userId'])) { ?>
+    <main>
     <p class="login-status">You are logged in</p>
     <section id="main">
       <div>
@@ -10,8 +11,10 @@
         <img src="images/carlbook.jpg" width="300px" alt="">
       </div>
     </section>
+    </main>
   <?php } else { ?>
-    <div class="Card">
+    <main class="book-p">
+    <div class="card border lined-thin">
       <h2>Welcome the Book Club!</h2>
       <h3>Sign up with your Sullivan University email</h3>
       <?php
@@ -20,7 +23,7 @@
           echo '<p class="error" augmented-ui="tl-clip br-clip exe">Oops, that didn\'t work... Fill in all fields please.</p>';
           $userN = $_GET['uid'];
           $emailN = $_GET['mail'];
-        } else if ($_GET['error'] == "invaliduidmail") {
+        } else if ($_GET['error'] == "invalidmailuid") {
           echo '<p class="error" augmented-ui="tl-clip br-clip exe">Uh, oh. Invalid username and e-mail.</p>';
         } else if ($_GET['error'] == "invaliduid") {
           echo '<p class="error" augmented-ui="tl-clip br-clip exe">Hmm... invalid username.</p>';
@@ -48,11 +51,12 @@
         <input type="text" name="mail" placeholder="Sullivan E-mail" value="<?php echo $emailN ?>">
         <input type="password" name="pwd" placeholder="Password">
         <input type="password" name="pwd-repeat" placeholder="Repeat password">
-        <button type="submit" name="signup-submit">Signup</button>
+        <button class="btn lined-thin" type="submit" name="signup-submit">Signup</button>
     </form>
     </div>
+  </main>
   <?php } ?>
 
 
-</main>
+
 <?php require "footer.php"; ?>

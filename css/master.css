@@ -1,12 +1,70 @@
 @charset "UTF-8";
-@font-face {
+/* @font-face {
   font-family: Retro_Gaming;
   src:url('../fonts/Retro_Gaming.ttf') format('truetype');
+} */
+/* Cool stuff */
+/* buttons */
+@import url(https://fonts.googleapis.com/css?family=Patrick+Hand+SC);
+
+
+.btn {
+  font-family: 'Patrick Hand SC', cursive;
 }
 
+.btn {
+  align-self: center;
+  background: transparent;
+  padding: 1rem 1rem;
+  margin: 0 1rem;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+  color: #41403E;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  outline: none;
+  box-shadow: 20px 38px 34px -26px rgba(0, 0, 0, 0.2);
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  /*
+  Above is shorthand for:
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+  border-bottom-right-radius: 225px 15px;
+  border-bottom-left-radius:15px 255px;
+  */
+}
+.border {
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+}
+.btn:hover, .btn:hover {
+  box-shadow: 2px 8px 4px -6px rgba(0, 0, 0, 0.3);
+}
+.btn.lined.thick, .btn.lined.thick {
+  border: solid 5px #fff;
+}
+.btn.dotted.thick, .btn.dotted.thick {
+  border: dotted 5px #41403E;
+}
+.btn.dashed.thick, .btn.dashed.thick {
+  border: dashed 5px #41403E;
+}
+.btn.lined.thin, .btn.lined.thin {
+  border: solid 2px #41403E;
+}
+.btn.dotted.thin, .btn.dotted.thin {
+  border: dotted 2px #41403E;
+}
+.btn.dashed.thin, .btn.dashed.thin {
+  border: dashed 2px #41403E;
+}
+
+
+* {
+  box-sizing: border-box;
+}
 body {
   display: block;
-  margin: 10px;
+  margin: 0;
   background-color: teal;
   color: #fff;
   min-height: 100vh;
@@ -15,889 +73,147 @@ body {
 }
 .wrapper {
   display: grid;
-  --aug-border-bg: #000;
-  --aug-inset-bg: #000;
-  --aug-width:10px;
-  --aug-border: 5px;
-  --aug-inset: 5px;
-  --aug-tr-height: 0px;
+  min-height: 90vh;
 }
 main {
   margin: 0 20px 20px 20px;
 }
 #logo {
   font-size: 40px;
-  font-family: Retro_Gaming;
-  margin: 10px 0 0 20px;
-
+  font-family: 'Patrick Hand SC', cursive;
+  padding: 5px 0 0 20px;
+  margin: 0;
+  height: 70px;
+  background-color: teal;
 }
+
+@media screen and (max-width:999px) {
+  .header-login {
+    position: absolute;
+    top: 10px;
+    right: 0;
+    display: block;
+    background-color: #00000055;
+    text-align: center;
+    margin: 15px 25px;
+    width: 300px;
+  }
+  .header-login input,
+  .header-login button {
+    display: block;
+    padding: 5px;
+    margin: 15px auto;
+    font-family: 'Patrick Hand SC', cursive;
+    width: 250px;
+    color: #fff;
+  }
+  .header-login input {
+    font-size: 20px;
+  }
+  .header-login a {
+    border: solid;
+  }
+}
+@media screen and (max-width:590px) {
+  .header-login {
+    margin: 80px 25px;
+  }
+}
+@media screen and (min-width:1000px) {
 .header-login {
   display: block;
   position: absolute;
   top: 0;
   right: 0;
-
   margin: 10px;
   height: 45px;
 }
-.signin > input {
-  --aug-border-bg: #000;
-  --aug-inset-bg: #000;
-  --aug-width:10px;
-  --aug-border: 5px;
-  --aug-inset: 5px;
-  --aug-tr-height: 0px;
-  background: #000;
-  color: #fff;
-  border: none;
-  outline: none;
-  padding: 10px;
-}
-.signin > input {
-  font-size: 15px;
-  padding: 10px;
-  width: 200px;
-}
-.signin > button, .logout > button {
-  font-size: 15px;
-  padding: 12px 20px;
-  --aug-border-bg: teal;
-  --aug-inset-bg: teal;
-  --aug-width:10px;
-  --aug-border: 2px;
-  --aug-tr-height: 0px;
-  color: #fff;
-  text-decoration: none;
-  outline: none;
-  border: none;
-}
-.header-signup, .cp-btn, .cart-btn {
-  --aug-border-bg: teal;
-  --aug-inset-bg: #000;
-  --aug-width:10px;
-  --aug-border: 2px;
-  --aug-tr-height: 0px;
-  padding: 12px;
-  color: #fff;
-  text-decoration: none;
-  margin-left: 10px;
+.signin {
   display: inline-block;
 }
-.header-signup {
-  --aug-border-bg: teal;
-  --aug-inset-bg: #9c1673;
-  color:#fff;
-}
-.cp-btn {
-  --aug-inset-bg: teal;
-}
-.cp-btn:hover {
-  --aug-inset-bg: #ff0000;
-}
-.signin, .header-login > form {
-  display: inline-block;
-}
-.welcome-msg {
-  display: none;
-}
-
-
-.menu {
-  display: grid;
-  grid-template-columns: 50% 50%;
-  grid-template-rows: auto;
-  margin: 0;
-  padding: 10px;
-}
-.menu > a {
-  text-decoration: none;
-}
-.menu > a > li {
-  display: block;
-  width: auto;
-  margin: 10px;
-  --aug-border: 5px;
-  --aug-inset: 5px;
-  padding: 20px; /* mind the gap */
-  text-align: center;
-  font-size: 16px;
-  font-family: Retro_Gaming;
-  --aug-border-bg: #93e9be;
-  --aug-inset-bg: #93e9be;
-  --aug-width:10px;
-  color: #fff;
-  transition: ease all 500ms
-}
-@media (max-width:1140px) {
-  .wrapper {
-    margin-top: 60px;
-  }
-  .welcome-msg {
-    display: inline-block;
-  }
-}
-@media (max-width:636px) {
-  .wrapper {
-    margin-top: 110px;
-  }
-  .header-login {
-    height: 120px;
-  }
-  .welcome-msg {
-    display: inline-block;
-  }
-}
-@media (max-width:544px) {
-  .wrapper {
-    margin-top: 135px;
-  }
-  .header-login {
-    height: 130px;
-  }
-  .welcome-msg {
-    display: inline-block;
-  }
-}
-
-@media (min-width:800px) {
-  .menu {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
-  .wrapper {
-    display: grid;
-    --aug-border-bg: #000;
-    --aug-inset-bg: #000;
-    --aug-width:10px;
-    --aug-border: 5px;
-    --aug-inset: 5px;
-    --aug-tr-width: calc(100vw - 480px);
-    --aug-tr-height: 50px;
-  }
-
-}
-.menu > a > li:hover {
-  --aug-br-height: 50%;
-}
-@media (min-width:1000px) {
-  .welcome-msg {
-    display: inline-block;
-    font-size: 15px;
-    font-family: sans-serif;
-    margin-right: 10px;
-  }
-}
-
-/* admins only */
-.control-panel {
-  display: grid;
-  grid-template-columns: 250px auto;
-  grid-template-rows: auto;
-  grid-template-areas: "cp-nav info";
-  color: #fff;
-}
-.control-panel-eg {
-  display: grid;
-  grid-template-columns: 250px auto;
-  grid-template-rows: auto;
-  grid-template-areas: "cp-nav edit";
-  color: #fff;
-}
-@media (max-width:800px) {
-  .control-panel,
-  .control-panel-eg {
-    display: block;
-  }
-}
-.cp-nav > ul > li > a {
-  color: #fff;
-  text-decoration: none;
-  font-family: Retro_Gaming;
-}
-.cp-nav > ul > li > a:hover {
-  background-image: linear-gradient(
-    #5444aa 0%,
-    #3487de 15%,
-    #45eebb 15%,
-    #45eebb 30%,
-    #feff33 30%,
-    #feff33 44%,
-    #ffdd55 44%,
-    #ffdd55 58%,
-    #dd7611 58%,
-    #dd7611 70%,
-    #993411 70%,
-    #993411 100%);
-  background-position: center;
-  background-size: cover;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.head-txt {
-  font-size: 2em;
-  background-image: linear-gradient(
-    #5444aa 0%,
-    #3487de 15%,
-    #45eebb 15%,
-    #45eebb 30%,
-    #feff33 30%,
-    #feff33 44%,
-    #ffdd55 44%,
-    #ffdd55 58%,
-    #dd7611 58%,
-    #dd7611 70%,
-    #993411 70%,
-    #993411 100%);
-  background-position: center;
-  background-size: cover;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.cp-ga-info {
-  grid-area: info;
-}
-tr:nth-child(2n+1){
-  background: #222;
-}
-tr td {
-  padding: 3px 20px;
-}
-
-
-
-.cp-edit {
-  grid-area: edit;
-}
-
-
-.edit-game > input,
-.edit-game > .rating > div {
-  display: block;
-}
-.edit-game > label {
-  font-size: 15px;
-  margin-top: 15px;
-  display: block;
-}
-#gametitle {
-  width: 80%;
+a.signup {
+  border: solid;
   font-size: 20px;
-}
-#publisher {
-  width: 500px;
-}
-.docs ul li {
-  margin-top: 15px;
-}
-.docs ul li a {
+  text-decoration: none;
+  padding: 9px;
+  height: 50px;
+  width: 80px;
+  margin: 0;
   color: #fff;
-  font-size: 1.2em;
 }
-.docs ul li a:hover {
-  background-image: linear-gradient(
-    #5444aa 0%,
-    #3487de 15%,
-    #45eebb 15%,
-    #45eebb 30%,
-    #feff33 30%,
-    #feff33 44%,
-    #ffdd55 44%,
-    #ffdd55 58%,
-    #dd7611 58%,
-    #dd7611 70%,
-    #993411 70%,
-    #993411 100%);
+.signin input {
+  font-size: 20px;
+  font-family: 'Patrick Hand SC', cursive;
+  height: 50px;
+  width: 250px;
+  border: none;
+}
+.signin button {
+  font-size: 20px;
+  padding: 5px;
+  height: 50px;
+  width: 80px;
+  margin: 0;
+  color: #fff;
+  border-color: #fff;
+}
+}
+
+/* Home page */
+main {
+  display: flex;
+}
+.wrapper {
+  background-image: url('../img/books.jpg');
   background-position: center;
   background-size: cover;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  margin-left: 0;
+  margin-right: 0;
 }
-.add-faq input,
-.add-faq textarea {
-  width: 450px;
-}
-/* admins end */
-
-/* Home page begin */
-
-.hero {
+.card {
+  margin: auto;
+  display: inline-block;
   position: relative;
-  background-image: url(../img/header.jpg);
-  background-position: 60% 0%;
-  background-size: cover;
-  height: 250px;
-}
-.hero-txt {
-  position: absolute;
-  top: 30px; right: 15px;
-}
-#at-txt {
   text-align: center;
+  margin:auto;
+  padding: 50px;
+  width:340px;
+  background-image: url('../img/colors.jpg');
 }
-.hero-txt h1 {
-  font-size: 3em;
-  text-align: center;
-  width: 235px;
-  font-family: 'Retro_Gaming', sans-serif;
-  background-image: linear-gradient(
-    #5444aa 0%,
-    #3487de 15%,
-    #45eebb 15%,
-    #45eebb 30%,
-    #feff33 30%,
-    #feff33 44%,
-    #ffdd55 44%,
-    #ffdd55 58%,
-    #dd7611 58%,
-    #dd7611 70%,
-    #993411 70%,
-    #993411 100%);
-  background-position: center;
-  background-size: cover;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin: 0;
-}
-.hero-txt h2 {
-  font-size: 1.1em;
-  width: 235px;
-  font-family: sans-serif;
-  text-align: center;
-  margin: 3px;
-}
-@media (min-width:720px) {
-  .hero-txt {
-    position: absolute;
-    top: 40px; right: 55px;
-  }
-}
-@media (min-width:772px) {
-  .hero-txt {
-    position: absolute;
-    top: 40px; right: 77px;
-  }
-}
-@media (min-width:920px) {
-  .hero-txt {
-    position: absolute;
-    top: 40px; right: 128px;
-  }
-}
-@media (min-width:1000px) {
-  .hero {
-    height: 300px;
-    background-position: 60% 0%;
-  }
-  .hero-txt {
-    position: absolute;
-    top: 43px; right: 105px;
-  }
-  .hero-txt h1 {
-    font-size: 5em;
-    width: auto;
-  }
-  .hero-txt h2 {
-    font-size: 1.5em;
-    width: 400px;
-  }
-}
-@media (min-width:1255px) {
-  .hero {
-    height: 300px;
-    background-position: 0% 9%;
-  }
-  .hero-txt {
-    position: absolute;
-    top: 43px; right: 105px;
-  }
-  .hero-txt h1 {
-    font-size: 5em;
-    width: auto;
-  }
-  .hero-txt h2 {
-    font-size: 1.6em;
-    width: 400px;
-  }
-}
-@media (min-width:1360px) {
-  .hero {
-    height: 300px;
-    background-position: 0% 9%;
-  }
-  .hero-txt {
-    position: absolute;
-    top: 43px; right: 190px;
-  }
-}
-@media (min-width:1500px) {
-  .hero {
-    height: 400px;
-  }
-  .hero-txt {
-    top: 90px; right: 190px;
-  }
-}
-@media (min-width:1700px) {
-  .hero-txt {
-    top: 90px; right: 290px;
-  }
-}
-.cover {
-  background-position: center;
-  background-size: cover;
-}
-.featured-games {
-  display: block;
-}
-.game-f {
-  width: 100%; height: 200px;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-/* Home page end */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* buy page begin */
-
-.allGames {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-gap: 10px;
-  max-width: 1500px;
-  margin: auto;
-}
-.game {
-  display: block;
-  text-decoration: none;
-  --aug-border-bg: gold;
-  --aug-width:10px;
-  --aug-border: 5px;
-  --aug-inset: 5px;
-  --aug-tr-height: 0px;
-  padding: 20px;
-  color: #fff;
-}
-.game > .coverart {
-  width: 100%; height: auto;
-}
-.game > .gamename {
-  text-decoration: none;
-  font-family: 'Retro_Gaming';
-  font-size: 1.3em;
-  margin-bottom: 10px;
-}
-.game > .platform {
-  font-family: sans-serif;
-  text-decoration: none;
-  margin: 0 0 20px 0;
-}
-.game > .price {
-  color: #f00;
-  font-family: sans-serif;
-  text-decoration: none;
-  font-size: 1.5em;
-  margin: 0;
-  font-weight: bold;
-}
-.game:hover {
-  --aug-inset-bg: gold;
-  color: #000;
-}
-.game:hover > .price {
-  color: #000;
-}
-@media (min-width:600px) {
-  .allGames {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-@media (min-width:700px) {
-  .allGames {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
-@media (min-width:850px) {
-  .allGames {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
-}
-@media (min-width:1024px) {
-  .allGames {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
-}
-
-/* buy page end */
-
-/* Game info page begin */
-
-.gamepage {
-  color: #fff;
-  max-width: 800px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-areas: "title"
-                       "coverart"
-                       "cartinfo"
-                       "details";
-}
-.gamepage > .title {
-  grid-area: title;
-}
-.gamepage > .title > h1 {
-  font-family: 'Retro_Gaming', sans-serif;
-  margin: 1em 0 .5em 0;
-}
-.gamepage > .title > .pub {
-  display: block;
-  font-size: 1.1em;
-}
-.gamepage > .title > .rating {
-  display: block;
-  margin: 10px 0;
-}
-.gamepage > .coverart {
-  grid-area: coverart;
-}
-.gamepage > .coverart > img {
-  width: 100%;
-  max-width: 400px;
-  margin: auto;
-  display: block;
-}
-.gamepage > .cartinfo {
-  grid-area: cartinfo;
-}
-.gamepage > .cartinfo > .platform {
-  display: block;
-  font-size: 1.3em;
-  font-family: sans-serif;
-  margin: 0;
-}
-.gamepage > .cartinfo > .price {
-  display: block;
-  font-size: 1.5em;
-  font-family: sans-serif;
-  margin: .5em 0;
-}
-.gamepage > .cartinfo > form > .addtocart {
-  color: #000;
-  background-color: #000;
-  font-size: 1.3em;
-  width: 100%;
-  padding: 15px;
-  --aug-border-bg: gold;
-  --aug-inset-bg: gold;
-  --aug-width:10px;
-  --aug-border: 5px;
-  --aug-inset: 5px;
-  --aug-tr-height: 0px;
-}
-.gamepage > .cartinfo > .stock {
-  font-size: 1.2em;
-}
-.gamepage > .details {
-  grid-area: details;
-}
-.gamepage > .details > h2 {
-  text-align: center;
-  font-size: 2em;
-  font-family: 'Retro_Gaming',sans-serif;
-  background-image: linear-gradient(
-    #5444aa 0%,
-    #3487de 15%,
-    #45eebb 15%,
-    #45eebb 30%,
-    #feff33 30%,
-    #feff33 44%,
-    #ffdd55 44%,
-    #ffdd55 58%,
-    #dd7611 58%,
-    #dd7611 70%,
-    #993411 70%,
-    #993411 100%);
-  background-position: center;
-  background-size: cover;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.gamepage > .details > p {
-  margin: auto;
-  max-width: 1000px;
-}
-@media (min-width:768px) {
-  .gamepage {
-    color: #fff;
-    max-width: 1200px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 35px;
-    grid-template-areas: "coverart title"
-                         "coverart cartinfo"
-                         "details details";
-  }
-  .gamepage > .cartinfo > form > .addtocart {
-    width: auto;
-    padding: 20px;
-  }
-  .gamepage > .details > h2 {
-    font-size: 4em;
-  }
-  .gamepage > .details > p {
-    font-size: 1.3em;
-  }
-}
-@media (min-width:1000px) {
-  .gamepage {
-    grid-template-columns: 1fr 2fr;
-  }
-}
-
-/* Game info page end */
-
-/* Sell Games Begin */
-
-form label {
-  font-size: 1.3em;
-}
-form input {
-  font-size: 1.1em;
-}
-form textarea {
-  font-size: 1.1em;
-}
-.edit-game button,
-.edit-platform button,
-.add-faq button {
-  color: #000;
-  background-color: #000;
-  font-size: 1.3em;
-  padding: 15px 30px;
-  --aug-border-bg: gold;
-  --aug-inset-bg: gold;
-  --aug-width:10px;
-  --aug-border: 5px;
-  --aug-inset: 5px;
-  --aug-tr-height: 0px;
-}
-
-
-/* Sell Games End */
-
-/* About Us Begin */
-
-.about-card {
-  margin: auto;
-  max-width: 900px;
-  --aug-border-bg: gold;
-  --aug-inset-bg: linear-gradient(
-    #5444aa33 0%,
-    #3487de33 15%,
-    #45eebb33 15%,
-    #45eebb33 30%,
-    #feff3333 30%,
-    #feff3333 44%,
-    #ffdd5533 44%,
-    #ffdd5533 58%,
-    #dd761133 58%,
-    #dd761133 70%,
-    #99341133 70%,
-    #99341133 100%);;
-  --aug-width:10px;
-  --aug-border: 5px;
-  --aug-inset: 5px;
-  padding: 20px;
-
-}
-.about-card h1 {
-  background-image: linear-gradient(
-    #5444aa 0%,
-    #3487de 15%,
-    #45eebb 15%,
-    #45eebb 30%,
-    #feff33 30%,
-    #feff33 44%,
-    #ffdd55 44%,
-    #ffdd55 58%,
-    #dd7611 58%,
-    #dd7611 70%,
-    #993411 70%,
-    #993411 100%);
-  background-position: center;
-  background-size: cover;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.card h2 {
   font-size: 2.5em;
-  font-family: 'Retro_Gaming', sans-serif;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-family: 'Patrick Hand SC', cursive;
 }
-.about-card p {
-  line-height: 1.5;
-  letter-spacing: 1.4px;
-  font-size: 1.3em;
+.card h3 {
+  font-size: 1.7em;
+  margin: 0;
+  margin-bottom: 15px;
+  font-family: 'Patrick Hand SC', cursive;
 }
-.about-card a {
-  color: gold;
-  text-decoration: none;
-}
-.about-card a:hover {
-  background-image: linear-gradient(
-    #5444aa 0%,
-    #3487de 15%,
-    #45eebb 15%,
-    #45eebb 30%,
-    #feff33 30%,
-    #feff33 44%,
-    #ffdd55 44%,
-    #ffdd55 58%,
-    #dd7611 58%,
-    #dd7611 70%,
-    #993411 70%,
-    #993411 100%);
-  background-position: center;
-  background-size: cover;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-@media (min-width:975px) {
-  .about-card {
-    --aug-tr-width: 700px;
-    --aug-tr-height: 100px;
-    padding: 40px;
-  }
-}
-
-/* About Us End */
-
-/* FAQ Begin */
-
-.faq-list {
-  margin: auto;
-  max-width: 900px;
-}
-.faq-list > .faq {
-  margin-top: 30px;
-}
-.faq-list > .faq > .q {
-  font-weight: bold;
-  color: gold;
-  text-decoration: underline;
-}
-.faq-list > .faq > .a {
-
-}
-
-/* FAQ End */
-
-/* Notify messages begin*/
-
-.db-success {
-  display: inline-block;
-  --aug-border: 2px;
-  --aug-inset: 5px;
-  padding: 20px; /* mind the gap */
+.card input {
+  width: 100%;
+  display: block;
+  margin-bottom: 10px;
+  font-size: 18px;
   text-align: center;
-  font-size: 16px;
-  font-family: Retro_Gaming;
-  --aug-border-bg: #00ff43;
-  --aug-inset-bg: #00ff43;
-  --aug-width:10px;
-  color: #000;
+  font-family: 'Patrick Hand SC', cursive;
 }
-.error {
-  display: inline-block;
-  --aug-border: 2px;
-  --aug-inset: 5px;
-  padding: 20px; /* mind the gap */
-  text-align: center;
-  font-size: 16px;
-  font-family: Retro_Gaming;
-  --aug-border-bg: #B30F0F;
-  --aug-inset-bg: #B30F0F;
-  --aug-width:10px;
-  color: #fff;
+.card .error {
+  font-family: 'Patrick Hand SC', cursive;
+  background-color: darkred;
+}
+.signup button {
+  font-size: 18px;
+  padding: 10px;
+  background-color: lightblue;
 }
 
-/* Notify messages end */
 
-/* footer begin */
+
+
 footer {
-  padding: 15px 25px;
-  font-family: 'Retro_Gaming';
-  font-size: 14px;
-}
-#codel {
-  font-size: 16px;
-  background-image: linear-gradient(
-    #5444aa 0%,
-    #3487de 15%,
-    #45eebb 15%,
-    #45eebb 30%,
-    #feff33 30%,
-    #feff33 44%,
-    #ffdd55 44%,
-    #ffdd55 58%,
-    #dd7611 58%,
-    #dd7611 70%,
-    #993411 70%,
-    #993411 100%);
-  background-position: center;
-  background-size: cover;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  transition: ease padding 1000ms;
-}
-#codel:hover {
-  padding-left: 15px;
-}
-
-
-/* footer end */
-
-/* Quick bug fixes to be fixed better later */
-
-@media (max-width:800px) {
-  .cp-edit input,
-  .cp-edit textarea,
-  input,
-  textarea {
-    width: 100% !important;
-  }
-  .signin input {
-    width: auto !important;
-  }
-  input[type="radio"] {
-    width: auto !important;
-    margin: auto auto 20px 5px;
-  }
+  position: absolute;
+  bottom: 0;
 }
