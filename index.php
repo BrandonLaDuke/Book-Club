@@ -39,7 +39,7 @@
     </style>
     <main class="book-p">
     <div class="card border lined-thin">
-      <h2>Welcome the Book Club!</h2>
+      <h2>Welcome to the Book Club!</h2>
       <h3>Sign up with your Sullivan University email</h3>
       <?php
       if (isset($_GET['error'])) {
