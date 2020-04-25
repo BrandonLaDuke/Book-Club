@@ -8,6 +8,16 @@ session_start(); ?>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Spineless Bound | Sullivan University Book Club</title>
     <link rel="stylesheet" href="css/master.css">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-66276915-6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-66276915-6');
+    </script>
+
   </head>
   <body>
     <?php if (isset($_GET['error'])) {
