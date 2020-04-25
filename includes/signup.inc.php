@@ -13,7 +13,7 @@ if (isset($_POST['signup-submit'])) {
   $hash = md5( rand(0,1000) );
   $admin = 0;
   $active = 0;
-  $profilepic = "http://localhost/sullivan/Book-Club/img/pic.png";
+  $profilepic = "http://www.spinelessbound.com/img/pic.png";
   $about = "";
   $program = "";
   $website = "";
@@ -98,7 +98,7 @@ if (isset($_POST['signup-submit'])) {
           --------------------------------------
 
           Please click this link to activate your account:
-          http://localhost/sullivan/Book-Club/verify.php?email='.$email.'&hash='.$hash.'
+          http://www.spinelessbound.com/verify.php?email='.$email.'&hash='.$hash.'
 
           Spineless Bound
           Sullivan University
