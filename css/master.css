@@ -189,6 +189,7 @@ main {
   }
   .header-login input {
     font-size: 20px;
+    color: #000;
   }
   .header-login a {
     border: solid;
