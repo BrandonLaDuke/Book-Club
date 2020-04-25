@@ -71,7 +71,7 @@
         echo '<p class="db-success" augmented-ui="tl-clip br-clip exe">Yay! Your accound has been created successfully!<br>Please verify it by clicking the activation link that has been sent to your Sullivan email.</p>';
       }?>
       <form class="signup" action="includes/signup.inc.php" method="post">
-        <input type="text" name="uid" placeholder="Sullivan ID" value="<?php echo $userN; ?>">
+        <input type="text" name="uid" placeholder="Username or Sullivan ID" value="<?php echo $userN; ?>">
         <input type="text" name="mail" placeholder="Sullivan E-mail" value="<?php echo $emailN ?>">
         <input type="password" name="pwd" placeholder="Password">
         <input type="password" name="pwd-repeat" placeholder="Repeat password">
