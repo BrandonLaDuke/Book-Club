@@ -17,25 +17,35 @@ session_start(); ?>
         echo '<script>alert("There is no user with that username or email. Signup to create an account.");</script>';
       }
     } ?>
-    <div class="header-login" augmented-ui="br-clip exe">
+    <?php if (isset($_SESSION['userId'])) { ?>
+      <button onclick="openAcctMenu()" class="header-login-btn btn lined thin">
+        <span>My Account</span>
+      </button>
+    <?php } else { ?>
+      <button onclick="openLogin()" class="header-login-btn btn lined thin">
+        <span>Login</span>
+      </button>
+    <?php } ?>
+    <div id="login" class="header-login" augmented-ui="br-clip exe">
       <?php if (isset($_SESSION['userId'])) { ?>
         <p class="welcome-msg">Welcome, <?php echo $_SESSION['userUid']; ?>!</p>
   <?php if ($_SESSION['admin']) { ?>
           <a class="cp-btn" augmented-ui="br-clip exe" href="adminpanel.php">Control Panel</a>
   <?php } ?>
-          <a class="profile-btn" augmented-ui="br-clip exe" href="profile.php?user=<?php echo $_SESSION['userUid']; ?>">My Profile</a>
+          <a class="profile-btn btn lined thin" href="profile.php?user=<?php echo $_SESSION['userUid']; ?>">My Profile</a>
           <form class="logout" action="includes/logout.inc.php" method="post">
-              <button type="submit" augmented-ui="br-clip exe" name="logout-submit">Logout</button>
+              <button type="submit" class="profile-btn btn lined thin logout-btn" name="logout-submit">Logout</button>
           </form>
   <?php } else { ?>
   <?php
   // TODO: Echo Errors
      ?>
+
         <!-- <p class="welcome-msg"> echo $_SESSION['userUid']; </p> -->
         <form class="signin" action="includes/login.inc.php" method="post">
             <input type="text" name="mailuid" placeholder="Email/Username" augmented-ui="br-clip exe">
             <input type="password" name="pwd" placeholder="Password" augmented-ui="br-clip exe">
-            <button class="btn lined thick" type="submit" name="login-submit" augmented-ui="br-clip exe">Login</button>
+            <button class="btn lined-thick" type="submit" name="login-submit">Login</button>
         </form>
 
  <?php  } ?>
@@ -43,12 +53,14 @@ session_start(); ?>
 
     </div>
     <div class="wrapper" augmented-ui="tl-clip br-clip tr-clip-x exe">
-        <h1 id="logo">Spineless Bound</h1>
-        <?php if (isset($_SESSION['userId'])) { ?>
-        <ul class="menu" augmented-ui="tl-clip br-clip exe">
-          <a href="index.php"><li augmented-ui="tl-clip br-clip exe">Home</li></a>
-          <a href="members.php"><li augmented-ui="tl-clip br-clip exe">Group Members</li></a>
-          <a href="newbook.php"><li augmented-ui="tl-clip br-clip exe">Start a new book</li></a>
-          <a href="bookhistory.php"><li augmented-ui="tl-clip br-clip exe">Book History</li></a>
-        </ul>
+        <div class="head-container">
+          <h1 id="logo"><a href="index.php">Spineless Bound</a></h1>
+          <?php if (isset($_SESSION['userId'])) { ?>
+          <ul class="menu" augmented-ui="tl-clip br-clip exe">
+            <a href="index.php"><li augmented-ui="tl-clip br-clip exe">Home</li></a>
+            <a href="members.php"><li augmented-ui="tl-clip br-clip exe">Members</li></a>
+            <a href="newbook.php"><li augmented-ui="tl-clip br-clip exe">Start a new book</li></a>
+            <a href="bookhistory.php"><li augmented-ui="tl-clip br-clip exe">Book History</li></a>
+          </ul>
+        </div>
       <?php } ?>

@@ -1,18 +1,42 @@
 <?php require "header.php"; ?>
 
   <?php if (isset($_SESSION['userId'])) { ?>
+    <div class="header-feature">
+      <h1>Spineless Bound</h1>
+      <h2>Welcome to the Sullivan University BookClub</h2>
+      <a class="discord btn lined-thin" href="https://discord.gg/dGEkmFC">Join our discord</a>
+    </div>
     <main>
-    <p class="login-status">You are logged in</p>
-    <section id="main">
-      <div>
-        <h2>Currenty Reading</h2>
-        <h1>An Absolutly Remarkable Thing</h1>
-        <h3>by Hank Green</h3>
-        <img src="images/carlbook.jpg" width="300px" alt="">
+    <section id="main-view">
+      <?php $sql = "SELECT * FROM books ORDER BY bookId DESC;";
+      $result = mysqli_query($conn, $sql);
+      $resultCheck = mysqli_num_rows($result);
+      if ($row = mysqli_fetch_assoc($result)) { ?>
+
+      <div class="currenty-reading">
+        <div class="cur-text">
+          <h4>Currenty Reading</h4>
+          <h1><?php echo $row['bookTitle']; ?></h1>
+          <h3>by <?php echo $row['bookAuthor']; ?></h3>
+          <h3>Selected by <?php echo $row['chosenBy']; ?></h3>
+          <h5>Goal: Read to page <span><?php echo $row['pageNumber']; ?></span> by next meeting</h5>
+        </div>
+
+        <img class="book-cover-cur" src="<?php echo $row['coverArtURL']; ?>" width="300px" alt="">
+
+        <form class="updategoal" action="includes/update-pages.inc.php" method="post">
+          <input class="hidden" type="text" name="bookId" value="<?php echo $row['bookId']; ?>">
+          <input class="uppgnum" type="text" name="pagenum" size="4" value="">
+          <button type="submit" class="updatepages btn lined thin" name="updatepgnum">Update Goal</button>
+        </form>
       </div>
+    <?php } ?>
     </section>
     </main>
   <?php } else { ?>
+    <style media="screen">
+      .wrapper {background-image: url('img/books.jpg');}
+    </style>
     <main class="book-p">
     <div class="card border lined-thin">
       <h2>Welcome the Book Club!</h2>

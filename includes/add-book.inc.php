@@ -9,6 +9,8 @@ if (isset($_POST['add-book-submit'])) {
   $booktitle = $_POST['booktitle'];
   $author = $_POST['author'];
   $chosenby = $_POST['chosenby'];
+  $chapter = "";
+  $pageNumber = 0;
 
   $coverart = $_FILES['coverart'];
   $coverartName = $coverart['name'];
@@ -21,11 +23,14 @@ if (isset($_POST['add-book-submit'])) {
   $coverartActualExt = strtolower(end($fileExt));
 
   $allowed = array('jpg', 'jpeg', 'png');
+
+
+
   if (empty($booktitle) || empty($author) || empty($chosenby)) {
     header("Location: ../newbook.php?error=emptyfields&booktitle=".$booktitle."&author=".$author."&chosenby=".$chosenby);
     exit();
   } else {
-    $sql = "INSERT INTO books (bookTitle, bookAuthor, chosenBy, coverArtURL) VALUES (?, ?, ?, ?)";
+    $sql = "INSERT INTO books (bookTitle, bookAuthor, chosenBy, coverArtURL, chapter, pageNumber) VALUES (?, ?, ?, ?, ?, ?)";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
       header("Location: ../newbook.php?error=sqlerror");
@@ -48,9 +53,9 @@ if (isset($_POST['add-book-submit'])) {
       } else {
         echo "You can  not upload files of this type.";
       }
-      mysqli_stmt_bind_param($stmt, "ssss", $booktitle, $author, $chosenby, $coverArtUrl);
+      mysqli_stmt_bind_param($stmt, "sssssi", $booktitle, $author, $chosenby, $coverArtUrl, $chapter, $pageNumber);
       mysqli_stmt_execute($stmt);
-      header("Location: ../bookhistory.php?add_game=success");
+      header("Location: ../bookhistory.php?add_book=success");
       }
     }
   }

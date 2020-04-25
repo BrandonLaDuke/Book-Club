@@ -1,31 +1,28 @@
 <?php require "header.php"; ?>
+<main class="sb-container">
+
+
   <?php if (isset($_SESSION['userId'])) { ?>
     <!-- Logged In View -->
-    <p class="login-status">You are logged in</p>
-        <?php $sql = "SELECT * FROM books;";
+        <?php $sql = "SELECT * FROM books ORDER BY bookId DESC;";
         $result = mysqli_query($conn, $sql);
         $resultCheck = mysqli_num_rows($result); ?>
         <h1 class="head-txt">Book History</h1>
-        <table>
+        <div class="book-grid">
           <?php
           if ($resultCheck > 0) { ?>
-              <tr>
-                <th>Cover Art</th>
-                <th>Book Title</th>
-                <th>Author</th>
-                <th>Chosen By</th>
-              </tr>
+
       <?php   while ($row = mysqli_fetch_assoc($result)) { ?>
-              <tr>
-                <td><img src="<?php echo $row['coverArtURL']; ?>" width="35px" height="50px"/></td>
-                <td><?php echo $row['bookTitle']; ?></td>
-                <td><?php echo $row['bookAuthor']; ?></td>
-                <td><?php echo $row['chosenBy']; ?></td>
-              </tr>
+              <div class="book">
+                <img src="<?php echo $row['coverArtURL']; ?>" />
+                <h2><?php echo $row['bookTitle']; ?></h2>
+                <h3><?php echo $row['bookAuthor']; ?></h3>
+                <p>Suggested by: <?php echo $row['chosenBy']; ?></p>
+              </div>
           <?php }
           }
           ?>
-        </table>
+        </div>
 
 
 
@@ -55,4 +52,5 @@
           exit();
 
    } ?>
+ </main>
 <?php require "footer.php"; ?>
