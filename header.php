@@ -13,14 +13,14 @@ session_start(); ?>
     <title>Spineless Bound | Sullivan University Book Club</title>
     <link rel="stylesheet" href="css/master.css">
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-66276915-6"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-66276915-6"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
       gtag('config', 'UA-66276915-6');
-    </script> -->
+    </script>
 
   </head>
   <body>
@@ -32,8 +32,8 @@ session_start(); ?>
       }
     } ?>
     <?php if (isset($_SESSION['userId'])) { ?>
-      <button onclick="openAcctMenu()" class="header-login-btn btn lined thin">
-        <span>My Account</span>
+      <button onclick="openAcctMenu()" class="header-account-btn btn lined thin">
+        <img src="<?php echo $_SESSION['profilepic']; ?>" width="30px" height="30px;" alt="">
       </button>
     <?php } else { ?>
       <button onclick="openLogin()" class="header-login-btn btn lined thin">
@@ -44,7 +44,7 @@ session_start(); ?>
       <?php if (isset($_SESSION['userId'])) { ?>
         <p class="welcome-msg">Welcome, <?php echo $_SESSION['userUid']; ?>!</p>
   <?php if ($_SESSION['admin']) { ?>
-          <a class="cp-btn" augmented-ui="br-clip exe" href="adminpanel.php">Control Panel</a>
+          <a class="profile-btn btn lined thin" augmented-ui="br-clip exe" href="adminpanel.php">Control Panel</a>
   <?php } ?>
           <a class="profile-btn btn lined thin" href="profile.php?user=<?php echo $_SESSION['userUid']; ?>">My Profile</a>
           <form class="logout" action="includes/logout.inc.php" method="post">
