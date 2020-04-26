@@ -1,6 +1,19 @@
 <?php require "header.php"; ?>
 
   <?php if (isset($_SESSION['userId'])) { ?>
+    <?php
+    $sql = "SELECT announcement FROM announcements WHERE idAnnouncement=1;";
+    $result = mysqli_query($conn, $sql);
+    $resultCheck = mysqli_num_rows($result);
+    if ($row = mysqli_fetch_assoc($result)) { ?>
+      <?php if ($row['announcement'] != "") { ?>
+        <div class="ticker-wrap">
+          <div class="ticker">
+            <div class="ticker__item"><?php echo $row['announcement'] ?></div>
+          </div>
+        </div>
+      <?php } ?>
+    <?php } ?>
     <div class="header-feature">
       <h1>Spineless Bound</h1>
       <h2>Welcome to the Sullivan University BookClub</h2>
