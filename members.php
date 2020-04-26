@@ -7,7 +7,7 @@
       <div>
       <?php
 
-      $sql = "SELECT * FROM users;";
+      $sql = "SELECT * FROM users ORDER BY uidUsers ASC;";
       $result = mysqli_query($conn, $sql);
       $resultCheck = mysqli_num_rows($result);
       while ($row = mysqli_fetch_assoc($result)) { ?>

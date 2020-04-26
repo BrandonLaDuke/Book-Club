@@ -10,6 +10,9 @@
       $resultCheck = mysqli_num_rows($result);
       while ($row = mysqli_fetch_assoc($result)) {
     ?>
+
+
+
       <h2>Announcements</h2>
       <div class="admin-announcement">
         <form class="" action="includes/create-announcement.inc.php" method="post">
@@ -20,6 +23,42 @@
           </div>
         </form>
       </div>
+
+
+
+      <h2>Users</h2>
+      <?php $sql = "SELECT * FROM users ORDER BY uidUsers ASC;";
+      $result = mysqli_query($conn, $sql);
+      $resultCheck = mysqli_num_rows($result);
+       ?>
+        <table class="user-card">
+          <tr>
+            <th>Username</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Admin</th>
+          </tr>
+          <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+          <tr>
+            <td><?php echo $row['uidUsers']; ?></td>
+            <td><span><?php echo $row['firstName']; ?></span> <span><?php echo $row['lastName'] ?></span></td>
+            <td><?php echo $row['emailUsers']; ?></td>
+            <td><?php echo $row['admin'] ?></td>
+            <td>
+              <form class="" action="includes/admin-action.inc.php" method="post">
+                <button type="button" name="edituser">Edit User</button>
+              </form>
+            </td>
+          </tr>
+        <?php } ?>
+
+
+        </div>
+      </table>
+
+
+      <h2></h2>
+
     </div>
 <?php } ?>
 
