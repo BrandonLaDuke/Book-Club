@@ -54,7 +54,7 @@
           <h4>Reading Next</h4>
           <h1><?php echo $rowUp['bookTitle']; ?></h1>
           <h3>by <?php echo $rowUp['bookAuthor']; ?></h3>
-          <h3>Available here: <a href="<?php echo $rowUp['bookUrl']; ?>"><?php echo $rowUp['bookUrl']; ?></a></h3>
+          <h3>Available here: <a href="<?php echo $rowUp['bookUrl']; ?>">Buy now on Amazon</a></h3>
         </div>
       </div>
     <?php } ?>
