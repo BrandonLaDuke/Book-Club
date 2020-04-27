@@ -53,7 +53,7 @@
 
                       <?php
                       if ($rowComment['spoiler'] == '0') { ?>
-                        <span id="cmttxt<?php echo $count ?>" class="cmttxt spoiler" onclick="showSpoiler()"><?php echo $rowComment['commentText']; ?></span>
+                        <span id="cmttxt<?php echo $count ?>" class="cmttxt spoiler"><?php echo $rowComment['commentText']; ?></span>
 
                     <?php } else { ?>
                       <span id="cmttxt<?php echo $count ?>" class="visable"><?php echo $rowComment['commentText']; ?></span>

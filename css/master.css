@@ -381,6 +381,9 @@ main {
 .currenty-reading > .cur-text > * {
   margin: 0;
 }
+.currenty-reading a {
+  color: #fff;
+}
 .currenty-reading .cur-text h4 {
   text-decoration: underline;
   font-size: 15px;

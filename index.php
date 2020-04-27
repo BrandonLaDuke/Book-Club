@@ -29,7 +29,7 @@
       <div class="currenty-reading">
         <div class="cur-text">
           <h4>Currenty Reading</h4>
-          <h1><?php echo $row['bookTitle']; ?></h1>
+          <h1><a href="book.php?bookid=<?php echo $row['bookId'] ?>"><?php echo $row['bookTitle']; ?></a></h1>
           <h3>by <?php echo $row['bookAuthor']; ?></h3>
           <h3>Selected by <?php echo $row['chosenBy']; ?></h3>
           <h5>Goal: Read to page <span><?php echo $row['pageNumber']; ?></span> by next meeting</h5>
@@ -42,6 +42,20 @@
           <input class="uppgnum" type="text" name="pagenum" size="4" value="">
           <button type="submit" class="updatepages btn lined thin" name="updatepgnum">Update Goal</button>
         </form>
+      </div>
+    <?php } ?>
+      <?php $sqlUp = "SELECT * FROM upcommingBooks ORDER BY bookId ASC;";
+      $resultUp = mysqli_query($conn, $sqlUp);
+      $resultCheckUp = mysqli_num_rows($resultUp);
+      if ($rowUp = mysqli_fetch_assoc($resultUp)) { ?>
+
+      <div class="currenty-reading">
+        <div class="cur-text">
+          <h4>Reading Next</h4>
+          <h1><?php echo $rowUp['bookTitle']; ?></h1>
+          <h3>by <?php echo $rowUp['bookAuthor']; ?></h3>
+          <h3>Available here: <a href="<?php echo $rowUp['bookUrl']; ?>"><?php echo $rowUp['bookUrl']; ?></a></h3>
+        </div>
       </div>
     <?php } ?>
     </section>

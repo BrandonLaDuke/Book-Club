@@ -57,7 +57,31 @@
       </table>
 
 
-      <h2></h2>
+      <h2>Upcomming Books</h2>
+      <form class="ad-upcomming" action="includes/create-announcement.inc.php" method="post">
+        <input type="text" name="upbooktitle" placeholder="Upcoming book title" value="">
+        <input type="text" name="upbookauthor" placeholder="Upcoming book author" value="">
+        <input type="text" name="upbookurl" placeholder="Upcoming book URL (where to buy)" value="">
+        <button type="submit" name="upcomming-book-submit">Add Upcoming book</button>
+      </form>
+      <?php $selectUpBooks = "SELECT * FROM upcommingBooks;";
+      $upBookResult = mysqli_query($conn, $selectUpBooks);
+      $upBookResultCheck = mysqli_num_rows($upBookResult);
+       ?>
+      <table>
+        <tr>
+          <th>Book Title</th>
+          <th>Author</th>
+          <th>URL to buy</th>
+        </tr>
+        <?php while ($rowUpBook = mysqli_fetch_assoc($upBookResult)) { ?>
+          <tr>
+            <td><?php echo $rowUpBook['bookTitle']; ?></td>
+            <td><?php echo $rowUpBook['bookAuthor']; ?></td>
+            <td><?php echo $rowUpBook['bookUrl']; ?></td>
+          </tr>
+        <?php } ?>
+      </table>
 
     </div>
 <?php } ?>
