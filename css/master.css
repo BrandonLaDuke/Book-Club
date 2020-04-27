@@ -611,22 +611,26 @@ main {
   overflow: hidden;
   color: #000;
 }
-.book-grid > .book > * {
+.book-grid > .book > a {
+  color: #000;
+  text-decoration: none;
+}
+.book-grid > .book > a > * {
   padding: 0 10px;
   margin: 0;
 }
-.book-grid > .book > img {
+.book-grid > .book > a > img {
   width: 100%;
   padding: 0;
 }
-.book-grid > .book > h2 {
+.book-grid > .book > a > h2 {
   font-size: 1em;
 }
-.book-grid > .book > h3 {
+.book-grid > .book > a > h3 {
   font-size: 0.8em;
   margin-top: 7px;
 }
-.book-grid > .book > p {
+.book-grid > .book > a > p {
   font-size: 0.7em;
   margin-top: 7px;
   margin-bottom: 10px;

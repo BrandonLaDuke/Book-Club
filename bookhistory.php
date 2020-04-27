@@ -14,10 +14,13 @@
 
       <?php   while ($row = mysqli_fetch_assoc($result)) { ?>
               <div class="book">
-                <img src="<?php echo $row['coverArtURL']; ?>" />
-                <h2><?php echo $row['bookTitle']; ?></h2>
-                <h3><?php echo $row['bookAuthor']; ?></h3>
-                <p>Suggested by: <?php echo $row['chosenBy']; ?></p>
+                <a href="book.php?bookid=<?php echo $row['bookId']; ?>">
+                  <img src="<?php echo $row['coverArtURL']; ?>" />
+                  <h2><?php echo $row['bookTitle']; ?></h2>
+                  <h3><?php echo $row['bookAuthor']; ?></h3>
+                  <p>Suggested by: <?php echo $row['chosenBy']; ?></p>
+                </a>
+
               </div>
           <?php }
           }

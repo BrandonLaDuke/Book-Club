@@ -46,7 +46,7 @@
             <td><?php echo $row['admin'] ?></td>
             <td>
               <form class="" action="includes/admin-action.inc.php" method="post">
-                <button type="button" name="edituser">Edit User</button>
+                <button type="submit" name="edituser">Edit User</button>
               </form>
             </td>
           </tr>
