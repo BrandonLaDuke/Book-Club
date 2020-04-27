@@ -401,11 +401,25 @@ main {
   width: 100px;
   margin: 0 0 0 10px;
 }
-.header-feature {
-  display: none;
-}
 .currenty-reading > .book-cover-cur {
   margin: 0 auto;
+}
+.header-feature {
+  display: block;
+  background-color: #0eb3b3;
+  text-align: center;
+  text-transform:uppercase;
+  padding: 50px 0;
+}
+.header-feature > h1 {
+  font-size: 2.5em;
+  font-family: 'Patrick Hand SC', cursive;
+  margin: 0;
+}
+.header-feature > h2 {
+  font-size: 0.9em;
+  font-family: 'Patrick Hand SC', cursive;
+  margin: 0;
 }
 @media (min-width:533px) {
   .header-feature {
@@ -663,6 +677,144 @@ main {
 
 
 /* END: Book History */
+
+
+
+
+
+
+
+
+/* BEGIN: Book Details */
+.bp-grid {
+  width: 100%;
+}
+.bp-grid > .book-cover {
+  width: 100%;
+  display: flex;
+}
+.bp-grid > .book-cover > img {
+  width: 150px;
+  margin: 10px auto 0 auto;
+}
+.book-details {
+  padding: 2px 10px 0 10px;;
+}
+.book-details h1 {
+  font-size: 1.2em;
+}
+.book-details > span {
+  display: block;
+  margin: 5px 0;
+}
+.book-details a {
+  color: #fff;
+}
+.book-comments {
+  margin: 10px;
+}
+.new-comment {
+  padding: 5px;
+  background-color: lightblue;
+  color: #000;
+}
+#newcmtimg {grid-area: newcmtuserimage;}
+#newcmtprourl {display: none;}
+#newcmtusername-hidden {display: none;}
+#newcmtusername {grid-area: newcmtusername;}
+#newcmtbookid {display: none;}
+#newcmttext {grid-area: newcmttext;}
+.createcmt {
+  grid-area: createcmt;
+  display: flex;
+  flex-flow: row-reverse;
+  align-items: center;
+  text-align: right;
+  padding-right: 10px;
+}
+.createcmt > button {
+  font-size: 1em;
+  padding: 2px 10px;
+  color: #000;
+  border: #000 solid 2px !important;
+}
+.newcmt {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 50px auto;
+  grid-template-areas: "newcmtuserimage newcmtusername"
+  "newcmtuserimage newcmttext"
+  "newcmtuserimage createcmt";
+  grid-gap: 10px;
+}
+#cmtimg{grid-area:cmtimg}
+#cmtusr{grid-area:cmtusr}
+.cmttxt{grid-area:cmttxt;}
+.comments-stream {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: white;
+  color: #000;
+}
+
+.comment-item {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 50px auto;
+  grid-template-areas: "cmtimg cmtusr"
+  "cmtimg cmttxt";
+  margin: 8px 0;
+}
+
+
+
+
+
+
+
+
+
+.comment-profilepic {
+  width: 50px;
+  height: 50px;
+}
+.spoiler {
+  background-color: #000;
+  color: #000;
+}
+.spoiler:active {
+  color: #000;
+  background-color: transparent;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* END: Book Details */
+
+
+
+
 
 
 

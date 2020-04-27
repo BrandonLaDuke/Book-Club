@@ -15,19 +15,26 @@
           </div>
           <div class="book-details">
             <h1><?php echo $row['bookTitle']; ?></h1>
-            <span><?php echo $row['author']; ?></span>
-            <span><?php echo $row['chosenBy']; ?></span>
+            <span>By <?php echo $row['bookAuthor']; ?></span>
+            <span>Chosen by <a href="profile.php?user=<?php echo $row['chosenBy']; ?>"><?php echo $row['chosenBy']; ?></a></span>
           </div>
           <div class="book-comments">
+            <h2>Comments</h2>
             <div class="new-comment">
-              <form class="" action="includes/add-comment.inc.php" method="post">
-                <img src="<?php echo $_SESSION['profilepic']; ?>" alt="">
-                <input type="text" name="profilepic" value="<?php echo $_SESSION['profilepic']; ?>">
-                <input type="text" name="userUid" value="<?php echo $_SESSION['userUid']; ?>">
-                <input type="text" name="bookId" value="<?php echo $row['bookId']; ?>">
-                <input type="checkbox" name="spoiler">
-                <textarea name="comment" rows="8" cols="80"></textarea>
-                <button type="submit" name="add-comment-submit">Post</button>
+              <form class="newcmt" action="includes/add-comment.inc.php" method="post">
+                <img id="newcmtimg" class="comment-profilepic" src="<?php echo $_SESSION['profilepic']; ?>" alt="">
+                <input id="newcmtprourl" type="text" name="profilepic" value="<?php echo $_SESSION['profilepic']; ?>">
+                <span id="newcmtusername"><?php echo $_SESSION['userUid']; ?></span>
+                <input id="newcmtusername-hidden" type="text" name="userUid" value="<?php echo $_SESSION['userUid']; ?>">
+                <input id="newcmtbookid" type="text" name="bookId" value="<?php echo $row['bookId']; ?>">
+                <textarea id="newcmttext" name="comment"></textarea>
+                <div class="createcmt">
+                  <div>
+                    <input id type="checkbox" name="spoiler">
+                    <label for="spoiler">spoiler?</label>
+                  </div>
+                  <button class="btn lined thin" type="submit" name="add-comment-submit">Post Comment</button>
+                </div>
               </form>
             </div>
             <div class="comments-stream">
@@ -37,11 +44,25 @@
               $resultCheckComment = mysqli_num_rows($resultComment);
               if ($resultCheckComment > 0) {
                 while ($rowComment = mysqli_fetch_assoc($resultComment)) {
+                  $count = $count++;
                   if ($rowComment['bookId'] == $_GET['bookid']) {
                     ?>
                     <div class="comment-item">
-                      <span><?php echo $rowComment['uidUsers']; ?></span>
-                      <span><?php echo $rowComment['commentText']; ?></span>
+                      <img id="cmtimg" class="comment-profilepic" src="<?php echo $rowComment['profilepic']; ?>" alt="">
+                      <span id="cmtusr"><a href="profile.php?user=<?php echo $rowComment['uidUsers']; ?>"><?php echo $rowComment['uidUsers']; ?></a></span>
+
+                      <?php
+                      if ($rowComment['spoiler'] == '0') { ?>
+                        <span id="cmttxt<?php echo $count ?>" class="cmttxt spoiler" onclick="showSpoiler()"><?php echo $rowComment['commentText']; ?></span>
+
+                    <?php } else { ?>
+                      <span id="cmttxt<?php echo $count ?>" class="visable"><?php echo $rowComment['commentText']; ?></span>
+                  <?php }
+
+                       ?>
+
+
+
                     </div>
                     <?php
                   }

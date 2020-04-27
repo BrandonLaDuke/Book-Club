@@ -30,11 +30,10 @@
       ?>
       </div>
     </div>
-  <?php } else { ?>
-    <div class="Card">
-      <h2>Welcome the Book Club!</h2>
-      <h3>Sign up with your Sullivan University email</h3>
-<?php } ?>
+  <?php } else {
+    header("Location: index.php");
+          exit();
+   } ?>
     </div>
 
 
