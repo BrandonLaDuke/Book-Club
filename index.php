@@ -32,7 +32,7 @@
           <h1><a href="book.php?bookid=<?php echo $row['bookId'] ?>"><?php echo $row['bookTitle']; ?></a></h1>
           <h3>by <?php echo $row['bookAuthor']; ?></h3>
           <h3>Selected by <?php echo $row['chosenBy']; ?></h3>
-          <h5>Goal: Read to page <span><?php echo $row['pageNumber']; ?></span> by next meeting</h5>
+          <h5>Goal: Read to chapter <span><?php echo $row['pageNumber']; ?></span> by next meeting</h5>
         </div>
 
         <img class="book-cover-cur" src="<?php echo $row['coverArtURL']; ?>" width="300px" alt="">
