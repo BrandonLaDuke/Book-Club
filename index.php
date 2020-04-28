@@ -91,6 +91,10 @@
           $emailN = $_GET['mail'];
         } else if ($_GET['error'] == "usertaken") {
           echo '<p class="error" augmented-ui="tl-clip br-clip exe">Aww, that username has already been claimed.</p>';
+          $emailN = $_GET['mail'];
+        } else if ($_GET['error'] == "existingaccount") {
+          echo '<p class="error" augmented-ui="tl-clip br-clip exe">Looks like you already have an account with that email address.</p>';
+          $userN = $_GET['uid'];
         } else if ($_GET['error'] == "usernotverified") {
           echo '<p class="error" augmented-ui="tl-clip br-clip exe">This user has not yet been verified.<br>Please click the verification link in your email to verify your account.<br>If you have not recived an email check to see if Sullivan has quarantined it by going to <a href="https://protection.office.com/quarantine">Outlook Quarantine</a> and selecting the email from noreply@spinelessbound.com and releasing it.</p>';
         }

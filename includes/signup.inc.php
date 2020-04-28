@@ -73,42 +73,58 @@ if (isset($_POST['signup-submit'])) {
         header("Location: ../index.php?error=usertaken&mail=".$email);
         exit();
       } else {
-        $sql = "INSERT INTO users (uidUsers, firstName, lastName, emailUsers, pwdUsers, profilepic, about, program, website, goodreads, hash, active, admin) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $sql = "SELECT emailUsers FROM users WHERE emailUsers=?";
         $stmt = mysqli_stmt_init($conn);
         if (!mysqli_stmt_prepare($stmt, $sql)) {
           header("Location: ../index.php?error=sqlerror");
           exit();
         } else {
-          $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
-          mysqli_stmt_bind_param($stmt, "sssssssssssii", $username, $firstName, $lastName, $email, $hashedPwd, $profilepic, $about, $program, $website, $goodreads, $hash, $active, $admin);
+          mysqli_stmt_bind_param($stmt, "s", $email);
           mysqli_stmt_execute($stmt);
-          // Return Success - Valid Email
-          $msg = 'Your account has been made, <br /> please verify it by clicking the activation link that has been send to your email.';
-          // Send verification link by email
-          $to = $email;
-          $subject = 'Signup Verification | Spineless Bound';
-          $message = '
+          mysqli_stmt_store_result($stmt);
+          $resultCheck = mysqli_stmt_num_rows($stmt);
+          if ($resultCheck > 0) {
+            header("Location: ../index.php?error=existingaccount&uid=".$username);
+            exit();
+          } else {
+            $sql = "INSERT INTO users (uidUsers, firstName, lastName, emailUsers, pwdUsers, profilepic, about, program, website, goodreads, hash, active, admin) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            $stmt = mysqli_stmt_init($conn);
+            if (!mysqli_stmt_prepare($stmt, $sql)) {
+              header("Location: ../index.php?error=sqlerror");
+              exit();
+            } else {
+              $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
+              mysqli_stmt_bind_param($stmt, "sssssssssssii", $username, $firstName, $lastName, $email, $hashedPwd, $profilepic, $about, $program, $website, $goodreads, $hash, $active, $admin);
+              mysqli_stmt_execute($stmt);
+              // Return Success - Valid Email
+              $msg = 'Your account has been made, <br /> please verify it by clicking the activation link that has been send to your email.';
+              // Send verification link by email
+              $to = $email;
+              $subject = 'Signup Verification | Spineless Bound';
+              $message = '
 
-          Thanks for signing up to be a member of Spineless Bound, the Sullivan University Bookclub!
-          Your account has been created, you can login with the following credentials after you have activated your account by clicking the url below.
+              Thanks for signing up to be a member of Spineless Bound, the Sullivan University Bookclub!
+              Your account has been created, you can login with the following credentials after you have activated your account by clicking the url below.
 
-          --------------------------------------
-          Username: '.$email.'
-          Password: '.$password.'
-          --------------------------------------
+              --------------------------------------
+              Username: '.$email.'
+              Password: '.$password.'
+              --------------------------------------
 
-          Please click this link to activate your account:
-          http://www.spinelessbound.com/verify.php?email='.$email.'&hash='.$hash.'
+              Please click this link to activate your account:
+              http://www.spinelessbound.com/verify.php?email='.$email.'&hash='.$hash.'
 
-          Spineless Bound
-          Sullivan University
-          2222 Wendell Ave
-          Louisville, KY 40205
-          '; // End message
-          $headers = 'From:noreply@spinelessbound.com' . "\r\n"; // Set from headers
-          mail($to, $subject, $message, $headers); // Send our email
-          // End email
-          header("Location: ../index.php?signup=success&mail=" . $msg);
+              Spineless Bound
+              Sullivan University
+              2222 Wendell Ave
+              Louisville, KY 40205
+              '; // End message
+              $headers = 'From:noreply@spinelessbound.com' . "\r\n"; // Set from headers
+              mail($to, $subject, $message, $headers); // Send our email
+              // End email
+              header("Location: ../index.php?signup=success&mail=" . $msg);
+            }
+          }
         }
       }
     }
