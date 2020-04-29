@@ -42,7 +42,7 @@
         </div>
 
         <img class="book-cover-cur" src="<?php echo $row['coverArtURL']; ?>" width="300px" alt="">
-        <a onclick="updateGoal()" id="updategoalbtn" type="button" class="upgoalbtn updatepages btn lined thin" name="update">Update Goal</a>
+        <button onclick="updateGoal()" id="updategoalbtn" type="button" class="upgoalbtn updatepages btn lined thin" name="update">Update Goal</button>
         <br>
         <form id="pgnumGoal" class="updategoal" action="includes/update-pages.inc.php" method="post">
           <input class="hidden" type="text" name="bookId" value="<?php echo $row['bookId']; ?>">
