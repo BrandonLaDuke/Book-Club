@@ -32,15 +32,34 @@
           <h1><a href="book.php?bookid=<?php echo $row['bookId'] ?>"><?php echo $row['bookTitle']; ?></a></h1>
           <h3>by <?php echo $row['bookAuthor']; ?></h3>
           <h3>Selected by <?php echo $row['chosenBy']; ?></h3>
-          <h5>Goal: Read to chapter <span><?php echo $row['pageNumber']; ?></span> by next meeting</h5>
+          <?php if ($row['pageNumber'] > 0) { ?>
+                  <h5>Goal: Read to page <span><?php echo $row['pageNumber']; ?></span> by next meeting</h5>
+        <?php   } else if ($row['chapter'] != "") { ?>
+                  <h5>Goal: Read to chapter <span><?php echo $row['chapter']; ?></span> by next meeting</h5>
+        <?php   } else { ?>
+          <h5>Goal: <span><?php echo $row['customGoal']; ?></span></h5>
+        <?php   } ?>
         </div>
 
         <img class="book-cover-cur" src="<?php echo $row['coverArtURL']; ?>" width="300px" alt="">
-
-        <form class="updategoal" action="includes/update-pages.inc.php" method="post">
+        <button onclick="updateGoal()" id="updategoalbtn" type="button" class="upgoalbtn updatepages btn lined thin" name="update">Update Goal</button>
+        <br>
+        <form id="pgnumGoal" class="updategoal" action="includes/update-pages.inc.php" method="post">
           <input class="hidden" type="text" name="bookId" value="<?php echo $row['bookId']; ?>">
           <input class="uppgnum" type="text" name="pagenum" size="4" value="">
-          <button type="submit" class="updatepages btn lined thin" name="updatepgnum">Update Goal</button>
+          <button type="submit" class="updatepages btn lined thin" name="updatepgnum">Update Page Goal</button>
+        </form>
+        <br>
+        <form id="chapterGoal" class="updategoal" action="includes/update-pages.inc.php" method="post">
+          <input class="hidden" type="text" name="bookId" value="<?php echo $row['bookId']; ?>">
+          <input class="uppgnum" type="text" name="chapterGoal" size="32" value="">
+          <button type="submit" class="updatepages btn lined thin" name="updatechapter">Update Chapter Goal</button>
+        </form>
+        <br>
+        <form id="customGoal" class="updategoal" action="includes/update-pages.inc.php" method="post">
+          <input class="hidden" type="text" name="bookId" value="<?php echo $row['bookId']; ?>">
+          <input class="uppgnum" type="text" name="customGoal" size="32" value="">
+          <button type="submit" class="updatepages btn lined thin" name="updatecustomgoal">Create Custom Goal</button>
         </form>
       </div>
     <?php } ?>

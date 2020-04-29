@@ -484,6 +484,18 @@ main {
   margin-top: 10px;
   text-decoration: none;
 }
+.upgoalbtn {
+  display: block;
+}
+.upgoalbtnhide {
+  display: none;
+}
+.updategoal {
+  display: none;
+}
+.updategoalshow {
+  display: block;
+}
 .uppgnum {
   font-size: 20px;
   padding: 10px;
