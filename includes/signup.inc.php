@@ -8,6 +8,7 @@ if (isset($_POST['signup-submit'])) {
   $firstName = "";
   $lastName = "";
   $email = $_POST['mail'];
+  $altEmail = "";
   $password = $_POST['pwd'];
   $passwordRepeat = $_POST['pwd-repeat'];
   $hash = md5( rand(0,1000) );
@@ -87,15 +88,18 @@ if (isset($_POST['signup-submit'])) {
             header("Location: ../index.php?error=existingaccount&uid=".$username);
             exit();
           } else {
-            $sql = "INSERT INTO users (uidUsers, firstName, lastName, emailUsers, pwdUsers, profilepic, about, program, website, goodreads, hash, active, admin) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            $sql = "INSERT INTO users (uidUsers, firstName, lastName, emailUsers, altEmail, pwdUsers, profilepic, about, program, website, goodreads, hash, active, admin) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             $stmt = mysqli_stmt_init($conn);
             if (!mysqli_stmt_prepare($stmt, $sql)) {
               header("Location: ../index.php?error=sqlerror");
               exit();
             } else {
               $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
-              mysqli_stmt_bind_param($stmt, "sssssssssssii", $username, $firstName, $lastName, $email, $hashedPwd, $profilepic, $about, $program, $website, $goodreads, $hash, $active, $admin);
+              mysqli_stmt_bind_param($stmt, "ssssssssssssii", $username, $firstName, $lastName, $email, $altEmail, $hashedPwd, $profilepic, $about, $program, $website, $goodreads, $hash, $active, $admin);
               mysqli_stmt_execute($stmt);
+              $sql = "UPDATE users
+              SET firstName = '$firstName', lastName = '$lastName', about = '$about', program = '$program', website = '$website', goodreads = '$goodreads', altEmail = '$altEmail'
+              WHERE idUsers = $idU";
               // Return Success - Valid Email
               $msg = 'Your account has been made, <br /> please verify it by clicking the activation link that has been send to your email.';
               // Send verification link by email
@@ -130,6 +134,100 @@ if (isset($_POST['signup-submit'])) {
     }
   }
   mysqli_stmt_close($stmt);
+  mysqli_close($conn);
+
+} else if (isset($_POST['forgotpassword'])) {
+  require 'dbh.inc.php';
+
+  $email = $_POST['email'];
+  $hash = md5( rand(0,1000) );
+
+  $sql = "SELECT * FROM users WHERE emailUsers=? OR altEmail=?;";
+  $stmt = mysqli_stmt_init($conn);
+
+  if (!mysqli_stmt_prepare($stmt, $sql)) {
+    header("Location: ../index.php?error=sqlerror");
+    exit();
+  } else {
+    mysqli_stmt_bind_param($stmt, "ss", $email, $email);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+    if ($row = mysqli_fetch_assoc($result)) {
+      if ($email !== $row['emailUsers'] && $email !== $row['altEmail'] ) {
+        header("Location: ../passwordreset.php?error=usernotfound");
+        exit();
+      } else {
+        $username = $row['uidUsers'];
+        $uid = $row['idUsers'];
+        $sqlreset = "UPDATE users
+        SET hash = '$hash'
+        WHERE idUsers = '$uid'";
+        $stmt2 = mysqli_stmt_init($conn);
+        if (!mysqli_stmt_prepare($stmt2, $sqlreset)) {
+          header("Location: ../index.php?book=$idbook&error=sqlerror");
+          exit();
+        } else {
+          mysqli_stmt_execute($stmt2);
+          $msg = 'An email has been sent to: '. $email .', <br /> click the link you recieve to create a new password.';
+          // Send verification link by email
+          $to = $email;
+          $subject = 'Password Reset | Spineless Bound';
+          $message = '
+
+          Hi '.$name.',. You are recieveing this email because you have requested a password reset.
+
+          Please click this link to reset your passwoord:
+          http://www.spinelessbound.com/passwordreset.php?passwordreset='.$email.'&idUsers='.$username.'&hash='.$hash.'&uid='.$uid.'
+
+          Spineless Bound
+          Sullivan University
+          2222 Wendell Ave
+          Louisville, KY 40205
+          '; // End message
+          $headers = 'From:noreply@spinelessbound.com' . "\r\n"; // Set from headers
+          mail($to, $subject, $message, $headers); // Send our email
+          // End email
+          header("Location: ../passwordreset.php?success=messagesent&mail=". $msg."&user=".$username);
+        }
+      }
+    }
+  }
+  mysqli_stmt_close($stmt);
+  mysqli_stmt_close($stmt2);
+  mysqli_close($conn);
+} else if (isset($_POST['updatepassword'])) {
+  require 'dbh.inc.php';
+
+  $email = $_POST['email'];
+  $username = $_POST['username'];
+  $password = $_POST['pwd'];
+  $passwordRepeat = $_POST['pwd-repeat'];
+  $hash = $_POST['hash'];
+  $empty = "";
+  if (empty($username) || empty($password) || empty($passwordRepeat)) {
+    header("Location: ../passwordreset.php?passwordreset=$email&uidUsers=$username&hash=$hash&error=emptyfields");
+    exit();
+  }
+  else if ($password !== $passwordRepeat) {
+    header("Location: ../passwordreset.php?passwordreset=$email&uidUsers=$username&hash=$hash&error=pwdnomatch");
+    exit();
+  }
+  else {
+    //Finish this make sure hash is required to match to reset password
+    $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
+    $sqlresetpwd = "UPDATE users
+    SET pwdUsers = '$hashedPwd', hash = '$empty'
+    WHERE uidUsers = '$username' AND hash = '$hash'";
+    $stmtresetpwd = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmtresetpwd, $sqlresetpwd)) {
+      header("Location: ../passwordreset.php?passwordreset=fail&error=sqlerror");
+      exit();
+    } else {
+      mysqli_stmt_execute($stmtresetpwd);
+      header("Location: ../passwordreset.php?passwordreset=success");
+    }
+  }
+  mysqli_stmt_close($stmtresetpwd);
   mysqli_close($conn);
 } else {
   header("Location: ../index.php");

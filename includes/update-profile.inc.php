@@ -22,6 +22,7 @@ if (isset($_POST['update-profile-submit'])) {
 
       $lastName = $_POST['lastName'];
       $email = $row['emailUsers'];
+      $altEmail = $row['altEmail'];
       $password = $row['pwdUsers'];
       $profilepic = $row['profilepic'];
       $about = $_POST['about'];
@@ -37,7 +38,7 @@ if (isset($_POST['update-profile-submit'])) {
       exit();
     } else {
         $sql3 = "UPDATE users
-        SET firstName = '$firstName', lastName = '$lastName', about = '$about', program = '$program', website = '$website', goodreads = '$goodreads'
+        SET firstName = '$firstName', lastName = '$lastName', about = '$about', program = '$program', website = '$website', goodreads = '$goodreads', altEmail = '$altEmail'
         WHERE idUsers = $idU";
         $stmt2 = mysqli_stmt_init($conn);
         if (!mysqli_stmt_prepare($stmt2, $sql3)) {

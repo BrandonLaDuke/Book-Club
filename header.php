@@ -12,15 +12,18 @@ session_start(); ?>
     <meta property="og:image"              content="http://www.spinelessbound.com/img/books.jpg" />
     <title>Spineless Bound | Sullivan University Book Club</title>
     <link rel="stylesheet" href="css/master.css">
+
+
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-66276915-6"></script>
+
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-66276915-6"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
       gtag('config', 'UA-66276915-6');
-    </script>
+    </script> -->
 
   </head>
   <body>
@@ -60,6 +63,7 @@ session_start(); ?>
             <input type="text" name="mailuid" placeholder="Email/Username" augmented-ui="br-clip exe">
             <input type="password" name="pwd" placeholder="Password" augmented-ui="br-clip exe">
             <button class="btn lined-thick" type="submit" name="login-submit">Login</button>
+            <a href="passwordreset.php?resetrequest=true">Forgot password?</a>
         </form>
 
  <?php  } ?>

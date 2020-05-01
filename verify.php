@@ -30,7 +30,7 @@ if(isset($_GET['email']) && !empty($_GET['email']) AND isset($_GET['hash']) && !
 
           // Verify User
           $sqlupdate = "UPDATE users
-                  SET active=1
+                  SET active=1, hash=''
                   WHERE emailUsers=? AND hash=? AND active=?;";
           $stmtupdate = mysqli_stmt_init($conn);
           if (!mysqli_stmt_prepare($stmtupdate, $sqlupdate)) {
