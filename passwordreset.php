@@ -40,7 +40,7 @@
     <input class="hidden" type="text" name="email" value="<?php echo $_GET['passwordreset'] ?>">
     <input class="hidden" type="text" name="userid" value="<?php echo $_GET['uid'] ?>">
     <input class="hidden" type="text" name="hash" value="<?php echo $_GET['hash'] ?>">
-    <input class="hidden" type="text" name="username" value="<?php echo $_GET['uidUsers'] ?>">
+    <input class="hidden" type="text" name="username" value="<?php echo $_GET['idUsers'] ?>">
     <input type="password" name="pwd" placeholder="New password" value="">
     <input type="password" name="pwd-repeat" placeholder="Repeat new password" value="">
     <button type="submit" name="updatepassword">Reset password</button>
