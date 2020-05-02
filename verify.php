@@ -12,7 +12,7 @@ if(isset($_GET['email']) && !empty($_GET['email']) AND isset($_GET['hash']) && !
     header("Location: index.php?error=emptyfields");
     exit();
   } else {
-    $sql = "SELECT emailUsers, hash, active
+    $sql = "SELECT emailUsers, hash, active, uidUsers
             FROM users
             WHERE emailUsers=? AND hash=? AND active=?;";
     $stmt = mysqli_stmt_init($conn);
@@ -27,6 +27,7 @@ if(isset($_GET['email']) && !empty($_GET['email']) AND isset($_GET['hash']) && !
           echo $row[emailUsers];
           echo $row[hash];
           echo $row[active];
+          $username = $row['uidUsers'];
 
           // Verify User
           $sqlupdate = "UPDATE users
@@ -39,7 +40,19 @@ if(isset($_GET['email']) && !empty($_GET['email']) AND isset($_GET['hash']) && !
           } else {
             mysqli_stmt_bind_param($stmtupdate, "ssi", $email, $hash, $unactivev);
             mysqli_stmt_execute($stmtupdate);
+
+            //Have Book Worm Bot notify members of new member
+            //$msg = "A new member, $username has signed up with SpinelessBound.com!";
+            $msg = "Hi everyone, my name is *Book Worm*. It is great to meet you! I am a bot created by Brandon LaDuke to bring you updates from the SpinelessBound website right into Discord!";
+
+            $curl = curl_init("https://discordapp.com/api/webhooks/705949711114305556/QDtAeDLcE_AgCJ4mn5ya2J-63jtaeElkLLKgaWGcJFewTDz1GPR43aq312rM_Ul9UM-H");
+            curl_setopt($curl, CURLOPT_POST, 1);
+            curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode(array("content" => $msg, "username" => "Book Worm")));
+
+            echo curl_exec($curl);
+
             header("Location: verify.php?success");
+            exit();
           }
       }
     }
