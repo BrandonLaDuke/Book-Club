@@ -8,7 +8,7 @@ session_start(); ?>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta property="og:url"                content="http://www.spinelessbound.com" />
     <meta property="og:title"              content="Spineless Bound | Sullivan University Book Club" />
-    <!-- <meta property="og:description"        content="How much does culture influence creative thinking?" /> -->
+    <meta property="og:description"        content="A student-run club here to help fellow book worms find new and exciting books as well as make new friends." />
     <meta property="og:image"              content="http://www.spinelessbound.com/img/books.jpg" />
     <title>Spineless Bound | Sullivan University Book Club</title>
     <link rel="stylesheet" href="css/master.css">

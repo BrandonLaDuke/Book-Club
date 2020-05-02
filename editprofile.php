@@ -38,10 +38,14 @@
         <label for="goodreads">Goodreads Link:</label>
         <input type="text" name="goodreads" value="<?php echo $row['goodreads']; ?>">
 
+        <label for="altEmail">Personal email (can be used to reset your password):</label>
+        <input type="text" name="altEmail" value="<?php echo $row['altEmail']; ?>">
+
         <input type="hidden" name="username" value="<?php echo $_GET['user']; ?>">
 
         <button type="submit" name="update-profile-submit" value="">Update Profile</button>
       </form>
+      
     </div>
 <?php }
 }?>
