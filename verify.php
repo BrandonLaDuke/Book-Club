@@ -42,10 +42,10 @@ if(isset($_GET['email']) && !empty($_GET['email']) AND isset($_GET['hash']) && !
             mysqli_stmt_execute($stmtupdate);
 
             //Have Book Worm Bot notify members of new member
-            //$msg = "A new member, $username has signed up with SpinelessBound.com!";
+            //$msg = "A new member, **$username** has signed up with SpinelessBound.com!";
             $msg = "Hi everyone, my name is **Book Worm**. It is great to meet you! I am a bot created by Brandon LaDuke to bring you updates from the SpinelessBound website right into Discord!";
 
-            $webhookurl = "https://discordapp.com/api/webhooks/706132959027134464/26pIyRH94dbk8RDpZunp3v8U64mOa7R3MHK6SXvLLCeZrpWdOq3pLqxUHMIVwN9FfEpY";
+            $webhookurl = "https://discordapp.com/api/webhooks/705949711114305556/QDtAeDLcE_AgCJ4mn5ya2J-63jtaeElkLLKgaWGcJFewTDz1GPR43aq312rM_Ul9UM-H";
 
             $json_data = array ('content'=>"$msg", "username" => "Book Worm");
             $make_json = json_encode($json_data);
