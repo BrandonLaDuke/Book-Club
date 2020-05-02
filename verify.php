@@ -43,13 +43,20 @@ if(isset($_GET['email']) && !empty($_GET['email']) AND isset($_GET['hash']) && !
 
             //Have Book Worm Bot notify members of new member
             //$msg = "A new member, $username has signed up with SpinelessBound.com!";
-            $msg = "Hi everyone, my name is *Book Worm*. It is great to meet you! I am a bot created by Brandon LaDuke to bring you updates from the SpinelessBound website right into Discord!";
+            $msg = "Hi everyone, my name is **Book Worm**. It is great to meet you! I am a bot created by Brandon LaDuke to bring you updates from the SpinelessBound website right into Discord!";
 
-            $curl = curl_init("https://discordapp.com/api/webhooks/705949711114305556/QDtAeDLcE_AgCJ4mn5ya2J-63jtaeElkLLKgaWGcJFewTDz1GPR43aq312rM_Ul9UM-H");
-            curl_setopt($curl, CURLOPT_POST, 1);
-            curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode(array("content" => $msg, "username" => "Book Worm")));
+            $webhookurl = "https://discordapp.com/api/webhooks/706132959027134464/26pIyRH94dbk8RDpZunp3v8U64mOa7R3MHK6SXvLLCeZrpWdOq3pLqxUHMIVwN9FfEpY";
 
-            echo curl_exec($curl);
+            $json_data = array ('content'=>"$msg", "username" => "Book Worm");
+            $make_json = json_encode($json_data);
+            $ch = curl_init( $webhookurl );
+            curl_setopt( $ch, CURLOPT_HTTPHEADER, array('Content-type: application/json'));
+            curl_setopt( $ch, CURLOPT_POST, 1);
+            curl_setopt( $ch, CURLOPT_POSTFIELDS, $make_json);
+            curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, 1);
+            curl_setopt( $ch, CURLOPT_HEADER, 0);
+            curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
+            $response = curl_exec( $ch );
 
             header("Location: verify.php?success");
             exit();
