@@ -54,7 +54,7 @@
             <td><span><?php echo $row['firstName']; ?></span> <span><?php echo $row['lastName'] ?></span></td>
             <td><?php echo $row['emailUsers']; ?></td>
             <td><?php if ($row['active'] == 1) { echo "Yes";} else {echo "No";}; ?></td>
-            <td><?php if ($row['active'] == 1) { echo "Admin";} ?></td>
+            <td><?php if ($row['admin'] == 1) { echo "Admin";} ?></td>
             <td>
               <form class="" action="includes/admin-action.inc.php" method="post">
                 <button type="submit" name="edituser">Edit User</button>
