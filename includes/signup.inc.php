@@ -32,8 +32,7 @@ if (isset($_POST['signup-submit'])) {
       'sctd.edu',
       'my.sctd.edu',
       'spencerian.edu',
-      'my.spencerian.edu',
-      'gmail.com'
+      'my.spencerian.edu'
   ];
   if (filter_var($emailp, FILTER_VALIDATE_EMAIL)) {
     $parts = explode('@', $emailp);
