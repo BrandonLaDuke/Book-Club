@@ -45,6 +45,7 @@
             <th>Username</th>
             <th>Name</th>
             <th>Email</th>
+            <th>Verified</th>
             <th>Admin</th>
           </tr>
           <?php while ($row = mysqli_fetch_assoc($result)) { ?>
@@ -52,7 +53,8 @@
             <td><?php echo $row['uidUsers']; ?></td>
             <td><span><?php echo $row['firstName']; ?></span> <span><?php echo $row['lastName'] ?></span></td>
             <td><?php echo $row['emailUsers']; ?></td>
-            <td><?php echo $row['admin'] ?></td>
+            <td><?php if ($row['active'] == 1) { echo "Yes";} else {echo "No";}; ?></td>
+            <td><?php if ($row['active'] == 1) { echo "Admin";} ?></td>
             <td>
               <form class="" action="includes/admin-action.inc.php" method="post">
                 <button type="submit" name="edituser">Edit User</button>
