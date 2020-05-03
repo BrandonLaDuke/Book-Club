@@ -14,7 +14,6 @@ if ($resultCheck > 0) {
       <style media="screen">
         .coverphoto {
           background-image: url('<?php echo $row['coverPhotoURL']; ?>');
-          /* background-image: url('https://plus4chan.org/b/co/src/139175142193.jpg'); */
           background-position: center;
         }
       </style>

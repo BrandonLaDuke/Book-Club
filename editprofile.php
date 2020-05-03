@@ -19,6 +19,15 @@
           <button type="submit" class="btn lined thin" name="change-profile-pic-submit">Change profile picture</button>
         </form>
       </div>
+      <div class="edit-profilepic">
+        <img src="<?php echo $row['coverPhotoURL']; ?>" width="100%" max-width="400px" alt="">
+        <form class="profilepic-update" action="includes/change-profile-pic.inc.php" method="post" enctype="multipart/form-data">
+          <input type="hidden" name="coverpic-url" value="<?php echo $row['coverPhotoURL']; ?>">
+          <input type="hidden" name="username" value="<?php echo $_GET['user']; ?>">
+          <input type="file" name="imagenew" value="">
+          <button type="submit" class="btn lined thin" name="change-cover-photo">Change Cover Photo</button>
+        </form>
+      </div>
 
       <form class="edit-profile" action="includes/update-profile.inc.php" method="post">
 
