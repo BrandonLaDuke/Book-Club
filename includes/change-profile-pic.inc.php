@@ -13,7 +13,7 @@ if (isset($_POST['change-profile-pic-submit'])) {
     if ($row['uidUsers'] == $_POST['username']) {
       $match = true;
       $idU = $row['idUsers'];
-
+      $username = $row['uidUsers'];
       $profilepic = $_FILES['imagenew'];
       $profilepicName = $profilepic['name'];
       $profilepicTmpName = $profilepic['tmp_name'];
@@ -78,7 +78,7 @@ if (isset($_POST['change-profile-pic-submit'])) {
     if ($row['uidUsers'] == $_POST['username']) {
       $match = true;
       $idU = $row['idUsers'];
-
+      $username = $row['uidUsers'];
       $coverpic = $_FILES['imagenew'];
       $coverpicName = $coverpic['name'];
       $coverpicTmpName = $coverpic['tmp_name'];
