@@ -1,7 +1,7 @@
 <?php require "header.php"; ?>
   <?php if (isset($_SESSION['userId'])) { ?>
-    <!-- Logged In View -->
-    <p class="login-status">You are logged in</p>
+
+
     <?php
     $sql = "SELECT * FROM users;";
 $result = mysqli_query($conn, $sql);
@@ -11,38 +11,61 @@ if ($resultCheck > 0) {
   while ($row = mysqli_fetch_assoc($result)) {
     if ($row['uidUsers'] == $_GET['user']) {
       $match = true; ?>
-      <?php if ($row['uidUsers'] === $_SESSION['userUid']) {
-        echo '<p class="db-success" augmented-ui="tl-clip br-clip exe">User editable</p>';
-      } ?>
+      <style media="screen">
+        <?php $sql = "SELECT * FROM userProfileLayout;";
+    $result = mysqli_query($conn, $sql);
+    $resultCheck = mysqli_num_rows($result); ?>
+        .coverphoto {
+          /* background-image: url('<?php // echo $profileRow['coverphoto']; ?>'); */
+          background-image: url('https://plus4chan.org/b/co/src/139175142193.jpg');
+          background-position: center;
+        }
+      </style>
 
 
     <!-- Add styles for coverphoto positioning top, bottom, center, %.
          Coverphoto size will be cover.
          Set as a background image on coverphoto class
          PHP to style baised on user id -->
-    <div class="profileheader coverphoto">
-      <img class="profilephoto" />
-      <div class="Profile ">
-        <?php if (!empty($row['firstName']) || !empty($row['lastName'])) { ?>
-          <h1><?php echo $row['firstName'] . " " . $row['lastName']; ?></h1>
-        <?php } else { ?>
-          <h1><?php echo $row['uidUsers']; ?></h1>
-        <?php }
-        if (!empty($row['program'])) { ?>
-          <h2><?php echo $row['program']; ?></h2>
+         <div class="sb-container">
+
+
+    <div class="coverphoto"></div>
+
+    <div class="profileheader">
+      <div class="flex">
+        <img class="profilephoto" src="<?php echo $row['profilepic']; ?>" alt="<?php echo $row['uidUsers']; ?>" />
+      </div>
+
+      <div class="profile">
+        <div class="">
+          <?php if (!empty($row['firstName']) || !empty($row['lastName'])) { ?>
+            <h1 class="username"><?php echo $row['firstName'] . " " . $row['lastName']; ?></h1>
+          <?php } else { ?>
+            <h1 class="username"><?php echo $row['uidUsers']; ?></h1>
+          <?php } ?>
+        </div>
+
+        <?php if (!empty($row['program'])) { ?>
+          <div class="program-container">
+            <h2 class="program"><?php echo $row['program']; ?></h2>
+          </div>
+
   <?php } ?>
+  <?php if ($row['uidUsers'] === $_SESSION['userUid']) {
+    ?>
+    <a class="btn lined thin editprofile" href="editprofile.php?user=<?php echo $row['uidUsers']; ?>">Edit Profile</a>
+    <?php
+  } ?>
       </div>
       <?php if (!empty($row['program'])) { ?>
         <div class="shortbio">
+          <h3>About me</h3>
           <p><?php echo $row['about']; ?></p>
         </div>
       <?php } ?>
 
-      <?php if ($row['uidUsers'] === $_SESSION['userUid']) {
-        ?>
-        <a href="editprofile.php?user=<?php echo $row['uidUsers']; ?>">Edit Profile</a>
-        <?php
-      } ?>
+
     </div>
     <div class="books-suggested">
       <?php $sql = "SELECT * FROM books;";
@@ -53,26 +76,23 @@ if ($resultCheck > 0) {
         while ($row1 = mysqli_fetch_assoc($result)) {
           if ($row1['chosenBy'] == $_GET['user']) {
             $match = true; ?>
-      <table>
+      <div class="book-grid">
         <?php
         if ($resultCheck > 0) { ?>
-            <tr>
-              <th>Cover Art</th>
-              <th>Book Title</th>
-              <th>Author</th>
-            </tr>
-
-            <tr>
-              <td><img src="<?php echo $row1['coverArtURL']; ?>" width="35px" height="50px"/></td>
-              <td><?php echo $row1['bookTitle']; ?></td>
-              <td><?php echo $row1['bookAuthor']; ?></td>
-            </tr>
+          <div class="book">
+            <a href="book.php?bookid=<?php echo $row1['bookId']; ?>">
+              <img src="<?php echo $row1['coverArtURL']; ?>" />
+              <h2><?php echo $row1['bookTitle']; ?></h2>
+              <h3><?php echo $row1['bookAuthor']; ?></h3>
+              <p>Suggested by: <?php echo $row1['chosenBy']; ?></p>
+            </a>
         <?php }
       }}}
         ?>
-      </table>
+      </div>
     </div>
-
+</div>
+</div>
 
 
 

@@ -30,6 +30,7 @@
           <textarea name="announcement" rows="2"><?php echo $row['msg']; ?></textarea>
           <div class="b-grid">
             <button class="good" type="submit" name="bookworm-message">Send Message as Bookworm</button>
+            <?php if ($_GET["bookworm"] == "sent") { ?><p style="padding-left: 20px;">Message Sent</p><?php } ?>
           </div>
         </form>
       </div>

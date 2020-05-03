@@ -12,6 +12,9 @@ session_start(); ?>
     <meta property="og:image"              content="http://www.spinelessbound.com/img/books.jpg" />
     <title>Spineless Bound | Sullivan University Book Club</title>
     <link rel="stylesheet" href="css/master.css">
+    <?php if ($_GET["user"]) { ?>
+      <link rel="stylesheet" href="css/profile.css">
+      <?php } ?>
 
 
     <!-- Global site tag (gtag.js) - Google Analytics -->

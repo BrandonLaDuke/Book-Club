@@ -46,7 +46,7 @@ if (isset($_POST['update-profile-submit'])) {
           exit();
         } else {
           mysqli_stmt_execute($stmt2);
-          header("Location: ../profile.php?user=$usernameupdate&success");
+          header("Location: ../profile.php?user=$username&success");
         }
       }
     }
