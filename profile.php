@@ -12,12 +12,9 @@ if ($resultCheck > 0) {
     if ($row['uidUsers'] == $_GET['user']) {
       $match = true; ?>
       <style media="screen">
-        <?php $sql = "SELECT * FROM userProfileLayout;";
-    $result = mysqli_query($conn, $sql);
-    $resultCheck = mysqli_num_rows($result); ?>
         .coverphoto {
-          /* background-image: url('<?php // echo $profileRow['coverphoto']; ?>'); */
-          background-image: url('https://plus4chan.org/b/co/src/139175142193.jpg');
+          background-image: url('<?php echo $row['coverPhotoURL']; ?>');
+          /* background-image: url('https://plus4chan.org/b/co/src/139175142193.jpg'); */
           background-position: center;
         }
       </style>
@@ -49,6 +46,17 @@ if ($resultCheck > 0) {
         <?php if (!empty($row['program'])) { ?>
           <div class="program-container">
             <h2 class="program"><?php echo $row['program']; ?></h2>
+          </div>
+          <?php }
+          if (!empty($row['website'])) {?>
+          <div class="p-container">
+            <a href="http://<?php echo $row['website']; ?>"><?php echo $row['website']; ?></a>
+          </div>
+          <?php }
+          if (!empty($row['goodreads'])) {?>
+            <br>
+          <div class="p-container">
+            <a href="http://<?php echo $row['goodreads']; ?>">My Goodreads</a>
           </div>
 
   <?php } ?>

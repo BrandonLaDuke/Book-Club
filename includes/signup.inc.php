@@ -19,6 +19,10 @@ if (isset($_POST['signup-submit'])) {
   $program = "";
   $website = "";
   $goodreads = "";
+  $bkgColor = "inherit";
+  $textColor = "inherit";
+  $coverPhotoURL = "http://www.spinelessbound.com/img/colors.jpg";
+  $coverPhotoPosition = "center";
   $emailp = isset($_POST['mail']) ? trim($_POST['mail']) : null;
 
   // List of allowed domains
@@ -28,7 +32,8 @@ if (isset($_POST['signup-submit'])) {
       'sctd.edu',
       'my.sctd.edu',
       'spencerian.edu',
-      'my.spencerian.edu'
+      'my.spencerian.edu',
+      'gmail.com'
   ];
   if (filter_var($emailp, FILTER_VALIDATE_EMAIL)) {
     $parts = explode('@', $emailp);
@@ -88,14 +93,14 @@ if (isset($_POST['signup-submit'])) {
             header("Location: ../index.php?error=existingaccount&uid=".$username);
             exit();
           } else {
-            $sql = "INSERT INTO users (uidUsers, firstName, lastName, emailUsers, altEmail, pwdUsers, profilepic, about, program, website, goodreads, hash, active, admin) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            $sql = "INSERT INTO users (uidUsers, firstName, lastName, emailUsers, altEmail, pwdUsers, profilepic, about, program, website, goodreads, hash, active, admin, bkgColor, textColor, coverPhotoURL, coverPhotoPosition) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             $stmt = mysqli_stmt_init($conn);
             if (!mysqli_stmt_prepare($stmt, $sql)) {
               header("Location: ../index.php?error=sqlerror");
               exit();
             } else {
               $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
-              mysqli_stmt_bind_param($stmt, "ssssssssssssii", $username, $firstName, $lastName, $email, $altEmail, $hashedPwd, $profilepic, $about, $program, $website, $goodreads, $hash, $active, $admin);
+              mysqli_stmt_bind_param($stmt, "ssssssssssssiissss", $username, $firstName, $lastName, $email, $altEmail, $hashedPwd, $profilepic, $about, $program, $website, $goodreads, $hash, $active, $admin, $bkgColor, $textColor, $coverPhotoURL, $coverPhotoPosition);
               mysqli_stmt_execute($stmt);
               $sql = "UPDATE users
               SET firstName = '$firstName', lastName = '$lastName', about = '$about', program = '$program', website = '$website', goodreads = '$goodreads', altEmail = '$altEmail'
