@@ -24,6 +24,15 @@
         </form>
       </div>
 
+      <h2>Bookworm Message</h2>
+      <div class="admin-announcement">
+        <form class="" action="includes/admin-action.inc.php" method="post">
+          <textarea name="announcement" rows="2"><?php echo $row['msg']; ?></textarea>
+          <div class="b-grid">
+            <button class="good" type="submit" name="bookworm-message">Send Message as Bookworm</button>
+          </div>
+        </form>
+      </div>
 
 
       <h2>Users</h2>

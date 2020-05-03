@@ -29,7 +29,9 @@ if (isset($_POST['add-comment-submit'])) {
       exit();
       }
     }
+    mysqli_stmt_close($stmt);
+    mysqli_close($conn);
+  } else {
+    header("Location: ../index.php");
+    exit();
   }
-
-mysqli_stmt_close($stmt);
-mysqli_close($conn);
