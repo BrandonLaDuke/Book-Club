@@ -22,7 +22,7 @@ if (isset($_POST['update-profile-submit'])) {
 
       $lastName = $_POST['lastName'];
       $email = $row['emailUsers'];
-      $altEmail = $row['altEmail'];
+      $altEmail = $_POST['altEmail'];
       $password = $row['pwdUsers'];
       $profilepic = $row['profilepic'];
       $about = $_POST['about'];
