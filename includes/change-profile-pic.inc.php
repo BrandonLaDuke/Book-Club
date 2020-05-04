@@ -40,22 +40,22 @@ if (isset($_POST['change-profile-pic-submit'])) {
             $stmt2 = mysqli_stmt_init($conn);
             mysqli_stmt_execute($stmt2);
             if (!mysqli_stmt_prepare($stmt2, $sql3)) {
-              header("Location: ../editprofile.php?user=$username?error=sqlerror?$sql3");
+              header("Location: ../editprofile.php?user=$username&error=sqlerror&$sql3");
               exit();
             } else {
               mysqli_stmt_execute($stmt2);
-              header("Location: ../profile.php?user=$username?update=success");
+              header("Location: ../profile.php?user=$username&update=success");
             }
           } else {
-            header("Location: ../edit-profile.php?user=$username?error=filetobig");
+            header("Location: ../edit-profile.php?user=$username&error=filetobig");
             exit();
           }
         } else {
-          header("Location: ../edit-profile.php?user=$username?error=upload");
+          header("Location: ../edit-profile.php?user=$username&error=upload");
           exit();
         }
       } else {
-        header("Location: ../edit-profile.php?user=$username?error=invalidformat");
+        header("Location: ../edit-profile.php?user=$username&error=invalidformat");
         exit();
       }
 
@@ -105,23 +105,23 @@ if (isset($_POST['change-profile-pic-submit'])) {
             $stmt2 = mysqli_stmt_init($conn);
             mysqli_stmt_execute($stmt2);
             if (!mysqli_stmt_prepare($stmt2, $sql3)) {
-              header("Location: ../editprofile.php?user=$username?error=sqlerror?$sql3");
+              header("Location: ../editprofile.php?user=$username&error=sqlerror&$sql3");
               exit();
             } else {
               mysqli_stmt_execute($stmt2);
-              header("Location: ../profile.php?user=$username?update=success");
+              header("Location: ../profile.php?user=$username&update=success");
               exit();
             }
           } else {
-            header("Location: ../edit-profile.php?user=$username?error=filetobig");
+            header("Location: ../edit-profile.php?user=$username&error=filetobig");
             exit();
           }
         } else {
-          header("Location: ../edit-profile.php?user=$username?error=upload");
+          header("Location: ../edit-profile.php?user=$username&error=upload");
           exit();
         }
       } else {
-        header("Location: ../edit-profile.php?user=$username?error=invalidformat");
+        header("Location: ../edit-profile.php?user=$username&error=invalidformat");
         exit();
       }
 
@@ -155,11 +155,11 @@ if (isset($_POST['change-profile-pic-submit'])) {
       $stmt2 = mysqli_stmt_init($conn);
       mysqli_stmt_execute($stmt2);
       if (!mysqli_stmt_prepare($stmt2, $sql3)) {
-        header("Location: ../editprofile.php?user=$username?error=sqlerror?$sql3");
+        header("Location: ../editprofile.php?user=$username&error=sqlerror&$sql3");
         exit();
       } else {
         mysqli_stmt_execute($stmt2);
-        header("Location: ../profile.php?user=$username?update=success&coverreposition");
+        header("Location: ../profile.php?user=$username&update=success&coverreposition");
         exit();
       }
 
