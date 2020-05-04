@@ -19,14 +19,28 @@
           <button type="submit" class="btn lined thin" name="change-profile-pic-submit">Change profile picture</button>
         </form>
       </div>
-      <div class="edit-profilepic">
+      <br>
+      <div class="edit-coverphoto">
         <img src="<?php echo $row['coverPhotoURL']; ?>" width="100%" max-width="400px" alt="">
-        <form class="profilepic-update" action="includes/change-profile-pic.inc.php" method="post" enctype="multipart/form-data">
-          <input type="hidden" name="coverpic-url" value="<?php echo $row['coverPhotoURL']; ?>">
-          <input type="hidden" name="username" value="<?php echo $_GET['user']; ?>">
-          <input type="file" name="imagenew" value="">
-          <button type="submit" class="btn lined thin" name="change-cover-photo">Change Cover Photo</button>
-        </form>
+        <div class="">
+          <form class="profilepic-update" action="includes/change-profile-pic.inc.php" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="coverpic-url" value="<?php echo $row['coverPhotoURL']; ?>">
+            <input type="hidden" name="username" value="<?php echo $_GET['user']; ?>">
+            <input type="file" name="imagenew" value="">
+            <button type="submit" class="btn lined thin" name="change-cover-photo">Change Cover Photo</button>
+          </form>
+
+          <form class="profilepic-update" action="includes/change-profile-pic.inc.php" method="post">
+            <label for="coverpic-position">Position of Cover Photo:</label><br>
+            <input type="hidden" name="username" value="<?php echo $_GET['user']; ?>">
+
+            <div>
+              <input type="text" name="coverpic-position" value="<?php echo $row['coverPhotoPosition']; ?>">
+              <button type="submit" class="btn lined thin" name="change-cover-position">Change Cover Position</button>
+            </div>
+            <p>Values: top, center, bottom, or a percentage ex. 23%</p>
+          </form>
+        </div>
       </div>
 
       <form class="edit-profile" action="includes/update-profile.inc.php" method="post">

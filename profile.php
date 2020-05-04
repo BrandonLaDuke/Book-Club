@@ -14,7 +14,7 @@ if ($resultCheck > 0) {
       <style media="screen">
         .coverphoto {
           background-image: url('<?php echo $row['coverPhotoURL']; ?>');
-          background-position: center;
+          background-position: <?php echo $row['coverPhotoPosition']; ?>;
         }
       </style>
 

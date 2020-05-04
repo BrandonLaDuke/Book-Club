@@ -7,7 +7,9 @@
 /* buttons */
 @import url(https://fonts.googleapis.com/css?family=Patrick+Hand+SC);
 
-
+body {
+  overflow-x:hidden;
+}
 .btn, button {
   font-family: 'Patrick Hand SC', cursive;
   cursor: pointer;
@@ -915,7 +917,29 @@ main {
 
 
 
-
+@media (min-width: 800px) {
+  .edit-coverphoto {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .edit-coverphoto div {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+  }
+  .edit-coverphoto div form {
+    margin-left: 30px;
+    margin-bottom: 15px;
+    margin-top: 10px;
+  }
+  .edit-coverphoto div form div {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr;
+  }
+  .edit-coverphoto div form div input {
+    font-size: 22px;
+  }
+}
 
 
 

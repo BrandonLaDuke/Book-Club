@@ -66,7 +66,7 @@ if (isset($_POST['change-profile-pic-submit'])) {
   mysqli_stmt_close($stmt2);
   mysqli_close($conn);
 
-} else if ('change-cover-photo') {
+} else if (isset($_POST['change-cover-photo'])) {
   require 'dbh.inc.php';
 
   $sql = "SELECT * FROM users;";
@@ -124,6 +124,46 @@ if (isset($_POST['change-profile-pic-submit'])) {
         header("Location: ../edit-profile.php?user=$username?error=invalidformat");
         exit();
       }
+
+
+    }
+    }
+  }
+  mysqli_stmt_close($stmt2);
+  mysqli_close($conn);
+} else if (isset($_POST['change-cover-position'])) {
+  require 'dbh.inc.php';
+
+  $sql = "SELECT * FROM users;";
+  $result = mysqli_query($conn, $sql);
+  $resultCheck = mysqli_num_rows($result);
+  $match = false;
+  if ($resultCheck > 0) {
+  while ($row = mysqli_fetch_assoc($result)) {
+    if ($row['uidUsers'] == $_POST['username']) {
+      $match = true;
+      $idU = $row['idUsers'];
+      $username = $row['uidUsers'];
+      $coverPhotoPosition = $_POST['coverpic-position'];
+
+
+
+
+      $sql3 = "UPDATE users
+      SET coverPhotoPosition = '$coverPhotoPosition'
+      WHERE idUsers = $idU";
+      $stmt2 = mysqli_stmt_init($conn);
+      mysqli_stmt_execute($stmt2);
+      if (!mysqli_stmt_prepare($stmt2, $sql3)) {
+        header("Location: ../editprofile.php?user=$username?error=sqlerror?$sql3");
+        exit();
+      } else {
+        mysqli_stmt_execute($stmt2);
+        header("Location: ../profile.php?user=$username?update=success&coverreposition");
+        exit();
+      }
+
+
 
 
     }
