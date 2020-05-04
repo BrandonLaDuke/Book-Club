@@ -17,6 +17,8 @@ if (isset($_POST['bookworm-message'])) {
   curl_setopt( $ch, CURLOPT_HEADER, 0);
   curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
   $response = curl_exec( $ch );
+  header("Location: ../adminpanel.php?bookworm=messagesent");
+  exit();
 } else {
   header("Location: ../index.php");
   exit();
