@@ -11,7 +11,7 @@
       $result = mysqli_query($conn, $sql);
       $resultCheck = mysqli_num_rows($result);
       while ($row = mysqli_fetch_assoc($result)) { ?>
-        <div class="user-card">
+        <!-- <div class="user-card">
           <img src="<?php echo $row['profilepic']; ?>" alt="">
           <div class="user-info">
             <a href="profile.php?user=<?php echo $row['uidUsers'] ?>">
@@ -21,7 +21,16 @@
             <p>Program: <?php echo $row['program']; ?></p>
 
           </div>
-        </div>
+        </div> -->
+
+          <div class="usercard">
+            <img src="<?php echo $row['profilepic']; ?>" alt="Person" class="card__image">
+            <p class="card__name"><span><?php echo $row['firstName']; ?></span> <span><?php echo $row['lastName'] ?></span></p>
+            <p class="card__name"><?php echo $row['uidUsers'] ?></p>
+
+            <a href="profile.php?user=<?php echo $row['uidUsers'] ?>" class="btn draw-border">View Profile</a>
+
+          </div>
 
 
 

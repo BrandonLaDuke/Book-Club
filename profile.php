@@ -30,7 +30,7 @@ if ($resultCheck > 0) {
 
     <div class="profileheader">
       <div class="flex">
-        <img class="profilephoto" src="<?php echo $row['profilepic']; ?>" alt="<?php echo $row['uidUsers']; ?>" />
+        <img class="profilephoto card__image" src="<?php echo $row['profilepic']; ?>" alt="<?php echo $row['uidUsers']; ?>" />
       </div>
 
       <div class="profile">
@@ -100,6 +100,7 @@ if ($resultCheck > 0) {
     </div>
 </div>
 </div>
+
 
 
 
