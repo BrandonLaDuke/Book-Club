@@ -64,9 +64,12 @@ session_start(); ?>
         <!-- <p class="welcome-msg"> echo $_SESSION['userUid']; </p> -->
         <form class="signin" action="includes/login.inc.php" method="post">
             <input type="text" name="mailuid" placeholder="Email/Username" augmented-ui="br-clip exe">
-            <input type="password" name="pwd" placeholder="Password" augmented-ui="br-clip exe">
+            <div class="vertical-pwd-grid">
+              <input type="password" name="pwd" placeholder="Password" augmented-ui="br-clip exe">
+              <a class="forgot-pwd-desktop" href="passwordreset.php?resetrequest=true">Forgot password?</a>
+            </div>
             <button class="btn lined-thick" type="submit" name="login-submit">Login</button>
-            <a href="passwordreset.php?resetrequest=true">Forgot password?</a>
+            <a class="forgot-pwd-mobile" href="passwordreset.php?resetrequest=true">Forgot password?</a>
         </form>
 
  <?php  } ?>
