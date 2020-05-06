@@ -46,18 +46,21 @@
         <br>
         <form id="pgnumGoal" class="updategoal" action="includes/update-pages.inc.php" method="post">
           <input class="hidden" type="text" name="bookId" value="<?php echo $row['bookId']; ?>">
+          <input class="hidden" type="text" name="userUid" value="<?php echo $_SESSION['userUid'] ?>">
           <input class="uppgnum" type="text" name="pagenum" size="4" value="">
           <button type="submit" class="updatepages btn lined thin" name="updatepgnum">Update Page Goal</button>
         </form>
         <br>
         <form id="chapterGoal" class="updategoal" action="includes/update-pages.inc.php" method="post">
           <input class="hidden" type="text" name="bookId" value="<?php echo $row['bookId']; ?>">
+          <input class="hidden" type="text" name="userUid" value="<?php echo $_SESSION['userUid'] ?>">
           <input class="uppgnum" type="text" name="chapterGoal" size="32" value="">
           <button type="submit" class="updatepages btn lined thin" name="updatechapter">Update Chapter Goal</button>
         </form>
         <br>
         <form id="customGoal" class="updategoal" action="includes/update-pages.inc.php" method="post">
           <input class="hidden" type="text" name="bookId" value="<?php echo $row['bookId']; ?>">
+          <input class="hidden" type="text" name="userUid" value="<?php echo $_SESSION['userUid'] ?>">
           <input class="uppgnum" type="text" name="customGoal" size="32" value="">
           <button type="submit" class="updatepages btn lined thin" name="updatecustomgoal">Create Custom Goal</button>
         </form>

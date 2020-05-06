@@ -16,6 +16,7 @@ if (isset($_POST['updatepgnum'])) {
       $pagenum = $_POST['pagenum'];
       $chapterGoal = "";
       $customGoal = "";
+      $username = $_POST['userUid'];
 
 
     $sql2 = "SELECT bookId FROM books WHERE bookId=?";
@@ -33,6 +34,41 @@ if (isset($_POST['updatepgnum'])) {
           exit();
         } else {
           mysqli_stmt_execute($stmt2);
+
+
+          //Have Book Worm Bot notify members of new member
+          $rand = rand(1,5);
+          if ($rand == 1) {
+            $msg = "$username has updated the reading goal for this week to read up to page **$pagenum**";
+          } else if ($rand == 2) {
+            $msg = "New reading goal this week! $username told me that the reading goal for this week will be to read up to page **$pagenum**";
+          } else if ($rand == 3) {
+            $msg = "Howdy guys! The reading goal for this week will be to read up to page **$pagenum**";
+          } else if ($rand == 4) {
+            $msg = "Hi! The reading goal for this week will be to read up to page **$pagenum**";
+          } else if ($rand == 5) {
+            $msg = "AHOY Friends! The reading goal for this week will be to read up to page **$pagenum**";
+          } else {
+            $msg = "The reading goal for this week will be to read up to page **$pagenum**";
+          }
+
+          // $msg = "Hi everyone, my name is **Book Worm**. It is great to meet you! I am a bot created by Brandon LaDuke to bring you updates from the SpinelessBound website right into Discord!";
+
+          $webhookurl = "https://discordapp.com/api/webhooks/705949711114305556/QDtAeDLcE_AgCJ4mn5ya2J-63jtaeElkLLKgaWGcJFewTDz1GPR43aq312rM_Ul9UM-H";
+
+          $json_data = array ('content'=>"$msg", "username" => "Bookworm");
+          $make_json = json_encode($json_data);
+          $ch = curl_init( $webhookurl );
+          curl_setopt( $ch, CURLOPT_HTTPHEADER, array('Content-type: application/json'));
+          curl_setopt( $ch, CURLOPT_POST, 1);
+          curl_setopt( $ch, CURLOPT_POSTFIELDS, $make_json);
+          curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, 1);
+          curl_setopt( $ch, CURLOPT_HEADER, 0);
+          curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
+          $response = curl_exec( $ch );
+
+
+
           header("Location: ../index.php?book=$idbook&goal=$pagenum&success");
         }
       }
@@ -56,6 +92,7 @@ if (isset($_POST['updatepgnum'])) {
       $pagenum = 0;
       $chapterGoal = $_POST['chapterGoal'];
       $customGoal = "";
+      $username = $_POST['userUid'];
 
 
     $sql2 = "SELECT bookId FROM books WHERE bookId=?";
@@ -73,6 +110,37 @@ if (isset($_POST['updatepgnum'])) {
           exit();
         } else {
           mysqli_stmt_execute($stmt2);
+
+          $rand = rand(1,5);
+          if ($rand == 1) {
+            $msg = "$username has updated the reading goal for this week to read up to chapter **$chapterGoal**";
+          } else if ($rand == 2) {
+            $msg = "New reading goal this week! $username told me that the reading goal for this week will be to read up to chapter **$chapterGoal**";
+          } else if ($rand == 3) {
+            $msg = "Howdy guys! The reading goal for this week will be to read up to chapter **$chapterGoal**";
+          } else if ($rand == 4) {
+            $msg = "Hi! The reading goal for this week will be to read up to chapter **$chapterGoal**";
+          } else if ($rand == 5) {
+            $msg = "AHOY Friends! The reading goal for this week will be to read up to chapter **$chapterGoal**";
+          } else {
+            $msg = "The reading goal for this week will be to read up to page **$chapterGoal**";
+          }
+
+          // $msg = "Hi everyone, my name is **Book Worm**. It is great to meet you! I am a bot created by Brandon LaDuke to bring you updates from the SpinelessBound website right into Discord!";
+
+          $webhookurl = "https://discordapp.com/api/webhooks/705949711114305556/QDtAeDLcE_AgCJ4mn5ya2J-63jtaeElkLLKgaWGcJFewTDz1GPR43aq312rM_Ul9UM-H";
+
+          $json_data = array ('content'=>"$msg", "username" => "Bookworm");
+          $make_json = json_encode($json_data);
+          $ch = curl_init( $webhookurl );
+          curl_setopt( $ch, CURLOPT_HTTPHEADER, array('Content-type: application/json'));
+          curl_setopt( $ch, CURLOPT_POST, 1);
+          curl_setopt( $ch, CURLOPT_POSTFIELDS, $make_json);
+          curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, 1);
+          curl_setopt( $ch, CURLOPT_HEADER, 0);
+          curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
+          $response = curl_exec( $ch );
+
           header("Location: ../index.php?book=$pagenum&success");
         }
       }
@@ -113,6 +181,37 @@ if (isset($_POST['updatepgnum'])) {
           exit();
         } else {
           mysqli_stmt_execute($stmt2);
+
+          $rand = rand(1,5);
+          if ($rand == 1) {
+            $msg = "$username has updated the reading goal for this week to **$customGoal**";
+          } else if ($rand == 2) {
+            $msg = "New reading goal this week! $username told me that the reading goal for this week will be to **$customGoal**";
+          } else if ($rand == 3) {
+            $msg = "Howdy guys! The reading goal for this week will be to **$customGoal**";
+          } else if ($rand == 4) {
+            $msg = "Hi! The reading goal for this week will be to **$customGoal**";
+          } else if ($rand == 5) {
+            $msg = "AHOY Friends! The reading goal for this week will be to **$customGoal**";
+          } else {
+            $msg = "The reading goal for this week will be to **$customGoal**";
+          }
+
+          // $msg = "Hi everyone, my name is **Book Worm**. It is great to meet you! I am a bot created by Brandon LaDuke to bring you updates from the SpinelessBound website right into Discord!";
+
+          $webhookurl = "https://discordapp.com/api/webhooks/705949711114305556/QDtAeDLcE_AgCJ4mn5ya2J-63jtaeElkLLKgaWGcJFewTDz1GPR43aq312rM_Ul9UM-H";
+
+          $json_data = array ('content'=>"$msg", "username" => "Bookworm");
+          $make_json = json_encode($json_data);
+          $ch = curl_init( $webhookurl );
+          curl_setopt( $ch, CURLOPT_HTTPHEADER, array('Content-type: application/json'));
+          curl_setopt( $ch, CURLOPT_POST, 1);
+          curl_setopt( $ch, CURLOPT_POSTFIELDS, $make_json);
+          curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, 1);
+          curl_setopt( $ch, CURLOPT_HEADER, 0);
+          curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
+          $response = curl_exec( $ch );
+
           header("Location: ../index.php?book=$pagenum&success");
         }
       }

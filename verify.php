@@ -42,7 +42,21 @@ if(isset($_GET['email']) && !empty($_GET['email']) AND isset($_GET['hash']) && !
             mysqli_stmt_execute($stmtupdate);
 
             //Have Book Worm Bot notify members of new member
-            $msg = "A new member, **$username** has signed up with SpinelessBound.com!";
+            $rand = rand(1,5);
+            if ($rand == 1) {
+              $msg = "Guys look! A new member, **$username** has signed up with SpinelessBound.com!";
+            } else if ($rand == 2) {
+              $msg = "Just letting you all know that a new person just joined us on Spinelessbound.com, lets make **$username** feel welcome!";
+            } else if ($rand == 3) {
+              $msg = "Join me in welcoming our new member, **$username** on Spinelessbound.com!";
+            } else if ($rand == 4) {
+              $msg = "Howdy partners! **$username** just joined as a new member on Spinelessbound.com!";
+            } else if ($rand == 5) {
+              $msg = "AHOY! **$username** just joined as a new member on Spinelessbound.com!";
+            } else {
+              $msg = "A new member, **$username** has signed up with SpinelessBound.com!";
+            }
+
             // $msg = "Hi everyone, my name is **Book Worm**. It is great to meet you! I am a bot created by Brandon LaDuke to bring you updates from the SpinelessBound website right into Discord!";
 
             $webhookurl = "https://discordapp.com/api/webhooks/705949711114305556/QDtAeDLcE_AgCJ4mn5ya2J-63jtaeElkLLKgaWGcJFewTDz1GPR43aq312rM_Ul9UM-H";
