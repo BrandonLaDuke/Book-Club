@@ -11,6 +11,8 @@ session_start(); ?>
     <meta property="og:description"        content="A student-run club here to help fellow book worms find new and exciting books as well as make new friends." />
     <meta property="og:image"              content="http://www.spinelessbound.com/img/books.jpg" />
     <title>Spineless Bound | Sullivan University Book Club</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
     <link rel="stylesheet" href="css/master.css">
     <?php if ($_GET["user"]) { ?>
       <link rel="stylesheet" href="css/profile.css">
