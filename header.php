@@ -82,6 +82,29 @@ session_start(); ?>
         <div class="head-container">
           <h1 id="logo"><a href="index.php">Spineless Bound</a></h1>
           <?php if (isset($_SESSION['userId'])) { ?>
+            <nav class="nav">
+              <a href="index.php" class="nav__link" id="nav__link__home">
+                <i class="material-icons nav__icon">home</i>
+                <span class="nav__text">Home</span>
+              </a>
+
+              <a href="members.php" class="nav__link" id="nav__link__members">
+                <i class="material-icons nav__icon">people</i>
+                <span class="nav__text">Members</span>
+              </a>
+              <a href="newbook.php" class="nav__link" id="nav__link__newbook">
+                <i class="material-icons nav__icon">book</i>
+                <span class="nav__text">Start Book</span>
+              </a>
+              <a href="bookhistory.php" class="nav__link"id="nav__link__library">
+                <i class="material-icons nav__icon">local_library</i>
+                <span class="nav__text">Library</span>
+              </a>
+              <!-- <a href="profile.php?user=<?php echo $_SESSION['userUid']; ?>" class="nav__link nav__link--active" id="nav__link__profile">
+                <i class="material-icons nav__icon">person</i>
+                <span class="nav__text">Profile</span>
+              </a> -->
+            </nav>
           <ul class="menu" augmented-ui="tl-clip br-clip exe">
             <a href="index.php"><li augmented-ui="tl-clip br-clip exe">Home</li></a>
             <a href="members.php"><li augmented-ui="tl-clip br-clip exe">Members</li></a>
