@@ -79,11 +79,12 @@ if ($resultCheck > 0) {
       $result = mysqli_query($conn, $sql);
       $resultCheck = mysqli_num_rows($result); ?>
       <h1 class="head-txt">Books Suggested</h1>
+      <div class="book-grid">
       <?php if ($resultCheck > 0) {
         while ($row1 = mysqli_fetch_assoc($result)) {
           if ($row1['chosenBy'] == $_GET['user']) {
             $match = true; ?>
-      <div class="book-grid">
+
         <?php
         if ($resultCheck > 0) { ?>
           <div class="book">
