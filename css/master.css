@@ -1,15 +1,11 @@
 @charset "UTF-8";
-/* @font-face {
-  font-family: Retro_Gaming;
-  src:url('../fonts/Retro_Gaming.ttf') format('truetype');
-} */
 /* Cool stuff */
 /* buttons */
 @import url(https://fonts.googleapis.com/css?family=Patrick+Hand+SC);
 
 
 /* colors */
-:host {202226
+:host {
 --gray1: #202226;
 --gray2: #292b30;
 --gray3: #303136;

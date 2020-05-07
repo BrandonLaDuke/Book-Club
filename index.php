@@ -21,7 +21,7 @@
     </div>
     <main>
     <section id="main-view">
-      <?php $sql = "SELECT * FROM books ORDER BY bookId DESC;";
+      <?php $sql = "SELECT * FROM books WHERE readingStatus = 1 ORDER BY bookId DESC;";
       $result = mysqli_query($conn, $sql);
       $resultCheck = mysqli_num_rows($result);
       if ($row = mysqli_fetch_assoc($result)) { ?>

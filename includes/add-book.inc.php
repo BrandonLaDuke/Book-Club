@@ -12,6 +12,10 @@ if (isset($_POST['add-book-submit'])) {
   $chapter = "";
   $pageNumber = 0;
   $customGoal = "";
+  $readingStatus = 2;
+  // Read = 0
+  // Currenty Reading = 1
+  // Reading Queue = 2
 
   $coverart = $_FILES['coverart'];
   $coverartName = $coverart['name'];
@@ -28,13 +32,13 @@ if (isset($_POST['add-book-submit'])) {
 
 
   if (empty($booktitle) || empty($author) || empty($chosenby)) {
-    header("Location: ../newbook.php?error=emptyfields&booktitle=".$booktitle."&author=".$author."&chosenby=".$chosenby);
+    header("Location: ../library.php?error=emptyfields&booktitle=".$booktitle."&author=".$author."&chosenby=".$chosenby);
     exit();
   } else {
-    $sql = "INSERT INTO books (bookTitle, bookAuthor, chosenBy, coverArtURL, chapter, pageNumber, customGoal) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO books (bookTitle, bookAuthor, chosenBy, coverArtURL, chapter, pageNumber, customGoal, readingStatus) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-      header("Location: ../newbook.php?error=sqlerror");
+      header("Location: ../library.php?error=sqlerror");
       exit();
     } else {
       if (in_array($coverartActualExt, $allowed)) {
@@ -48,19 +52,66 @@ if (isset($_POST['add-book-submit'])) {
             // $coverArtUrl = 'http://localhost/sullivan/csc364-Team2/uploads/'.$fileNameNew;
           } else {
             echo "Wow! Your file is too big!";
+            header("Location: ../library.php?error=filetoolarge");
+            exit();
           }
         } else {
           echo "huh, There was an error uploading your file.";
+          header("Location: ../library.php?error=upload");
+          exit();
         }
       } else {
         echo "You can  not upload files of this type.";
+        header("Location: ../library.php?error=invalidFileType");
+        exit();
       }
-      mysqli_stmt_bind_param($stmt, "sssssis", $booktitle, $author, $chosenby, $coverArtUrl, $chapter, $pageNumber, $customGoal);
+      mysqli_stmt_bind_param($stmt, "sssssisi", $booktitle, $author, $chosenby, $coverArtUrl, $chapter, $pageNumber, $customGoal, $readingStatus);
       mysqli_stmt_execute($stmt);
-      header("Location: ../bookhistory.php?add_book=success");
+      header("Location: ../library.php?add_book=success");
       }
     }
-  }
+    mysqli_stmt_close($stmt);
+    mysqli_close($conn);
+  } else if (isset($_POST['start-reading'])) {
+    require 'dbh.inc.php';
 
-mysqli_stmt_close($stmt);
-mysqli_close($conn);
+    $idbook = $_POST['bookId'];
+    $readingStatus = 1;
+    $previousBook = 1;
+    $previousBookNewStatus = 0;
+    // Read = 0
+    // Currenty Reading = 1
+    // Reading Queue = 2
+
+    //Update $previousBook to $previousBookNewStatus
+    $sqlR = "UPDATE books
+    SET readingStatus = '$previousBookNewStatus'
+    WHERE readingStatus = '$previousBook'";
+    $stmtR = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmtR, $sqlR)) {
+      header("Location: ../library.php?error=sqlerror");
+      exit();
+    } else {
+      mysqli_stmt_execute($stmtR);
+
+      $sql = "UPDATE books
+      SET readingStatus = '$readingStatus'
+      WHERE bookId = '$idbook'";
+      $stmt = mysqli_stmt_init($conn);
+      if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("Location: ../library.php?error=sqlerror");
+        exit();
+      } else {
+        mysqli_stmt_execute($stmt);
+
+        //Add Bookworm here
+
+        header("Location: ../library.php?startbook=success");
+        }
+
+        mysqli_stmt_close($stmt);
+        mysqli_close($conn);
+    }
+
+
+  }

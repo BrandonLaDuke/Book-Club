@@ -92,11 +92,7 @@ session_start(); ?>
                 <i class="material-icons nav__icon">people</i>
                 <span class="nav__text">Members</span>
               </a>
-              <a href="newbook.php" class="nav__link" id="nav__link__newbook">
-                <i class="material-icons nav__icon">book</i>
-                <span class="nav__text">Start Book</span>
-              </a>
-              <a href="bookhistory.php" class="nav__link"id="nav__link__library">
+              <a href="library.php" class="nav__link"id="nav__link__library">
                 <i class="material-icons nav__icon">local_library</i>
                 <span class="nav__text">Library</span>
               </a>
@@ -108,8 +104,7 @@ session_start(); ?>
           <ul class="menu" augmented-ui="tl-clip br-clip exe">
             <a href="index.php"><li augmented-ui="tl-clip br-clip exe">Home</li></a>
             <a href="members.php"><li augmented-ui="tl-clip br-clip exe">Members</li></a>
-            <a href="newbook.php"><li augmented-ui="tl-clip br-clip exe">Start a new book</li></a>
-            <a href="bookhistory.php"><li augmented-ui="tl-clip br-clip exe">Book History</li></a>
+            <a href="library.php"><li augmented-ui="tl-clip br-clip exe">Library</li></a>
           </ul>
         </div>
       <?php } ?>
