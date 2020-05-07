@@ -94,10 +94,11 @@ if ($resultCheck > 0) {
               <h3><?php echo $row1['bookAuthor']; ?></h3>
               <p>Suggested by: <?php echo $row1['chosenBy']; ?></p>
             </a>
+          </div>
         <?php }
       }}}
         ?>
-      </div>
+
     </div>
 </div>
 </div>
