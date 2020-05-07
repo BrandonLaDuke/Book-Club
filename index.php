@@ -21,7 +21,7 @@
     </div>
     <main>
     <section id="main-view">
-      <?php $sql = "SELECT * FROM books WHERE readingStatus = 1 ORDER BY bookId DESC;";
+      <?php $sql = "SELECT * FROM books WHERE readingStatus = 1;";
       $result = mysqli_query($conn, $sql);
       $resultCheck = mysqli_num_rows($result);
       if ($row = mysqli_fetch_assoc($result)) { ?>
@@ -66,18 +66,20 @@
         </form>
       </div>
     <?php } ?>
-      <?php $sqlUp = "SELECT * FROM upcommingBooks ORDER BY bookId ASC;";
+      <?php $sqlUp = "SELECT * FROM books WHERE readingStatus = 2 ORDER BY bookId ASC;";
       $resultUp = mysqli_query($conn, $sqlUp);
       $resultCheckUp = mysqli_num_rows($resultUp);
       if ($rowUp = mysqli_fetch_assoc($resultUp)) { ?>
 
       <div class="currenty-reading">
+
         <div class="cur-text">
           <h4>Reading Next</h4>
           <h1><?php echo $rowUp['bookTitle']; ?></h1>
           <h3>by <?php echo $rowUp['bookAuthor']; ?></h3>
-          <h3>Available here: <a href="<?php echo $rowUp['bookUrl']; ?>">Buy now on Amazon</a></h3>
+          <h3>Selected by <?php echo $rowUp['chosenBy']; ?></h3>
         </div>
+        <img class="book-cover-cur" src="<?php echo $rowUp['coverArtURL']; ?>" width="300px" alt="">
       </div>
     <?php } ?>
     </section>

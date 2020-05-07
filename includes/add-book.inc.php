@@ -106,7 +106,7 @@ if (isset($_POST['add-book-submit'])) {
 
         //Add Bookworm here
 
-        header("Location: ../library.php?startbook=success");
+        header("Location: ../index.php?startbook=success");
         }
 
         mysqli_stmt_close($stmt);
