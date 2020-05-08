@@ -130,7 +130,7 @@ if (isset($_POST['signup-submit'])) {
               $headers = 'From:noreply@spinelessbound.com' . "\r\n"; // Set from headers
               mail($to, $subject, $message, $headers); // Send our email
               // End email
-              header("Location: ../index.php?signup=success&mail=" . $msg);
+              header("Location: ../index.php?success=signup&mail=" . $msg);
             }
           }
         }

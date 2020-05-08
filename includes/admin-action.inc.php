@@ -3,7 +3,7 @@ ini_set('display_errors', 'On');
 error_reporting(E_ALL);
 
 if (isset($_POST['bookworm-message'])) {
-   $msg = $_POST['announcement'];
+  $msg = $_POST['announcement'];
 
   $webhookurl = "https://discordapp.com/api/webhooks/705949711114305556/QDtAeDLcE_AgCJ4mn5ya2J-63jtaeElkLLKgaWGcJFewTDz1GPR43aq312rM_Ul9UM-H";
 
@@ -17,7 +17,7 @@ if (isset($_POST['bookworm-message'])) {
   curl_setopt( $ch, CURLOPT_HEADER, 0);
   curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
   $response = curl_exec( $ch );
-  header("Location: ../adminpanel.php?bookworm=messagesent");
+  header("Location: ../adminpanel.php?success=messagesent");
   exit();
 } else {
   header("Location: ../index.php");

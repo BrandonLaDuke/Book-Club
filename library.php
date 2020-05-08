@@ -37,6 +37,7 @@
           </a>
           <form class="selectBookForm" action="includes/add-book.inc.php" method="post">
             <input type="hidden" name="bookId" value="<?php echo $queueBook['bookId']; ?>">
+            <input type="hidden" name="booktitle" value="<?php echo $queueBook['booktitle']; ?>">
             <button type="submit" name="start-reading">Start Reading</button>
           </form>
         </div>

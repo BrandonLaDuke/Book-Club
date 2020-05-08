@@ -69,7 +69,7 @@ if (isset($_POST['updatepgnum'])) {
 
 
 
-          header("Location: ../index.php?book=$idbook&goal=$pagenum&success");
+          header("Location: ../index.php?book=$idbook&goal=$pagenum&success=readingGoal");
         }
       }
     }
@@ -141,7 +141,7 @@ if (isset($_POST['updatepgnum'])) {
           curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
           $response = curl_exec( $ch );
 
-          header("Location: ../index.php?book=$pagenum&success");
+          header("Location: ../index.php?book=$pagenum&success=readingGoal");
         }
       }
     }
@@ -212,7 +212,7 @@ if (isset($_POST['updatepgnum'])) {
           curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
           $response = curl_exec( $ch );
 
-          header("Location: ../index.php?book=$pagenum&success");
+          header("Location: ../index.php?book=$pagenum&success=readingGoal");
         }
       }
     }

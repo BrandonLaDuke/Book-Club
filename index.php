@@ -1,5 +1,21 @@
 <?php require "header.php"; ?>
 
+
+  <?php
+if (isset($_GET['error'])) {
+  if ($_GET['error'] == "sqlerror") {
+    echo '<p class="bookworm-msg error">Huh. There was an unexpected SQL error. Please notify Brandon LaDuke in discord.</p>';
+  }
+} else if (isset($_GET['success'])) {
+  if ($_GET['success'] == "startbook") {
+    echo '<p class="bookworm-msg success">Yay! I\'m looking forward to reading '.$_GET['booktitle'].' with you!</p>';
+  } else if ($_GET['success'] == "readingGoal") {
+    echo '<p class="bookworm-msg success">Reading goal has been successfully updated!</p>';
+  }
+} else if (isset($_GET['logout'])) {
+  echo '<p class="bookworm-msg success">See you next time!</p>';
+}
+   ?>
   <?php if (isset($_SESSION['userId'])) { ?>
     <?php
     $sql = "SELECT announcement FROM announcements WHERE idAnnouncement=1;";
@@ -122,7 +138,7 @@
         } else if ($_GET['error'] == "usernotverified") {
           echo '<p class="error" augmented-ui="tl-clip br-clip exe">This user has not yet been verified.<br>Please click the verification link in your email to verify your account.<br>If you have not recived an email check to see if Sullivan has quarantined it by going to <a href="https://protection.office.com/quarantine">Outlook Quarantine</a> and selecting the email from noreply@spinelessbound.com and releasing it.</p>';
         }
-      } else if ($_GET['signup'] == "success") {
+      } else if ($_GET['success'] == "signup") {
         echo '<p class="db-success" augmented-ui="tl-clip br-clip exe">Yay! Your accound has been created successfully!<br>Please verify it by clicking the activation link that has been sent to your Sullivan email.</p>';
       }?>
       <form class="signup" action="includes/signup.inc.php" method="post">

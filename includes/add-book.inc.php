@@ -67,7 +67,7 @@ if (isset($_POST['add-book-submit'])) {
       }
       mysqli_stmt_bind_param($stmt, "sssssisi", $booktitle, $author, $chosenby, $coverArtUrl, $chapter, $pageNumber, $customGoal, $readingStatus);
       mysqli_stmt_execute($stmt);
-      header("Location: ../library.php?add_book=success");
+      header("Location: ../library.php?success=addBook");
       }
     }
     mysqli_stmt_close($stmt);
@@ -76,6 +76,7 @@ if (isset($_POST['add-book-submit'])) {
     require 'dbh.inc.php';
 
     $idbook = $_POST['bookId'];
+    $booktitle = $_POST['booktitle'];
     $readingStatus = 1;
     $previousBook = 1;
     $previousBookNewStatus = 0;
@@ -106,7 +107,7 @@ if (isset($_POST['add-book-submit'])) {
 
         //Add Bookworm here
 
-        header("Location: ../index.php?startbook=success");
+        header("Location: ../index.php?success=startbook&booktitle=$booktitle");
         }
 
         mysqli_stmt_close($stmt);
