@@ -14,11 +14,7 @@
   <script type="text/javascript">
     document.getElementById('nav__link__members').classList.add("nav__link--active")
   </script>
-<?php } else if ($pagename == "newbook") { ?>
-  <script type="text/javascript">
-    document.getElementById('nav__link__newbook').classList.add("nav__link--active")
-  </script>
-<?php } else if ($pagename == "bookhistory") { ?>
+<?php } else if ($pagename == "library") { ?>
   <script type="text/javascript">
     document.getElementById('nav__link__library').classList.add("nav__link--active")
   </script>

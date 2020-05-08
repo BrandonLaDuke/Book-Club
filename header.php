@@ -96,10 +96,14 @@ session_start(); ?>
                 <i class="material-icons nav__icon">local_library</i>
                 <span class="nav__text">Library</span>
               </a>
-              <!-- <a href="profile.php?user=<?php echo $_SESSION['userUid']; ?>" class="nav__link nav__link--active" id="nav__link__profile">
+              <!-- <a href="notifications" class="nav__link"id="nav__link__notifications">
+                <i class="material-icons nav__icon">notifications</i>
+                <span class="nav__text">Notifications</span>
+              </a> -->
+              <a href="profile.php?user=<?php echo $_SESSION['userUid']; ?>" class="nav__link" id="nav__link__profile">
                 <i class="material-icons nav__icon">person</i>
                 <span class="nav__text">Profile</span>
-              </a> -->
+              </a>
             </nav>
           <ul class="menu" augmented-ui="tl-clip br-clip exe">
             <a href="index.php"><li augmented-ui="tl-clip br-clip exe">Home</li></a>
