@@ -15,6 +15,7 @@ if (isset($_POST['add-book-submit'])) {
   $readingStatus = 2;
   $groupPicture = "";
   $whereToBuy = "";
+  $description = "";
   // Read = 0
   // Currenty Reading = 1
   // Reading Queue = 2
@@ -37,7 +38,7 @@ if (isset($_POST['add-book-submit'])) {
     header("Location: ../library.php?error=emptyfields&booktitle=".$booktitle."&author=".$author."&chosenby=".$chosenby);
     exit();
   } else {
-    $sql = "INSERT INTO books (bookTitle, bookAuthor, chosenBy, coverArtURL, chapter, pageNumber, customGoal, readingStatus, groupPicture, whereToBuy) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO books (bookTitle, bookAuthor, chosenBy, coverArtURL, chapter, pageNumber, customGoal, readingStatus, groupPicture, whereToBuy, description) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
       header("Location: ../library.php?error=sqlerror");
@@ -67,7 +68,7 @@ if (isset($_POST['add-book-submit'])) {
         header("Location: ../library.php?error=invalidFileType");
         exit();
       }
-      mysqli_stmt_bind_param($stmt, "sssssisiss", $booktitle, $author, $chosenby, $coverArtUrl, $chapter, $pageNumber, $customGoal, $readingStatus, $groupPicture, $whereToBuy);
+      mysqli_stmt_bind_param($stmt, "sssssisisss", $booktitle, $author, $chosenby, $coverArtUrl, $chapter, $pageNumber, $customGoal, $readingStatus, $groupPicture, $whereToBuy, $description);
       mysqli_stmt_execute($stmt);
       header("Location: ../library.php?success=addBook");
       }
