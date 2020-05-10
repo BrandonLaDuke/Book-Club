@@ -2,8 +2,8 @@
 <main class="sb-container">
 <?php if (isset($_SESSION['userId'])) { ?>
   <div class="lib-buttons">
-    <a class="btn lined thin profile-btn" href="library.php?queue">Add a book to the queue</a>
-    <a class="btn lined thin profile-btn" href="library.php?startbook">Start a book from the queue</a>
+    <a class="btn lined thin profile-btn" href="library.php?queue">Add a book</a>
+    <a class="btn lined thin profile-btn" href="library.php?startbook">View Queue</a>
   </div>
   <?php if (isset($_GET['queue'])) { ?>
     <div class="newbook">
