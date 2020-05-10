@@ -5,7 +5,7 @@
 
 
 /* colors */
-:host {
+:root {
 --gray1: #202226;
 --gray2: #292b30;
 --gray3: #303136;
@@ -554,6 +554,72 @@ main {
 }
 
 /* END: Home page Currently Reading */
+
+
+
+
+
+
+
+
+/* Stream */
+
+.postbox {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 50px auto 150px;
+  grid-template-rows: 50px auto 50px;
+  grid-gap: 10px;
+  grid-template-areas: "pb-img pb-name pb-name"
+                       "pb-text pb-text pb-text"
+                       ". . pb-button";
+  padding: 10px;
+  background-color: var(--gray2);
+}
+.postbox__img {
+  grid-area: pb-img;
+  width: 100%;
+  border-radius: 50%;
+  padding: 5px;
+}
+.postbox__name {
+  grid-area: pb-name;
+  margin: auto 0;
+  font-size: 17px;
+}
+.postbox__text {
+  grid-area: pb-text;
+  font-size: 14px
+}
+.postbox__submit {
+  grid-area: pb-button;
+  font-size: 18px;
+  border-radius: 50px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* End Stream */
 
 
 
@@ -1126,7 +1192,7 @@ body {
   }
   .nav__link {
       flex-grow: 0;
-      padding-top: 30px;
+      padding: 15px;
       font-size: 16px;
   }
   .nav__link:hover {

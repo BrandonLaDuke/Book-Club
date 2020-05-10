@@ -10,6 +10,10 @@
     <script type="text/javascript">
       document.getElementById('nav__link__home').classList.add("nav__link--active")
     </script>
+<?php } else if ($pagename == "stream") { ?>
+  <script type="text/javascript">
+    document.getElementById('nav__link__stream').classList.add("nav__link--active")
+  </script>
 <?php } else if ($pagename == "members") { ?>
   <script type="text/javascript">
     document.getElementById('nav__link__members').classList.add("nav__link--active")

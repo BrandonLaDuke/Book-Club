@@ -87,7 +87,7 @@ session_start(); ?>
                 <i class="material-icons nav__icon">home</i>
                 <span class="nav__text">Home</span>
               </a>
-              <a href="stream.php" class="nav__link" id="nav__link__home">
+              <a href="stream.php" class="nav__link" id="nav__link__stream">
                 <i class="material-icons nav__icon">dashboard</i>
                 <span class="nav__text">Stream</span>
               </a>
