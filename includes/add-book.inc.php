@@ -12,13 +12,16 @@ if (isset($_POST['add-book-submit'])) {
   $chapter = "";
   $pageNumber = 0;
   $customGoal = "";
+
   $readingStatus = 2;
-  $groupPicture = "";
-  $whereToBuy = "";
-  $description = "";
   // Read = 0
   // Currenty Reading = 1
   // Reading Queue = 2
+
+  $groupPicture = "";
+  $whereToBuy = "";
+  $description = "";
+
 
   $coverart = $_FILES['coverart'];
   $coverartName = $coverart['name'];

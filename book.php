@@ -10,6 +10,7 @@
         }
       </style>
 <?php }
+  $bookIdNum = $_GET['bookid'];
     $sql = "SELECT * FROM books;";
     $result = mysqli_query($conn, $sql);
     $resultCheck = mysqli_num_rows($result);
@@ -19,27 +20,51 @@
         if ($row['bookId'] == $_GET['bookid']) {
           $match = true; ?>
         <!-- Begin Content -->
+        <style media="screen">
+          .groupPhotoBook {
+            background-image: url('<?php echo $row['groupPicture']; ?>');
+            background-position: top;
+            /* background-image: url('<?php echo $row['groupPhoto']; ?>');
+            background-position: <?php echo $row['groupPhotoPosition']; ?>; */
+          }
+        </style>
+        <div class="groupPhotoBook">
+
+        </div>
         <div class="bp-grid">
+
           <div class="book-cover">
             <img src="<?php echo $row['coverArtURL']; ?>" alt="">
           </div>
-
+          <?php
+          $sqlRating = "SELECT AVG(`rating`) AS `rating` FROM `bookRatings`";
+                    if(!$resultRating = $conn->query($sqlRating)){
+                      error('There was an error running the query [' . $conn->error . ']');
+                    }
+                    // Fetch the average rating
+                    $data = $resultRating->fetch_assoc();
+                    $avgRating = $data['rating'];
+          ?>
+          <div class="rating">
+            <span>Rating: <?php echo round($avgRating, 2); ?></span>
+          </div>
           <form class="book-details" action="index.html" method="post">
             <h1><?php echo $row['bookTitle']; ?></h1>
             <input class="editmode" type="text" name="bookTitle" placeholder="Book Title" value="<?php echo $row['bookTitle']; ?>">
             <span>By <?php echo $row['bookAuthor']; ?></span>
             <input class="editmode" type="text" name="bookAuthor" placeholder="Book Author" value="<?php echo $row['bookAuthor']; ?>">
             <span>Chosen by <a href="profile.php?user=<?php echo $row['chosenBy']; ?>"><?php echo $row['chosenBy']; ?></a></span>
-            <label class="editmode" for="groupPhoto">Group Photo:</label>
 
+            <label class="editmode" for="groupPhoto">Group Photo:</label>
             <input class="editmode" type="file" name="groupPhoto">
+
             <label class="editmode" for="description">Book Description:</label>
             <textarea class="editmode" type="text" name="description"><?php echo $row['description'] ?></textarea>
             <input class="editmode" type="text" name="whereToBuy" value="<?php echo $row['whereToBuy'] ?>">
      <?php  if (isset($_GET['edit'])) { ?>
             <button type="submit" name="savebook">Save</button>
      <?php  } else { ?>
-              <!-- <a class="btn lined thin" href="book.php?bookid=<?php echo $_GET['bookid'] ?>&edit=true">Edit book</a> -->
+              <!-- <a class="profile-btn btn lined thin" href="book.php?bookid=<?php echo $_GET['bookid'] ?>&edit=true">Edit book</a> -->
      <?php  } ?>
 
           </form>
@@ -83,9 +108,7 @@
 
                     <?php } else { ?>
                       <span id="cmttxt<?php echo $count ?>" class="visable"><?php echo $rowComment['commentText']; ?></span>
-                  <?php }
-
-                       ?>
+                  <?php } ?>
 
 
 

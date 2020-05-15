@@ -921,7 +921,16 @@ main {
 
 
 /* BEGIN: Book Details */
+.groupPhotoBook {
+  width: 100%;
+  height: calc((1080 / 1920) * 100vw);
+  max-height: calc((1080 / 1920 * 1025px));
+  background-size: cover;
+}
+
+
 .bp-grid {
+  margin-top: -120px;
   width: 100%;
 }
 .bp-grid > .book-cover {
