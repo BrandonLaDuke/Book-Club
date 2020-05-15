@@ -18,6 +18,7 @@
     if ($resultCheck > 0) {
       while ($row = mysqli_fetch_assoc($result)) {
         if ($row['bookId'] == $_GET['bookid']) {
+          $idOfBook = $row['bookId'];
           $match = true; ?>
         <!-- Begin Content -->
         <style media="screen">
@@ -36,17 +37,38 @@
           <div class="book-cover">
             <img src="<?php echo $row['coverArtURL']; ?>" alt="">
           </div>
+
           <?php
-          $sqlRating = "SELECT AVG(`rating`) AS `rating` FROM `bookRatings`";
+          //Get user rating only
+
+
+
+
+          $sqlRating = "SELECT AVG(`rating`) AS `rating` FROM `bookRatings` WHERE `bookId` = ".$idOfBook."";
                     if(!$resultRating = $conn->query($sqlRating)){
                       error('There was an error running the query [' . $conn->error . ']');
-                    }
+                    } else {
                     // Fetch the average rating
                     $data = $resultRating->fetch_assoc();
                     $avgRating = $data['rating'];
+                  }
           ?>
           <div class="rating">
-            <span>Rating: <?php echo round($avgRating, 2); ?></span>
+            <span>Rate the book:</span>
+            <form class="ratingForm" action="includes/ratebook.inc.php" method="post">
+              <select id="stars" name="rating">
+                <option value="5">5</option>
+                <option value="4">4</option>
+                <option value="3">3</option>
+                <option value="2">2</option>
+                <option value="1">1</option>
+              </select>
+              <input type="hidden" name="uidUsers" value="<?php echo $_SESSION['userUid']; ?>">
+              <input type="hidden" name="bookId" value="<?php echo $idOfBook; ?>">
+              <button type="submit" name="ratebook">Add Rating</button>
+            </form>
+            <span>Average rating: </span>
+            <div class="stars" style="--rating: <?php echo round($avgRating, 2); ?>;" aria-label="Rating of this product is 2.3 out of 5."></div>
           </div>
           <form class="book-details" action="index.html" method="post">
             <h1><?php echo $row['bookTitle']; ?></h1>
