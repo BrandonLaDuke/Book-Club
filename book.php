@@ -42,8 +42,6 @@
           //Get user rating only
 
 
-
-
           $sqlRating = "SELECT AVG(`rating`) AS `rating` FROM `bookRatings` WHERE `bookId` = ".$idOfBook."";
                     if(!$resultRating = $conn->query($sqlRating)){
                       error('There was an error running the query [' . $conn->error . ']');
@@ -54,21 +52,30 @@
                   }
           ?>
           <div class="rating">
-            <span>Rate the book:</span>
+
+
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
+            <span onclick="showRatingForm()">Rate the book</span>
             <form class="ratingForm" action="includes/ratebook.inc.php" method="post">
-              <select id="stars" name="rating">
-                <option value="5">5</option>
-                <option value="4">4</option>
-                <option value="3">3</option>
-                <option value="2">2</option>
-                <option value="1">1</option>
-              </select>
+              <div class="rating">
+                  <span><input type="radio" name="rating" id="str5" value="5"><label for="str5">★</label></span>
+                  <span><input type="radio" name="rating" id="str4" value="4"><label for="str4">★</label></span>
+                  <span><input type="radio" name="rating" id="str3" value="3"><label for="str3">★</label></span>
+                  <span><input type="radio" name="rating" id="str2" value="2"><label for="str2">★</label></span>
+                  <span><input type="radio" name="rating" id="str1" value="1"><label for="str1">★</label></span>
+              </div>
               <input type="hidden" name="uidUsers" value="<?php echo $_SESSION['userUid']; ?>">
               <input type="hidden" name="bookId" value="<?php echo $idOfBook; ?>">
               <button type="submit" name="ratebook">Add Rating</button>
             </form>
+
+
             <span>Average rating: </span>
             <div class="stars" style="--rating: <?php echo round($avgRating, 2); ?>;" aria-label="Rating of this product is 2.3 out of 5."></div>
+
+
           </div>
           <form class="book-details" action="index.html" method="post">
             <h1><?php echo $row['bookTitle']; ?></h1>

@@ -945,6 +945,48 @@ main {
   width: 150px;
   margin: 10px auto 0 auto;
 }
+
+
+
+
+
+.rating {
+    width:300px;
+}
+.rating span { float:right; position:relative; }
+.rating span input {
+    position:absolute;
+    top:0px;
+    left:0px;
+    opacity:0;
+}
+.rating span label {
+    display:inline-block;
+    width:30px;
+    height:30px;
+    text-align:center;
+    color:#FFF;
+    font-size:30px;
+    margin-right:2px;
+    line-height:30px;
+    border-radius:50%;
+    -webkit-border-radius:50%;
+}
+.rating span:hover ~ span label,
+.rating span:hover label,
+.rating span.checked label,
+.rating span.checked ~ span label {
+    color:#F90;
+}
+
+
+
+
+
+
+
+
+
 .stars {
   --percent: calc(var(--rating) / 5 * 100%);
   display: inline-block;
@@ -959,6 +1001,69 @@ main {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+
+
+.star-rating {
+  display: flex;
+}
+
+.star-rating label {
+  font-size: 25px;
+  padding: 0 5px;
+}
+
+.star-rating label[for=star1] {
+  order: 1;
+}
+
+.star-rating label[for=star2] {
+  order: 2;
+}
+
+.star-rating label[for=star3] {
+  order: 3;
+}
+
+.star-rating label[for=star4] {
+  order: 4;
+}
+
+.star-rating label[for=star5] {
+  order: 5;
+}
+
+.star-rating input {
+  display: none;
+}
+
+.star-rating label {
+  color: #999;
+  transition: 0.1s;
+}
+
+.star-rating label.selected,
+.star-rating label.selected ~ label {
+  color: gold;
+  font-weight: 900;
+}
+
+.star-rating label[for^=star]:hover, /* - CSS overrides are fun - */
+.star-rating label:hover ~ label {
+  color: #666;
+  font-weight: 900;
+}
+
+
+
+
+
+
+
+
+
+
+
 .book-details {
   padding: 2px 10px 0 10px;;
 }
