@@ -16,7 +16,20 @@ session_start(); ?>
     <link rel="stylesheet" href="css/master.css">
     <?php if ($_GET["user"]) { ?>
       <link rel="stylesheet" href="css/profile.css">
-      <?php } ?>
+      <?php }
+      if (isset($_SESSION['userId'])) {
+        ?>
+        <style>
+        @media (min-width:900px) {
+          body {
+            margin: 0 0 0 100px;
+          }
+        }
+        </style>
+        <?php
+      }
+      ?>
+
 
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
