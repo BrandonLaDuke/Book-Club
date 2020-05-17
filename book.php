@@ -24,9 +24,7 @@
         <style media="screen">
           .groupPhotoBook {
             background-image: url('<?php echo $row['groupPicture']; ?>');
-            background-position: top;
-            /* background-image: url('<?php echo $row['groupPhoto']; ?>');
-            background-position: <?php echo $row['groupPhotoPosition']; ?>; */
+            background-position: <?php echo $row['groupPhotoPosition']; ?>;
           }
         </style>
         <div class="groupPhotoBook">
@@ -38,47 +36,9 @@
             <img src="<?php echo $row['coverArtURL']; ?>" alt="">
           </div>
 
-          <?php
-          //Get user rating only
 
-
-          $sqlRating = "SELECT AVG(`rating`) AS `rating` FROM `bookRatings` WHERE `bookId` = ".$idOfBook."";
-                    if(!$resultRating = $conn->query($sqlRating)){
-                      error('There was an error running the query [' . $conn->error . ']');
-                    } else {
-                    // Fetch the average rating
-                    $data = $resultRating->fetch_assoc();
-                    $avgRating = $data['rating'];
-                  }
-          ?>
-          <div class="rating">
-
-
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
-
-            <span onclick="showRatingForm()">Rate the book</span>
-            <form class="ratingForm" action="includes/ratebook.inc.php" method="post">
-              <div class="rating">
-                  <span><input type="radio" name="rating" id="str5" value="5"><label for="str5">★</label></span>
-                  <span><input type="radio" name="rating" id="str4" value="4"><label for="str4">★</label></span>
-                  <span><input type="radio" name="rating" id="str3" value="3"><label for="str3">★</label></span>
-                  <span><input type="radio" name="rating" id="str2" value="2"><label for="str2">★</label></span>
-                  <span><input type="radio" name="rating" id="str1" value="1"><label for="str1">★</label></span>
-              </div>
-              <input type="hidden" name="uidUsers" value="<?php echo $_SESSION['userUid']; ?>">
-              <input type="hidden" name="bookId" value="<?php echo $idOfBook; ?>">
-              <button type="submit" name="ratebook">Add Rating</button>
-            </form>
-
-
-            <span>Average rating: </span>
-            <div class="stars" style="--rating: <?php echo round($avgRating, 2); ?>;" aria-label="Rating of this product is 2.3 out of 5."></div>
-
-
-          </div>
           <form class="book-details" action="index.html" method="post">
-            <h1><?php echo $row['bookTitle']; ?></h1>
+            <h1 class="book-details__title"><?php echo $row['bookTitle']; ?></h1>
             <input class="editmode" type="text" name="bookTitle" placeholder="Book Title" value="<?php echo $row['bookTitle']; ?>">
             <span>By <?php echo $row['bookAuthor']; ?></span>
             <input class="editmode" type="text" name="bookAuthor" placeholder="Book Author" value="<?php echo $row['bookAuthor']; ?>">
@@ -93,11 +53,59 @@
      <?php  if (isset($_GET['edit'])) { ?>
             <button type="submit" name="savebook">Save</button>
      <?php  } else { ?>
-              <!-- <a class="profile-btn btn lined thin" href="book.php?bookid=<?php echo $_GET['bookid'] ?>&edit=true">Edit book</a> -->
+       <div class="edt-btn-fix">
+         <a class="edit-book-btn profile-btn btn lined thin" href="book.php?bookid=<?php echo $_GET['bookid'] ?>&edit=true">Edit book</a>
+       </div>
+
      <?php  } ?>
 
           </form>
+          <hr>
+          <?php
+          //Get user rating only
 
+
+          $sqlRating = "SELECT AVG(`rating`) AS `rating` FROM `bookRatings` WHERE `bookId` = ".$idOfBook."";
+                    if(!$resultRating = $conn->query($sqlRating)){
+                      error('There was an error running the query [' . $conn->error . ']');
+                    } else {
+                    // Fetch the average rating
+                    $data = $resultRating->fetch_assoc();
+                    $avgRating = $data['rating'];
+                  }
+          ?>
+          <div class="rating">
+            <div class="avg-rating">
+              <span class="stars" style="--rating: <?php echo round($avgRating, 2); ?>;" aria-label="Rating of this product is 2.3 out of 5."></span>
+              <span><?php echo round($avgRating, 2); ?></span>
+
+
+            </div>
+          </div>
+            <hr>
+            <div class="rating">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+            <p>Rate it</p>
+            <div class="to-rate">
+
+              <br>
+              <form class="ratingForm" action="includes/ratebook.inc.php" method="post">
+                <div class="rating">
+                    <span><input type="radio" name="rating" id="str5" value="5"><label for="str5">★</label></span>
+                    <span><input type="radio" name="rating" id="str4" value="4"><label for="str4">★</label></span>
+                    <span><input type="radio" name="rating" id="str3" value="3"><label for="str3">★</label></span>
+                    <span><input type="radio" name="rating" id="str2" value="2"><label for="str2">★</label></span>
+                    <span><input type="radio" name="rating" id="str1" value="1"><label for="str1">★</label></span>
+                </div>
+                <input type="hidden" name="uidUsers" value="<?php echo $_SESSION['userUid']; ?>">
+                <input type="hidden" name="bookId" value="<?php echo $idOfBook; ?>">
+                <br>
+                <button class="edit-rate-btn profile-btn btn lined thin" type="submit" name="ratebook">Add Rating</button>
+              </form>
+            </div>
+          </div>
+<hr>
           <div class="book-comments">
             <h2>Comments</h2>
             <div class="new-comment">

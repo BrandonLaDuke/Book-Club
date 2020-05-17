@@ -28,8 +28,19 @@ if (isset($_POST['ratebook'])) {
       mysqli_stmt_store_result($stmt);
       $resultCheck = mysqli_stmt_num_rows($stmt);
       if ($resultCheck > 0) {
-        header("Location: ../book.php?bookid=$bookId&error=already rated");
+
         //UPDATE Rating?
+        $sql3 = "UPDATE bookRatings
+        SET rating = '$rating'
+        WHERE bookId = '$bookId' AND uidUsers = '$uidUsers'";
+        $stmt2 = mysqli_stmt_init($conn);
+        if (!mysqli_stmt_prepare($stmt2, $sql3)) {
+          header("Location: ../index.php?book=$idbook&error=sqlerror");
+          exit();
+        } else {
+          mysqli_stmt_execute($stmt2);
+          header("Location: ../book.php?bookid=$bookId&success=updateRating");
+        }
         exit();
       } else {
         $sql = "INSERT INTO bookRatings (uidUsers, bookId, rating) VALUES (?, ?, ?)";
@@ -41,6 +52,7 @@ if (isset($_POST['ratebook'])) {
           mysqli_stmt_bind_param($stmt, "sii", $uidUsers, $bookId, $rating);
           mysqli_stmt_execute($stmt);
           header("Location: ../book.php?bookid=$bookId&success=addRating");
+          exit();
         }
       }
     }

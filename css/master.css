@@ -24,6 +24,12 @@ html {
 body {
   overflow-x:hidden;
 }
+hr {
+  display: block;
+  margin: auto 15px;
+  border: none;
+  border-top: solid 1px #ffffff44;
+}
 .btn, button {
   font-family: 'Patrick Hand SC', cursive;
   cursor: pointer;
@@ -950,10 +956,24 @@ main {
 
 
 
-.rating {
-    width:300px;
+.avg-rating {
+  height: 20px;
+  margin: 10px;
+  text-align: center;
 }
-.rating span { float:right; position:relative; }
+.avg-rating > .stars {
+  font-size: 1.2em;
+}
+.to-rate {
+  display: flex;
+}
+.rating {
+  margin: auto;
+  width: 160px;
+  text-align: center;
+}
+.rating > span { float:right; position:relative;
+}
 .rating span input {
     position:absolute;
     top:0px;
@@ -977,6 +997,15 @@ main {
 .rating span.checked label,
 .rating span.checked ~ span label {
     color:#F90;
+}
+.edit-rate-btn {
+  margin: 15px auto 15px auto;
+  padding: 10px 30px;
+  text-align: center;
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  font-size: 1.3em;
 }
 
 
@@ -1063,19 +1092,38 @@ main {
 
 
 
-
+.bp-grid > .book-cover > img {
+  width: 180px;
+}
 .book-details {
   padding: 2px 10px 0 10px;;
 }
 .book-details h1 {
-  font-size: 1.2em;
+  font-size: 1.4em;
+  text-align: center;
+  font-weight: normal;
+  letter-spacing: 1.2px;
+  margin: 20px auto 10px auto;
 }
 .book-details > span {
   display: block;
-  margin: 5px 0;
+  margin: 10px 0;
+  text-align: center;
 }
 .book-details a {
   color: #fff;
+}
+.edt-btn-fix {
+  display: flex;
+}
+.edit-book-btn {
+  margin: 10px auto 15px auto;
+  padding: 10px 50px;
+  text-align: center;
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  font-size: 1.3em;
 }
 .book-comments {
   margin: 10px;
