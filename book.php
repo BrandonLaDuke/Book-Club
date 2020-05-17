@@ -54,7 +54,7 @@
             <button type="submit" name="savebook">Save</button>
      <?php  } else { ?>
        <div class="edt-btn-fix">
-         <a class="edit-book-btn profile-btn btn lined thin" href="book.php?bookid=<?php echo $_GET['bookid'] ?>&edit=true">Edit book</a>
+         <!-- <a class="edit-book-btn profile-btn btn lined thin" href="book.php?bookid=<?php echo $_GET['bookid'] ?>&edit=true">Edit book</a> -->
        </div>
 
      <?php  } ?>
