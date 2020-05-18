@@ -1,5 +1,6 @@
 <?php
 require "includes/dbh.inc.php";
+require 'includes/bookworm.inc.php';
 require "header.php";
 
 if(isset($_GET['email']) && !empty($_GET['email']) AND isset($_GET['hash']) && !empty($_GET['hash'])) {
@@ -59,7 +60,7 @@ if(isset($_GET['email']) && !empty($_GET['email']) AND isset($_GET['hash']) && !
 
             // $msg = "Hi everyone, my name is **Book Worm**. It is great to meet you! I am a bot created by Brandon LaDuke to bring you updates from the SpinelessBound website right into Discord!";
 
-            $webhookurl = "https://discordapp.com/api/webhooks/711963684670406686/7kRQlKMJBV_n3LZEfH-r8poZhbAiCHt7cOgXHsHlWUBvTJHaaHEZ5kbo6vK4_HN2b14r";
+            $webhookurl = $bookworm_webhook;
 
             $json_data = array ('content'=>"$msg", "username" => "Bookworm");
             $make_json = json_encode($json_data);

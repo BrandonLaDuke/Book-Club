@@ -4,8 +4,8 @@ error_reporting(E_ALL);
 
 if (isset($_POST['bookworm-message'])) {
   $msg = $_POST['announcement'];
-
-  $webhookurl = "https://discordapp.com/api/webhooks/711963684670406686/7kRQlKMJBV_n3LZEfH-r8poZhbAiCHt7cOgXHsHlWUBvTJHaaHEZ5kbo6vK4_HN2b14r";
+  require 'bookworm.inc.php';
+  $webhookurl = $bookworm_webhook;
 
   $json_data = array ('content'=>"$msg", "username" => "Bookworm");
   $make_json = json_encode($json_data);
