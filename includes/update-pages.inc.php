@@ -54,7 +54,7 @@ if (isset($_POST['updatepgnum'])) {
 
           // $msg = "Hi everyone, my name is **Book Worm**. It is great to meet you! I am a bot created by Brandon LaDuke to bring you updates from the SpinelessBound website right into Discord!";
 
-          $webhookurl = "https://discordapp.com/api/webhooks/705949711114305556/QDtAeDLcE_AgCJ4mn5ya2J-63jtaeElkLLKgaWGcJFewTDz1GPR43aq312rM_Ul9UM-H";
+          $webhookurl = "https://discordapp.com/api/webhooks/711963684670406686/7kRQlKMJBV_n3LZEfH-r8poZhbAiCHt7cOgXHsHlWUBvTJHaaHEZ5kbo6vK4_HN2b14r";
 
           $json_data = array ('content'=>"$msg", "username" => "Bookworm");
           $make_json = json_encode($json_data);
@@ -128,7 +128,7 @@ if (isset($_POST['updatepgnum'])) {
 
           // $msg = "Hi everyone, my name is **Book Worm**. It is great to meet you! I am a bot created by Brandon LaDuke to bring you updates from the SpinelessBound website right into Discord!";
 
-          $webhookurl = "https://discordapp.com/api/webhooks/705949711114305556/QDtAeDLcE_AgCJ4mn5ya2J-63jtaeElkLLKgaWGcJFewTDz1GPR43aq312rM_Ul9UM-H";
+          $webhookurl = "https://discordapp.com/api/webhooks/711963684670406686/7kRQlKMJBV_n3LZEfH-r8poZhbAiCHt7cOgXHsHlWUBvTJHaaHEZ5kbo6vK4_HN2b14r";
 
           $json_data = array ('content'=>"$msg", "username" => "Bookworm");
           $make_json = json_encode($json_data);
@@ -199,7 +199,7 @@ if (isset($_POST['updatepgnum'])) {
 
           // $msg = "Hi everyone, my name is **Book Worm**. It is great to meet you! I am a bot created by Brandon LaDuke to bring you updates from the SpinelessBound website right into Discord!";
 
-          $webhookurl = "https://discordapp.com/api/webhooks/705949711114305556/QDtAeDLcE_AgCJ4mn5ya2J-63jtaeElkLLKgaWGcJFewTDz1GPR43aq312rM_Ul9UM-H";
+          $webhookurl = "https://discordapp.com/api/webhooks/711963684670406686/7kRQlKMJBV_n3LZEfH-r8poZhbAiCHt7cOgXHsHlWUBvTJHaaHEZ5kbo6vK4_HN2b14r";
 
           $json_data = array ('content'=>"$msg", "username" => "Bookworm");
           $make_json = json_encode($json_data);
