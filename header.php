@@ -5,6 +5,8 @@ session_start(); ?>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <link rel="shortcut icon" href="img/sb.jpg" />
+    <link rel="apple-touch-icon" href="img/sb.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta property="og:url"                content="http://www.spinelessbound.com" />
     <meta property="og:title"              content="Spineless Bound | Sullivan University Book Club" />
