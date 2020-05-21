@@ -1,0 +1,31 @@
+{
+    "name": "Spineless Bound: The Sullivan University Book Club",
+    "short_name": "Spineless Bound",
+    "description": "The Spineless Bound Web App that allows club members to connect and share experiences with each other",
+    "icons": [
+        {
+            "src": "icons/sb-32.png",
+            "sizes": "32x32",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/sb-64.png",
+            "sizes": "64x64",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/sb-128.png",
+            "sizes": "128x128",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/sb-256.png",
+            "sizes": "256x256",
+            "type": "image/png"
+        }
+    ],
+    "start_url": "index.html",
+    "display": "fullscreen",
+    "theme_color": "#008080",
+    "background_color": "#008080"
+}
