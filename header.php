@@ -28,6 +28,9 @@ session_start(); ?>
             margin: 0 0 0 100px;
           }
         }
+        body {
+            margin: 0 0 55px 0;
+        }
         </style>
         <?php
       }
