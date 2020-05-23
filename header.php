@@ -23,13 +23,13 @@ session_start(); ?>
       if (isset($_SESSION['userId'])) {
         ?>
         <style>
+        body {
+            margin: 0 0 55px 0;
+        }
         @media (min-width:900px) {
           body {
             margin: 0 0 0 100px;
           }
-        }
-        body {
-            margin: 0 0 55px 0;
         }
         </style>
         <?php
@@ -53,9 +53,9 @@ session_start(); ?>
   <body>
     <?php if (isset($_GET['error'])) {
       if ($_GET['error'] == "wrongpwd") {
-        echo '<script>alert("Password is incorrect.");</script>';
+        echo '<p class="bookworm-msg error">Hmm... Looks like your password is incorrect.</p>';
       } elseif ($_GET['error'] == "nouser") {
-        echo '<script>alert("There is no user with that username or email. Signup to create an account.");</script>';
+        echo '<p class="bookworm-msg error">I\'m sorry... There is no user with that username or email. But you can signup to create an account.</p>';
       }
     } ?>
     <?php if (isset($_SESSION['userId'])) { ?>

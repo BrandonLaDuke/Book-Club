@@ -11,6 +11,10 @@ if (isset($_GET['error'])) {
     echo '<p class="bookworm-msg success">Yay! I\'m looking forward to reading '.$_GET['booktitle'].' with you!</p>';
   } else if ($_GET['success'] == "readingGoal") {
     echo '<p class="bookworm-msg success">Reading goal has been successfully updated!</p>';
+  } else if ($_GET['success'] == "login") {
+    // echo '<p class="bookworm-msg success">Welcome back, '.$_SESSION['userUid'].'!</p>';
+  } else if ($_GET['success'] == "readingGoal") {
+    echo '<p class="bookworm-msg success">You updated the reading goal! I\'ll be sure to let everyone know about it in Discord!</p>';
   }
 } else if (isset($_GET['logout'])) {
   echo '<p class="bookworm-msg success">See you next time!</p>';

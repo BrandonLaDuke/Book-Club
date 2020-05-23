@@ -1302,7 +1302,57 @@ footer {
   outline: none;
   font-size: 1.5em;
 }
-
+.bookworm-msg {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #fff;
+    border: seagreen solid 9px;
+    color: #000;
+    padding: 26px 30px 24px 29px;
+    max-width: 300px;
+    border-radius: 30px;
+    margin: 80px 60px;
+    animation-name: bookworm-msg;
+    animation-duration: 1000ms;
+    animation-delay: 6s;
+    animation-fill-mode: forwards;
+}
+.bookworm-msg::before {
+    content: "";
+    background-image: url('../icons/sb-64.png');
+    width: 64px;
+    height: 64px;
+    position: absolute;
+    border-radius: 50%;
+    top: -45px;
+    border: seagreen solid 9px;
+    left: -45px;
+}
+.success {
+  border: seagreen solid 9px;
+}
+.error {
+  border: firebrick solid 9px;
+}
+@keyframes bookworm-msg {
+  0% {
+    opacity: 1;
+    right: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  99% {
+    right: -400px;
+    opacity: 0;
+    display: block;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
 
 
 

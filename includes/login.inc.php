@@ -38,7 +38,7 @@ if (isset($_POST['login-submit'])) {
             $_SESSION['lastName'] = $row['lastName'];
             $_SESSION['profilepic'] = $row['profilepic'];
             $_SESSION['admin'] = $row['admin'];
-            header("Location: ../index.php?login=success&user=$mailuid");
+            header("Location: ../index.php?success=login&user=$mailuid");
             exit();
           } else {
             header("Location: ../index.php?error=usernotverified&email=$mailuid");
