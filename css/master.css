@@ -377,10 +377,10 @@ main {
 
 main {
   display: flex;
+  min-height: calc(100vh - 122px - 135px);
 }
 #main {
   width: 100%;
-  min-height: calc(100vh - 122px - 135px);
 }
 .wrapper {
   background-position: center;
