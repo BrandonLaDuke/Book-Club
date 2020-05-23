@@ -380,6 +380,7 @@ main {
 }
 #main {
   width: 100%;
+  min-height: calc(100vh - 122px - 135px);
 }
 .wrapper {
   background-position: center;
@@ -392,7 +393,6 @@ main {
   display: inline-block;
   position: relative;
   text-align: center;
-  margin:50px auto;
   padding: 50px;
   width:340px;
   background-image: url('../img/colors.jpg');
@@ -1381,7 +1381,7 @@ body {
   .nav__icon {
     font-size: 30px;
   }
-  
+
 }
 
 .editmode {display: none;}
