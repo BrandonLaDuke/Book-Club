@@ -317,64 +317,6 @@ main {
 
 /* Home page */
 
-
-@-webkit-keyframes ticker {
-  0% {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-    visibility: visible;
-  }
-  100% {
-    -webkit-transform: translate3d(-100%, 0, 0);
-    transform: translate3d(-100%, 0, 0);
-  }
-}
-@keyframes ticker {
-  0% {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-    visibility: visible;
-  }
-  100% {
-    -webkit-transform: translate3d(-100%, 0, 0);
-    transform: translate3d(-100%, 0, 0);
-  }
-}
-.ticker-wrap {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  height: 3rem;
-  background-color: #dc0202;
-  padding-left: 100%;
-  box-sizing: content-box;
-}
-.ticker-wrap .ticker {
-  display: inline-block;
-  height: 3rem;
-  line-height: 3rem;
-  white-space: nowrap;
-  padding-right: 100%;
-  box-sizing: content-box;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-  -webkit-animation-timing-function: linear;
-  animation-timing-function: linear;
-  -webkit-animation-name: ticker;
-  animation-name: ticker;
-  -webkit-animation-duration: 30s;
-  animation-duration: 30s;
-}
-.ticker-wrap .ticker__item {
-  display: inline-block;
-  padding: 0 2rem;
-  font-size: 1.5rem;
-  color: white;
-}
-
-
-
-
 main {
   display: flex;
   min-height: calc(100vh - 122px - 135px);

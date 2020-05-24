@@ -25,14 +25,15 @@ if (isset($_GET['error'])) {
     $resultCheck = mysqli_num_rows($result);
     if ($row = mysqli_fetch_assoc($result)) { ?>
       <?php if ($row['announcement'] != "") {
-        if ($_GET['success'] == "login") ?>
+        if ($_GET['success'] == "login") { ?>
         <p class="bookworm-msg announcement"><?php echo $row['announcement'] ?></p>
         <!-- <div class="ticker-wrap">
           <div class="ticker">
             <div class="ticker__item"></div>
           </div>
         </div> -->
-      <?php } ?>
+      <?php }
+            } ?>
     <?php } ?>
     <div class="header-feature">
       <h1>Spineless Bound</h1>
