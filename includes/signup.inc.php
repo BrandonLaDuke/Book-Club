@@ -191,7 +191,7 @@ if (isset($_POST['signup-submit'])) {
           $headers = 'From:noreply@spinelessbound.com' . "\r\n"; // Set from headers
           mail($to, $subject, $message, $headers); // Send our email
           // End email
-          header("Location: ../passwordreset.php?success=messagesent&user=".$username);
+          header("Location: ../index.php?success=pwdmessagesent&email=$email");
         }
       }
     }
@@ -224,11 +224,11 @@ if (isset($_POST['signup-submit'])) {
     WHERE uidUsers = '$username' AND hash = '$hash'";
     $stmtresetpwd = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmtresetpwd, $sqlresetpwd)) {
-      header("Location: ../passwordreset.php?passwordreset=fail&error=sqlerror");
+      header("Location: ../index.php?passwordreset=fail&error=sqlerror");
       exit();
     } else {
       mysqli_stmt_execute($stmtresetpwd);
-      header("Location: ../passwordreset.php?passwordreset=success");
+      header("Location: ../index.php?success=passwordreset");
     }
   }
   mysqli_stmt_close($stmtresetpwd);

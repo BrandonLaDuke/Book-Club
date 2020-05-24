@@ -73,7 +73,7 @@ if (isset($_POST['add-book-submit'])) {
       }
       mysqli_stmt_bind_param($stmt, "sssssisisss", $booktitle, $author, $chosenby, $coverArtUrl, $chapter, $pageNumber, $customGoal, $readingStatus, $groupPicture, $whereToBuy, $description);
       mysqli_stmt_execute($stmt);
-      header("Location: ../library.php?success=addBook");
+      header("Location: ../library.php?success=addBook&bookTitle=$booktitle");
       }
     }
     mysqli_stmt_close($stmt);

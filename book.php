@@ -1,4 +1,11 @@
 <?php require "header.php"; ?>
+<?php if (isset($_GET['error'])) {
+  if ($_GET['error'] == "sqlerror") {
+    echo '<p class="bookworm-msg error">Huh. There was an unexpected SQL error. Please notify Brandon LaDuke in Discord.</p>';
+  } else if ($_GET['error'] == "emptyfields") {
+    echo '<p class="bookworm-msg error">Gotta add text to the comment in order to leave a comment silly! :)</p>';
+  }
+} ?>
 <div class="sb-container">
 
 

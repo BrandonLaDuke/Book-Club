@@ -18,18 +18,14 @@
 
   <?php } else if ($_GET["error"]) { ?>
     <div class="forgotpassword">
-      <h1>That didn't work</h1>
+      <p class="bookworm-msg error">Oops. That didn't work.</p>
       <form class="profilepic-update" action="includes/signup.inc.php" method="post">
         <label for="">To get a password reset link, please enter an email that is associated with your Spineless Bound account</label>
         <input type="text" name="email" placeholder="email" value="">
         <button type="submit" name="forgotpassword">Reset password</button>
       </form>
     </div>
-<?php  } else if ($_GET['success']) { ?>
-  <p class="bookworm-msg success">I sent a password reset link to the email you provided.</p>
-<?php } else if ($_GET['passwordreset'] == "success") {?>
-  <p class="bookworm-msg success">Yahoo! You're password has been updated</p>
-<?php } else if ($_GET['passwordreset']) {?>
+<?php  } else if ($_GET['passwordreset']) {?>
   <form class="profilepic-update" action="includes/signup.inc.php" method="post">
     <h2>Hello, <?php echo $_GET['uidUsers'] ?>,</h2>
     <h3>lets create a new password for you</h3>

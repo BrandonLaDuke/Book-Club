@@ -13,6 +13,10 @@ if (isset($_GET['error'])) {
     echo '<p class="bookworm-msg success">Reading goal has been successfully updated!</p>';
   } else if ($_GET['success'] == "readingGoal") {
     echo '<p class="bookworm-msg success">You updated the reading goal! I\'ll be sure to let everyone know about it in Discord!</p>';
+  } else if ($_GET['success'] == "pwdmessagesent") {
+    echo '<p class="bookworm-msg success">I sent a password reset link to '.$_GET['email'].'. It may take a few minutes to arrive in your inbox.</p>';
+  } else if ($_GET['success'] == "passwordreset") {
+    echo '<p class="bookworm-msg success">Yahoo! Your password has been updated.</p>';
   }
 } else if (isset($_GET['logout'])) {
   echo '<p class="bookworm-msg success">See you next time!</p>';

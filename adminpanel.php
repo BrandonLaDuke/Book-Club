@@ -1,4 +1,8 @@
 <?php require "header.php"; ?>
+<?php
+  if ($_GET['success'] == "messagesent") {
+    echo '<p class="bookworm-msg success">Announcement updated.</p>';
+} ?>
   <?php if (isset($_SESSION['userId']) && $_SESSION['admin']) { ?>
 
     <!-- Begin Logged In View -->
