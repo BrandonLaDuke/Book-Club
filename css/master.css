@@ -1255,11 +1255,12 @@ footer {
     max-width: 300px;
     border-radius: 30px;
     margin: 80px 60px;
+    transform: scale3d(0, 0, 0);
     animation-name: bookworm-msg;
-    animation-duration: 1000ms;
-    animation-delay: 6s;
+    animation-duration: 8s;
     animation-fill-mode: forwards;
     z-index: 1000;
+
 }
 .bookworm-msg::before {
     content: "";
@@ -1280,17 +1281,27 @@ footer {
 }
 .announcement {
   border: red solid 9px;
-  animation-delay: 15s;
+  animation-duration: 12s;
 }
 @keyframes bookworm-msg {
   0% {
+    transform: scale3d(0, 0, 0);
     opacity: 1;
     right: 0;
   }
-  50% {
+  3% {
+    transform: scale3d(1, 1, 1);
+  }
+  70% {
+    transform: scale3d(1, 1, 1);
+    opacity: 1;
+    right: 0;
+  }
+  80% {
     opacity: 0;
   }
   99% {
+    transform: scale3d(0, 0, 0);
     right: -400px;
     opacity: 0;
     display: block;
@@ -1300,6 +1311,7 @@ footer {
     display: none;
   }
 }
+
 
 
 

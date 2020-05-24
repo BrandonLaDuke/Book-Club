@@ -26,11 +26,9 @@
       </form>
     </div>
 <?php  } else if ($_GET['success']) { ?>
-  <div class="forgotpassword">
-    <p><?php echo $_GET['msg']; ?></p>
-  </div>
+  <p class="bookworm-msg success">I sent a password reset link to the email you provided.</p>
 <?php } else if ($_GET['passwordreset'] == "success") {?>
-  <h2>Password has been reset!</h2>
+  <p class="bookworm-msg success">Yahoo! You're password has been updated</p>
 <?php } else if ($_GET['passwordreset']) {?>
   <form class="profilepic-update" action="includes/signup.inc.php" method="post">
     <h2>Hello, <?php echo $_GET['uidUsers'] ?>,</h2>

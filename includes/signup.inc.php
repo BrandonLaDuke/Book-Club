@@ -168,7 +168,7 @@ if (isset($_POST['signup-submit'])) {
         WHERE idUsers = '$uid'";
         $stmt2 = mysqli_stmt_init($conn);
         if (!mysqli_stmt_prepare($stmt2, $sqlreset)) {
-          header("Location: ../index.php?book=$idbook&error=sqlerror");
+          header("Location: ../index.php&error=sqlerror");
           exit();
         } else {
           mysqli_stmt_execute($stmt2);
@@ -178,7 +178,7 @@ if (isset($_POST['signup-submit'])) {
           $subject = 'Password Reset | Spineless Bound';
           $message = '
 
-          Hi '.$name.',. You are recieveing this email because you have requested a password reset.
+          Hi '.$username.',. You are recieveing this email because you have requested a password reset.
 
           Please click this link to reset your passwoord:
           http://www.spinelessbound.com/passwordreset.php?passwordreset='.$email.'&idUsers='.$username.'&hash='.$hash.'&uid='.$uid.'
@@ -191,7 +191,7 @@ if (isset($_POST['signup-submit'])) {
           $headers = 'From:noreply@spinelessbound.com' . "\r\n"; // Set from headers
           mail($to, $subject, $message, $headers); // Send our email
           // End email
-          header("Location: ../passwordreset.php?success=messagesent&mail=". $msg."&user=".$username);
+          header("Location: ../passwordreset.php?success=messagesent&user=".$username);
         }
       }
     }
