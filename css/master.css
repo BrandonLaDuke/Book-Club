@@ -1317,6 +1317,7 @@ footer {
     animation-duration: 1000ms;
     animation-delay: 6s;
     animation-fill-mode: forwards;
+    z-index: 1000;
 }
 .bookworm-msg::before {
     content: "";
@@ -1334,6 +1335,10 @@ footer {
 }
 .error {
   border: firebrick solid 9px;
+}
+.announcement {
+  border: red solid 9px;
+  animation-delay: 15s;
 }
 @keyframes bookworm-msg {
   0% {

@@ -11,8 +11,6 @@ if (isset($_GET['error'])) {
     echo '<p class="bookworm-msg success">Yay! I\'m looking forward to reading '.$_GET['booktitle'].' with you!</p>';
   } else if ($_GET['success'] == "readingGoal") {
     echo '<p class="bookworm-msg success">Reading goal has been successfully updated!</p>';
-  } else if ($_GET['success'] == "login") {
-    // echo '<p class="bookworm-msg success">Welcome back, '.$_SESSION['userUid'].'!</p>';
   } else if ($_GET['success'] == "readingGoal") {
     echo '<p class="bookworm-msg success">You updated the reading goal! I\'ll be sure to let everyone know about it in Discord!</p>';
   }
@@ -26,12 +24,14 @@ if (isset($_GET['error'])) {
     $result = mysqli_query($conn, $sql);
     $resultCheck = mysqli_num_rows($result);
     if ($row = mysqli_fetch_assoc($result)) { ?>
-      <?php if ($row['announcement'] != "") { ?>
-        <div class="ticker-wrap">
+      <?php if ($row['announcement'] != "") {
+        if ($_GET['success'] == "login") ?>
+        <p class="bookworm-msg announcement"><?php echo $row['announcement'] ?></p>
+        <!-- <div class="ticker-wrap">
           <div class="ticker">
-            <div class="ticker__item"><?php echo $row['announcement'] ?></div>
+            <div class="ticker__item"></div>
           </div>
-        </div>
+        </div> -->
       <?php } ?>
     <?php } ?>
     <div class="header-feature">
