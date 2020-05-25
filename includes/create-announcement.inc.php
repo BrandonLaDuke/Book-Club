@@ -27,11 +27,11 @@ if (isset($_POST['createannouncement'])) {
         WHERE idAnnouncement = $idAnnouncement";
         $stmt2 = mysqli_stmt_init($conn);
         if (!mysqli_stmt_prepare($stmt2, $sql3)) {
-          header("Location: ../adminpanel.php?book=$idbook&error=sqlerror");
+          header("Location: ../adminpanel.php?error=sqlerror");
           exit();
         } else {
           mysqli_stmt_execute($stmt2);
-          header("Location: ../adminpanel.php?book=$pagenum&success");
+          header("Location: ../adminpanel.php?success=updatedannouncement");
         }
       }
     }
@@ -65,11 +65,11 @@ if (isset($_POST['createannouncement'])) {
         WHERE idAnnouncement = $idAnnouncement";
         $stmt2 = mysqli_stmt_init($conn);
         if (!mysqli_stmt_prepare($stmt2, $sql3)) {
-          header("Location: ../adminpanel.php?book=$idbook&error=sqlerror");
+          header("Location: ../adminpanel.php?error=sqlerror");
           exit();
         } else {
           mysqli_stmt_execute($stmt2);
-          header("Location: ../adminpanel.php?book=$pagenum&success");
+          header("Location: ../adminpanel.php?success=updatedannouncement");
         }
       }
     }

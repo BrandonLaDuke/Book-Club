@@ -44,18 +44,18 @@ if (isset($_POST['change-profile-pic-submit'])) {
               exit();
             } else {
               mysqli_stmt_execute($stmt2);
-              header("Location: ../profile.php?user=$username&update=success");
+              header("Location: ../profile.php?user=$username&success=update");
             }
           } else {
-            header("Location: ../edit-profile.php?user=$username&error=filetobig");
+            header("Location: ../editprofile.php?user=$username&error=filetobig");
             exit();
           }
         } else {
-          header("Location: ../edit-profile.php?user=$username&error=upload");
+          header("Location: ../editprofile.php?user=$username&error=upload");
           exit();
         }
       } else {
-        header("Location: ../edit-profile.php?user=$username&error=invalidformat");
+        header("Location: ../editprofile.php?user=$username&error=invalidformat");
         exit();
       }
 
@@ -109,19 +109,19 @@ if (isset($_POST['change-profile-pic-submit'])) {
               exit();
             } else {
               mysqli_stmt_execute($stmt2);
-              header("Location: ../profile.php?user=$username&update=success");
+              header("Location: ../profile.php?user=$username&success=update");
               exit();
             }
           } else {
-            header("Location: ../edit-profile.php?user=$username&error=filetobig");
+            header("Location: ../editprofile.php?user=$username&error=filetobig");
             exit();
           }
         } else {
-          header("Location: ../edit-profile.php?user=$username&error=upload");
+          header("Location: ../editprofile.php?user=$username&error=upload");
           exit();
         }
       } else {
-        header("Location: ../edit-profile.php?user=$username&error=invalidformat");
+        header("Location: ../editprofile.php?user=$username&error=invalidformat");
         exit();
       }
 
@@ -159,7 +159,7 @@ if (isset($_POST['change-profile-pic-submit'])) {
         exit();
       } else {
         mysqli_stmt_execute($stmt2);
-        header("Location: ../profile.php?user=$username&update=success&coverreposition");
+        header("Location: ../profile.php?user=$username&success=update&coverreposition");
         exit();
       }
 

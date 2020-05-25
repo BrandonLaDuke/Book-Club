@@ -5,6 +5,8 @@
 if (isset($_GET['error'])) {
   if ($_GET['error'] == "sqlerror") {
     echo '<p class="bookworm-msg error">Huh. There was an unexpected SQL error. Please notify Brandon LaDuke in discord.</p>';
+  } else if ($_GET['error'] == "usernotverified") {
+    echo '<p class="bookworm-msg announcement">This user has not yet been verified.<br>Please click the verification link in your email ('. $_GET['mailuid'].') to verify your account.</p>';
   }
 } else if (isset($_GET['success'])) {
   if ($_GET['success'] == "startbook") {
@@ -31,11 +33,6 @@ if (isset($_GET['error'])) {
       <?php if ($row['announcement'] != "") {
         if ($_GET['success'] == "login") { ?>
         <p class="bookworm-msg announcement"><?php echo $row['announcement'] ?></p>
-        <!-- <div class="ticker-wrap">
-          <div class="ticker">
-            <div class="ticker__item"></div>
-          </div>
-        </div> -->
       <?php }
             } ?>
     <?php } ?>
@@ -145,7 +142,7 @@ if (isset($_GET['error'])) {
           echo '<p class="error" augmented-ui="tl-clip br-clip exe">Looks like you already have an account with that email address.</p>';
           $userN = $_GET['uid'];
         } else if ($_GET['error'] == "usernotverified") {
-          echo '<p class="error" augmented-ui="tl-clip br-clip exe">This user has not yet been verified.<br>Please click the verification link in your email to verify your account.<br>If you have not recived an email check to see if Sullivan has quarantined it by going to <a href="https://protection.office.com/quarantine">Outlook Quarantine</a> and selecting the email from noreply@spinelessbound.com and releasing it.</p>';
+          echo '<p class="error" augmented-ui="tl-clip br-clip exe">This user has not yet been verified.<br>Please click the verification link in your email to verify your account.</p>';
         }
       } else if ($_GET['success'] == "signup") {
         echo '<p class="db-success" augmented-ui="tl-clip br-clip exe">Yay! Your accound has been created successfully!<br>Please verify it by clicking the activation link that has been sent to your Sullivan email.</p>';

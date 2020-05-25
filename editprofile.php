@@ -1,4 +1,17 @@
 <?php require "header.php"; ?>
+<?php
+if (isset($_GET['error'])) {
+  if ($_GET['error'] == "sqlerror") {
+    echo '<p class="bookworm-msg error">Huh. There was an unexpected SQL error. Please notify Brandon LaDuke in discord.</p>';
+  } else if ($_GET['error'] == "filetoobig") {
+    echo '<p class="bookworm-msg error">Oh no! the file you tried to up load is too big! Try <a target="_blank" href="https://www.squoosh.app">Squooshing</a> it.</p>';
+  } else if ($_GET['error'] == "upload") {
+    echo '<p class="bookworm-msg error">It looks like there was an error uploading your file...</p>';
+  } else if ($_GET['error'] == "invalidformat") {
+    echo '<p class="bookworm-msg error">I\'m sorry. We do not accept that format. Please try again using another format (.jpeg, .jpg, .png).</p>';
+  }
+}
+ ?>
   <?php if (isset($_SESSION['userId'])) {
     $sql = "SELECT * FROM users;";
     $result = mysqli_query($conn, $sql);

@@ -1,4 +1,15 @@
 <?php require "header.php"; ?>
+<?php
+if (isset($_GET['error'])) {
+  if ($_GET['error'] == "sqlerror") {
+    echo '<p class="bookworm-msg error">Huh. There was an unexpected SQL error. Please notify Brandon LaDuke in discord.</p>';
+  }
+} else if (isset($_GET['success'])) {
+  if ($_GET['success'] == "update") {
+    echo '<p class="bookworm-msg success">Your profile has been updated.</p>';
+  }
+}
+ ?>
   <?php if (isset($_SESSION['userId'])) { ?>
 
 
