@@ -541,7 +541,7 @@ main {
 }
 .postbox__text {
   grid-area: pb-text;
-  font-size: 14px
+  font-size: 15px
 }
 .postbox__submit {
   grid-area: pb-button;
@@ -550,6 +550,36 @@ main {
 
 }
 
+
+.post {
+  margin-top: 20px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 50px auto 150px;
+  grid-template-rows: 50px auto 50px;
+  grid-gap: 10px;
+  grid-template-areas: "p-img p-name p-name"
+                       "p-text p-text p-text";
+
+  padding: 10px;
+  background-color: var(--gray2);
+}
+.post__img {
+  grid-area: p-img;
+  width: 100%;
+  border-radius: 50%;
+  padding: 5px;
+}
+.post__name {
+  grid-area: p-name;
+  margin: auto 0;
+  font-size: 17px;
+}
+.post__text {
+  grid-area: p-text;
+  font-size: 15px;
+  margin:10px;
+}
 
 
 
