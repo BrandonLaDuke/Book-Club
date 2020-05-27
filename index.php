@@ -53,7 +53,21 @@ if (isset($_GET['error'])) {
           <h4>Currenty Reading</h4>
           <h1><a href="book.php?bookid=<?php echo $row['bookId'] ?>"><?php echo $row['bookTitle']; ?></a></h1>
           <h3>by <?php echo $row['bookAuthor']; ?></h3>
-          <h3>Selected by <?php echo $row['chosenBy']; ?></h3>
+          <?php
+          $profilesql = "SELECT *
+          FROM users
+          WHERE uidUsers = \"$row[chosenBy]\"";
+          $profileresult = mysqli_query($conn, $profilesql);
+          $profileResultCheck = mysqli_num_rows($profileresult);
+          if ($profileResultCheck > 0) {
+            $ProfileRow = mysqli_fetch_assoc($profileresult);
+          }
+          ?>
+          <?php if (isset($ProfileRow['firstName']) || isset($ProfileRow['lastName'])) {
+            echo "<h3>Selected by " . $ProfileRow['firstName'] . " " . $ProfileRow['lastName'] . "</h3>";
+          } else {
+            echo "<h3>Selected by " . $row['chosenBy'] . "</h3>";
+          }?>
           <?php if ($row['pageNumber'] > 0) { ?>
                   <h5>Goal: Read to page <span><?php echo $row['pageNumber']; ?></span> by next meeting</h5>
         <?php   } else if ($row['chapter'] != "") { ?>
@@ -92,14 +106,27 @@ if (isset($_GET['error'])) {
       $resultUp = mysqli_query($conn, $sqlUp);
       $resultCheckUp = mysqli_num_rows($resultUp);
       if ($rowUp = mysqli_fetch_assoc($resultUp)) { ?>
-
+        <?php
+        $profilesql1 = "SELECT *
+        FROM users
+        WHERE uidUsers = \"$rowUp[chosenBy]\"";
+        $profileresult1 = mysqli_query($conn, $profilesql1);
+        $profileResultCheck1 = mysqli_num_rows($profileresult1);
+        if ($profileResultCheck1 > 0) {
+          $ProfileRow1 = mysqli_fetch_assoc($profileresult1);
+        }
+        ?>
       <div class="currenty-reading">
 
         <div class="cur-text">
           <h4>Reading Next</h4>
           <h1><?php echo $rowUp['bookTitle']; ?></h1>
           <h3>by <?php echo $rowUp['bookAuthor']; ?></h3>
-          <h3>Selected by <?php echo $rowUp['chosenBy']; ?></h3>
+          <?php if (isset($ProfileRow1['firstName']) || isset($ProfileRow1['lastName'])) {
+            echo "<h3>Selected by " . $ProfileRow1['firstName'] . " " . $ProfileRow1['lastName'] . "</h3>";
+          } else {
+            echo "<h3>Selected by " . $rowUp['chosenBy'] . "</h3>";
+          }?>
         </div>
         <img class="book-cover-cur" src="<?php echo $rowUp['coverArtURL']; ?>" width="300px" alt="">
       </div>

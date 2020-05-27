@@ -51,8 +51,6 @@
         $profileResultCheck = mysqli_num_rows($profileresult);
         if ($profileResultCheck > 0) {
           $ProfileRow = mysqli_fetch_assoc($profileresult);
-        } else {
-          var_dump($profilesql);
         }
         ?>
 
