@@ -42,12 +42,32 @@
     <?php
     if ($resultCheck > 0) {
       while ($row = mysqli_fetch_assoc($result)) { ?>
+
+        <?php
+        $profilesql = "SELECT *
+        FROM users
+        WHERE uidUsers = \"$row[uidUsers]\"";
+        $profileresult = mysqli_query($conn, $profilesql);
+        $profileResultCheck = mysqli_num_rows($profileresult);
+        if ($profileResultCheck > 0) {
+          $ProfileRow = mysqli_fetch_assoc($profileresult);
+        } else {
+          var_dump($profilesql);
+        }
+        ?>
+
+
+
         <div class="post">
-          <img class="post__img" src="<?php echo $_SESSION['profilepic'] ?>" alt="Me">
-          <span class="post__name"><?php echo $row['uidUsers']; ?></span>
+          <img class="post__img" src="<?php echo $ProfileRow['profilepic'] ?>" alt="Me">
+          <?php if (isset($ProfileRow['firstName']) || isset($ProfileRow['lastName'])) {
+            echo "<span class=\"post__name\">" . $ProfileRow['firstName'] . " " . $ProfileRow['lastName'] . "</span>";
+          } else {
+            echo "<span class=\"post__name\">" . $row['uidUsers'] . "</span>";
+          }?>
     <?php if (!empty($row['postText'])) { ?>
             <div class="post__text">
-              <?php echo $row['postText'] ?>
+              <?php echo $row['postText']; ?>
             </div>
     <?php } ?>
     <?php if (!empty($row['postImg'])) { ?>
