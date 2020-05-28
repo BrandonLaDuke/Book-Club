@@ -49,7 +49,22 @@
             <input class="editmode" type="text" name="bookTitle" placeholder="Book Title" value="<?php echo $row['bookTitle']; ?>">
             <span>By <?php echo $row['bookAuthor']; ?></span>
             <input class="editmode" type="text" name="bookAuthor" placeholder="Book Author" value="<?php echo $row['bookAuthor']; ?>">
-            <span>Chosen by <a href="profile.php?user=<?php echo $row['chosenBy']; ?>"><?php echo $row['chosenBy']; ?></a></span>
+            <?php
+            $profilesql = "SELECT *
+            FROM users
+            WHERE uidUsers = \"$row[chosenBy]\"";
+            $profileresult = mysqli_query($conn, $profilesql);
+            $profileResultCheck = mysqli_num_rows($profileresult);
+            if ($profileResultCheck > 0) {
+              $ProfileRow = mysqli_fetch_assoc($profileresult);
+            }
+            ?>
+            <?php if (isset($ProfileRow['firstName']) || isset($ProfileRow['lastName'])) { ?>
+              <span>Suggested by <a href="profile.php?user=<?php echo $row['chosenBy']; ?>"><?php echo $ProfileRow['firstName'] ?> <?php echo $ProfileRow['lastName'] ?></span>
+    <?php   } else { ?>
+              <span>Suggested by <a href="profile.php?user=<?php echo $row['chosenBy']; ?>"><?php echo $row['chosenBy'] ?></a></span>
+    <?php   } ?>
+
 
             <label class="editmode" for="groupPhoto">Group Photo:</label>
             <input class="editmode" type="file" name="groupPhoto">
