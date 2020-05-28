@@ -68,8 +68,23 @@ session_start(); ?>
       </button>
     <?php } ?>
     <div id="login" class="header-login" augmented-ui="br-clip exe">
-      <?php if (isset($_SESSION['userId'])) { ?>
+<?php if (isset($_SESSION['userId'])) { ?>
+
+      <?php
+      $profilesql = "SELECT *
+      FROM users
+      WHERE uidUsers = \"$_SESSION[userUid]\"";
+      $profileresult = mysqli_query($conn, $profilesql);
+      $profileResultCheck = mysqli_num_rows($profileresult);
+      if ($profileResultCheck > 0) {
+        $ProfileRow = mysqli_fetch_assoc($profileresult);
+      }
+      ?>
+      <?php if (isset($ProfileRow['firstName'])) {
+        echo "<p class=\"welcome-msg\">Welcome, " . $ProfileRow['firstName'] . "!</p>";
+      } else { ?>
         <p class="welcome-msg">Welcome, <?php echo $_SESSION['userUid']; ?>!</p>
+<?php  }?>
   <?php if ($_SESSION['admin']) { ?>
           <a class="profile-btn btn lined thin" augmented-ui="br-clip exe" href="adminpanel.php">Control Panel</a>
   <?php } ?>

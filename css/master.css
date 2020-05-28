@@ -555,7 +555,7 @@ main {
   margin-top: 20px;
   display: grid;
   grid-template-columns: 50px auto 150px;
-  grid-template-rows: 50px auto 50px;
+  grid-template-rows: 50px auto auto;
   grid-gap: 10px;
   grid-template-areas: "p-img p-name p-name"
                        "p-text p-text p-text";

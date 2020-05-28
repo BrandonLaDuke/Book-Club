@@ -103,7 +103,6 @@ if ($resultCheck > 0) {
               <img src="<?php echo $row1['coverArtURL']; ?>" />
               <h2><?php echo $row1['bookTitle']; ?></h2>
               <h3><?php echo $row1['bookAuthor']; ?></h3>
-              <p>Suggested by: <?php echo $row1['chosenBy']; ?></p>
             </a>
           </div>
         <?php }

@@ -50,7 +50,23 @@
             <img src="<?php echo $queueBook['coverArtURL']; ?>" />
             <h2><?php echo $queueBook['bookTitle']; ?></h2>
             <h3><?php echo $queueBook['bookAuthor']; ?></h3>
-            <p>Suggested by: <?php echo $queueBook['chosenBy']; ?></p>
+
+            <?php
+            $profilesql = "SELECT *
+            FROM users
+            WHERE uidUsers = \"$row[chosenBy]\"";
+            $profileresult = mysqli_query($conn, $profilesql);
+            $profileResultCheck = mysqli_num_rows($profileresult);
+            if ($profileResultCheck > 0) {
+              $ProfileRow = mysqli_fetch_assoc($profileresult);
+            }
+            ?>
+            <?php if (isset($ProfileRow['firstName']) || isset($ProfileRow['lastName'])) {
+              echo "<p>Suggested by " . $ProfileRow['firstName'] . " " . $ProfileRow['lastName'] . "</p>";
+            } else {
+              echo "<p>Suggested by " . $row['chosenBy'] . "</p>";
+            }?>
+
           </a>
           <form class="selectBookForm" action="includes/add-book.inc.php" method="post">
             <input type="hidden" name="bookId" value="<?php echo $queueBook['bookId']; ?>">
@@ -86,7 +102,21 @@
                   <img src="<?php echo $row['coverArtURL']; ?>" />
                   <h2><?php echo $row['bookTitle']; ?></h2>
                   <h3><?php echo $row['bookAuthor']; ?></h3>
-                  <p>Suggested by: <?php echo $row['chosenBy']; ?></p>
+                  <?php
+                  $profilesql = "SELECT *
+                  FROM users
+                  WHERE uidUsers = \"$row[chosenBy]\"";
+                  $profileresult = mysqli_query($conn, $profilesql);
+                  $profileResultCheck = mysqli_num_rows($profileresult);
+                  if ($profileResultCheck > 0) {
+                    $ProfileRow = mysqli_fetch_assoc($profileresult);
+                  }
+                  ?>
+                  <?php if (isset($ProfileRow['firstName']) || isset($ProfileRow['lastName'])) {
+                    echo "<p>Suggested by " . $ProfileRow['firstName'] . " " . $ProfileRow['lastName'] . "</p>";
+                  } else {
+                    echo "<p>Suggested by " . $row['chosenBy'] . "</p>";
+                  }?>
                 </a>
 
               </div>
