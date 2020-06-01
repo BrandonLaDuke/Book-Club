@@ -60,7 +60,7 @@
             }
             ?>
             <?php if (isset($ProfileRow['firstName']) || isset($ProfileRow['lastName'])) { ?>
-              <span>Suggested by <a href="profile.php?user=<?php echo $row['chosenBy']; ?>"><?php echo $ProfileRow['firstName'] ?> <?php echo $ProfileRow['lastName'] ?></span>
+              <span>Suggested by <a href="profile.php?user=<?php echo $row['chosenBy']; ?>"><?php echo $ProfileRow['firstName'] ?> <?php echo $ProfileRow['lastName'] ?></a></span>
     <?php   } else { ?>
               <span>Suggested by <a href="profile.php?user=<?php echo $row['chosenBy']; ?>"><?php echo $row['chosenBy'] ?></a></span>
     <?php   } ?>

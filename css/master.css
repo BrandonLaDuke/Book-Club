@@ -555,14 +555,18 @@ main {
   margin-top: 20px;
   display: grid;
   grid-template-columns: 50px auto 150px;
-  grid-template-rows: 50px auto auto;
+  grid-template-rows: 50px auto;
   grid-gap: 10px;
   grid-template-areas: "p-img p-name p-name"
-                       "p-text p-text p-text";
+                       "p-text p-text p-text"
+                       "p-buttons p-buttons p-buttons"
+                       "p-comments p-comments p-comments"
+                       "p-comm p-comm p-comm";
 
   padding: 10px;
   background-color: var(--gray2);
 }
+
 .post__img {
   grid-area: p-img;
   width: 100%;
@@ -579,6 +583,60 @@ main {
   grid-area: p-text;
   font-size: 15px;
   margin:10px;
+}
+.post__buttons {
+  grid-area: p-buttons;
+  display: flex;
+}
+.post__buttons button,
+.commentButton button {
+    font-size: 1.3em;
+    margin-right: 5px;
+    padding: 5px 10px;
+    border-radius: 50px;
+}
+
+.commentButton {
+  display: flex;
+  width: 100%;
+}
+.commentButton button {
+  margin: auto 0 auto auto;
+}
+.post__buttons span {
+  vertical-align: middle;
+}
+.post__comment_area {
+  grid-area: p-comments;
+  display: none;
+}
+.openComment {
+  display: block;
+}
+.post__num-liked {
+  display: inline-block;
+  margin: auto;
+  margin-right: 0;
+}
+.post__comment_area > textarea {
+  width: 100%;
+  min-height: 40px;
+  font-size: 1.3em;
+}
+.postComments {
+  grid-area: p-comm;
+
+}
+.postComments > .post {
+  grid-gap: 0;
+  border-left: 2px solid red;
+}
+.postComments > .post > .post__name {
+  margin-left: 10px;
+}
+.comment-title {
+  margin: 10px 0 0 10px;
+  font-size: 1.4em;
 }
 
 

@@ -16,6 +16,12 @@ function updateGoal() {
   chapterGoal.classList.add("updategoalshow");
   customGoal.classList.add("updategoalshow");
 }
+function openCommentArea(postID) {
+  var commentFieldID = "comment" + postID;
+  console.log(commentFieldID);
+  var commentField = document.getElementById(commentFieldID);
+  commentField.classList.add("openComment");
+}
 document.querySelectorAll('textarea').forEach(el => {
   el.style.height = el.setAttribute('style', 'height: ' + el.scrollHeight + 'px');
   el.classList.add('auto');
