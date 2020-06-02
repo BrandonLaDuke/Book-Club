@@ -167,7 +167,7 @@ if (isset($_POST['updatepgnum'])) {
       $pagenum = 0;
       $chapterGoal = "";
       $customGoal = $_POST['customGoal'];
-
+      $username = $_POST['userUid'];
 
     $sql2 = "SELECT bookId FROM books WHERE bookId=?";
     $stmt = mysqli_stmt_init($conn);

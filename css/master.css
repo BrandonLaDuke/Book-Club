@@ -635,6 +635,7 @@ main {
   margin-left: 10px;
 }
 .comment-title {
+  display: block;
   margin: 10px 0 0 10px;
   font-size: 1.4em;
 }
