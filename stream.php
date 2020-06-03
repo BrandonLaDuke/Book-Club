@@ -1,8 +1,7 @@
 <?php require 'header.php'; ?>
 <div class="sb-container">
-  <h1>Stream (alpha-release)</h1>
-  <h4>Text posts only currently. Media enabled posts are coming soon.<br>
-  You may add comments, however they will not appear at this time.</h4>
+  <h1>Stream (beta-release)</h1>
+  <h4>Text posts only currently. Media enabled posts are coming soon.</h4>
   <form class="postbox" action="includes/create-post.inc.php" method="post" enctype="multipart/form-data">
     <img class="postbox__img" src="<?php echo $_SESSION['profilepic'] ?>" alt="Me">
     <?php if ($_SESSION['firstName'] != "") { ?>
@@ -104,22 +103,48 @@
             </div>
           </form>
 
-          <div class="postComments">
-            <hr>
-            <span class="comment-title">Comments</span>
-            <div class="post">
-              <img class="post__img" src="<?php echo $ProfileRow['profilepic'] ?>" alt="Me">
-              <?php if (isset($ProfileRow['firstName']) || isset($ProfileRow['lastName'])) {
-                echo "<span class=\"post__name\">" . $ProfileRow['firstName'] . " " . $ProfileRow['lastName'] . "</span>";
-              } else {
-                echo "<span class=\"post__name\">" . $row['uidUsers'] . "</span>";
-              }?>
-        <?php if (!empty($row['postText'])) { ?>
-                <div class="post__text">
-                  <?php echo $row['postText']; ?>
-                </div>
-        <?php } ?>
-            </div>
+
+
+            <?php
+            $sqlCommentsList = "SELECT *
+            FROM postComments
+            WHERE postId = \"$row[postId]\"
+            ORDER BY commentId DESC";
+            $resultCommentsList = mysqli_query($conn, $sqlCommentsList);
+            $resultCheckCommentsList = mysqli_num_rows($resultCommentsList); ?>
+            <div class="postComments">
+              <hr>
+              <span class="comment-title">Comments</span>
+              <?php
+              if ($resultCheckCommentsList > 0) {
+                while ($rowCommentsList = mysqli_fetch_assoc($resultCommentsList)) {
+
+                  $profileCsql = "SELECT *
+                  FROM users
+                  WHERE uidUsers = \"$rowCommentsList[uidUsers]\"";
+                  $profileresultC = mysqli_query($conn, $profileCsql);
+                  $profileResultCheckC = mysqli_num_rows($profileresultC);
+                  if ($profileResultCheck > 0) {
+                    $ProfileRowC = mysqli_fetch_assoc($profileresultC);
+                  } ?>
+
+
+                  <div class="post">
+                    <img class="post__img" src="<?php echo $ProfileRowC['profilepic'] ?>" alt="Me">
+                    <?php if (isset($ProfileRowC['firstName']) || isset($ProfileRowC['lastName'])) {
+                      echo "<span class=\"post__name\">" . $ProfileRowC['firstName'] . " " . $ProfileRowC['lastName'] . "</span>";
+                    } else {
+                      echo "<span class=\"post__name\">" . $rowCommentsList['uidUsers'] . "</span>";
+                    }?>
+
+                      <div class="post__text">
+                        <?php echo $rowCommentsList['commentText']; ?>
+                      </div>
+
+                  </div>
+                <?php
+              }
+            } ?>
           </div>
         </div>
 <?php }
