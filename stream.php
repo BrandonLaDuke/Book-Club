@@ -60,7 +60,7 @@
         <div class="post" id="<?php echo $row['postId'] ?>">
           <img class="post__img" src="<?php echo $ProfileRow['profilepic'] ?>" alt="Me">
           <?php if (isset($ProfileRow['firstName']) || isset($ProfileRow['lastName'])) {
-            echo "<span class=\"post__name\">" . $ProfileRow['firstName'] . " " . $ProfileRow['lastName'] . "</span>";
+            echo "<span class=\"post__name\">" . $ProfileRow['firstName'] . " " . $ProfileRow['lastName'] . " &nbsp; &nbsp; <a href=\"post.php?post=". $row['postId'] ."\">". $row['timeStamp'] ."</a></span>";
           } else {
             echo "<span class=\"post__name\">" . $row['uidUsers'] . "</span>";
           }?>
@@ -113,10 +113,12 @@
             $resultCommentsList = mysqli_query($conn, $sqlCommentsList);
             $resultCheckCommentsList = mysqli_num_rows($resultCommentsList); ?>
             <div class="postComments">
-              <hr>
-              <span class="comment-title">Comments</span>
+
               <?php
-              if ($resultCheckCommentsList > 0) {
+              if ($resultCheckCommentsList > 0) { ?>
+                <hr>
+                <span class="comment-title">Comments</span>
+                <?php
                 while ($rowCommentsList = mysqli_fetch_assoc($resultCommentsList)) {
 
                   $profileCsql = "SELECT *
