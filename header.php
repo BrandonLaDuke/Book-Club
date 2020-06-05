@@ -14,6 +14,7 @@ session_start(); ?>
     <meta property="og:description"        content="A student-run club here to help fellow book worms find new and exciting books as well as make new friends." />
     <meta property="og:image"              content="http://www.spinelessbound.com/img/books.jpg" />
     <title>Spineless Bound | Sullivan University Book Club</title>
+    <meta name="description" content="Spineless Bound was founded by Sarah Hickerson in 2019 along with founding members Brandon LaDuke (Developer of this web app), Brooke Johnson and Thomas Hill. In January 2020 we were named the most active club at Sullivan University.">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
     <link rel="stylesheet" href="css/master.css">
