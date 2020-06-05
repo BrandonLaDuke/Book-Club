@@ -10,7 +10,7 @@
     <script type="text/javascript">
       document.getElementById('nav__link__home').classList.add("nav__link--active")
     </script>
-<?php } else if ($pagename == "stream") { ?>
+<?php } else if ($pagename == "stream" or $pagename == "post") { ?>
   <script type="text/javascript">
     document.getElementById('nav__link__stream').classList.add("nav__link--active")
   </script>
@@ -18,13 +18,21 @@
   <script type="text/javascript">
     document.getElementById('nav__link__members').classList.add("nav__link--active")
   </script>
-<?php } else if ($pagename == "library") { ?>
+<?php } else if ($pagename == "library" or $pagename == "book") { ?>
   <script type="text/javascript">
     document.getElementById('nav__link__library').classList.add("nav__link--active")
   </script>
 <?php } else if ($pagename == "profile") { ?>
   <script type="text/javascript">
     document.getElementById('nav__link__profile').classList.add("nav__link--active")
+  </script>
+<?php } else if ($pagename == "about") { ?>
+  <script type="text/javascript">
+    document.getElementById('nav__link__about').classList.add("nav__link--active")
+  </script>
+<?php } else if ($pagename == "settings") { ?>
+  <script type="text/javascript">
+    document.getElementById('nav__link__settings').classList.add("nav__link--active")
   </script>
 <?php } ?>
 </footer>

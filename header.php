@@ -137,20 +137,20 @@ session_start(); ?>
                 <i class="material-icons nav__icon">local_library</i>
                 <span class="nav__text">Library</span>
               </a>
-              <a href="notifications.php" class="nav__link"id="nav__link__notifications">
+              <!-- <a href="notifications.php" class="nav__link"id="nav__link__notifications">
                 <i class="material-icons nav__icon">notifications</i>
                 <span class="nav__text">Notifications</span>
-              </a>
+              </a> -->
               <a href="profile.php?user=<?php echo $_SESSION['userUid']; ?>" class="nav__link" id="nav__link__profile">
                 <i class="material-icons nav__icon">person</i>
                 <span class="nav__text">Profile</span>
               </a>
               <span class="desktop-only spacer"></span>
-              <a href="about.php" class="nav__link spa desktop-only" id="nav__link__notifications">
+              <a href="about.php" class="nav__link spa desktop-only" id="nav__link__about">
                 <i class="material-icons nav__icon">info</i>
                 <span class="nav__text">About</span>
               </a>
-              <!-- <a href="settings.php" class="nav__link desktop-only" id="nav__link__notifications">
+              <!-- <a href="settings.php" class="nav__link desktop-only" id="nav__link__settings">
                 <i class="material-icons nav__icon">settings</i>
                 <span class="nav__text">Settings</span>
               </a> -->

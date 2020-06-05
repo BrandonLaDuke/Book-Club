@@ -2,7 +2,7 @@
   "name": "Book-Club",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.php",
   "dependencies": {
     "gulp": "^4.0.2",
     "web-push": "^3.4.4"
