@@ -1,0 +1,25 @@
+{
+  "name": "Book-Club",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "gulp": "^4.0.2",
+    "web-push": "^3.4.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BrandonLaDuke/Book-Club.git"
+  },
+  "keywords": [],
+  "author": "Brandon LaDuke",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BrandonLaDuke/Book-Club/issues"
+  },
+  "homepage": "https://github.com/BrandonLaDuke/Book-Club#readme"
+}

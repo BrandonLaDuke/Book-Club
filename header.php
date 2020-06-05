@@ -147,14 +147,14 @@ session_start(); ?>
               </a>
               <span class="desktop-only spacer"></span>
               <a href="about.php" class="nav__link spa desktop-only" id="nav__link__notifications">
-                <i class="material-icons nav__icon">policy</i>
-                <span class="nav__text">Policy</span>
+                <i class="material-icons nav__icon">info</i>
+                <span class="nav__text">About</span>
               </a>
-              <a href="settings.php" class="nav__link desktop-only" id="nav__link__notifications">
+              <!-- <a href="settings.php" class="nav__link desktop-only" id="nav__link__notifications">
                 <i class="material-icons nav__icon">settings</i>
                 <span class="nav__text">Settings</span>
-              </a>
+              </a> -->
             </nav>
-          
+
         </div>
       <?php } ?>

@@ -39,7 +39,7 @@
     let sw = await navigator.serviceWorker.ready;
     let push await sw.pushManager.subscribe({
       userVisibleOnly: true,
-      applicationServerKey: 'Todo!'
+      applicationServerKey: 'BMi4ouUYpj6SBcZD1QxKCRra6dTWkwSpbNqV8MG-XWFjzVvjo1dA2UrIQfFg53zOacRpHxnv-NubNJ-WkVJuBrU'
     })
     console.log(JSON.stringify(push));
   }
