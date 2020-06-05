@@ -82,6 +82,7 @@ hr {
 }
 
 
+
 * {
   box-sizing: border-box;
 }
@@ -157,8 +158,10 @@ main {
  }
  .header-login * {
    display: inline-block;
-   margin-left: 15px;
    text-decoration: none;
+ }
+ .header-login input {
+   margin-left: 15px;
  }
  .profile-btn {
    font-size: 1rem;
@@ -225,9 +228,7 @@ main {
     font-size: 20px;
     color: #000;
   }
-  .header-login a {
-    border: solid;
-  }
+
   .open {
     display: inline-block;
     z-index: 500 !important;
@@ -1281,6 +1282,19 @@ main {
 /* END: Book Details */
 
 
+/* Begin: Settings */
+
+.settings-container {
+  margin: 0 10px;
+}
+.setting__title {
+  font-weight: 900;
+  font-size: 1.3em;
+}
+
+/* END: Settings */
+
+
 
 
 
@@ -1480,3 +1494,11 @@ footer {
 }
 
 .editmode {display: none;}
+@media (max-width: 899px) {
+  .desktop-only {
+    display: none;
+  }
+}
+.spacer {
+  flex-grow: 1;
+}

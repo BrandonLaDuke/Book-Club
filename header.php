@@ -84,9 +84,12 @@ session_start(); ?>
         echo "<p class=\"welcome-msg\">Welcome, " . $ProfileRow['firstName'] . "!</p>";
       } else { ?>
         <p class="welcome-msg">Welcome, <?php echo $_SESSION['userUid']; ?>!</p>
+
 <?php  }?>
   <?php if ($_SESSION['admin']) { ?>
-          <a class="profile-btn btn lined thin" augmented-ui="br-clip exe" href="adminpanel.php">Control Panel</a>
+
+          <a augmented-ui="br-clip exe" href="adminpanel.php"><button class="profile-btn btn lined thin logout-btn">Control Panel</button></a>
+
   <?php } ?>
           <a class="profile-btn btn lined thin" href="profile.php?user=<?php echo $_SESSION['userUid']; ?>">My Profile</a>
           <form class="logout" action="includes/logout.inc.php" method="post">
@@ -142,16 +145,16 @@ session_start(); ?>
                 <i class="material-icons nav__icon">person</i>
                 <span class="nav__text">Profile</span>
               </a>
-              <!-- <span></span>
-              <a href="about.php" class="nav__link"id="nav__link__notifications">
-                <i class="material-icons nav__icon">about</i>
-                <span class="nav__text">Legal</span>
-              </a> -->
+              <span class="desktop-only spacer"></span>
+              <a href="about.php" class="nav__link spa desktop-only" id="nav__link__notifications">
+                <i class="material-icons nav__icon">policy</i>
+                <span class="nav__text">Policy</span>
+              </a>
+              <a href="settings.php" class="nav__link desktop-only" id="nav__link__notifications">
+                <i class="material-icons nav__icon">settings</i>
+                <span class="nav__text">Settings</span>
+              </a>
             </nav>
-          <ul class="menu" augmented-ui="tl-clip br-clip exe">
-            <a href="index.php"><li augmented-ui="tl-clip br-clip exe">Home</li></a>
-            <a href="members.php"><li augmented-ui="tl-clip br-clip exe">Members</li></a>
-            <a href="library.php"><li augmented-ui="tl-clip br-clip exe">Library</li></a>
-          </ul>
+          
         </div>
       <?php } ?>

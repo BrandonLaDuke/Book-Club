@@ -29,6 +29,21 @@
 <?php } ?>
 </footer>
 </div>
+<script type="text/javascript">
+  addEventListener('load',async () => {
+    let sw = await navigator.serviceWorker.register('./sw.js');
+    console.log(sw)
+  });
+
+  async function subscribe() {
+    let sw = await navigator.serviceWorker.ready;
+    let push await sw.pushManager.subscribe({
+      userVisibleOnly: true,
+      applicationServerKey: 'Todo!'
+    })
+    console.log(JSON.stringify(push));
+  }
+</script>
 <script src="js/script.js" charset="utf-8"></script>
 </body>
 </html>
