@@ -4,7 +4,7 @@
   <h2>The Sullivan University Book Club</h2>
 
   <h3>About</h3>
-  <p>Spineless Bound was founded by <a href="profile.php?user=shicke2395">Sarah Hickerson</a> in 2019 along with founding members <a href="profile.php?user=bladuk8617">Brandon LaDuke</a> (Developer of this web app), <a href="profile.php?user=bjohns6325">Brooke Johnson</a> and <a href="profile?user=Thomas">Thomas Hill</a>. In January 2020 we were named the most active club at Sullivan University.</p>
+  <p>Spineless Bound was founded by <a href="profile.php?user=shicke2395">Sarah Hickerson</a> in 2019 along with founding members <a href="profile.php?user=bladuk8617">Brandon LaDuke</a> (Developer of this web app), <a href="profile.php?user=bjohns6325">Brooke Johnson</a> and <a href="profile.php?user=Thomas">Thomas Hill</a>. In January 2020 we were named the most active club at Sullivan University.</p>
   <br>
   <h2>FAQ</h2>
   <h3>When and where do we meet?</h3>
