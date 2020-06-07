@@ -143,6 +143,23 @@ main {
     height: 47px;
   }
 }
+@media (min-width:1000px) {
+  .vertical-pwd-grid span {
+    padding-top: 3px;
+  }
+  .vertical-pwd-grid span input[type=checkbox] {
+    margin: auto;
+    width: auto;
+    height: auto;
+  }
+  .vertical-pwd-grid a,
+  .vertical-pwd-grid span {
+    padding-left: 15px;
+  }
+  .mobileHidden {
+    display: none;
+  }
+}
 
 
 
@@ -228,6 +245,11 @@ main {
     font-size: 20px;
     color: #000;
   }
+input[type="checkbox"] {
+    display: inline;
+    width: auto;
+}
+
 
   .open {
     display: inline-block;
@@ -312,8 +334,15 @@ main {
   .forgot-pwd-mobile {
     display: none;
   }
+  .desktopHidden {
+    display: none;
+  }
 }
-
+@media (max-width: 999px) {
+  .mobileHidden {
+    display: none;
+  }
+}
 
 
 /* Home page */

@@ -1,5 +1,34 @@
 <?php include_once 'includes/dbh.inc.php';
-session_start(); ?>
+session_start();
+$cookie = isset($_COOKIE['rememberme']) ? $_COOKIE['rememberme'] : '';
+    if ($cookie) {
+        list ($user, $token, $mac) = explode(':', $cookie);
+        if (!hash_equals(hash_hmac('sha256', $user . ':' . $token, SECRET_KEY), $mac)) {
+            return false;
+        }
+        $usertoken = fetchTokenByUserName($user);
+        if (hash_equals($usertoken, $token)) {
+          $sql = "SELECT * FROM users WHERE uidUsers=?;";
+          $stmt = mysqli_stmt_init($conn);
+
+          if (!mysqli_stmt_prepare($stmt, $sql)) {
+            header("Location: ../index.php?error=sqlerror");
+            exit();
+          } else {
+            mysqli_stmt_bind_param($stmt, "i", $user);
+            mysqli_stmt_execute($stmt);
+            $result = mysqli_stmt_get_result($stmt);
+            if ($row = mysqli_fetch_assoc($result)) {
+              $_SESSION['userId'] = $row['idUsers'];
+              $_SESSION['userUid'] = $row['uidUsers'];
+              $_SESSION['firstName'] = $row['firstName'];
+              $_SESSION['lastName'] = $row['lastName'];
+              $_SESSION['profilepic'] = $row['profilepic'];
+              $_SESSION['admin'] = $row['admin'];
+            }
+          }
+        }
+    } ?>
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -103,12 +132,17 @@ session_start(); ?>
 
         <!-- <p class="welcome-msg"> echo $_SESSION['userUid']; </p> -->
         <form class="signin" action="includes/login.inc.php" method="post">
+          <div class="vertical-pwd-grid">
             <input type="text" name="mailuid" placeholder="Email/Username" augmented-ui="br-clip exe">
+            <span class="mobileHidden">Remember me: <input type="checkbox" name="rememberme" value=""></span>
+            </div>
             <div class="vertical-pwd-grid">
               <input type="password" name="pwd" placeholder="Password" augmented-ui="br-clip exe">
+              <span class="desktopHidden">Remember me: <input type="checkbox" name="rememberme" value=""></span>
               <a class="forgot-pwd-desktop" href="passwordreset.php?resetrequest=true">Forgot password?</a>
             </div>
             <button class="btn lined-thick" type="submit" name="login-submit">Login</button>
+
             <a class="forgot-pwd-mobile" href="passwordreset.php?resetrequest=true">Forgot password?</a>
         </form>
 
