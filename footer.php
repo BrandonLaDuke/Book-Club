@@ -1,10 +1,5 @@
 
-<footer>
-  <div class="info">
-    <p>Copyright &copy; 2020 Spineless Bound. All Rights Reserved.</p>
-    <p>Developed by Brandon LaDuke</p>
-    <p>This site was created for the Sullivan University Book Club</p>
-  </div>
+
   <?php $pagename = pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME);
   if ($pagename == "index") { ?>
     <script type="text/javascript">
@@ -35,7 +30,7 @@
     document.getElementById('nav__link__settings').classList.add("nav__link--active")
   </script>
 <?php } ?>
-</footer>
+
 </div>
 <script type="text/javascript">
   addEventListener('load',async () => {

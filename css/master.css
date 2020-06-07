@@ -160,6 +160,14 @@ main {
     display: none;
   }
 }
+.about-text {
+  background-color: #222e;
+  padding: 15px;
+  border-radius: 15px;
+}
+.about-text a {
+  color: #fff;
+}
 
 
 
