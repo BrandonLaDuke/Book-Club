@@ -1,5 +1,34 @@
 <?php include_once 'includes/dbh.inc.php';
-session_start(); ?>
+session_start();
+$cookie = isset($_COOKIE['rememberme']) ? $_COOKIE['rememberme'] : '';
+    if ($cookie) {
+        list ($user, $token, $mac) = explode(':', $cookie);
+        if (!hash_equals(hash_hmac('sha256', $user . ':' . $token, SECRET_KEY), $mac)) {
+            return false;
+        }
+        $usertoken = fetchTokenByUserName($user);
+        if (hash_equals($usertoken, $token)) {
+          $sql = "SELECT * FROM users WHERE uidUsers=?;";
+          $stmt = mysqli_stmt_init($conn);
+
+          if (!mysqli_stmt_prepare($stmt, $sql)) {
+            header("Location: ../index.php?error=sqlerror");
+            exit();
+          } else {
+            mysqli_stmt_bind_param($stmt, "i", $user);
+            mysqli_stmt_execute($stmt);
+            $result = mysqli_stmt_get_result($stmt);
+            if ($row = mysqli_fetch_assoc($result)) {
+              $_SESSION['userId'] = $row['idUsers'];
+              $_SESSION['userUid'] = $row['uidUsers'];
+              $_SESSION['firstName'] = $row['firstName'];
+              $_SESSION['lastName'] = $row['lastName'];
+              $_SESSION['profilepic'] = $row['profilepic'];
+              $_SESSION['admin'] = $row['admin'];
+            }
+          }
+        }
+    } ?>
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -14,6 +43,7 @@ session_start(); ?>
     <meta property="og:description"        content="A student-run club here to help fellow book worms find new and exciting books as well as make new friends." />
     <meta property="og:image"              content="http://www.spinelessbound.com/img/books.jpg" />
     <title>Spineless Bound | Sullivan University Book Club</title>
+    <meta name="description" content="Spineless Bound was founded by Sarah Hickerson in 2019 along with founding members Brandon LaDuke (Developer of this web app), Brooke Johnson and Thomas Hill. In January 2020 we were named the most active club at Sullivan University.">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
     <link rel="stylesheet" href="css/master.css">
@@ -84,9 +114,12 @@ session_start(); ?>
         echo "<p class=\"welcome-msg\">Welcome, " . $ProfileRow['firstName'] . "!</p>";
       } else { ?>
         <p class="welcome-msg">Welcome, <?php echo $_SESSION['userUid']; ?>!</p>
+
 <?php  }?>
   <?php if ($_SESSION['admin']) { ?>
-          <a class="profile-btn btn lined thin" augmented-ui="br-clip exe" href="adminpanel.php">Control Panel</a>
+
+          <a augmented-ui="br-clip exe" href="adminpanel.php"><button class="profile-btn btn lined thin logout-btn">Control Panel</button></a>
+
   <?php } ?>
           <a class="profile-btn btn lined thin" href="profile.php?user=<?php echo $_SESSION['userUid']; ?>">My Profile</a>
           <form class="logout" action="includes/logout.inc.php" method="post">
@@ -99,12 +132,17 @@ session_start(); ?>
 
         <!-- <p class="welcome-msg"> echo $_SESSION['userUid']; </p> -->
         <form class="signin" action="includes/login.inc.php" method="post">
+          <div class="vertical-pwd-grid">
             <input type="text" name="mailuid" placeholder="Email/Username" augmented-ui="br-clip exe">
+            <span class="mobileHidden">Remember me: <input type="checkbox" name="rememberme" value=""></span>
+            </div>
             <div class="vertical-pwd-grid">
               <input type="password" name="pwd" placeholder="Password" augmented-ui="br-clip exe">
+              <span class="desktopHidden">Remember me: <input type="checkbox" name="rememberme" value=""></span>
               <a class="forgot-pwd-desktop" href="passwordreset.php?resetrequest=true">Forgot password?</a>
             </div>
             <button class="btn lined-thick" type="submit" name="login-submit">Login</button>
+
             <a class="forgot-pwd-mobile" href="passwordreset.php?resetrequest=true">Forgot password?</a>
         </form>
 
@@ -134,7 +172,7 @@ session_start(); ?>
                 <i class="material-icons nav__icon">local_library</i>
                 <span class="nav__text">Library</span>
               </a>
-              <!-- <a href="notifications" class="nav__link"id="nav__link__notifications">
+              <!-- <a href="notifications.php" class="nav__link"id="nav__link__notifications">
                 <i class="material-icons nav__icon">notifications</i>
                 <span class="nav__text">Notifications</span>
               </a> -->
@@ -142,11 +180,16 @@ session_start(); ?>
                 <i class="material-icons nav__icon">person</i>
                 <span class="nav__text">Profile</span>
               </a>
+              <span class="desktop-only spacer"></span>
+              <a href="about.php" class="nav__link spa desktop-only" id="nav__link__about">
+                <i class="material-icons nav__icon">info</i>
+                <span class="nav__text">About</span>
+              </a>
+              <!-- <a href="settings.php" class="nav__link desktop-only" id="nav__link__settings">
+                <i class="material-icons nav__icon">settings</i>
+                <span class="nav__text">Settings</span>
+              </a> -->
             </nav>
-          <ul class="menu" augmented-ui="tl-clip br-clip exe">
-            <a href="index.php"><li augmented-ui="tl-clip br-clip exe">Home</li></a>
-            <a href="members.php"><li augmented-ui="tl-clip br-clip exe">Members</li></a>
-            <a href="library.php"><li augmented-ui="tl-clip br-clip exe">Library</li></a>
-          </ul>
+
         </div>
       <?php } ?>

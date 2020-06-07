@@ -8,6 +8,7 @@ if (isset($_POST['login-submit'])) {
 
   $mailuid = $_POST['mailuid'];
   $password = $_POST['pwd'];
+  $rem = $_POST['rememberme'];
 
   if (empty($mailuid) || empty($password)) {
     header("Location: ../index.php?error=emptyfields");
@@ -31,6 +32,14 @@ if (isset($_POST['login-submit'])) {
           exit();
         } else if($pwdCheck == true) {
           if ($row['active'] == 1) {
+            if (isset($_POST['rememberme'])) {
+              $user = $row['idUsers'];
+              $token = md5( rand(0,1000) ); // generate a token, should be 128 - 256 bit
+              $cookie = $user . ':' . $token;
+              $mac = hash_hmac('sha256', $cookie, SECRET_KEY);
+              $cookie .= ':' . $mac;
+              setcookie('rememberme', $cookie);
+            }
             session_start();
             $_SESSION['userId'] = $row['idUsers'];
             $_SESSION['userUid'] = $row['uidUsers'];
