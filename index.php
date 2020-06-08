@@ -41,7 +41,7 @@ if (isset($_GET['error'])) {
       <h2>Welcome to the Sullivan University BookClub</h2>
       <a class="discord btn lined-thin" href="https://discord.gg/dGEkmFC">Join our discord</a>
     </div>
-    <main>
+
     <section id="main-view">
       <?php $sql = "SELECT * FROM books WHERE readingStatus = 1;";
       $result = mysqli_query($conn, $sql);
@@ -132,7 +132,7 @@ if (isset($_GET['error'])) {
       </div>
     <?php } ?>
     </section>
-    </main>
+
   <?php } else { ?>
     <style media="screen">
       .wrapper {background-image: url('img/books.jpg');}

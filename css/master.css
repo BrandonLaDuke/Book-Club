@@ -156,9 +156,7 @@ main {
   .vertical-pwd-grid span {
     padding-left: 15px;
   }
-  .mobileHidden {
-    display: none;
-  }
+
 }
 .about-text {
   background-color: #222e;
@@ -342,9 +340,10 @@ input[type="checkbox"] {
   .forgot-pwd-mobile {
     display: none;
   }
-  .desktopHidden {
-    display: none;
-  }
+}
+.mobileHidden,
+.desktopHidden {
+  display: none;
 }
 @media (max-width: 999px) {
   .mobileHidden {
@@ -357,7 +356,7 @@ input[type="checkbox"] {
 
 main {
   display: flex;
-  min-height: calc(100vh - 122px - 135px);
+  min-height: calc(100vh - 70px);
 }
 #main {
   width: 100%;
@@ -1341,14 +1340,6 @@ main {
 
 .hidden {
   display: none;
-}
-footer {
-  position:relative;
-  margin: 50px 0 0 0;
-  padding: 10px 20px;
-  width: 100%;
-  text-align: center;
-  background-color: #195656;
 }
 
 
