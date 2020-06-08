@@ -43,7 +43,7 @@ if (isset($_POST['post'])) {
       }
 
     $webhookurl = $bookworm_webhook;
-    $msg = $username . " posted in SpinelessBound! Checkout their post: https://spinelessbound.com/post.php?post=" . $postId;
+    $msg = $username . " posted in SpinelessBound!";
     $json_data = array ('content'=>"$msg", "username" => "Bookworm");
     $make_json = json_encode($json_data);
     $ch = curl_init( $webhookurl );
