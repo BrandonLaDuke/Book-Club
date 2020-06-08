@@ -407,6 +407,11 @@ main {
 }
 
 /* Home page Currently Reading */
+.currenty-reading {
+  background-color: #222;
+  display: grid;
+  grid-template-columns: auto 50px;
+}
 .currenty-reading > .cur-text {
   font-family: 'Patrick Hand SC', cursive;
 }
@@ -433,7 +438,7 @@ main {
 }
 .currenty-reading > .book-cover-cur {
   display: flex;
-  width: 100px;
+  width: 50px;
   margin: 0 0 0 10px;
 }
 .currenty-reading > .book-cover-cur {
@@ -518,6 +523,7 @@ main {
 }
 .upgoalbtn {
   display: block;
+  display: none; /* tempory */
 }
 .upgoalbtnhide {
   display: none;

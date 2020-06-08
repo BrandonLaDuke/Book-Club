@@ -36,11 +36,11 @@ if (isset($_GET['error'])) {
       <?php }
             } ?>
     <?php } ?>
-    <div class="header-feature">
+    <!-- <div class="header-feature">
       <h1>Spineless Bound</h1>
       <h2>Welcome to the Sullivan University BookClub</h2>
       <a class="discord btn lined-thin" href="https://discord.gg/dGEkmFC">Join our discord</a>
-    </div>
+    </div> -->
 
     <section id="main-view">
       <?php $sql = "SELECT * FROM books WHERE readingStatus = 1;";
@@ -77,7 +77,7 @@ if (isset($_GET['error'])) {
         <?php   } ?>
         </div>
 
-        <img class="book-cover-cur" src="<?php echo $row['coverArtURL']; ?>" width="300px" alt="">
+        <img class="book-cover-cur" src="<?php echo $row['coverArtURL']; ?>" alt="">
         <button onclick="updateGoal()" id="updategoalbtn" type="button" class="upgoalbtn updatepages btn lined thin" name="update">Update Goal</button>
         <br>
         <form id="pgnumGoal" class="updategoal" action="includes/update-pages.inc.php" method="post">
