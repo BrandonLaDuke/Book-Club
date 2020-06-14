@@ -1,7 +1,4 @@
-<?php require 'header.php'; ?>
-<div class="sb-container">
-  <h1>Stream (beta-release)</h1>
-  <h4>Text posts only currently. Media enabled posts are coming soon.</h4>
+
   <form class="postbox" action="includes/create-post.inc.php" method="post" enctype="multipart/form-data">
     <img class="postbox__img" src="<?php echo $_SESSION['profilepic'] ?>" alt="Me">
     <?php if ($_SESSION['firstName'] != "") { ?>
@@ -60,7 +57,7 @@
         <div class="post" id="<?php echo $row['postId'] ?>">
           <img class="post__img" src="<?php echo $ProfileRow['profilepic'] ?>" alt="Me">
           <?php if (isset($ProfileRow['firstName']) || isset($ProfileRow['lastName'])) {
-            echo "<span class=\"post__name\">" . $ProfileRow['firstName'] . " " . $ProfileRow['lastName'] . " &nbsp; &nbsp; <a href=\"post.php?post=". $row['postId'] ."\">". $row['timeStamp'] ."</a></span>";
+            echo "<span class=\"post__name\">" . $ProfileRow['firstName'] . " " . $ProfileRow['lastName'] . " &nbsp; &nbsp; <a style=\"color:#bbb;\" href=\"post.php?post=". $row['postId'] ."\">". $row['timeStamp'] ."</a></span>";
           } else {
             echo "<span class=\"post__name\">" . $row['uidUsers'] . "</span>";
           }?>
@@ -152,7 +149,3 @@
 <?php }
     } ?>
   </div>
-
-  </div>
-</div>
-<?php require 'footer.php'; ?>
