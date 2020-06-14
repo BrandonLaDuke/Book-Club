@@ -198,7 +198,9 @@ main {
  .logout-btn {
    margin-left: -10px;
  }
-
+ .welcome-msg {
+   margin-right: 10px;
+ }
   /*End Navigation */
   .header-login-btn {
     display: none;
@@ -607,7 +609,9 @@ main {
 }
 .postbox__text {
   grid-area: pb-text;
-  font-size: 15px
+  font-size: 12px;
+  padding: 15px;
+  border-radius: 22px;
 }
 .postbox__submit {
   grid-area: pb-button;
@@ -1492,7 +1496,7 @@ main {
       width: 100%;
       height: 55px;
       box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
-      background-color: #202226;
+      background-color: #000;
       display: flex;
       overflow-x: auto;
       border-radius: 20px 20px 0 0;

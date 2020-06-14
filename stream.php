@@ -7,7 +7,7 @@
       <span class="postbox__name"><?php echo $_SESSION['userUid']; ?> <?php echo $_SESSION['lastName']; ?></span>
 <?php } ?>
     <input type="hidden" name="userUid" value="<?php echo $_SESSION['userUid']; ?>">
-    <textarea class="postbox__text" name="posttext" rows="4" placeholder="What's on your mind?"></textarea>
+    <textarea class="postbox__text" name="posttext" rows="1" placeholder="What's on your mind?"></textarea>
     <!-- <button type="button" name="button">Add media</button>
     <div class="add-media-to-post">
       <div class="">
