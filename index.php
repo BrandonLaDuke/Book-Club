@@ -49,17 +49,17 @@ if (isset($_GET['error'])) {
     <section id="bladeUI_grid">
 
       <div class="currentlyReading">
-        <?php require 'currentlyreading.php'; ?>
+        <?php require "currentlyreading.php"; ?>
       </div>
 
       <div class="stream">
-        <?php require 'stream.php'; ?>
+        <?php require "stream.php"; ?>
       </div>
       <div class="discord_widget">
-        <?php require 'discord_widget.php'; ?>
+        <?php require "discord_widget.php"; ?>
       </div>
       <div class="readingNext">
-        <?php require 'readingNext.php'; ?>
+        <?php require "readingNext.php"; ?>
       </div>
 
     </section>
