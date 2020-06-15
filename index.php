@@ -51,7 +51,6 @@ if (isset($_GET['error'])) {
       <div class="currentlyReading">
         <?php require "currentlyReading.php"; ?>
       </div>
-
       <div class="stream">
         <?php require "stream.php"; ?>
       </div>
