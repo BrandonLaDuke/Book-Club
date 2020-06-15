@@ -59,12 +59,15 @@ if (isset($_GET['error'])) {
       </div>
       <div class="readingNext">
         <?php require "readingNext.php"; ?>
-
-    </div>
-
       </div>
- 
+
     </section>
+
+
+
+
+
+
 
   <?php } else { ?>
     <style media="screen">

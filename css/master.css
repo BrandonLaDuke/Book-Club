@@ -12,9 +12,13 @@
 --gray4: #8e9297;
 --white: #ffffff;
 
-  --star-size: 35px;
-  --star-color: #fff;
-  --star-background: #fc0;
+--main-bkg-color: var(--gray1);
+--box-color: var(--gray2);
+--post-color: var(--gray3);
+
+--star-size: 35px;
+--star-color: #fff;
+--star-background: #fc0;
 }
 html {
   color: var(--gray1);
@@ -89,7 +93,7 @@ hr {
 body {
   display: block;
   margin: 0;
-  background-color: teal;
+  background-color: var(--main-bkg-color);
   color: #fff;
   min-height: 100vh;
   font-family: sans-serif;
@@ -194,7 +198,9 @@ main {
  .logout-btn {
    margin-left: -10px;
  }
-
+ .welcome-msg {
+   margin-right: 10px;
+ }
   /*End Navigation */
   .header-login-btn {
     display: none;
@@ -407,33 +413,51 @@ main {
 }
 
 /* Home page Currently Reading */
+.currenty-reading {
+  background-color: var(--box-color);
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto 50px;
+}
 .currenty-reading > .cur-text {
-  font-family: 'Patrick Hand SC', cursive;
+  font-family: sans-serif;
+  font-weight: 100;
+  padding: 5px;
+}
+.currenty-reading .cur-text h1 {
+  font-size: 0.85em;
+}
+.currenty-reading .cur-text h3 {
+  font-size: 0.7em;
 }
 .currenty-reading > .cur-text > * {
   margin: 0;
+  font-weight: 100;
+  letter-spacing: 0.8px;
 }
 .currenty-reading a {
   color: #fff;
 }
 .currenty-reading .cur-text h4 {
   text-decoration: underline;
-  font-size: 15px;
+  font-size: 0.7em;
   margin-top: 10px;
 }
 .currenty-reading .cur-text h5 {
-  font-size: 18px;
-  margin-bottom: 15px;
+  font-size: 0.7em;
 }
 .currenty-reading .cur-text h5 > span {
   text-decoration: underline;
   background-color: yellow;
   color: #000;
   padding: 0 3px;
+  font-weight: 500;
+  font-size: 1.4em;
+  cursor: pointer;
 }
 .currenty-reading > .book-cover-cur {
   display: flex;
-  width: 100px;
+  width: 50px;
   margin: 0 0 0 10px;
 }
 .currenty-reading > .book-cover-cur {
@@ -474,20 +498,14 @@ main {
     font-family: 'Patrick Hand SC', cursive;
     margin: 0;
   }
-  .currenty-reading > .book-cover-cur {
-    display: flex;
-    width: 100px;
-    margin: 0 0 0 10px;
-  }
+
 
 
   #main-view {
     width: 100%;
     display:flex;
   }
-  .currenty-reading {
-    margin: 50px auto;
-  }
+
   .cur-text {
     display: inline-block;
 
@@ -516,17 +534,27 @@ main {
   margin-top: 10px;
   text-decoration: none;
 }
-.upgoalbtn {
-  display: block;
-}
-.upgoalbtnhide {
+.updategoal-window {
   display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
-.updategoal {
-  display: none;
+.update-goal-container {
+  padding: 10px;
+  background-color: var(--box-color);
+  border-radius: 15px;
+  margin: auto;
+  box-shadow: 0px 0px 60px #00ffff55;
+  width: 350px;
+}
+.pointer {
+  cursor: pointer;
 }
 .updategoalshow {
-  display: block;
+  display: flex;
 }
 .uppgnum {
   font-size: 20px;
@@ -534,12 +562,15 @@ main {
   border-radius: 50px;
   border: none;
   outline: none;
+  width: 100%;
 }
 .updatepages {
   font-size: 22px;
   padding: 3px 15px;
   color: #fff;
   cursor: pointer;
+  margin: 10px 20px 20px;
+  width: -webkit-fill-available;
 }
 
 /* END: Home page Currently Reading */
@@ -563,7 +594,7 @@ main {
                        "pb-text pb-text pb-text"
                        ". . pb-button";
   padding: 10px;
-  background-color: var(--gray2);
+  background-color: var(--post-color);
 }
 .postbox__img {
   grid-area: pb-img;
@@ -578,7 +609,9 @@ main {
 }
 .postbox__text {
   grid-area: pb-text;
-  font-size: 15px
+  font-size: 12px;
+  padding: 15px;
+  border-radius: 22px;
 }
 .postbox__submit {
   grid-area: pb-button;
@@ -601,7 +634,7 @@ main {
                        "p-comm p-comm p-comm";
 
   padding: 10px;
-  background-color: var(--gray2);
+  background-color: var(--post-color);
 }
 
 .post__img {
@@ -1463,7 +1496,7 @@ main {
       width: 100%;
       height: 55px;
       box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
-      background-color: #202226;
+      background-color: #000;
       display: flex;
       overflow-x: auto;
       border-radius: 20px 20px 0 0;
@@ -1529,4 +1562,86 @@ main {
 }
 .spacer {
   flex-grow: 1;
+}
+
+
+/* New Blade UI */
+
+#bladeUI_grid {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-auto-rows: auto;
+  grid-gap: 5px;
+}
+.readingNext,
+.discord_widget {
+  display: none;
+}
+@media (min-width: 900px) {
+  .stream {
+    grid-area:stream;
+    background-color: var(--box-color);
+    padding: 10px;
+    border-radius: 5px;
+  }
+  .currentlyReading{
+    grid-area:currently-reading;
+  }
+  .currenty-reading {
+    grid-template-columns: auto 100px;
+    border-radius: 5px;
+  }
+  .currenty-reading > .cur-text {
+    padding: 10px;
+  }
+  .currenty-reading .cur-text h1 {
+    font-size: 1.2em;
+  }
+  .currenty-reading .cur-text h3,
+  .currenty-reading .cur-text h5 {
+    margin-top: 5px;
+  }
+  .currenty-reading .cur-text h5,
+  .currenty-reading .cur-text h5 span {
+    font-size: 1.1em;
+  }
+  .currenty-reading > .book-cover-cur {
+    width: 100px;
+  }
+  .discord_widget {
+    display: block;
+    grid-area: discord_widget;
+    margin: auto;
+  }
+  .readingNext{
+    display: block;
+    grid-area:reading-next;
+    background-color: var(--box-color);
+    border-radius: 5px;
+  }
+  .readingNext h4 {
+    font-size: 1.3em;
+    margin: 15px;
+  }
+  #bladeUI_grid {
+    margin: 10px;
+    grid-gap: 10px;
+    grid-template-columns: auto 350px;
+    grid-template-areas: "stream currently-reading"
+                         "stream discord_widget"
+                         "stream reading-next"
+                         "stream .";
+  }
+}
+
+@media (min-width:1267px) {
+  #bladeUI_grid {
+    margin: 10px;
+    grid-gap: 20px;
+    grid-template-columns: auto 760px 350px auto;
+    grid-template-areas: ". stream currently-reading ."
+                         ". stream discord_widget ."
+                         ". stream reading-next ."
+                         ". stream . .";
+  }
 }
