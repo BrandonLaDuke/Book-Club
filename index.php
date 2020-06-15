@@ -36,35 +36,101 @@ if (isset($_GET['error'])) {
       <?php }
             } ?>
     <?php } ?>
-    <!-- <div class="header-feature">
+    <div class="header-feature">
       <h1>Spineless Bound</h1>
       <h2>Welcome to the Sullivan University BookClub</h2>
       <a class="discord btn lined-thin" href="https://discord.gg/dGEkmFC">Join our discord</a>
-    </div> -->
-
-
-
-
-
-    <section id="bladeUI_grid">
-
-      <div class="currentlyReading">
-        <?php require "currentlyReading.php"; ?>
-      </div>
-
-      <div class="stream">
-        <?php require "stream.php"; ?>
-      </div>
-      <div class="discord_widget">
-        <?php require "discord_widget.php"; ?>
-      </div>
-      <div class="readingNext">
-        <?php require "readingNext.php"; ?>
-
     </div>
 
+    <section id="main-view">
+      <?php $sql = "SELECT * FROM books WHERE readingStatus = 1;";
+      $result = mysqli_query($conn, $sql);
+      $resultCheck = mysqli_num_rows($result);
+      if ($row = mysqli_fetch_assoc($result)) { ?>
+
+      <div class="currenty-reading">
+        <div class="cur-text">
+          <h4>Currenty Reading</h4>
+          <h1><a href="book.php?bookid=<?php echo $row['bookId'] ?>"><?php echo $row['bookTitle']; ?></a></h1>
+          <h3>by <?php echo $row['bookAuthor']; ?></h3>
+          <?php
+          $profilesql = "SELECT *
+          FROM users
+          WHERE uidUsers = \"$row[chosenBy]\"";
+          $profileresult = mysqli_query($conn, $profilesql);
+          $profileResultCheck = mysqli_num_rows($profileresult);
+          if ($profileResultCheck > 0) {
+            $ProfileRow = mysqli_fetch_assoc($profileresult);
+          }
+          ?>
+          <?php if (isset($ProfileRow['firstName']) || isset($ProfileRow['lastName'])) {
+            echo "<h3>Selected by " . $ProfileRow['firstName'] . " " . $ProfileRow['lastName'] . "</h3>";
+          } else {
+            echo "<h3>Selected by " . $row['chosenBy'] . "</h3>";
+          }?>
+          <?php if ($row['pageNumber'] > 0) { ?>
+                  <h5>Goal: Read to page <span><?php echo $row['pageNumber']; ?></span> by next meeting</h5>
+        <?php   } else if ($row['chapter'] != "") { ?>
+                  <h5>Goal: Read to chapter <span><?php echo $row['chapter']; ?></span> by next meeting</h5>
+        <?php   } else { ?>
+          <h5>Goal: <span><?php echo $row['customGoal']; ?></span></h5>
+        <?php   } ?>
+        </div>
+
+        <img class="book-cover-cur" src="<?php echo $row['coverArtURL']; ?>" width="300px" alt="">
+        <button onclick="updateGoal()" id="updategoalbtn" type="button" class="upgoalbtn updatepages btn lined thin" name="update">Update Goal</button>
+        <br>
+        <form id="pgnumGoal" class="updategoal" action="includes/update-pages.inc.php" method="post">
+          <input class="hidden" type="text" name="bookId" value="<?php echo $row['bookId']; ?>">
+          <input class="hidden" type="text" name="userUid" value="<?php echo $_SESSION['userUid'] ?>">
+          <input class="uppgnum" type="text" name="pagenum" size="4" value="">
+          <button type="submit" class="updatepages btn lined thin" name="updatepgnum">Update Page Goal</button>
+        </form>
+        <br>
+        <form id="chapterGoal" class="updategoal" action="includes/update-pages.inc.php" method="post">
+          <input class="hidden" type="text" name="bookId" value="<?php echo $row['bookId']; ?>">
+          <input class="hidden" type="text" name="userUid" value="<?php echo $_SESSION['userUid'] ?>">
+          <input class="uppgnum" type="text" name="chapterGoal" size="32" value="">
+          <button type="submit" class="updatepages btn lined thin" name="updatechapter">Update Chapter Goal</button>
+        </form>
+        <br>
+        <form id="customGoal" class="updategoal" action="includes/update-pages.inc.php" method="post">
+          <input class="hidden" type="text" name="bookId" value="<?php echo $row['bookId']; ?>">
+          <input class="hidden" type="text" name="userUid" value="<?php echo $_SESSION['userUid'] ?>">
+          <input class="uppgnum" type="text" name="customGoal" size="32" value="">
+          <button type="submit" class="updatepages btn lined thin" name="updatecustomgoal">Create Custom Goal</button>
+        </form>
       </div>
- 
+    <?php } ?>
+      <?php $sqlUp = "SELECT * FROM books WHERE readingStatus = 2 ORDER BY bookId ASC;";
+      $resultUp = mysqli_query($conn, $sqlUp);
+      $resultCheckUp = mysqli_num_rows($resultUp);
+      if ($rowUp = mysqli_fetch_assoc($resultUp)) { ?>
+        <?php
+        $profilesql1 = "SELECT *
+        FROM users
+        WHERE uidUsers = \"$rowUp[chosenBy]\"";
+        $profileresult1 = mysqli_query($conn, $profilesql1);
+        $profileResultCheck1 = mysqli_num_rows($profileresult1);
+        if ($profileResultCheck1 > 0) {
+          $ProfileRow1 = mysqli_fetch_assoc($profileresult1);
+        }
+        ?>
+      <div class="currenty-reading">
+
+        <div class="cur-text">
+          <h4>Reading Next</h4>
+          <h1><?php echo $rowUp['bookTitle']; ?></h1>
+          <h3>by <?php echo $rowUp['bookAuthor']; ?></h3>
+          <?php if (isset($ProfileRow1['firstName']) || isset($ProfileRow1['lastName'])) {
+            echo "<h3>Selected by " . $ProfileRow1['firstName'] . " " . $ProfileRow1['lastName'] . "</h3>";
+          } else {
+            echo "<h3>Selected by " . $rowUp['chosenBy'] . "</h3>";
+          }?>
+        </div>
+        <img class="book-cover-cur" src="<?php echo $rowUp['coverArtURL']; ?>" width="300px" alt="">
+      </div>
+    <?php } ?>
     </section>
 
   <?php } else { ?>
