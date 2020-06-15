@@ -17,6 +17,12 @@
   }
 } ?>
 <main class="sb-container">
+
+
+
+
+
+
 <?php if (isset($_SESSION['userId'])) { ?>
   <div class="lib-buttons">
     <a class="btn lined thin profile-btn" href="library.php?queue">Add a book</a>
