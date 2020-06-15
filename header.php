@@ -159,11 +159,6 @@ $cookie = isset($_COOKIE['rememberme']) ? $_COOKIE['rememberme'] : '';
                 <i class="material-icons nav__icon">home</i>
                 <span class="nav__text">Home</span>
               </a>
-              <a href="stream.php" class="nav__link" id="nav__link__stream">
-                <i class="material-icons nav__icon">dashboard</i>
-                <span class="nav__text">Stream</span>
-              </a>
-
               <a href="members.php" class="nav__link" id="nav__link__members">
                 <i class="material-icons nav__icon">people</i>
                 <span class="nav__text">Members</span>
