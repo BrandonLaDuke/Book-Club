@@ -3,7 +3,7 @@
   $result = mysqli_query($conn, $sql);
   $resultCheck = mysqli_num_rows($result);
   if ($row = mysqli_fetch_assoc($result)) { ?>
-
+  <h4>Currently Reading</h4>
   <div class="currenty-reading">
     <div class="cur-text">
       <!-- <h4>Currenty Reading</h4> -->
