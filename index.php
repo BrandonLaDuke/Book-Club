@@ -36,11 +36,7 @@ if (isset($_GET['error'])) {
       <?php }
             } ?>
     <?php } ?>
-    <!-- <div class="header-feature">
-      <h1>Spineless Bound</h1>
-      <h2>Welcome to the Sullivan University BookClub</h2>
-      <a class="discord btn lined-thin" href="https://discord.gg/dGEkmFC">Join our discord</a>
-    </div> -->
+
 
 
 
@@ -49,6 +45,11 @@ if (isset($_GET['error'])) {
     <section id="bladeUI_grid">
 
       <div class="currentlyReading">
+        <div class="header-feature">
+          <h1>Spineless Bound</h1>
+          <h2>Welcome to the Sullivan University BookClub</h2>
+          <a class="discord btn lined-thin" href="https://discord.gg/dGEkmFC">Join our discord</a>
+        </div>
         <?php require "currentlyReading.php"; ?>
       </div>
       <div class="stream">
