@@ -24,7 +24,7 @@ if (isset($_POST['post'])) {
   $sql = "INSERT INTO posts (uidUsers, postText, postImg, yTVideo, likeNumPost) VALUES (?, ?, ?, ?, ?)";
   $stmt = mysqli_stmt_init($conn);
   if (!mysqli_stmt_prepare($stmt, $sql)) {
-    header("Location: ../book.php?error=sqlerror");
+    header("Location: ../index.php?error=sqlerror");
     exit();
   } else {
     mysqli_stmt_bind_param($stmt, "ssssi", $username, $posttext, $youtube, $vimeo, $fbvideo);
@@ -55,7 +55,7 @@ if (isset($_POST['post'])) {
     curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
     $response = curl_exec( $ch );
 
-    header("Location: ../stream.php?success=post");
+    header("Location: ../index.php?success=post");
     exit();
   }
 
