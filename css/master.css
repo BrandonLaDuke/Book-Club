@@ -468,7 +468,8 @@ main {
   background-color: #0eb3b3;
   text-align: center;
   text-transform:uppercase;
-  padding: 50px 0;
+  padding: 20px 0;
+  margin-bottom: 10px;
 }
 .header-feature > h1 {
   font-size: 2.5em;
@@ -480,24 +481,7 @@ main {
   font-family: 'Patrick Hand SC', cursive;
   margin: 0;
 }
-@media (min-width:533px) {
-  .header-feature {
-    display: block;
-    background-color: #0eb3b3;
-    text-align: center;
-    text-transform:uppercase;
-    padding: 50px 0;
-  }
-  .header-feature > h1 {
-    font-size: 5em;
-    font-family: 'Patrick Hand SC', cursive;
-    margin: 0;
-  }
-  .header-feature > h2 {
-    font-size: 1.75em;
-    font-family: 'Patrick Hand SC', cursive;
-    margin: 0;
-  }
+
 
 
 
