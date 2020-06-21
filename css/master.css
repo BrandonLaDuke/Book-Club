@@ -636,6 +636,9 @@ main {
   font-size: 15px;
   margin:10px;
 }
+.post__text a {
+  color: #12b2b3;
+}
 .post__buttons {
   grid-area: p-buttons;
   display: flex;
