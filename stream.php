@@ -59,7 +59,7 @@
           <?php if (!$ProfileRow['firstName'] == "" || !$ProfileRow['lastName'] == "") {
             echo "<span class=\"post__name\">" . $ProfileRow['firstName'] . " " . $ProfileRow['lastName'] . " &nbsp; &nbsp; <a style=\"color:#bbb;\" href=\"post.php?post=". $row['postId'] ."\">". $row['timeStamp'] ."</a></span>";
           } else {
-            echo "<span class=\"post__name\">" . $row['uidUsers'] . "</span>";
+            echo "<span class=\"post__name\">" . $row['uidUsers'] . ". &nbsp; &nbsp; <a style=\"color:#bbb;\" href=\"post.php?post=". $row['postId'] ."\">". $row['timeStamp'] ."</a></span>";
           }?>
     <?php if (!empty($row['postText'])) { ?>
             <div class="post__text">
