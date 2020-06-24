@@ -65,7 +65,11 @@
             <div class="post__text">
               <?php echo $row['postText']; ?>
             </div>
-    <?php } ?>
+    <?php }
+          if (!$row['yTVideo'] == "") {
+            echo '<iframe width="350" height="200" src="' . $row['yTVideo'] . '" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+          } ?>
+
     <?php if (!empty($row['postImg'])) { ?>
             <img src="<?php echo $row['postImg'] ?>" alt="">
    <?php  } ?>

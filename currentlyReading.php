@@ -3,10 +3,10 @@
   $result = mysqli_query($conn, $sql);
   $resultCheck = mysqli_num_rows($result);
   if ($row = mysqli_fetch_assoc($result)) { ?>
-  <!-- <h4>Currently Reading</h4> -->
+  <h4>Currently Reading</h4>
   <div class="currenty-reading">
     <div class="cur-text">
-      <!-- <h4>Currenty Reading</h4> -->
+
       <h1><a href="book.php?bookid=<?php echo $row['bookId'] ?>"><?php echo $row['bookTitle']; ?></a></h1>
       <h3>by <?php echo $row['bookAuthor']; ?></h3>
       <?php

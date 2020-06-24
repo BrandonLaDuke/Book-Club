@@ -14,14 +14,14 @@ if (isset($_POST['signup-submit'])) {
   $hash = md5( rand(0,1000) );
   $admin = 0;
   $active = 0;
-  $profilepic = "http://www.spinelessbound.com/img/pic.png";
+  $profilepic = "https://www.spinelessbound.com/img/pic.png";
   $about = "";
   $program = "";
   $website = "";
   $goodreads = "";
   $bkgColor = "inherit";
   $textColor = "inherit";
-  $coverPhotoURL = "http://www.spinelessbound.com/img/colors.jpg";
+  $coverPhotoURL = "https://www.spinelessbound.com/img/colors.jpg";
   $coverPhotoPosition = "center";
   $emailp = isset($_POST['mail']) ? trim($_POST['mail']) : null;
 
@@ -120,7 +120,7 @@ if (isset($_POST['signup-submit'])) {
               --------------------------------------
 
               Please click this link to activate your account:
-              http://www.spinelessbound.com/verify.php?email='.$email.'&hash='.$hash.'
+              https://www.spinelessbound.com/verify.php?email='.$email.'&hash='.$hash.'
 
               Spineless Bound
               Sullivan University
@@ -181,7 +181,7 @@ if (isset($_POST['signup-submit'])) {
           Hi '.$username.',. You are recieveing this email because you have requested a password reset.
 
           Please click this link to reset your passwoord:
-          http://www.spinelessbound.com/passwordreset.php?passwordreset='.$email.'&idUsers='.$username.'&hash='.$hash.'&uid='.$uid.'
+          https://www.spinelessbound.com/passwordreset.php?passwordreset='.$email.'&idUsers='.$username.'&hash='.$hash.'&uid='.$uid.'
 
           Spineless Bound
           Sullivan University

@@ -19,6 +19,7 @@ if (isset($_POST['post'])) {
   $youtube = "";
   $vimeo = "";
   $fbvideo = "";
+  $likenum = 0;
 
 
   $sql = "INSERT INTO posts (uidUsers, postText, postImg, yTVideo, likeNumPost) VALUES (?, ?, ?, ?, ?)";
@@ -27,7 +28,7 @@ if (isset($_POST['post'])) {
     header("Location: ../index.php?error=sqlerror");
     exit();
   } else {
-    mysqli_stmt_bind_param($stmt, "ssssi", $username, $posttext, $youtube, $vimeo, $fbvideo);
+    mysqli_stmt_bind_param($stmt, "ssssi", $username, $posttext, $postimage, $youtube, $likenum);
     mysqli_stmt_execute($stmt);
 
     $sql = "SELECT *

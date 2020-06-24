@@ -465,7 +465,7 @@ main {
 }
 .header-feature {
   display: block;
-  background-color: #0eb3b3;
+  background-color: #7289da;
   text-align: center;
   text-transform:uppercase;
   padding: 20px 0;
@@ -1562,6 +1562,9 @@ main {
 .discord_widget {
   display: none;
 }
+.currentlyReading h4 {
+  display: none;
+}
 @media (min-width: 900px) {
   .stream {
     grid-area:stream;
@@ -1598,15 +1601,21 @@ main {
     grid-area: discord_widget;
     margin: auto;
   }
+  .currentlyReading {
+    background-color: var(--box-color);
+    border-radius: 5px;
+  }
   .readingNext{
     display: block;
     grid-area:reading-next;
     background-color: var(--box-color);
     border-radius: 5px;
   }
+  .currentlyReading h4,
   .readingNext h4 {
     font-size: 1.3em;
     margin: 15px;
+    display: block;
   }
   #bladeUI_grid {
     margin: 10px;

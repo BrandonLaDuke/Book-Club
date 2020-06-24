@@ -46,8 +46,8 @@ if (isset($_GET['error'])) {
 
       <div class="currentlyReading">
         <div class="header-feature">
-          <h1>Spineless Bound</h1>
-          <h2>Welcome to the Sullivan University BookClub</h2>
+          <h1>Keep in touch!</h1>
+          <h2>Realtime discussion and Virutual Book Club</h2>
           <a class="discord btn lined-thin" href="https://discord.gg/dGEkmFC">Join our discord</a>
         </div>
         <?php require "currentlyReading.php"; ?>
