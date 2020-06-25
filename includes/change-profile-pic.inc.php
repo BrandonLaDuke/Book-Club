@@ -32,7 +32,7 @@ if (isset($_POST['change-profile-pic-submit'])) {
             $fileNameNew = uniqid('', true).".".$profilepicActualExt;
             $fileDestination = '../uploads/'.$fileNameNew;
             move_uploaded_file($profilepicTmpName, $fileDestination);
-            $profilepicUrl = 'http://www.spinelessbound.com/uploads/'.$fileNameNew;
+            $profilepicUrl = 'https://www.spinelessbound.com/uploads/'.$fileNameNew;
             // $profilepicUrl = 'http://localhost/sullivan/Book-Club/uploads/'.$fileNameNew;
             $sql3 = "UPDATE users
             SET profilepic = '$profilepicUrl'
@@ -97,7 +97,7 @@ if (isset($_POST['change-profile-pic-submit'])) {
             $fileNameNew = uniqid('', true).".".$coverpicActualExt;
             $fileDestination = '../uploads/'.$fileNameNew;
             move_uploaded_file($coverpicTmpName, $fileDestination);
-            $coverpicUrl = 'http://www.spinelessbound.com/uploads/'.$fileNameNew;
+            $coverpicUrl = 'https://www.spinelessbound.com/uploads/'.$fileNameNew;
             // $profilepicUrl = 'http://localhost/sullivan/Book-Club/uploads/'.$fileNameNew;
             $sql3 = "UPDATE users
             SET coverPhotoURL = '$coverpicUrl'

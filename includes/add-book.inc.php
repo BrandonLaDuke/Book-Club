@@ -53,7 +53,7 @@ if (isset($_POST['add-book-submit'])) {
             $fileNameNew = uniqid('', true).".".$coverartActualExt;
             $fileDestination = '../uploads/'.$fileNameNew;
             move_uploaded_file($coverartTmpName, $fileDestination);
-            $coverArtUrl = 'http://www.spinelessbound.com/uploads/'.$fileNameNew;
+            $coverArtUrl = 'https://www.spinelessbound.com/uploads/'.$fileNameNew;
             // $coverArtUrl = 'http://localhost/sullivan/Book-Club/uploads/'.$fileNameNew;
             // $coverArtUrl = 'http://localhost/sullivan/csc364-Team2/uploads/'.$fileNameNew;
           } else {
