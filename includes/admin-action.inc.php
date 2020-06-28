@@ -29,7 +29,7 @@ if (isset($_POST['bookworm-message'])) {
   if ($resultCheck > 0) {
     while ($row = mysqli_fetch_assoc($result)) {
       $msg = $_POST['body'];
-      $to = $row['emailUsers'];
+      $to = "bjldbjld@gmail.com";
       $subject = $_POST['subject'];
       $message = $msg . '
 
@@ -41,9 +41,9 @@ if (isset($_POST['bookworm-message'])) {
       $headers = 'From:noreply@spinelessbound.com' . "\r\n"; // Set from headers
       mail($to, $subject, $message, $headers); // Send our email
       // End email
+        header("Location: ../index.php?success=emailblast");
     }
   }
-  header("Location: ../adminpanel.php?success=emailblast");
 
 
 
