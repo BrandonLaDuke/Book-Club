@@ -23,14 +23,15 @@ if (isset($_POST['bookworm-message'])) {
 } else if (isset($_POST['email-blast'])) {
 
   require 'dbh.inc.php';
-  $sql = "SELECT emailUsers FROM users WHERE active = 1";
+  $sql = "SELECT emailUsers FROM users WHERE admin = 1";
   $result = mysqli_query($conn, $sql);
   $resultCheck = mysqli_num_rows($result);
   $match = false;
   if ($resultCheck > 0) {
     while ($row = mysqli_fetch_assoc($result)) {
       $msg = $_POST['body'];
-      $to = $row['emailUsers'];
+      // $to = $row['emailUsers'];
+      $to = "bjldbjld@gmail.com";
       $subject = $_POST['subject'];
       $message = $msg . '
 
