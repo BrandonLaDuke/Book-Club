@@ -47,6 +47,7 @@ if (isset($_POST['login-submit'])) {
             $_SESSION['lastName'] = $row['lastName'];
             $_SESSION['profilepic'] = $row['profilepic'];
             $_SESSION['admin'] = $row['admin'];
+            $_SESSION['endpoint'] = $row['endpoint'];
             header("Location: ../index.php?success=login&user=$mailuid");
             exit();
           } else {

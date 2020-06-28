@@ -67,7 +67,9 @@ $cookie = isset($_COOKIE['rememberme']) ? $_COOKIE['rememberme'] : '';
       ?>
 
 
-
+      <script type="text/javascript">
+        var user = '<?php echo $_SESSION['userUid']; ?>';
+      </script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-66276915-6"></script>

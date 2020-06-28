@@ -11,8 +11,6 @@ self.addEventListener('push', function(e) {
           primaryKey: '2'
         },
         actions: [
-          {action: 'explore', title: 'Explore this new world',
-            icon: 'images/checkmark.png'},
           {action: 'close', title: 'Close',
             icon: 'images/xmark.png'},
         ]
@@ -32,11 +30,11 @@ self.addEventListener('notificationclick', function(e) {
       c.visibilityState === 'visible';
     });
     if (client !== undefined) {
-      client.navigate('https://spinelessbound.com/?notify');
+      client.navigate('https://www.spinelessbound.com/');
       client.focus();
     } else {
       // there are no visible windows. Open one.
-      clients.openWindow('https://spinelessbound.com/?notify2');
+      clients.openWindow('https://www.spinelessbound.com/');
       notification.close();
     }
   });
