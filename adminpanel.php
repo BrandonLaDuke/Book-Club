@@ -46,6 +46,20 @@ if (isset($_GET['error'])) {
         </form>
       </div>
 
+      <h2>Mass Email (Only use for important announcements)</h2>
+      <div class="admin-announcement">
+        <form class="" action="includes/admin-action.inc.php" method="post">
+          <label for="subject">Subject</label>
+          <input type="text" name="subject" value="">
+          <label for="body">Body</label>
+          <textarea name="body" rows="2"></textarea>
+          <div class="b-grid">
+            <button class="good" type="submit" name="email-blast">Send mass email</button>
+            <?php if ($_GET["emailblast"] == "sent") { ?><p style="padding-left: 20px;">Message Sent</p><?php } ?>
+          </div>
+        </form>
+      </div>
+
 
       <h2>Users</h2>
       <?php $sql = "SELECT * FROM users ORDER BY uidUsers ASC;";

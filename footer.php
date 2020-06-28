@@ -35,7 +35,7 @@
 <?php } ?>
 
 </div>
-<input id="userNameEndpoint" type="text" name="userNameEndpoint" value="<?php echo $_SESSION['userUid'] ?>">
+<input id="userNameEndpoint" type="hidden" name="userNameEndpoint" value="<?php echo $_SESSION['userUid'] ?>">
 <script type="text/javascript">
   addEventListener('load',async () => {
     let sw = await navigator.serviceWorker.register('./sw.js');
