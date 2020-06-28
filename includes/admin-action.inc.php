@@ -22,7 +22,8 @@ if (isset($_POST['bookworm-message'])) {
 
 } else if (isset($_POST['email-blast'])) {
 
-  $sql = "SELECT emailUsers FROM users WHERE admin = 1;";
+  require 'dbh.inc.php';
+  $sql = "SELECT emailUsers FROM users WHERE admin = 1";
   $result = mysqli_query($conn, $sql);
   $resultCheck = mysqli_num_rows($result);
   $match = false;
