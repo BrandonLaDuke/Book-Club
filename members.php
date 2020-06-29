@@ -25,9 +25,11 @@
 
           <div class="usercard">
             <img src="<?php echo $row['profilepic']; ?>" alt="Person" class="card__image">
-            <p class="card__name"><span><?php echo $row['firstName']; ?></span> <span><?php echo $row['lastName'] ?></span></p>
+            <?php if (!empty($row['firstName']) || !empty($row['lastName'])) { ?>
+              <p class="card__name"><span><?php echo $row['firstName']; ?></span> <span><?php echo $row['lastName'] ?></span></p>
+          <?php  } else { ?>
             <p class="card__name"><?php echo $row['uidUsers'] ?></p>
-
+          <?php } ?>
             <a href="profile.php?user=<?php echo $row['uidUsers'] ?>" class="btn draw-border">View Profile</a>
 
           </div>

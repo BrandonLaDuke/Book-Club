@@ -776,12 +776,12 @@ main {
 
 .card__name {
   margin-top: 15px;
-  font-size: 1.5em;
+  font-size: 1em;
 }
 
 .card__image {
-  height: 160px;
-  width: 160px;
+  height: 110px;
+  width: 110px;
   border-radius: 50%;
   border: 5px solid #272133;
   margin-top: 20px;
@@ -851,11 +851,9 @@ main {
   border: none;
   cursor: pointer;
   line-height: 1.5;
-  font-size: 1.3rem;
-  padding: 0.75em 2em;
+  font-size: 1rem;
   letter-spacing: 0.05rem;
   margin: 1em;
-  width: 13rem;
   text-decoration: none;
   text-align: center;
 }
@@ -863,11 +861,21 @@ main {
 .usercard .btn:focus {
   outline: 2px dotted #55d7dc;
 }
+.member-list > div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1em;
+}
 @media (min-width:650px) {
-  .member-list > div {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 1em;
+  .usercard .btn {
+    font-size: 1.3rem;
+    width: 13rem;
+  }
+  .card__name {
+    font-size: 1.3em;
+  }
+  .card__image {
+    width: 160px; height: 160px;
   }
 }
 @media (min-width:1000px) {
