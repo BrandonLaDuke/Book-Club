@@ -52,7 +52,6 @@
             <h3><?php echo $queueBook['bookAuthor']; ?></h3>
 
             <?php
-            $chuser = $queueBook['chosenBy'];
             $profilesql = "SELECT *
             FROM users
             WHERE uidUsers = \"$row[chosenBy]\"";
@@ -65,7 +64,7 @@
             <?php if ($ProfileRow['firstName'] != "" || $ProfileRow['lastName'] != "") {
               echo "<p>Suggested by " . $ProfileRow['firstName'] . " " . $ProfileRow['lastName'] . "</p>";
             } else {
-              echo "<p>Suggested by " . $chuser . "</p>";
+              echo "<p>Suggested by " . $queueBook['chosenBy'] . "</p>";
             }?>
 
           </a>
