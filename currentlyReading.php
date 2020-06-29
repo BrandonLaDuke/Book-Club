@@ -19,7 +19,7 @@
         $ProfileRow = mysqli_fetch_assoc($profileresult);
       }
       ?>
-      <?php if (isset($ProfileRow['firstName']) || isset($ProfileRow['lastName'])) {
+      <?php if ($ProfileRow['firstName'] != "" || $ProfileRow['lastName'] != "") {
         echo "<h3>Selected by " . $ProfileRow['firstName'] . " " . $ProfileRow['lastName'] . "</h3>";
       } else {
         echo "<h3>Selected by " . $row['chosenBy'] . "</h3>";

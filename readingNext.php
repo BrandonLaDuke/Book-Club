@@ -20,7 +20,7 @@ if ($rowUp = mysqli_fetch_assoc($resultUp)) { ?>
 
     <h1><?php echo $rowUp['bookTitle']; ?></h1>
     <h3>by <?php echo $rowUp['bookAuthor']; ?></h3>
-    <?php if (isset($ProfileRow1['firstName']) || isset($ProfileRow1['lastName'])) {
+    <?php if ($ProfileRow1['firstName'] != "" || $ProfileRow1['lastName'] != "") {
       echo "<h3>Selected by " . $ProfileRow1['firstName'] . " " . $ProfileRow1['lastName'] . "</h3>";
     } else {
       echo "<h3>Selected by " . $rowUp['chosenBy'] . "</h3>";
