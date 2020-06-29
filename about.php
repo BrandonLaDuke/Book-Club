@@ -8,7 +8,7 @@
   <br>
   <h2>FAQ</h2>
   <h3>When and where do we meet?</h3>
-  <p>Spineless Bound meets weekly on Tuesdays at 3PM in the Sullivan University Library Room L08. (Due to COVID-19 we are currenty meeting up online in video chat. Check the discord server to join)</p>
+  <p>Spineless Bound meets weekly on Tuesdays at 4PM in the Sullivan University Library Room L08. (Due to COVID-19 we are currenty meeting up online in video chat. Check the discord server to join)</p>
   <h3>How do I get the books?</h3>
   <p>That is up to you. You are welcome to buy the book or rent them however you choose be that a physical, ebook, or audiobook. The Sullivan Library is also willing ordering copies of any books that we choose if needed.</p>
   <br>
