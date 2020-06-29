@@ -54,7 +54,7 @@
             <?php
             $profilesql = "SELECT *
             FROM users
-            WHERE uidUsers = \"$row[chosenBy]\"";
+            WHERE uidUsers = \"$queueBook[chosenBy]\"";
             $profileresult = mysqli_query($conn, $profilesql);
             $profileResultCheck = mysqli_num_rows($profileresult);
             if ($profileResultCheck > 0) {
