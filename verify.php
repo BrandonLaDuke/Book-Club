@@ -45,17 +45,17 @@ if(isset($_GET['email']) && !empty($_GET['email']) AND isset($_GET['hash']) && !
             //Have Book Worm Bot notify members of new member
             $rand = rand(1,5);
             if ($rand == 1) {
-              $msg = "Guys look! A new member, **$username** has signed up with SpinelessBound.com!";
+              $msg = "Guys look! A new member, **$username** has signed up with SpinelessBound.com! Their email is: *$email*";
             } else if ($rand == 2) {
-              $msg = "Just letting you all know that a new person just joined us on Spinelessbound.com, lets make **$username** feel welcome!";
+              $msg = "Just letting you all know that a new person just joined us on Spinelessbound.com, lets make **$username** feel welcome! Oh by the way, their email is: *$email*";
             } else if ($rand == 3) {
-              $msg = "Join me in welcoming our new member, **$username** on Spinelessbound.com!";
+              $msg = "Join me in welcoming our new member, **$username** (*$email*) on Spinelessbound.com!";
             } else if ($rand == 4) {
-              $msg = "Howdy partners! **$username** just joined as a new member on Spinelessbound.com!";
+              $msg = "Howdy partners! **$username** (*$email*) just joined as a new member on Spinelessbound.com!";
             } else if ($rand == 5) {
-              $msg = "AHOY! **$username** just joined as a new member on Spinelessbound.com!";
+              $msg = "AHOY! **$username** (*$email*) just joined as a new member on Spinelessbound.com!";
             } else {
-              $msg = "A new member, **$username** has signed up with SpinelessBound.com!";
+              $msg = "A new member, **$username** (*$email*) has signed up with SpinelessBound.com!";
             }
 
             // $msg = "Hi everyone, my name is **Book Worm**. It is great to meet you! I am a bot created by Brandon LaDuke to bring you updates from the SpinelessBound website right into Discord!";
