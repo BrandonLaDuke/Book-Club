@@ -46,10 +46,89 @@ if (isset($_POST['bookworm-message'])) {
     }
   }
 
+} else if (isset($_POST['edituser'])) {
+
+  require 'dbh.inc.php';
+
+  $username = $_POST['userUid'];
+  $active = $_POST['verified'];
+  $admin = $_POST['admin'];
+
+  $sql = "UPDATE users
+  SET active = '$active', admin = '$admin'
+  WHERE uidUsers = '$username'";
+  $stmt = mysqli_stmt_init($conn);
+  if (!mysqli_stmt_prepare($stmt, $sql)) {
+    header("Location: ../adminpanel.php?error=sqlerror");
+    exit();
+  } else {
+    mysqli_stmt_execute($stmt);
+    header("Location: ../adminpanel.php?success=userupdated");
+  }
+
+} else if (isset($_POST['editusername'])) {
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+} else if (isset($_POST['deleteUserConfirm'])) {
+  require 'dbh.inc.php';
+
+  $username = $_POST['userUid'];
+  $confirmUsername = $_POST['confirmUsername'];
+  $isAdmin = $_POST['admin'];
+  if ($isAdmin == 1) {
+    header("Location: ../adminpanel.php?error=adminuser");
+  } else {
+    if ($username === $confirmUsername) {
+
+      //Delete user from Users
+      $sql = "DELETE FROM users WHERE uidUsers = '$username'";
+      $result = mysqli_query($conn, $sql);
+
+      //Delete user from userProfileLayout
+      $sql1 = "DELETE FROM userProfileLayout WHERE uidUsers = '$username'";
+      $result1 = mysqli_query($conn, $sql1);
+
+      //Delete user posts
+      $sql2 = "DELETE FROM posts WHERE uidUsers = '$username'";
+      $result2 = mysqli_query($conn, $sql2);
+
+      //Delete user postComments
+      $sql3 = "DELETE FROM postComments WHERE uidUsers = '$username'";
+      $result3 = mysqli_query($conn, $sql3);
+
+      //Delete user booksComments
+      $sql4 = "DELETE FROM booksComments WHERE uidUsers = '$username'";
+      $result4 = mysqli_query($conn, $sql4);
+
+      //Delete postLikes
+      $sql5 = "DELETE FROM postLikes WHERE userId = '$username'";
+      $result5 = mysqli_query($conn, $sql5);
+
+      header("Location: ../adminpanel.php?success=userdeleted&username=$username");
+
+    } else {
+      header("Location: ../adminpanel.php?error=uidnomatch");
+    }
+  }
 
 
 } else {

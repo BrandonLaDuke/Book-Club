@@ -26,6 +26,27 @@ function openCommentArea(postID) {
   var commentField = document.getElementById(commentFieldID);
   commentField.classList.add("openComment");
 }
+function editUserCP(userId) {
+  var userEditID = "userID-" + userId;
+  console.log(userEditID);
+  var userEditor = document.getElementById(userEditID);
+  userEditor.classList.add("edituserOpen");
+}
+function deleteUserCP(userId) {
+  var deleteUserID = "deleteUserID-" + userId;
+  console.log(deleteUserID);
+  var userDeletor = document.getElementById(deleteUserID);
+  userDeletor.classList.add("userDeleteOpen");
+}
+function cancelDeleteUserCP(userId) {
+  var userEditID = "userID-" + userId;
+  var deleteUserID = "deleteUserID-" + userId;
+  console.log(deleteUserID);
+  var userDeletor = document.getElementById(deleteUserID);
+  var userEditor = document.getElementById(userEditID);
+  userDeletor.classList.remove("userDeleteOpen");
+  userEditor.classList.remove("edituserOpen");
+}
 document.querySelectorAll('textarea').forEach(el => {
   el.style.height = el.setAttribute('style', 'height: ' + el.scrollHeight + 'px');
   el.classList.add('auto');
