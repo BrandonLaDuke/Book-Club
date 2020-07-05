@@ -8,6 +8,6 @@ let vapidKeys = {
 
 push.setVapidDetails('mailto:noreply@spinelessbound.com', vapidKeys.publicKey, vapidKeys.privateKey)
 
-let sub = {"endpoint":"https://fcm.googleapis.com/fcm/send/ejFmU_5OK74:APA91bFQzR3kGJTWmPmVCEYN_c8PRCHACnbNs4w1oaxHSYrcjs2zOqvSXyb6Yenprk0F4WoJNg-uLVb2125xa6FelhcDOMg3P_fnYLgPnu7eeoG183L-SwBmnVRupM39da854j_YDkqy","expirationTime":null,"keys":{"p256dh":"BJoIwRfQWr4sNQokqog3US3ILWLqKEdINVnhIgqsQgRaboromE6PIHkKD0ammNvFX2r5yCAaC3chUi8jXIHONDQ","auth":"mStmYwIWxAVid7JOmIdF4A"}};
+let sub = endpoint;
 
 push.sendNotification(sub, 'test message');
