@@ -52,6 +52,18 @@
   }
   async function savePush(endpoint) {
     console.log(endpoint);
+    if (endpoint == "") {
+      return;
+    } else {
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+
+        }
+      };
+      xmlhttp.open("GET","includes/saveEndpoint.inc.php?user=<?php echo $_SESSION['userUid']; ?>&ep="+endpoint,true);
+      xmlhttp.send();
+    }
     $.post("includes/saveEndpoint.inc.php",
     {
         name: $("#userNameEndpoint").val(),
