@@ -56,11 +56,6 @@
       return;
     } else {
       var xmlhttp = new XMLHttpRequest();
-      xmlhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-
-        }
-      };
       xmlhttp.open("GET","includes/saveEndpoint.inc.php?user=<?php echo $_SESSION['userUid']; ?>&ep="+endpoint,true);
       xmlhttp.send();
     }
@@ -72,6 +67,12 @@
     function(data,status){
         console.log('saving');
     });
+    xmlhttp2 = new XMLHttpRequest();
+    xmlhttp2.onreadystatechange = function() {
+
+    };
+    xmlhttp2.open("GET", "includes/getEndpoint.inc.php?user=<?php echo $_SESSION['userUid']; ?>",true);
+    xmlhttp2.send();
   }
 </script>
 <script src="js/script.js" charset="utf-8"></script>
