@@ -64,7 +64,11 @@
       xmlhttp.open("GET","includes/saveEndpoint.inc.php?user=<?php echo $_SESSION['userUid']; ?>&ep="+endpoint,true);
       xmlhttp.send();
     }
-    
+    $.post("includes/saveEndpoint.inc.php",
+    {
+        name: $("#userNameEndpoint").val(),
+        ep: endpoint,
+    },
     function(data,status){
         console.log('saving');
     });
