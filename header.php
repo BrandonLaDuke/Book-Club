@@ -169,7 +169,7 @@ $cookie = isset($_COOKIE['rememberme']) ? $_COOKIE['rememberme'] : '';
                 <i class="material-icons nav__icon">local_library</i>
                 <span class="nav__text">Library</span>
               </a>
-              <!-- <a href="notifications.php" class="nav__link"id="nav__link__notifications">
+              <!-- <a onclick="openNotifications()" class="nav__link"id="nav__link__notifications">
                 <i class="material-icons nav__icon">notifications</i>
                 <span class="nav__text">Notifications</span>
               </a> -->
@@ -187,6 +187,9 @@ $cookie = isset($_COOKIE['rememberme']) ? $_COOKIE['rememberme'] : '';
                 <span class="nav__text">Settings</span>
               </a> -->
             </nav>
+            <!-- <section class="notificationPanelContainer">
+              <?php // require 'notifications.php'; ?>
+            </section> -->
 
         </div>
       <?php } ?>

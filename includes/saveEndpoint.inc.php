@@ -1,18 +1,15 @@
 <?php
-ini_set('display_errors', 'On');
-error_reporting(E_ALL);
 require 'dbh.inc.php';
 
-$uidUsers = $_GET['user'];
-$endpoint = $_GET['ep'];
+// Getting data from user table
+$result = mysqli_query($conn, "SELECT uidUsers, endpoint FROM users");
 
-$sql = "UPDATE users
-SET endpoint = '$endpoint'
-WHERE uidUsers = '$uidUsers'";
-$stmt = mysqli_stmt_init($conn);
-if (!mysqli_stmt_prepare($stmt, $sql)) {
-  header("Location: ../index.php.php?user=$uidUsers&endpoint=$endpoint");
-  exit();
-} else {
-  mysqli_stmt_execute($stmt);
+
+// Storing in array
+$data = array();
+while ($row = mysqli_fetch_assoc($result)) {
+  $data[] = $row;
 }
+
+// Return responce in JSON format
+echo json_encode($data);

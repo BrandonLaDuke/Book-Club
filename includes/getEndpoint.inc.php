@@ -3,29 +3,23 @@ ini_set('display_errors', 'On');
 error_reporting(E_ALL);
 require 'dbh.inc.php';
 
-$uidUsers = $_GET['user'];
+// Getting data from user table
+$result = mysqli_query($conn, "SELECT uidUsers, endpoint FROM users WHERE uidUsers ='bladuk8617'");
+// $notis = mysqli_query($conn, "SELECT * FROM notifications WHERE notiStatus = 2");
+// notiStatus 0 = Read
+// notiStatus 1 = Unread Push sent
+// notiStatus 2 = New notification push not sent
 
-$sql = "SELECT endpoint
-FROM Users
-WHERE uidUsers = '$uidUsers'";
-$result = mysqli_query($conn, $sql);
-$resultCheck = mysqli_num_rows($result);
-while ($row = mysqli_fetch_assoc($result)) { ?>
-  <script type="text/javascript">
-  var push = require('web-push');
+// Storing in array
+$data = array();
+// $noti = array();
+while ($row = mysqli_fetch_assoc($result)) {
+  // $noti = mysqli_fetch_assoc($resultNotis);
 
-  let vapidKeys = {
-    publicKey:
-     'BMi4ouUYpj6SBcZD1QxKCRra6dTWkwSpbNqV8MG-XWFjzVvjo1dA2UrIQfFg53zOacRpHxnv-NubNJ-WkVJuBrU',
-    privateKey: '4eC_rwMIaU3Pw9pQsaXuKe2crKnYR66r34jAfhDbn00'
-  }
+  $data[] = $row;
+  // $notis[] = $noti;
+}
 
-  push.setVapidDetails('mailto:noreply@spinelessbound.com', vapidKeys.publicKey, vapidKeys.privateKey)
-
-  let sub = "<?php echo $row['endpoint']; ?>";
-
-  push.sendNotification(sub, 'test message');
-  </script>
-
-<?php
-}?>
+// Return responce in JSON format
+echo json_encode($data);
+// echo json_encode($notis);

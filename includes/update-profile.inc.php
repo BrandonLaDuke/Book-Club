@@ -20,13 +20,13 @@ if (isset($_POST['update-profile-submit'])) {
         $firstName = "";
       }
 
-      $lastName = $_POST['lastName'];
+      $lastName = $conn -> real_escape_string($_POST['lastName']);
       $email = $row['emailUsers'];
       $altEmail = $_POST['altEmail'];
       $password = $row['pwdUsers'];
       $profilepic = $row['profilepic'];
-      $about = $_POST['about'];
-      $program = $_POST['program'];
+      $about = $conn -> real_escape_string($_POST['about']);
+      $program = $conn -> real_escape_string($_POST['program']);
       $website = $_POST['website'];
       $goodreads = $_POST['goodreads'];
 

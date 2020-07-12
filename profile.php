@@ -76,7 +76,7 @@ if ($resultCheck > 0) {
     <?php
   } ?>
       </div>
-      <?php if (!empty($row['program'])) { ?>
+      <?php if (!empty($row['about'])) { ?>
         <div class="shortbio">
           <h3>About me</h3>
           <p><?php echo $row['about']; ?></p>

@@ -55,24 +55,24 @@
     if (endpoint == "") {
       return;
     } else {
-      var xmlhttp = new XMLHttpRequest();
-      xmlhttp.open("GET","includes/saveEndpoint.inc.php?user=<?php echo $_SESSION['userUid']; ?>&ep="+endpoint,true);
-      xmlhttp.send();
-    }
-    $.post("includes/saveEndpoint.inc.php",
-    {
-        name: $("#userNameEndpoint").val(),
-        ep: endpoint,
-    },
-    function(data,status){
-        console.log('saving');
-    });
-    xmlhttp2 = new XMLHttpRequest();
-    xmlhttp2.onreadystatechange = function() {
+      var ajax = new XMLHttpRequest();
+      ajax.open("GET","includes/getEndpoint.inc.php",true);
 
-    };
-    xmlhttp2.open("GET", "includes/getEndpoint.inc.php?user=<?php echo $_SESSION['userUid']; ?>",true);
-    xmlhttp2.send();
+      // Sending AJAX Request
+      ajax.send();
+
+      // Recieveing response
+      ajax.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          // Coonverting JSON back to array
+          var data = JSON.parse(this.responseText);
+          var notis = JSON.parse(this.responseText);
+          console.log(data); //debugging
+          console.log(notis);
+        }
+      }
+
+    }
   }
 </script>
 <script src="js/script.js" charset="utf-8"></script>

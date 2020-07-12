@@ -55,3 +55,8 @@ document.querySelectorAll('textarea').forEach(el => {
     el.style.height = (el.scrollHeight) + 'px';
   });
 });
+
+function openNotifications() {
+  // document.getElementById()
+  console.log("Hello I will now show you notifications");
+}

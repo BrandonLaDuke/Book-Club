@@ -1695,3 +1695,15 @@ main {
 .user-card tr:nth-child(2n+1) {
   background-color: #0d898a;
 }
+
+
+
+/* Notifications */
+
+#notificationPanel {
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-color: #000;
+}
