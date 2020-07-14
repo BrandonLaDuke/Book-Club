@@ -32,7 +32,7 @@ if (isset($_GET['error'])) {
 
 
 
-      <h2>Announcements</h2>
+      <h2>Login Announcements</h2>
       <div class="admin-announcement">
         <form class="" action="includes/create-announcement.inc.php" method="post">
           <textarea name="announcement" rows="2"><?php echo $row['announcement']; ?></textarea>
@@ -42,6 +42,8 @@ if (isset($_GET['error'])) {
           </div>
         </form>
       </div>
+
+<?php if ($_SESSION['userUid'] == "bladuk8617" || $_SESSION['userUid'] == "bjohns6325") { ?>
 
       <h2>Bookworm Message</h2>
       <div class="admin-announcement">
@@ -53,6 +55,8 @@ if (isset($_GET['error'])) {
           </div>
         </form>
       </div>
+      
+<?php } ?>
 
       <h2>Mass Email (Only use for important announcements)</h2>
       <div class="admin-announcement">
@@ -80,7 +84,9 @@ if (isset($_GET['error'])) {
             <th>Name</th>
             <th>Email</th>
             <th>Verified</th>
+            <?php if ($_SESSION['userUid'] == "bladuk8617" || $_SESSION['userUid'] == "bjohns6325") { ?>
             <th>Admin</th>
+          <?php } //Temp keep out ?>
           </tr>
           <?php while ($row = mysqli_fetch_assoc($result)) { ?>
           <tr>
@@ -88,6 +94,7 @@ if (isset($_GET['error'])) {
             <td><span><?php echo $row['firstName']; ?></span> <span><?php echo $row['lastName'] ?></span></td>
             <td><?php echo $row['emailUsers']; ?></td>
             <td><?php if ($row['active'] == 1) { echo "Yes";} else {echo "No";}; ?></td>
+            <?php if ($_SESSION['userUid'] == "bladuk8617" || $_SESSION['userUid'] == "bjohns6325") { ?>
             <td><?php if ($row['admin'] == 1) { echo "Admin";} ?></td>
             <td>
               <a class="btn lined thin" onclick="editUserCP(<?php echo $row['idUsers']; ?>)">Edit User</a>
@@ -116,6 +123,7 @@ if (isset($_GET['error'])) {
                 </div>
               </form>
             </td>
+          <?php } //Temp keep out ?>
           </tr>
         <?php } ?>
 
