@@ -55,7 +55,7 @@ if (isset($_POST['updatepgnum'])) {
 
           // $msg = "Hi everyone, my name is **Book Worm**. It is great to meet you! I am a bot created by Brandon LaDuke to bring you updates from the SpinelessBound website right into Discord!";
 
-          $webhookurl = $bookworm_webhook;
+          $webhookurl = $bookworm_webhook__book_update;
 
           $json_data = array ('content'=>"$msg", "username" => "Bookworm");
           $make_json = json_encode($json_data);
@@ -130,7 +130,7 @@ if (isset($_POST['updatepgnum'])) {
 
           // $msg = "Hi everyone, my name is **Book Worm**. It is great to meet you! I am a bot created by Brandon LaDuke to bring you updates from the SpinelessBound website right into Discord!";
 
-          $webhookurl = $bookworm_webhook;
+          $webhookurl = $bookworm_webhook__book_update;
 
           $json_data = array ('content'=>"$msg", "username" => "Bookworm");
           $make_json = json_encode($json_data);
@@ -202,7 +202,7 @@ if (isset($_POST['updatepgnum'])) {
 
           // $msg = "Hi everyone, my name is **Book Worm**. It is great to meet you! I am a bot created by Brandon LaDuke to bring you updates from the SpinelessBound website right into Discord!";
 
-          $webhookurl = $bookworm_webhook;
+          $webhookurl = $bookworm_webhook__book_update;
 
           $json_data = array ('content'=>"$msg", "username" => "Bookworm");
           $make_json = json_encode($json_data);
