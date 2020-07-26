@@ -31,7 +31,7 @@
         <input type="text" name="author" placeholder="Author" value="">
         <input class="hidden" type="text" name="chosenby" placeholder="Book Selected By (StudentID)" value="<?php echo $_SESSION['userUid']; ?>">
 
-        <button class="btn lined-thin" type="submit" name="add-book-submit">Add Book to Queue</button>
+        <button class="library-btn" type="submit" name="add-book-submit">Add Book to Queue</button>
       </form>
     </div>
 <?php } else if (isset($_GET['startbook'])) { ?>

@@ -29,7 +29,7 @@ if (isset($_GET['error'])) {
           <input type="hidden" name="profilepic-url" value="<?php echo $row['profilepic']; ?>">
           <input type="hidden" name="username" value="<?php echo $_GET['user']; ?>">
           <input type="file" name="imagenew" value="">
-          <button type="submit" class="btn lined thin" name="change-profile-pic-submit">Change profile picture</button>
+          <button type="submit" class="library-btn" name="change-profile-pic-submit">Change profile picture</button>
         </form>
       </div>
       <br>
@@ -40,7 +40,7 @@ if (isset($_GET['error'])) {
             <input type="hidden" name="coverpic-url" value="<?php echo $row['coverPhotoURL']; ?>">
             <input type="hidden" name="username" value="<?php echo $_GET['user']; ?>">
             <input type="file" name="imagenew" value="">
-            <button type="submit" class="btn lined thin" name="change-cover-photo">Change Cover Photo</button>
+            <button type="submit" class="library-btn" name="change-cover-photo">Change Cover Photo</button>
           </form>
 
           <form class="profilepic-update" action="includes/change-profile-pic.inc.php" method="post">
@@ -49,7 +49,7 @@ if (isset($_GET['error'])) {
 
             <div>
               <input type="text" name="coverpic-position" value="<?php echo $row['coverPhotoPosition']; ?>">
-              <button type="submit" class="btn lined thin" name="change-cover-position">Change Cover Position</button>
+              <button type="submit" class="library-btn" name="change-cover-position">Change Cover Position</button>
             </div>
             <p>Values: top, center, bottom, or a percentage ex. 23%</p>
           </form>
@@ -81,7 +81,7 @@ if (isset($_GET['error'])) {
 
         <input type="hidden" name="username" value="<?php echo $_GET['user']; ?>">
 
-        <button type="submit" class="btn lined thin" name="update-profile-submit" value="">Update Profile</button>
+        <button type="submit" class="library-btn" name="update-profile-submit" value="">Update Profile</button>
       </form>
 
     </div>

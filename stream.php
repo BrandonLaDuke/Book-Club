@@ -27,7 +27,7 @@
         <input type="text" name="FBVideo" value="">
       </div>
     </div> -->
-    <button class="postbox__submit" type="submit" name="post">Post</button>
+    <button class="postbox__submit library-btn" type="submit" name="post">Post</button>
   </form>
 
   <?php $sql = "SELECT *

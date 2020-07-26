@@ -90,9 +90,10 @@ hr {
 }
 .library-btn {
   background-image: var(--key-color);
-  color: #000;
-  text-decoration: none;
+  color: #000 !important;
+  text-decoration: none !important;
   border-radius: 50px;
+  border: none;
   padding: 10px;
   font-size: 1.3rem
 }
@@ -1095,8 +1096,8 @@ main {
   justify-content: space-between;
 }
 .selectBookForm button {
-  background-image: var(--good-button-bkg);
-  color: var(--white);
+  background-image: var(--key-color);
+  color: #000;
   width: 100%;
   font-size: 1.2rem;
   padding: 10px;
