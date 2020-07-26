@@ -22,8 +22,8 @@
 --star-color: #fff;
 --star-background: #fc0;
 
---good-button-bkg: seagreen;
---bad-button-bkg: firebrick;
+--good-button-bkg: linear-gradient(to right, #52ff75, #3ce312);
+--bad-button-bkg: linear-gradient(to right, #d10000, #ff3939);
 }
 html {
   color: var(--gray1);
@@ -1088,7 +1088,7 @@ main {
   justify-content: space-between;
 }
 .selectBookForm button {
-  background-color: var(--good-button-bkg);
+  background-image: var(--good-button-bkg);
   color: var(--white);
   width: 100%;
   font-size: 1.2rem;
@@ -1485,11 +1485,11 @@ main {
   grid-template-columns: 1fr 1fr;
 }
 .b-grid > .good {
-  background-color: #00c700;
-  color: #fff;
+  background-image: var(--good-button-bkg);
+  color: #000;
 }
 .b-grid > .bad {
-  background-color: #dc0202;
+  background-image: var(--bad-button-bkg);
   color: #fff;
 }
 .admin-announcement {
@@ -1840,7 +1840,8 @@ main {
   color: #fff;
 }
 .user-card tr:nth-child(2n+1) {
-  background-color: #0d898a;
+background: linear-gradient(to right, #566a6e, #6c7c85);
+  color: #fff;
 }
 
 
