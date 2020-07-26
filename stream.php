@@ -8,8 +8,8 @@
 <?php } ?>
     <input type="hidden" name="userUid" value="<?php echo $_SESSION['userUid']; ?>">
     <textarea class="postbox__text" name="posttext" rows="1" placeholder="What's on your mind?"></textarea>
-    <!-- <button type="button" name="button">Add media</button>
-    <div class="add-media-to-post">
+    <!-- <button type="button" name="button">Add media</button> -->
+    <!-- <div class="add-media-to-post">
       <div class="">
         <label for="image">Upload an image</label>
         <input type="file" name="image" value="">

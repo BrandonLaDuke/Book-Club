@@ -95,13 +95,17 @@ $cookie = isset($_COOKIE['rememberme']) ? $_COOKIE['rememberme'] : '';
         <img src="<?php echo $_SESSION['profilepic']; ?>" width="30px" height="30px;" alt="">
       </button>
     <?php } else { ?>
-      <button onclick="openLogin()" class="header-login-btn btn lined thin">
+      <button onclick="openLogin()" class="header-login-btn">
         <span>Login</span>
       </button>
     <?php } ?>
-    <div id="login" class="header-login" augmented-ui="br-clip exe">
-<?php if (isset($_SESSION['userId'])) { ?>
 
+<?php if (isset($_SESSION['userId'])) { ?>
+    <div id="login" class="header-login-p"">
+    <?php } else { ?>
+      <div id="login" class="header-login">
+<?php } ?>
+    <?php if (isset($_SESSION['userId'])) { ?>
       <?php
       $profilesql = "SELECT *
       FROM users
@@ -120,12 +124,12 @@ $cookie = isset($_COOKIE['rememberme']) ? $_COOKIE['rememberme'] : '';
 <?php  }?>
   <?php if ($_SESSION['admin']) { ?>
 
-          <a augmented-ui="br-clip exe" href="adminpanel.php"><button class="profile-btn btn lined thin logout-btn">Control Panel</button></a>
+          <a class="profile-btn" href="adminpanel.php">Control Panel</a>
 
   <?php } ?>
-          <a class="profile-btn btn lined thin" href="profile.php?user=<?php echo $_SESSION['userUid']; ?>">My Profile</a>
+          <a class="profile-btn" href="profile.php?user=<?php echo $_SESSION['userUid']; ?>">My Profile</a>
           <form class="logout" action="includes/logout.inc.php" method="post">
-              <button type="submit" class="profile-btn btn lined thin logout-btn" name="logout-submit">Logout</button>
+              <button type="submit" class="profile-btn logout-btn" name="logout-submit">Logout</button>
           </form>
   <?php } else { ?>
   <?php
@@ -134,18 +138,17 @@ $cookie = isset($_COOKIE['rememberme']) ? $_COOKIE['rememberme'] : '';
 
         <!-- <p class="welcome-msg"> echo $_SESSION['userUid']; </p> -->
         <form class="signin" action="includes/login.inc.php" method="post">
-          <div class="vertical-pwd-grid">
-            <input type="text" name="mailuid" placeholder="Email/Username" augmented-ui="br-clip exe">
-            <span class="mobileHidden">Remember me: <input type="checkbox" name="rememberme" value=""></span>
-            </div>
-            <div class="vertical-pwd-grid">
-              <input type="password" name="pwd" placeholder="Password" augmented-ui="br-clip exe">
-              <span class="desktopHidden">Remember me: <input type="checkbox" name="rememberme" value=""></span>
-              <a class="forgot-pwd-desktop" href="passwordreset.php?resetrequest=true">Forgot password?</a>
-            </div>
-            <button class="btn lined-thick" type="submit" name="login-submit">Login</button>
+          <input type="text" name="mailuid" placeholder="Email/Username" augmented-ui="br-clip exe">
+          <span class="mobileHidden">Remember me: <input type="checkbox" name="rememberme" value=""></span>
 
-            <a class="forgot-pwd-mobile" href="passwordreset.php?resetrequest=true">Forgot password?</a>
+
+          <input type="password" name="pwd" placeholder="Password" augmented-ui="br-clip exe">
+          <!-- <span class="desktopHidden">Remember me: <input type="checkbox" name="rememberme" value=""></span> -->
+          <a class="forgot-pwd-desktop" href="passwordreset.php?resetrequest=true">Forgot password?</a>
+
+          <button type="submit" name="login-submit">Login</button>
+
+          <a class="forgot-pwd-mobile" href="passwordreset.php?resetrequest=true">Forgot password?</a>
         </form>
 
  <?php  } ?>

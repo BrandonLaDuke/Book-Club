@@ -44,3 +44,4 @@ includes/dbh.inc.php
 includes/bookworm.inc.php
 images/
 discord_widget.php
+gulpfile.js

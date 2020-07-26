@@ -55,15 +55,15 @@ if (isset($_GET['error'])) {
           </div>
         </form>
       </div>
-      
+
 <?php } ?>
 
       <h2>Mass Email (Only use for important announcements)</h2>
       <div class="admin-announcement">
         <form class="" action="includes/admin-action.inc.php" method="post">
-          <label for="subject">Subject</label>
-          <input type="text" name="subject" value="">
-          <label for="body">Body</label>
+          <label for="subject">Subject</label><br>
+          <input type="text" name="subject" value=""><br>
+          <label for="body">Body</label><br>
           <textarea name="body" rows="2"></textarea>
           <div class="b-grid">
             <button class="good" type="submit" name="email-blast">Send mass email</button>
@@ -100,18 +100,29 @@ if (isset($_GET['error'])) {
               <a class="btn lined thin" onclick="editUserCP(<?php echo $row['idUsers']; ?>)">Edit User</a>
               <form id="userID-<?php echo $row['idUsers'] ?>" class="cp_edituser" action="includes/admin-action.inc.php" method="post">
                 <div class="cp_edituser__dialog">
+
                   <input type="hidden" name="userUid" value="<?php echo $row['uidUsers'] ?>">
+                  <img src="<?php echo $row['profilepic'] ?>" width="50px" height="50px" alt="">
                   <span class="cp_edituser__name"><?php echo $row['firstName']; ?> <?php echo $row['lastName']; ?></span><br>
-                  <span class="cp_edituser__email"><?php echo $row['emailUsers'] ?></span><br><br>
+                  <span class="cp_edituser__email"><a href="mailto:<?php echo $row['emailUsers'] ?>"><?php echo $row['emailUsers'] ?></a></span><br><br>
                   <label for="verified">Verified:</label>
-                  <input type="text" name="verified" value="<?php echo $row['active'] ?>"><br>
-                  <label for="admin">Is Admin (0 = normal User, 1 = Administrator Access)</label>
-                  <input type="text" columns="1" name="admin" value="<?php echo $row['admin'] ?>"><br>
-                  <button type="submit" name="edituser">Save changes</button>
+                  <input type="text" name="verified" value="<?php echo $row['active'] ?>"><br><br>
+                  <label for="admin">Is Admin:</label>
+                  <input type="text" columns="1" maxlength="1" name="admin" value="<?php echo $row['admin'] ?>"><br>
+                  <br><br><span>1 = Yes, 0 = No</span><br><br>
+                  <button class="btn save-ur" type="submit" name="edituser">Save changes</button>
                   <a class="btn" onclick="deleteUserCP(<?php echo $row['idUsers']; ?>)">Delete user</a>
                   <div id="deleteUserID-<?php echo $row['idUsers'] ?>" class="cp_edituser__delete">
                     <div class="cp_deleteUser__dialog">
-                      <p>Are you sure you want to delete user: <?php echo $row['uidUsers'] ?>?<br>This action can not be undone.</p>
+                      <h1>DANGER ZONE</h1>
+                      <p>Are you sure you want to delete user: <?php echo $row['uidUsers'] ?>?<br>Deleteing this user will:
+                        <ul>
+                          <li>Remove user from Spineless Bound</li>
+                          <li>Delete all posts from this user</li>
+                          <li>Delete all posts comments and likes from this user</li>
+                          <li>Delete all book comments from this user</li>
+                        </ul>
+                        This action can not be undone.</p>
                       <label for="confirmUsername">Type username to confirm: <?php echo $row['uidUsers'] ?></label>
                       <input id="confirmUsername" type="text" name="confirmUsername" value=""><br><br>
                       <div class="b-grid">

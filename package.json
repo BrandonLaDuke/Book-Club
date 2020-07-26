@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.php",
   "dependencies": {
+    "browser-sync": "^2.26.10",
     "gulp": "^4.0.2",
     "mysql": "^2.18.1",
     "web-push": "^3.4.4"

@@ -43,7 +43,13 @@ if ($resultCheck > 0) {
       <div class="flex">
         <img class="profilephoto card__image" src="<?php echo $row['profilepic']; ?>" alt="<?php echo $row['uidUsers']; ?>" />
       </div>
-
+      <?php if ($row['uidUsers'] === $_SESSION['userUid']) {
+        ?>
+        <a class="btn lined thin editprofile" href="editprofile.php?user=<?php echo $row['uidUsers']; ?>">Edit Profile</a>
+        <?php
+      } ?>
+    </div>
+    <div class="profile-grid">
       <div class="profile">
         <div class="">
           <?php if (!empty($row['firstName']) || !empty($row['lastName'])) { ?>
@@ -70,45 +76,43 @@ if ($resultCheck > 0) {
           </div>
 
   <?php } ?>
-  <?php if ($row['uidUsers'] === $_SESSION['userUid']) {
-    ?>
-    <a class="btn lined thin editprofile" href="editprofile.php?user=<?php echo $row['uidUsers']; ?>">Edit Profile</a>
-    <?php
-  } ?>
-      </div>
-      <?php if (!empty($row['about'])) { ?>
-        <div class="shortbio">
-          <h3>About me</h3>
-          <p><?php echo $row['about']; ?></p>
-        </div>
-      <?php } ?>
+  <?php if (!empty($row['about'])) { ?>
+    <div class="shortbio">
+      <h3>About me</h3>
+      <p><?php echo $row['about']; ?></p>
+    </div>
+  <?php } ?>
 
+      <div class="books-suggested">
+        <?php $sql = "SELECT * FROM books;";
+        $result = mysqli_query($conn, $sql);
+        $resultCheck = mysqli_num_rows($result); ?>
+        <h1 class="head-txt">Books Suggested</h1>
+        <div class="book-grid">
+        <?php if ($resultCheck > 0) {
+          while ($row1 = mysqli_fetch_assoc($result)) {
+            if ($row1['chosenBy'] == $_GET['user']) {
+              $match = true; ?>
+
+          <?php
+          if ($resultCheck > 0) { ?>
+            <div class="book">
+              <a href="book.php?bookid=<?php echo $row1['bookId']; ?>">
+                <img src="<?php echo $row1['coverArtURL']; ?>" />
+                <h2><?php echo $row1['bookTitle']; ?></h2>
+                <h3><?php echo $row1['bookAuthor']; ?></h3>
+              </a>
+            </div>
+          <?php }
+        }}}
+          ?>
+
+      </div>
+      </div>
 
     </div>
-    <div class="books-suggested">
-      <?php $sql = "SELECT * FROM books;";
-      $result = mysqli_query($conn, $sql);
-      $resultCheck = mysqli_num_rows($result); ?>
-      <h1 class="head-txt">Books Suggested</h1>
-      <div class="book-grid">
-      <?php if ($resultCheck > 0) {
-        while ($row1 = mysqli_fetch_assoc($result)) {
-          if ($row1['chosenBy'] == $_GET['user']) {
-            $match = true; ?>
-
-        <?php
-        if ($resultCheck > 0) { ?>
-          <div class="book">
-            <a href="book.php?bookid=<?php echo $row1['bookId']; ?>">
-              <img src="<?php echo $row1['coverArtURL']; ?>" />
-              <h2><?php echo $row1['bookTitle']; ?></h2>
-              <h3><?php echo $row1['bookAuthor']; ?></h3>
-            </a>
-          </div>
-        <?php }
-      }}}
-        ?>
-
+    <div class="stream">
+      <?php require 'stream.php'; ?>
     </div>
 </div>
 </div>
