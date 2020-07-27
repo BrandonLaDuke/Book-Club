@@ -1,7 +1,6 @@
 <?php
 function timeElapsed($date){
         $months=array();
-        date_default_timezone_set("America/New_York");
         for ($i=1; $i < 13; $i++) {
             $month = date('F',mktime(0,0,0,$i));
             $months += [substr($month,0,3) => $i];
