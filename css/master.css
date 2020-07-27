@@ -99,7 +99,6 @@ hr {
 }
 
 
-
 * {
   box-sizing: border-box;
 }
@@ -745,8 +744,7 @@ main {
   border: var(--key-color);
   outline: none;
   background: var(--key-color);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+
 }
 
 .commentButton {

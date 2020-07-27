@@ -83,6 +83,7 @@ if (isset($_GET['error'])) {
             <th>Username</th>
             <th>Name</th>
             <th>Email</th>
+            <th>Last active</th>
             <th>Verified</th>
             <?php if ($_SESSION['userUid'] == "bladuk8617" || $_SESSION['userUid'] == "bjohns6325") { ?>
             <th>Admin</th>
@@ -93,6 +94,7 @@ if (isset($_GET['error'])) {
             <td><?php echo $row['uidUsers']; ?></td>
             <td><span><?php echo $row['firstName']; ?></span> <span><?php echo $row['lastName'] ?></span></td>
             <td><?php echo $row['emailUsers']; ?></td>
+            <td><?php echo timeElapsed($row['lastLogin']); ?></td>
             <td><?php if ($row['active'] == 1) { echo "Yes";} else {echo "No";}; ?></td>
             <?php if ($_SESSION['userUid'] == "bladuk8617" || $_SESSION['userUid'] == "bjohns6325") { ?>
             <td><?php if ($row['admin'] == 1) { echo "Admin";} ?></td>
