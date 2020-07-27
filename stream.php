@@ -53,13 +53,13 @@
         ?>
 
 
-
+        <?php $time = timeElapsed($row['timeStamp']) ?>
         <div class="post" id="<?php echo $row['postId'] ?>">
           <img class="post__img" src="<?php echo $ProfileRow['profilepic'] ?>" alt="Me">
           <?php if (!$ProfileRow['firstName'] == "" || !$ProfileRow['lastName'] == "") {
-            echo "<span class=\"post__name\">" . $ProfileRow['firstName'] . " " . $ProfileRow['lastName'] . " &nbsp; &nbsp; <a style=\"color:#bbb;\" href=\"post.php?post=". $row['postId'] ."\">". $row['timeStamp'] ."</a></span>";
+            echo "<span class=\"post__name\">" . $ProfileRow['firstName'] . " " . $ProfileRow['lastName'] . " &nbsp; &nbsp; <a style=\"color:#bbb;\" href=\"post.php?post=". $row['postId'] ."\">". $time ."</a></span>";
           } else {
-            echo "<span class=\"post__name\">" . $row['uidUsers'] . " &nbsp; &nbsp; <a style=\"color:#bbb;\" href=\"post.php?post=". $row['postId'] ."\">". $row['timeStamp'] ."</a></span>";
+            echo "<span class=\"post__name\">" . $row['uidUsers'] . " &nbsp; &nbsp; <a style=\"color:#bbb;\" href=\"post.php?post=". $row['postId'] ."\">". $time ."</a></span>";
           }?>
     <?php if (!empty($row['postText'])) { ?>
             <div class="post__text">

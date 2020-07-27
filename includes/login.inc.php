@@ -48,6 +48,12 @@ if (isset($_POST['login-submit'])) {
             $_SESSION['profilepic'] = $row['profilepic'];
             $_SESSION['admin'] = $row['admin'];
             $_SESSION['endpoint'] = $row['endpoint'];
+            $user = $row['idUsers'];
+            $suts = "UPDATE users SET lastLogin=now() WHERE idUsers = ?";
+            $stmt = mysqli_stmt_init($conn);
+            mysqli_stmt_prepare($stmt, $suts);
+            mysqli_stmt_bind_param($stmt, "s", $user);
+            mysqli_stmt_execute($stmt);
             header("Location: ../index.php?success=login&user=$mailuid");
             exit();
           } else {

@@ -1,4 +1,5 @@
 <?php require "header.php"; ?>
+
 <main>
   <?php if (isset($_SESSION['userId'])) { ?>
 
@@ -11,17 +12,6 @@
       $result = mysqli_query($conn, $sql);
       $resultCheck = mysqli_num_rows($result);
       while ($row = mysqli_fetch_assoc($result)) { ?>
-        <!-- <div class="user-card">
-          <img src="<?php echo $row['profilepic']; ?>" alt="">
-          <div class="user-info">
-            <a href="profile.php?user=<?php echo $row['uidUsers'] ?>">
-              <h1><span><?php echo $row['firstName']; ?></span> <span><?php echo $row['lastName'] ?></h1>
-              <h3><?php echo $row['uidUsers']; ?></h3>
-            </a>
-            <p>Program: <?php echo $row['program']; ?></p>
-
-          </div>
-        </div> -->
 
           <div class="usercard">
             <img src="<?php echo $row['profilepic']; ?>" alt="Person" class="card__image">
@@ -30,6 +20,7 @@
           <?php  } else { ?>
             <p class="card__name"><?php echo $row['uidUsers'] ?></p>
           <?php } ?>
+            <p class="lastLogin">Active: <?php echo timeElapsed($row['lastLogin']) ?></p>
             <a href="profile.php?user=<?php echo $row['uidUsers'] ?>" class="btn draw-border">View Profile</a>
 
           </div>

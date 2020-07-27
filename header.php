@@ -1,4 +1,5 @@
 <?php include_once 'includes/dbh.inc.php';
+      require 'includes/timeElapsed.inc.php';
 session_start();
 $cookie = isset($_COOKIE['rememberme']) ? $_COOKIE['rememberme'] : '';
     if ($cookie) {
