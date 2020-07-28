@@ -90,10 +90,40 @@
             <button onclick="openCommentArea(<?php echo $row['postId'] ?>)" type="button" name="button"><span class="material-icons">comment</span> Comment</button>
             <?php
             if ($numberLiked > 1) { ?>
-              <span class="post__num-liked"><?php echo $numberLiked; ?> Likes</span>
+              <span onclick="showLikes(<?php echo $row['postId'] ?>)" class="post__num-liked"><?php echo $numberLiked; ?> Likes</span>
       <?php } else if ($numberLiked == 1) { ?>
-              <span class="post__num-liked"><?php echo $numberLiked; ?> Like</span>
+              <span onclick="showLikes(<?php echo $row['postId'] ?>)" class="post__num-liked"><?php echo $numberLiked; ?> Like</span>
       <?php } ?>
+          </div>
+          <div class="postLikesPanel" id="likes<?php echo $row['postId'] ?>">
+            <div class="postLikesBorder">
+
+
+            <div class="postLikesContainer">
+
+
+            <span class="library-btn closeLikes" onclick="hideLikes(<?php echo $row['postId'] ?>)">X</span>
+            <span class="title">People who liked this post</span>
+
+    <?php if ($numberLiked > 0) {
+              while ($row = mysqli_fetch_assoc($likeresult)) {
+
+                $usersql = "SELECT *
+                FROM users
+                WHERE idUsers = \"$row[userId]\"";
+                $userresult = mysqli_query($conn, $usersql);
+                $userResultCheck = mysqli_num_rows($userresult);
+                if ($userResultCheck > 0) {
+                  $userRow = mysqli_fetch_assoc($userresult);
+                ?>
+                <div class="user">
+                  <img src="<?php echo $userRow['profilepic'] ?>" width="50px" height="50px" alt="">
+                  <span class="username"><?php echo $userRow['firstName'] ?> <?php echo $userRow['lastName'] ?></span>
+                </div>
+            <?php }
+            }
+          } ?></div>
+          </div>
           </div>
           <form class="post__comment_area" action="includes/postaction.inc.php" id="comment<?php echo $row['postId'] ?>" method="post">
             <input type="hidden" name="postId" value="<?php echo $row['postId'] ?>">

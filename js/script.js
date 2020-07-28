@@ -26,6 +26,18 @@ function openCommentArea(postID) {
   var commentField = document.getElementById(commentFieldID);
   commentField.classList.add("openComment");
 }
+function showLikes(postID) {
+  var postLikesID = "likes" + postID;
+  console.log(postLikesID);
+  var postLikesPanel = document.getElementById(postLikesID);
+  postLikesPanel.classList.add("openLikes");
+}
+function hideLikes(postID) {
+  var postLikesID = "likes" + postID;
+  console.log(postLikesID);
+  var postLikesPanel = document.getElementById(postLikesID);
+  postLikesPanel.classList.remove("openLikes");
+}
 function editUserCP(userId) {
   var userEditID = "userID-" + userId;
   console.log(userEditID);
