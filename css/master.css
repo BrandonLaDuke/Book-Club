@@ -881,6 +881,7 @@ main {
 
 .postLikesPanel {
   display: none;
+  z-index: 100;
 }
 .openLikes {
   display: flex;
