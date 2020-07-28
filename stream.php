@@ -90,9 +90,9 @@
             <button onclick="openCommentArea(<?php echo $row['postId'] ?>)" type="button" name="button"><span class="material-icons">comment</span> Comment</button>
             <?php
             if ($numberLiked > 1) { ?>
-              <span onclick="showLikes(<?php echo $row['postId'] ?>)" class="post__num-liked"><?php echo $numberLiked; ?> Likes</span>
+              <a onclick="showLikes(<?php echo $row['postId'] ?>)" class="post__num-liked"><?php echo $numberLiked; ?> Likes</a>
       <?php } else if ($numberLiked == 1) { ?>
-              <span onclick="showLikes(<?php echo $row['postId'] ?>)" class="post__num-liked"><?php echo $numberLiked; ?> Like</span>
+              <a onclick="showLikes(<?php echo $row['postId'] ?>)" class="post__num-liked"><?php echo $numberLiked; ?> Like</a>
       <?php } ?>
           </div>
           <div class="postLikesPanel" id="likes<?php echo $row['postId'] ?>">
