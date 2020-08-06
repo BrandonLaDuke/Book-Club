@@ -106,11 +106,11 @@
             <span class="title">People who liked this post</span>
 
     <?php if ($numberLiked > 0) {
-              while ($row = mysqli_fetch_assoc($likeresult)) {
+              while ($rowNumberLiked = mysqli_fetch_assoc($likeresult)) {
 
                 $usersql = "SELECT *
                 FROM users
-                WHERE idUsers = \"$row[userId]\"";
+                WHERE idUsers = \"$rowNumberLiked[userId]\"";
                 $userresult = mysqli_query($conn, $usersql);
                 $userResultCheck = mysqli_num_rows($userresult);
                 if ($userResultCheck > 0) {

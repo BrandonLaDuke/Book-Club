@@ -509,6 +509,8 @@ main {
   margin-top: 15px;
   font-size: 1.2em;
   text-align: center;
+  position: relative;
+  caret-color: var(--white);
 }
 /* .signup > input:placeholder-shown {
   background-image: var(--white);
@@ -516,6 +518,10 @@ main {
   -webkit-text-fill-color: transparent;
   text-align: center;
 } */
+.signup > input::placeholder {
+  text-align: left;
+  font-family: 'Patrick Hand SC', sans-serif;
+}
 .signup > input:focus {
 
 }
