@@ -1,3 +1,5 @@
+<?php require 'header.php';?>
+
 <div class="" id="notificationPanel">
   <span class="notificationPanel__title">Notifications</span>
   <a onclick="clearNotifications()">Mark all as read.</a>
@@ -39,3 +41,4 @@
     </a>
   </div>
 </div>
+<?php require 'footer.php'; ?>

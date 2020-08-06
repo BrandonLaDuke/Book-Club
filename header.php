@@ -120,7 +120,7 @@ $cookie = isset($_COOKIE['rememberme']) ? $_COOKIE['rememberme'] : '';
       <?php if (isset($ProfileRow['firstName'])) {
         echo "<p class=\"welcome-msg\">Welcome, " . $ProfileRow['firstName'] . "!</p>";
       } else { ?>
-        <p class="welcome-msg">Welcome, <?php echo $_SESSION['userUid']; ?>!</p>
+        <p class="welcome-msg">Welcome, <?php echo $_SESSION['userUid']; ?>!"</p>
 
 <?php  }?>
   <?php if ($_SESSION['admin']) { ?>
