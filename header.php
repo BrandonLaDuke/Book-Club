@@ -90,6 +90,19 @@ $cookie = isset($_COOKIE['rememberme']) ? $_COOKIE['rememberme'] : '';
       } elseif ($_GET['error'] == "nouser") {
         echo '<p class="bookworm-msg error">I\'m sorry... There is no user with that username or email. But you can signup to create an account.</p>';
       }
+    } else if (isset($_GET['notiStatusChange'])) {
+      if ($_GET['notiStatusChange'] == "read") {
+        $notiID = $_GET['notiId'];
+        $sqlUpdateNoti = "UPDATE notifications
+        SET notiStatus = 0
+        WHERE notiHash = '$notiID';";
+        $stmtUpdateNoti = mysqli_stmt_init($conn);
+        if (!mysqli_stmt_prepare($stmtUpdateNoti, $sqlUpdateNoti)) {
+          echo '<p class="bookworm-msg error">Hmm... Looks like your password is incorrect.</p>';
+        } else {
+          mysqli_stmt_execute($stmtUpdateNoti);
+        }
+      }
     } ?>
     <?php if (isset($_SESSION['userId'])) { ?>
       <button onclick="openAcctMenu()" class="header-account-btn btn lined thin">
@@ -173,10 +186,11 @@ $cookie = isset($_COOKIE['rememberme']) ? $_COOKIE['rememberme'] : '';
                 <i class="material-icons nav__icon">local_library</i>
                 <span class="nav__text">Library</span>
               </a>
-              <!-- <a onclick="openNotifications()" class="nav__link"id="nav__link__notifications">
+              <!-- onclick="openNotifications()" -->
+              <a href="notifications.php" class="nav__link"id="nav__link__notifications">
                 <i class="material-icons nav__icon">notifications</i>
                 <span class="nav__text">Notifications</span>
-              </a> -->
+              </a>
               <a href="profile.php?user=<?php echo $_SESSION['userUid']; ?>" class="nav__link" id="nav__link__profile">
                 <i class="material-icons nav__icon">person</i>
                 <span class="nav__text">Profile</span>

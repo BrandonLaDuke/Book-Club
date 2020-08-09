@@ -84,6 +84,8 @@
           <div class="post__buttons">
             <form class="" action="includes/postaction.inc.php" method="post">
               <input type="hidden" name="userId" value="<?php echo $_SESSION['userId']; ?>">
+              <input type="hidden" name="notiRecever" value="<?php echo $row['uidUsers'] ?>">
+              <input type="hidden" name="notiUser" value="<?php echo $_SESSION['userUid'] ?>">
               <input type="hidden" name="postId" value="<?php echo $row['postId']; ?>">
               <button type="submit" name="like"><span class="material-icons">thumb_up</span> Like</button>
             </form>

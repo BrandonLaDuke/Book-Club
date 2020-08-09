@@ -1994,8 +1994,41 @@ background: linear-gradient(to right, #566a6e, #6c7c85);
 
 #notificationPanel {
   display: block;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  background-color: #000;
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+}
+.notificationPanel__title {
+  font-size: 2rem;
+  margin: auto;
+  margin-left: 0;
+}
+.noti-title {
+  display: flex;
+}
+.noti-title > a {
+  margin: auto;
+  display: inline-block;
+  margin-right: 0;
+  cursor: pointer;
+  padding: 15px;
+}
+.notification_list > .notification {
+  display: grid;
+  grid-template-columns: 60px auto;
+  margin-top: 1.3rem;
+  background-color: var(--gray2);
+  border-radius: 20px;
+  padding: 15px;
+  color: var(--white);
+  text-decoration: none;
+}
+.notification_list > :first-child {
+  margin-top: .5rem;
+}
+.notification_image {
+  border-radius: 50%;
+}
+.notification_list .notification_read {
+  opacity: 0.7;
 }
