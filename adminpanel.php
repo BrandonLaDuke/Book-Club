@@ -56,7 +56,7 @@ if (isset($_GET['error'])) {
         </form>
       </div>
 
-<?php } ?>
+<?php } //Temp keep out ?>
 
       <h2>Mass Email (Only use for important announcements)</h2>
       <div class="admin-announcement">
@@ -85,9 +85,7 @@ if (isset($_GET['error'])) {
             <th>Email</th>
             <th>Last active</th>
             <th>Verified</th>
-            <?php if ($_SESSION['userUid'] == "bladuk8617" || $_SESSION['userUid'] == "bjohns6325") { ?>
             <th>Admin</th>
-          <?php } //Temp keep out ?>
           </tr>
           <?php while ($row = mysqli_fetch_assoc($result)) { ?>
           <tr>
@@ -96,7 +94,6 @@ if (isset($_GET['error'])) {
             <td><?php echo $row['emailUsers']; ?></td>
             <td><?php echo timeElapsed($row['lastLogin']); ?></td>
             <td><?php if ($row['active'] == 1) { echo "Yes";} else {echo "No";}; ?></td>
-            <?php if ($_SESSION['userUid'] == "bladuk8617" || $_SESSION['userUid'] == "bjohns6325") { ?>
             <td><?php if ($row['admin'] == 1) { echo "Admin";} ?></td>
             <td>
               <a class="btn lined thin" onclick="editUserCP(<?php echo $row['idUsers']; ?>)">Edit User</a>
@@ -136,7 +133,6 @@ if (isset($_GET['error'])) {
                 </div>
               </form>
             </td>
-          <?php } //Temp keep out ?>
           </tr>
         <?php } ?>
 
