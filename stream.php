@@ -130,6 +130,8 @@
           <form class="post__comment_area" action="includes/postaction.inc.php" id="comment<?php echo $row['postId'] ?>" method="post">
             <input type="hidden" name="postId" value="<?php echo $row['postId'] ?>">
             <input type="hidden" name="uidUsers" value="<?php echo $_SESSION['userUid'] ?>">
+            <input type="hidden" name="notiRecever" value="<?php echo $row['uidUsers'] ?>">
+            <input type="hidden" name="notiUser" value="<?php echo $_SESSION['userUid'] ?>">
             <textarea id="commentBox<?php echo $row['postId'] ?>" name="commentText" rows="2"></textarea>
             <div class="commentButton">
               <button type="submit" name="addComment">Post</button>

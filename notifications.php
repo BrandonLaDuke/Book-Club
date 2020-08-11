@@ -36,7 +36,7 @@ $resultCheck = mysqli_num_rows($result); ?>
     }
     } ?>
 </div> <!-- .notification_list -->
-  <a class="notification_read_title">Read <span class="material-icons">expand_more</span></a>
+  <a onclick="showReadNoti()" class="notification_read_title">Eariler</a>
   <?php
   $sql = "SELECT *
   FROM notifications
@@ -44,7 +44,7 @@ $resultCheck = mysqli_num_rows($result); ?>
   ORDER BY notificationID DESC;";
   $result = mysqli_query($conn, $sql);
   $resultCheck = mysqli_num_rows($result); ?>
-    <div class="notification_list">
+    <div id="readlistnoti" class="notification_list noti-read-list">
     <?php
     if ($resultCheck > 0) {
       while ($row = mysqli_fetch_assoc($result)) {

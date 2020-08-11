@@ -65,6 +65,8 @@ if (!mysqli_stmt_prepare($stmtIsLiked, $havelikedSql)) {
   $userId = $_POST['uidUsers'];
   $postId = $_POST['postId'];
   $commentText = $_POST['commentText'];
+  $notiUser = $_POST['notiUser'];
+  $notiRecever = $_POST['notiRecever'];
 
   $sql = "INSERT INTO postComments (postId, uidUsers, commentText) VALUES (?, ?, ?)";
   $stmt = mysqli_stmt_init($conn);
@@ -75,6 +77,25 @@ if (!mysqli_stmt_prepare($stmtIsLiked, $havelikedSql)) {
 
     mysqli_stmt_bind_param($stmt, "iss", $postId, $userId, $commentText);
     mysqli_stmt_execute($stmt);
+
+    $notiHash = md5( rand(0,1000) );
+    $notiMessage = " has commented your post.";
+    $notiAction = "https://spinelessbound.com/post.php?post=".$postId."&notiStatusChange=read&notiId=".$notiHash;
+    $notiStatus = "1";
+    // Send Notification to OP
+    $sqlNoti = "INSERT INTO notifications (notiUser, notiRecever, notiMessage, notiAction, notiStatus, notiHash) VALUES (?, ?, ?, ?, ?, ?)";
+    $stmtNoti = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmtNoti, $sqlNoti)) {
+      header("Location: ../index.php?error=sqlerror&updateNotificationError");
+      exit();
+    } else {
+
+      mysqli_stmt_bind_param($stmtNoti, "ssssis", $notiUser, $notiRecever, $notiMessage, $notiAction, $notiStatus, $notiHash);
+      mysqli_stmt_execute($stmtNoti);
+    }
+
+
+
     header("Location: ../index.php#$postId");
     }
   mysqli_stmt_close($stmt);

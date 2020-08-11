@@ -2003,6 +2003,18 @@ background: linear-gradient(to right, #566a6e, #6c7c85);
   margin: auto;
   margin-left: 0;
 }
+.notification_read_title {
+  display: block;
+  padding: 10px;
+  margin-top: 10px;
+  font-size: 1.2rem;
+  text-align: center;
+  cursor: pointer;
+  background-image: var(--key-color);
+  border-radius: 10px;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 .noti-title {
   display: flex;
 }
@@ -2030,5 +2042,11 @@ background: linear-gradient(to right, #566a6e, #6c7c85);
   border-radius: 50%;
 }
 .notification_list .notification_read {
-  opacity: 0.7;
+  opacity: 0.6;
+}
+.noti-read-list {
+  display: none;
+}
+.noti-read-list-open {
+  display: block;
 }
