@@ -33,7 +33,7 @@ if (!mysqli_stmt_prepare($stmtIsLiked, $havelikedSql)) {
 
       $notiHash = md5( rand(0,1000) );
       $notiMessage = " has liked your post.";
-      $notiAction = "https://spinelessbound.com/post.php?post=".$postId."&notiStatusChange=read&notiId=".$notiHash;
+      $notiAction = "/post.php?post=".$postId."&notiStatusChange=read&notiId=".$notiHash;
       $notiStatus = "1";
       // Send Notification to OP
       $sqlNoti = "INSERT INTO notifications (notiUser, notiRecever, notiMessage, notiAction, notiStatus, notiHash) VALUES (?, ?, ?, ?, ?, ?)";
@@ -80,7 +80,7 @@ if (!mysqli_stmt_prepare($stmtIsLiked, $havelikedSql)) {
 
     $notiHash = md5( rand(0,1000) );
     $notiMessage = " has commented your post.";
-    $notiAction = "https://spinelessbound.com/post.php?post=".$postId."&notiStatusChange=read&notiId=".$notiHash;
+    $notiAction = "/post.php?post=".$postId."&notiStatusChange=read&notiId=".$notiHash;
     $notiStatus = "1";
     // Send Notification to OP
     $sqlNoti = "INSERT INTO notifications (notiUser, notiRecever, notiMessage, notiAction, notiStatus, notiHash) VALUES (?, ?, ?, ?, ?, ?)";
