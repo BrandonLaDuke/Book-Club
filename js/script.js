@@ -72,3 +72,6 @@ function openNotifications() {
   // document.getElementById()
   console.log("Hello I will now show you notifications");
 }
+function clearNotifications() {
+  alert("This functionality is coming soon. Stay tuned.");
+}
