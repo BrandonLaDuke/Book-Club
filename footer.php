@@ -20,6 +20,10 @@
   <script type="text/javascript">
     document.getElementById('nav__link__library').classList.add("nav__link--active")
   </script>
+<?php } else if ($pagename == "notifications") { ?>
+  <script type="text/javascript">
+    document.getElementById('nav__link__notifications').classList.add("nav__link--active")
+  </script>
 <?php } else if ($pagename == "profile") { ?>
   <script type="text/javascript">
     document.getElementById('nav__link__profile').classList.add("nav__link--active")

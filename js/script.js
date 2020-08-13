@@ -72,7 +72,3 @@ function openNotifications() {
   // document.getElementById()
   console.log("Hello I will now show you notifications");
 }
-function showReadNoti() {
-  var read = document.getElementById('readlistnoti');
-  read.classList.remove("noti-read-list");
-}

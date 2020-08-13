@@ -187,7 +187,23 @@ $cookie = isset($_COOKIE['rememberme']) ? $_COOKIE['rememberme'] : '';
                 <span class="nav__text">Library</span>
               </a>
               <!-- onclick="openNotifications()" -->
-              <a href="notifications.php" class="nav__link"id="nav__link__notifications">
+
+
+
+
+
+
+
+
+
+              <a href="notifications.php" class="nav__link <?php
+              $sql = "SELECT *
+              FROM notifications
+              WHERE notiRecever = '$_SESSION[userUid]' AND notiStatus = '1'
+              ORDER BY notificationID DESC;";
+              $result = mysqli_query($conn, $sql);
+              $resultCheck = mysqli_num_rows($result);
+              if ($resultCheck > 0) { echo 'nav__link__notifications_new'; } ?> " id="nav__link__notifications">
                 <i class="material-icons nav__icon">notifications</i>
                 <span class="nav__text">Notifications</span>
               </a>

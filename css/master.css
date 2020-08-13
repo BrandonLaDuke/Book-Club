@@ -2044,9 +2044,20 @@ background: linear-gradient(to right, #566a6e, #6c7c85);
 .notification_list .notification_read {
   opacity: 0.6;
 }
-.noti-read-list {
-  display: none;
+
+
+#nav__link__notifications {
+  position: relative;
 }
-.noti-read-list-open {
-  display: block;
+.nav__link__notifications_new ::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 53%;
+  width: 10px;
+  height: 10px;
+  text-align: center;
+  background-color: red;
+  border-radius: 50%;
+  margin: 0;
 }
