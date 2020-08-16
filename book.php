@@ -147,37 +147,7 @@
                 </div>
               </form>
             </div>
-            <div class="comments-stream">
-              <?php
-              $sqlcomment = "SELECT * FROM booksComments;";
-              $resultComment = mysqli_query($conn, $sqlcomment);
-              $resultCheckComment = mysqli_num_rows($resultComment);
-              if ($resultCheckComment > 0) {
-                while ($rowComment = mysqli_fetch_assoc($resultComment)) {
-                  $count = $count++;
-                  if ($rowComment['bookId'] == $_GET['bookid']) {
-                    ?>
-                    <div class="comment-item">
-                      <img id="cmtimg" class="comment-profilepic" src="<?php echo $rowComment['profilepic']; ?>" alt="">
-                      <span id="cmtusr"><a href="profile.php?user=<?php echo $rowComment['uidUsers']; ?>"><?php echo $rowComment['uidUsers']; ?></a></span>
-
-                      <?php
-                      if ($rowComment['spoiler'] == '0') { ?>
-                        <span id="cmttxt<?php echo $count ?>" class="cmttxt spoiler"><?php echo $rowComment['commentText']; ?></span>
-
-                    <?php } else { ?>
-                      <span id="cmttxt<?php echo $count ?>" class="visable"><?php echo $rowComment['commentText']; ?></span>
-                  <?php } ?>
-
-
-
-                    </div>
-                    <?php
-                  }
-                }
-              }
- ?>
-            </div>
+            
 
 
 
@@ -224,9 +194,19 @@
                         echo "<span class=\"post__name\">" . $rowComment['uidUsers'] . "</span>";
                       }?>
 
-                        <div class="post__text">
+
+                        <?php
+                        if ($rowComment['spoiler'] == '0') { ?>
+                          <div id="cmttxt<?php echo $count ?>" class="post__text spoiler">
+                            <?php echo $rowComment['commentText']; ?>
+                          </div>
+
+                      <?php } else { ?>
+                        <div id="cmttxt<?php echo $count ?>" class="post__text">
                           <?php echo $rowComment['commentText']; ?>
                         </div>
+
+                    <?php } ?>
 
                     </div>
                   <?php

@@ -1541,11 +1541,25 @@ main {
 .spoiler {
   background-color: #000;
   color: #000;
+  position: relative;
+}
+/* .spoiler::before {
+  content: "Comment may contain a spoiler. Click to View";
+  position: absolute;
+  display: inline;
+  color: #fff;
+} */
+@media (hover: none) and (pointer: coarse) {
+  .spoiler:hover {
+    color: #fff;
+    background-color: transparent;
+  }
 }
 .spoiler:active {
-  color: #000;
+  color: #fff;
   background-color: transparent;
 }
+
 
 
 
