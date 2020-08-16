@@ -10,6 +10,7 @@
 --gray3: #303136;
 --gray4: #8e9297;
 --white: #ffffff;
+--black: #000000;
 --green: #0afb60;
 
 --main-bkg-color: var(--gray1);
@@ -865,7 +866,7 @@ main {
 .post__comment_area > textarea {
   width: 100%;
   min-height: 40px;
-  font-size: 1.3em;
+  font-size: 1.15em;
 }
 .postComments {
   grid-area: p-comm;
@@ -1020,7 +1021,7 @@ main {
   border-radius: 50%;
   border: 5px solid #272133;
   margin-top: 20px;
-  box-shadow: 0 10px 50px #0eb5b5;
+  box-shadow: 0 10px 50px #1cb4e3;
 }
 
 
@@ -1624,6 +1625,67 @@ main {
 
 
 /* Administrator Styles */
+#ControlPanel > *:not(:first-child) {background-color: var(--gray2); border-radius: 10px; padding: 10px;}
+#ControlPanel > h1 {grid-area: cp-t; margin: 10px 0 0 20px; }
+#ControlPanel_Navigation {grid-area: cp-nav;}
+#ControlPanel_Navigation > a {display: block; color: var(--white); padding: 10px; margin-bottom: 5px; text-decoration: none;}
+#ControlPanel_Navigation > a:hover {background: var(--key-color); color: var(--black);}
+#ControlPanel_Announcement {grid-area: cp-la;}
+#ControlPanel_Bookworm {grid-area: cp-bw;}
+#ControlPanel_EmailBlast {grid-area: cp-eb;}
+#ControlPanel_UserManagement {grid-area: cp-um; max-height: 600px; overflow-y: scroll;}
+#ControlPanel_Policy {grid-area: cp-pp}
+#ControlPanel_Policy > a {display: block; color: var(--white); padding: 10px; margin-bottom: 5px; text-decoration: none;}
+#ControlPanel_Policy > a:hover {background: var(--key-color); color: var(--black);}
+#ControlPanel_SiteContent {grid-area: cp-sc;}
+#ControlPanel_SiteContent > a {display: block; color: var(--white); padding: 10px; margin-bottom: 5px; text-decoration: none;}
+#ControlPanel_SiteContent > a:hover {background: var(--key-color); color: var(--black);}
+
+#ControlPanel {
+  margin: 0 20px;
+  display: flex;
+  gap: 30px;
+  flex-direction: column;
+}
+@media (min-width:1000px) {
+  #ControlPanel {
+    display: grid;
+    grid-template-columns: 200px 1fr 1fr;
+    grid-template-areas: "cp-t cp-t cp-t"
+                         "cp-nav cp-la cp-la"
+                         "cp-nav cp-eb cp-eb"
+                         "cp-nav cp-um cp-um"
+                         "cp-nav cp-um cp-um"
+                         "cp-nav cp-pp cp-sc"
+                         "cp-nav cp-bw . .";
+  }
+}
+@media (min-width:1500px) {
+  #ControlPanel {
+    grid-template-columns: 1fr 2fr 2fr 2fr;
+    grid-template-areas: "cp-t cp-t cp-t cp-t"
+                         "cp-nav cp-la cp-eb cp-eb"
+                         "cp-nav cp-um cp-um cp-pp"
+                         "cp-nav cp-um cp-um cp-sc"
+                         "cp-nav cp-bw . .";
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .b-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;

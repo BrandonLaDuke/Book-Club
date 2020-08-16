@@ -37,7 +37,7 @@ function timeElapsed($date){
         else if($hours_passed>=24 && $days_passed<2) return "Yesterday at ".$date_hour.":".$date_minute;
         //outputs [Yesterday at 11:30] for example
 
-        elseif ($days_passed<90) return $days_passed." days ago"; 
+        elseif ($days_passed<15) return $days_passed." days ago"; 
 
         else{
             if($current_year!=$date_year){

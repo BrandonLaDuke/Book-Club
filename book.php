@@ -178,6 +178,79 @@
               }
  ?>
             </div>
+
+
+
+
+
+
+
+
+
+
+
+            <form class="post__comment_area" action="includes/postaction.inc.php" id="comment<?php echo $row['postId'] ?>" method="post">
+              <input type="hidden" name="postId" value="<?php echo $row['postId'] ?>">
+              <input type="hidden" name="uidUsers" value="<?php echo $_SESSION['userUid'] ?>">
+              <textarea name="commentText" rows="2"></textarea>
+              <div class="commentButton">
+                <button type="submit" name="addComment">Post</button>
+              </div>
+            </form>
+
+
+
+            <?php
+            $sqlcomment = "SELECT * FROM booksComments;";
+            $resultComment = mysqli_query($conn, $sqlcomment);
+            $resultCheckComment = mysqli_num_rows($resultComment); ?>
+
+              <div class="postComments">
+                <hr>
+                <span class="comment-title">Comments</span>
+                <?php
+                if ($resultCheckComment > 0) {
+                  while ($rowComment = mysqli_fetch_assoc($resultComment)) {
+                    $count = $count++;
+                    if ($rowComment['bookId'] == $_GET['bookid']) {
+                      ?>
+
+
+                    <div class="post">
+                      <img class="post__img" src="<?php echo $rowComment['profilepic'] ?>" alt="Me">
+                      <?php if (isset($ProfileRowC['firstName']) || isset($ProfileRowC['lastName'])) {
+                        echo "<span class=\"post__name\">" . $ProfileRowC['firstName'] . " " . $ProfileRowC['lastName'] . "</span>";
+                      } else {
+                        echo "<span class=\"post__name\">" . $rowComment['uidUsers'] . "</span>";
+                      }?>
+
+                        <div class="post__text">
+                          <?php echo $rowComment['commentText']; ?>
+                        </div>
+
+                    </div>
+                  <?php
+                }
+                }
+              } ?>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
           </div>
         </div>
 
