@@ -2,7 +2,7 @@
 
 $sql = "SELECT *
 FROM notifications
-WHERE notiRecever = '$_SESSION[userUid]' AND notiStatus = '1'
+WHERE notiRecever = '$_SESSION[userUid]' AND notiStatus = '1' OR notiStatus = '2'
 ORDER BY notificationID DESC;";
 $result = mysqli_query($conn, $sql);
 $resultCheck = mysqli_num_rows($result); ?>
