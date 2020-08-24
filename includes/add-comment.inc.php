@@ -25,6 +25,32 @@ if (isset($_POST['add-comment-submit'])) {
     } else {
       mysqli_stmt_bind_param($stmt, "isssi", $idbook, $uidUsers, $profilepic, $commentText, $spoiler);
       mysqli_stmt_execute($stmt);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
       header("Location: ../book.php?bookid=".$idbook."&add_comment=success");
       exit();
       }

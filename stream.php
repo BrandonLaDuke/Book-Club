@@ -63,7 +63,24 @@
           }?>
     <?php if (!empty($row['postText'])) { ?>
             <div class="post__text">
-              <?php echo $row['postText']; ?>
+              <?php
+                // The Regular Expression filter
+                $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
+
+                // The Text you want to filter for urls
+                $text = $row['postText'];
+
+                // Check if there is a url in the text
+                if(preg_match($reg_exUrl, $text, $url)) {
+
+                   // make the urls hyper links
+                   echo preg_replace($reg_exUrl, "<a href=\"".$url[0]."\">".$url[0]."</a> ", $text);
+
+                } else {
+                   // if no urls in the text just return the text
+                   echo $text;
+                }
+                ?>
             </div>
     <?php }
           if (!$row['yTVideo'] == "") {
@@ -175,7 +192,24 @@
                     }?>
 
                       <div class="post__text">
-                        <?php echo $rowCommentsList['commentText']; ?>
+                        <?php
+                          // The Regular Expression filter
+                          $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
+
+                          // The Text you want to filter for urls
+                          $text = $rowCommentsList['commentText'];
+
+                          // Check if there is a url in the text
+                          if (preg_match($reg_exUrl, $text, $url)) {
+
+                             // make the urls hyper links
+                             echo preg_replace($reg_exUrl, "<a href=\"".$url[0]."\">".$url[0]."</a> ", $text);
+
+                          } else {
+                             // if no urls in the text just return the text
+                             echo $text;
+                          }
+                          ?>
                       </div>
 
                   </div>
