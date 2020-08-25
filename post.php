@@ -126,7 +126,7 @@
             $sqlCommentsList = "SELECT *
             FROM postComments
             WHERE postId = \"$row[postId]\"
-            ORDER BY commentId DESC";
+            ORDER BY commentId ASC";
             $resultCommentsList = mysqli_query($conn, $sqlCommentsList);
             $resultCheckCommentsList = mysqli_num_rows($resultCommentsList); ?>
             <div class="postComments">
