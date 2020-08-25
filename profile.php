@@ -66,13 +66,13 @@ if ($resultCheck > 0) {
           <?php }
           if (!empty($row['website'])) {?>
           <div class="p-container">
-            <a href="http://<?php echo $row['website']; ?>"><?php echo $row['website']; ?></a>
+            <a href="<?php echo $row['website']; ?>"><?php echo $row['website']; ?></a>
           </div>
           <?php }
           if (!empty($row['goodreads'])) {?>
             <br>
           <div class="p-container">
-            <a href="http://<?php echo $row['goodreads']; ?>">My Goodreads</a>
+            <a href="<?php echo $row['goodreads']; ?>">My Goodreads</a>
           </div>
 
   <?php } ?>
