@@ -191,7 +191,7 @@
                       echo "<span class=\"post__name\">" . $rowCommentsList['uidUsers'] . "</span>";
                     }?>
 
-                      <div class="post__text">
+                      <div class="post__text dont-break-out">
                         <?php
                           // The Regular Expression filter
                           $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
