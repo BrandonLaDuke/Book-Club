@@ -9,12 +9,13 @@
     <input type="hidden" name="userUid" value="<?php echo $_SESSION['userUid']; ?>">
     <textarea class="postbox__text" name="posttext" rows="1" placeholder="What's on your mind?"></textarea>
     <!-- <button type="button" name="button">Add media</button> -->
-    <!-- <div class="add-media-to-post">
-      <div class="">
-        <label for="image">Upload an image</label>
-        <input type="file" name="image" value="">
-      </div>
-      <div class="">
+     <div class="add-media-to-post" id="pi">
+       <div class="upload-image btn-upload">
+         <span class="material-icons">add_photo_alternate</span>
+         <input name="postimage" class="upload-image-input" type="file">
+       </div>
+
+    <!--  <div class="">
         <label for="YouTube">YouTube Video</label>
         <input type="text" name="YouTube" value="">
       </div>
@@ -25,8 +26,9 @@
       <div class="">
         <label for="FBVideo">Facebook Video</label>
         <input type="text" name="FBVideo" value="">
-      </div>
-    </div> -->
+      </div> -->
+    </div>
+    <p id="upload-image-filepath"></p>
     <button class="postbox__submit library-btn" type="submit" name="post">Post</button>
   </form>
 
@@ -88,7 +90,7 @@
           } ?>
 
     <?php if (!empty($row['postImg'])) { ?>
-            <img src="<?php echo $row['postImg'] ?>" alt="">
+            <img class="post__image" src="<?php echo $row['postImg'] ?>" alt="">
    <?php  } ?>
 
    <?php

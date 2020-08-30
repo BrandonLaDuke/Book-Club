@@ -796,6 +796,7 @@ main {
   grid-gap: 10px;
   grid-template-areas: "p-img p-name p-name"
                        "p-text p-text p-text"
+                       "p-photo p-photo p-photo"
                        "p-buttons p-buttons p-buttons"
                        "p-comments p-comments p-comments"
                        "p-comm p-comm p-comm";
@@ -825,6 +826,10 @@ main {
   background: var(--key-color);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+.post__image {
+  grid-area: p-photo;
+  width: 100%;
 }
 .post__buttons {
   grid-area: p-buttons;
@@ -2160,6 +2165,63 @@ background: linear-gradient(to right, #566a6e, #6c7c85);
   font-size: 1.8rem;
   font-family: 'Patrick Hand SC', sans-serif;
 }
+
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button {
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  /* prevents bg color from leaking outside the border */
+  display: inline-block;
+  border: 0;
+  -webkit-appearance: button;
+  /* for input */
+  -webkit-user-select: none;
+  /* for button */
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.btn-upload {
+  background: var(--key-color);
+  color: #000;
+  font-size: 20px;
+  text-align: center;
+  padding: 7px 10px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.upload-image-form {
+  padding-top: 40px;
+}
+
+.upload-image {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+.upload-image input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-height: 100%;
+  min-width: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.upload-image-confirmation {
+  display: none;
+}
+
+.upload-image-cancel {
+  background: #e74c3c;
+}
+
+
 .dont-break-out {
 
   /* These are technically the same, but use both */

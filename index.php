@@ -34,6 +34,12 @@ if (isset($_GET['error'])) {
     $userN = $_GET['uid'];
   } else if ($_GET['error'] == "usernotverified") {
     echo '<p class="bookworm-msg announcement">This user has not yet been verified.<br>Please click the verification link in your email to verify your account.</p>';
+  } else if ($_GET['error'] == "filetoobig") {
+    echo '<p class="bookworm-msg error">Oh no! the file you tried to up load is too big! Try <a target="_blank" href="https://www.squoosh.app">Squooshing</a> it.</p>';
+  } else if ($_GET['error'] == "upload") {
+    echo '<p class="bookworm-msg error">It looks like there was an error uploading your file...</p>';
+  } else if ($_GET['error'] == "invalidformat") {
+    echo '<p class="bookworm-msg error">I\'m sorry. We do not accept that format. Please try again using another format (.jpeg, .jpg, .png).</p>';
   }
 } else if (isset($_GET['success'])) {
   if ($_GET['success'] == "startbook") {
