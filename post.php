@@ -57,7 +57,7 @@
             </div>
     <?php } ?>
     <?php if (!empty($row['postImg'])) { ?>
-            <img src="<?php echo $row['postImg'] ?>" alt="">
+            <img class="post__image" src="<?php echo $row['postImg'] ?>" alt="">
    <?php  } ?>
 
    <?php
