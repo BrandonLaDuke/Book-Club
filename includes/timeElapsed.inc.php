@@ -57,7 +57,7 @@ function timeElapsed($date){
                         return $month_name." ".$date_day;
                         //outputs [Dec 11, 11:32] for example
                     } else {
-                      return $month_name." ".$date_day;
+                      return $date;
                     }
                 }
             }
