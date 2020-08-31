@@ -41,7 +41,7 @@ function timeElapsed($date){
 
         else{
             if($current_year!=$date_year){
-                foreach($months as $month_name => $month_number++){
+                foreach($months as $month_name => $month_number){
                     if($month_number==$date_month){
                         $ampm = $date_hour < (12) ? "AM" : "PM " ;
                         return $month_name." ".$date_day.", ".$date_year." ".$date_hour.":".$date_minute." ".$ampm;
@@ -51,7 +51,7 @@ function timeElapsed($date){
                 }
             }
             else{
-                foreach($months as $month_name => $month_number++){
+                foreach($months as $month_name => $month_number){
                     if($month_number==$date_month){
                         $ampm = $date_hour < (12) ? "AM" : "PM " ;
                         return $month_name." ".$date_day.", ".$date_hour.":".$date_minute." ".$ampm;
