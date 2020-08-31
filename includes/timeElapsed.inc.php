@@ -51,7 +51,7 @@ function timeElapsed($date){
                 }
             }
             else{
-                foreach($months as $month_name => $months){
+                foreach($months as $month_name => $months_number){
                     if($months==$date_month){
                         $ampm = $date_hour < (12) ? "AM" : "PM " ;
                         return $month_name." ".$date_day.", ".$date_hour.":".$date_minute." ".$ampm;
