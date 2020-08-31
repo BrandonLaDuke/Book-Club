@@ -28,8 +28,8 @@ if (isset($_POST['post'])) {
     header("Location: ../index.php?error=sqlerror");
     exit();
   } else {
-
-    if ($_FILES['postimage'] != "") {
+    $postimage = $_FILES['postimage'];
+    if ($postimage['name'] != "") {
       $postimage = $_FILES['postimage'];
       $postimageName = $postimage['name'];
       $postimageTmpName = $postimage['tmp_name'];
