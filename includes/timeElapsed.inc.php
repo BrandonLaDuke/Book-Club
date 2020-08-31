@@ -25,39 +25,37 @@ function timeElapsed($date){
         //days passed between the given and current date
         $days_passed = round((time()-strtotime($date))/ 86400,0);
 
-        if ($seconds_passed<60) return $seconds_passed." second".($seconds_passed == (1) ? " " : "s")." ago";
+        if($seconds_passed<60) return $seconds_passed." second".($seconds_passed == (1) ? " " : "s")." ago";
         //outputs 1 second / 2-59 seconds ago
 
-        else if ($seconds_passed>=60 && $minutes_passed<60) return $minutes_passed." minute".($minutes_passed == (1) ? " " : "s")." ago";
+        else if($seconds_passed>=60 && $minutes_passed<60) return $minutes_passed." minute".($minutes_passed == (1) ? " " : "s")." ago";
         //outputs 1 minute/ 2-59 minutes ago
 
-        else if ($minutes_passed>=60 && $hours_passed<24) return $hours_passed." hour".($hours_passed == (1) ? " " : "s")." ago";
+        else if($minutes_passed>=60 && $hours_passed<24) return $hours_passed." hour".($hours_passed == (1) ? " " : "s")." ago";
         //outputs 1 hour / 2-23 hours ago
 
-        else if ($hours_passed>=24 && $days_passed<2) return "Yesterday at ".$date_hour.":".$date_minute;
+        else if($hours_passed>=24 && $days_passed<2) return "Yesterday at ".$date_hour.":".$date_minute;
         //outputs [Yesterday at 11:30] for example
 
-        else if ($days_passed<15) return $days_passed." days ago";
+        elseif ($days_passed<15) return $days_passed." days ago"; 
 
-        else {
+        else{
             if($current_year!=$date_year){
                 foreach($months as $month_name => $month_number){
                     if($month_number==$date_month){
                         $ampm = $date_hour < (12) ? "AM" : "PM " ;
-                        return $month_name." ".$date_day.", ".$date_year;
+                        return $month_name." ".$date_day.", ".$date_year." ".$date_hour.":".$date_minute." ".$ampm;
 
                         //outputs [Dec 11, 2018 11:32] for example
                     }
                 }
             }
-            else {
+            else{
                 foreach($months as $month_name => $month_number){
                     if($month_number==$date_month){
                         $ampm = $date_hour < (12) ? "AM" : "PM " ;
-                        return $month_name." ".$date_day;
+                        return $month_name." ".$date_day.", ".$date_hour.":".$date_minute." ".$ampm;
                         //outputs [Dec 11, 11:32] for example
-                    } else {
-                      return $date;
                     }
                 }
             }
