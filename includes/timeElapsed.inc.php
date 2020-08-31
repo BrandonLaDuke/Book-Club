@@ -37,7 +37,7 @@ function timeElapsed($date){
         else if($hours_passed>=24 && $days_passed<2) return "Yesterday at ".$date_hour.":".$date_minute;
         //outputs [Yesterday at 11:30] for example
 
-        elseif ($days_passed<15) return $days_passed." days ago"; 
+        elseif ($days_passed<15) return $days_passed." days ago";
 
         else{
             if($current_year!=$date_year){
@@ -51,8 +51,8 @@ function timeElapsed($date){
                 }
             }
             else{
-                foreach($months as $month_name => $month_number){
-                    if($month_number==$date_month){
+                foreach($months as $month_name => $months){
+                    if($months==$date_month){
                         $ampm = $date_hour < (12) ? "AM" : "PM " ;
                         return $month_name." ".$date_day.", ".$date_hour.":".$date_minute." ".$ampm;
                         //outputs [Dec 11, 11:32] for example
