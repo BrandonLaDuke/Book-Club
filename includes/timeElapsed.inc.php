@@ -3,18 +3,18 @@ function timeElapsed($date){
 
         date_default_timezone_set("America/Los_Angeles");
         $months = array(
-          "Jan"=>"01",
-          "Feb"=>"02",
-          "Mar"=>"03",
-          "Apr"=>"04",
+          "January"=>"01",
+          "February"=>"02",
+          "March"=>"03",
+          "April"=>"04",
           "May"=>"05",
-          "Jun"=>"06",
-          "Jul"=>"07",
-          "Aug"=>"08",
-          "Sep"=>"09",
-          "Oct"=>"10",
-          "Nov"=>"11",
-          "Dec"=>"12");
+          "June"=>"06",
+          "July"=>"07",
+          "August"=>"08",
+          "September"=>"09",
+          "October"=>"10",
+          "November"=>"11",
+          "December"=>"12");
         $date_year = date('Y', strtotime($date));//year of the date
         $date_month = date('m', strtotime($date));//month of the date
         $date_day = date('d', strtotime($date));//day of the date
@@ -53,7 +53,7 @@ function timeElapsed($date){
                 foreach($months as $month_name => $month_number){
                     if($month_number==$date_month){
                         $ampm = $date_hour < (12) ? "AM" : "PM " ;
-                        return $month_name." ".$date_day.", ".$date_year." ".$date_hour.":".$date_minute." ".$ampm;
+                        return $month_name." ".$date_day.", ".$date_year;
 
                         //outputs [Dec 11, 2018 11:32] for example
                     }
@@ -63,7 +63,7 @@ function timeElapsed($date){
                 foreach($months as $month_name => $month_number){
                     if($month_number==$date_month){
                         $ampm = $date_hour < (12) ? "AM" : "PM " ;
-                        return $month_name." ".$date_day.", ".$date_hour.":".$date_minute." ".$ampm;
+                        return $month_name." ".$date_day;
                         //outputs [Dec 11, 11:32] for example
                     }
                 }
