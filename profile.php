@@ -112,7 +112,7 @@ if ($resultCheck > 0) {
 
     </div>
     <div class="stream">
-      <?php require 'stream.php'; ?>
+      <?php // require 'stream.php'; ?>
     </div>
 </div>
 </div>
