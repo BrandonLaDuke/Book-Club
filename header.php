@@ -216,10 +216,10 @@ $cookie = isset($_COOKIE['rememberme']) ? $_COOKIE['rememberme'] : '';
                 <i class="material-icons nav__icon">info</i>
                 <span class="nav__text">About</span>
               </a>
-              <!-- <a href="settings.php" class="nav__link desktop-only" id="nav__link__settings">
+              <a href="settings.php" class="nav__link desktop-only" id="nav__link__settings">
                 <i class="material-icons nav__icon">settings</i>
                 <span class="nav__text">Settings</span>
-              </a> -->
+              </a>
             </nav>
             <!-- <section class="notificationPanelContainer">
               <?php // require 'notifications.php'; ?>
