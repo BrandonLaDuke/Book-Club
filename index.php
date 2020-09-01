@@ -68,7 +68,7 @@ if (isset($_GET['error'])) {
     if ($row = mysqli_fetch_assoc($result)) { ?>
       <?php if ($row['announcement'] != "") {
         if ($_GET['success'] == "login") { ?>
-        <p class="bookworm-msg announcement"><?php echo $row['announcement'] ?></p>
+        <p class="bookworm-msg announcement dont-break-out"><?php echo $row['announcement'] ?></p>
       <?php }
             } ?>
     <?php } ?>
