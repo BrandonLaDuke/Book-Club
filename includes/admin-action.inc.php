@@ -23,7 +23,7 @@ if (isset($_POST['bookworm-message'])) {
 } else if (isset($_POST['email-blast'])) {
 
   require 'dbh.inc.php';
-  $sql = "SELECT emailUsers FROM users WHERE active = 1";
+  $sql = "SELECT emailUsers FROM users WHERE active = 1 AND notiEmail = 1";
   $result = mysqli_query($conn, $sql);
   $resultCheck = mysqli_num_rows($result);
   $match = false;
@@ -33,6 +33,8 @@ if (isset($_POST['bookworm-message'])) {
       $to = $row['emailUsers'];
       $subject = $_POST['subject'];
       $message = $msg . '
+
+      If you wish to stop reciving these messages, you may unsubscribe from the Spineless Bound Email List in the Settings menu: https://www.spinelessbound.com/settings.php 
 
       Spineless Bound
       Sullivan University

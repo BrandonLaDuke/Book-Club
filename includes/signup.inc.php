@@ -25,6 +25,7 @@ if (isset($_POST['signup-submit'])) {
   $coverPhotoPosition = "center";
   $emailp = isset($_POST['mail']) ? trim($_POST['mail']) : null;
   $endpoint = "";
+  $notiEmail = 1;
 
   // List of allowed domains
   $allowed = [
@@ -93,18 +94,16 @@ if (isset($_POST['signup-submit'])) {
             header("Location: ../index.php?error=existingaccount&uid=".$username);
             exit();
           } else {
-            $sql = "INSERT INTO users (uidUsers, firstName, lastName, emailUsers, altEmail, pwdUsers, profilepic, about, program, website, goodreads, hash, active, admin, bkgColor, textColor, coverPhotoURL, coverPhotoPosition, endpoint) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            $sql = "INSERT INTO users (uidUsers, firstName, lastName, emailUsers, altEmail, pwdUsers, profilepic, about, program, website, goodreads, hash, active, admin, bkgColor, textColor, coverPhotoURL, coverPhotoPosition, endpoint, notiEmail) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             $stmt = mysqli_stmt_init($conn);
             if (!mysqli_stmt_prepare($stmt, $sql)) {
               header("Location: ../index.php?error=sqlerror");
               exit();
             } else {
               $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
-              mysqli_stmt_bind_param($stmt, "ssssssssssssiisssss", $username, $firstName, $lastName, $email, $altEmail, $hashedPwd, $profilepic, $about, $program, $website, $goodreads, $hash, $active, $admin, $bkgColor, $textColor, $coverPhotoURL, $coverPhotoPosition, $endpoint);
+              mysqli_stmt_bind_param($stmt, "ssssssssssssiisssssi", $username, $firstName, $lastName, $email, $altEmail, $hashedPwd, $profilepic, $about, $program, $website, $goodreads, $hash, $active, $admin, $bkgColor, $textColor, $coverPhotoURL, $coverPhotoPosition, $endpoint, $notiEmail);
               mysqli_stmt_execute($stmt);
-              $sql = "UPDATE users
-              SET firstName = '$firstName', lastName = '$lastName', about = '$about', program = '$program', website = '$website', goodreads = '$goodreads', altEmail = '$altEmail'
-              WHERE idUsers = $idU";
+              
               // Return Success - Valid Email
               $msg = 'Your account has been made, <br /> please verify it by clicking the activation link that has been send to your email.';
               // Send verification link by email
