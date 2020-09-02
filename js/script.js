@@ -38,6 +38,9 @@ function hideLikes(postID) {
   var postLikesPanel = document.getElementById(postLikesID);
   postLikesPanel.classList.remove("openLikes");
 }
+function openPostOptions() {
+  alert("You discovered an in development feature! You will soon be able to edit or delete posts from this menu.");
+}
 function editUserCP(userId) {
   var userEditID = "userID-" + userId;
   console.log(userEditID);

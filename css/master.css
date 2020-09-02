@@ -774,6 +774,19 @@ main {
   margin: auto 0;
   font-size: 17px;
 }
+.postbox__options {
+  grid-area: p-options;
+  margin: auto;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.postbox__options:hover {
+  background-color: var(--gray4);
+}
+.postbox__options:focus {
+  background-color: var(--gray4);
+}
 .postbox__text {
   grid-area: pb-text;
   font-size: 12px;
@@ -784,17 +797,16 @@ main {
   grid-area: pb-button;
   font-size: 18px;
   border-radius: 50px;
-
 }
 
 
 .post {
   margin-top: 20px;
   display: grid;
-  grid-template-columns: 50px auto 150px;
+  grid-template-columns: 50px auto 50px;
   grid-template-rows: 50px auto;
   grid-gap: 10px;
-  grid-template-areas: "p-img p-name p-name"
+  grid-template-areas: "p-img p-name p-options"
                        "p-text p-text p-text"
                        "p-photo p-photo p-photo"
                        "p-buttons p-buttons p-buttons"

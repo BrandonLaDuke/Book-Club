@@ -63,6 +63,7 @@
           } else {
             echo "<span class=\"post__name\">" . $row['uidUsers'] . " &nbsp; &nbsp; <a style=\"color:#bbb;\" href=\"post.php?post=". $row['postId'] ."\">". $time ."</a></span>";
           }?>
+          <span onclick="openPostOptions(<?php echo $row['postId'] ?>)" class="material-icons postbox__options">more_vert</span>
     <?php if (!empty($row['postText'])) { ?>
             <div class="post__text dont-break-out">
               <?php
