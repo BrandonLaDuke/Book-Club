@@ -245,7 +245,7 @@
                   <span class="postbox__name"><?php echo $_SESSION['userUid']; ?> <?php echo $_SESSION['lastName']; ?></span>
             <?php } ?>
                 <input type="hidden" name="userUid" value="<?php echo $_SESSION['userUid']; ?>">
-
+                <input type="hidden" name="postId" value="<?php echo $row['postId'] ?>">
         <img class="post__image" src="<?php echo $row['postImg'] ?>" alt="">
 
                 <textarea class="postbox__text" name="posttext" rows="1"><?php echo $row['postText']; ?></textarea>

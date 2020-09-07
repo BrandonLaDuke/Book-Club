@@ -60,10 +60,9 @@ function copyToClipboard(text) {
   alert("Post link copied to clipboard");
 }
 function editPost(postID) {
-  alert("Wow you discovered a feature that is currently in development! Come back later.");
-  // var postEditID = "editPostBoxC" + postID;
-  // var editPost = document.getElementById(postEditID);
-  // editPost.classList.add("showFlex");
+  var postEditID = "editPostBoxC" + postID;
+  var editPost = document.getElementById(postEditID);
+  editPost.classList.add("showFlex");
 }
 function closePostEdit(postID) {
   var postEditID = "editPostBoxC" + postID;

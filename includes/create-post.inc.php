@@ -3,7 +3,6 @@ ini_set('display_errors', 'On');
 error_reporting(E_ALL);
 if (isset($_POST['post'])) {
   require 'dbh.inc.php';
-  require 'bookworm.inc.php';
 
   // GET Variables
   $username = $_POST['userUid'];
@@ -78,4 +77,26 @@ if (isset($_POST['post'])) {
 
     mysqli_stmt_close($stmt);
     mysqli_close($conn);
+} else if (isset($_POST['save'])) {
+  require 'dbh.inc.php';
+  // GET Variables
+  $username = $_POST['userUid'];
+  $postID = $_POST['postId'];
+  $posttext = $_POST['posttext'];
+
+  $sql = "UPDATE posts SET postText = '$posttext' WHERE postId = '$postID'";
+  $stmt = mysqli_stmt_init($conn);
+  if (!mysqli_stmt_prepare($stmt, $sql)) {
+    header("Location: ../index.php?error=sqlerror");
+    exit();
+  } else {
+    mysqli_stmt_execute($stmt);
+    header("Location: ../index.php?success=postupdated");
+    exit();
+  }
+  mysqli_stmt_close($stmt);
+  mysqli_close($conn);
+} else {
+  header("Location: ../index.php");
+  exit();
 }
