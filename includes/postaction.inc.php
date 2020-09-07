@@ -226,4 +226,9 @@ if (!mysqli_stmt_prepare($stmtIsLiked, $havelikedSql)) {
     }
   mysqli_stmt_close($stmt);
   mysqli_close($conn);
+} else if (isset()) {
+
+} else {
+  header("Location: ../index.php");
+  exit();
 }

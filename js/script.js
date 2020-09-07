@@ -7,17 +7,11 @@ function openAcctMenu() {
   login.classList.add("open");
 }
 function updateGoal() {
-
   var updateGoal = document.getElementById('updategoal-window');
-
-
   updateGoal.classList.add("updategoalshow");
-
 }
 function closeUpdateGoal() {
   var updateGoal = document.getElementById('updategoal-window');
-
-
   updateGoal.classList.remove("updategoalshow");
 }
 function openCommentArea(postID) {
@@ -38,8 +32,47 @@ function hideLikes(postID) {
   var postLikesPanel = document.getElementById(postLikesID);
   postLikesPanel.classList.remove("openLikes");
 }
-function openPostOptions() {
-  alert("You discovered an in development feature! You will soon be able to edit or delete posts from this menu.");
+function openPostOptions(postID) {
+  var postOptionsID = "postOptions" + postID;
+  console.log(postOptionsID);
+  var postOptionsPanel = document.getElementById(postOptionsID);
+  postOptionsPanel.classList.add("postbox_open");
+}
+function closePostOptions(postID) {
+  var postOptionsID = "postOptions" + postID;
+  console.log(postOptionsID);
+  var postOptionsPanel = document.getElementById(postOptionsID);
+  postOptionsPanel.classList.remove("postbox_open");
+}
+
+function copyToClipboard(text) {
+  var dummy = document.createElement("textarea");
+  // to avoid breaking orgain page when copying more words
+  // cant copy when adding below this code
+  // dummy.style.display = 'none'
+  document.body.appendChild(dummy);
+  //Be careful if you use texarea. setAttribute('value', value), which works with "input" does not work with "textarea". – Eduard
+  dummy.value = text;
+  console.log(text);
+  dummy.select();
+  document.execCommand("copy");
+  document.body.removeChild(dummy);
+  alert("Post link copied to clipboard");
+}
+function editPost(postID) {
+  alert("Wow you discovered a feature that is currently in development! Come back later.");
+  // var postEditID = "editPostBoxC" + postID;
+  // var editPost = document.getElementById(postEditID);
+  // editPost.classList.add("showFlex");
+}
+function closePostEdit(postID) {
+  var postEditID = "editPostBoxC" + postID;
+  console.log(postEditID);
+  var postEditPanel = document.getElementById(postEditID);
+  postEditPanel.classList.remove("showFlex");
+}
+function deletePost(postID) {
+  alert("Wow you discovered a feature that is currently in development! Come back later.");
 }
 function editUserCP(userId) {
   var userEditID = "userID-" + userId;

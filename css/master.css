@@ -787,6 +787,34 @@ main {
 .postbox__options:focus {
   background-color: var(--gray4);
 }
+.postbox__options_box {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px;
+  background: var(--key-color);
+}
+.postbox__options_box > form {
+  margin: 1px;
+  background: var(--gray1);
+}
+.postbox__options_box > form > button {
+  display: block;
+  width: 100%;
+  background-color: inherit;
+  color: inherit;
+  padding: 15px;
+  font-family: inherit;
+  text-align: left;
+}
+.postbox__options_box > form > button:hover {
+  background-image: var(--key-color);
+  color: #000;
+}
+.postbox_open {
+  display: block;
+}
 .postbox__text {
   grid-area: pb-text;
   font-size: 12px;
@@ -799,8 +827,40 @@ main {
   border-radius: 50px;
 }
 
+.editPostBoxC {
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000000bb;
+  z-index: 2;
+}
+.editPostBox {
+  margin: auto;
+  position: relative;
+  width: 500px;
+  padding: 5px;
+  background-image: var(--key-color);
+}
+.editPostBox > form {
+  margin: 0;
+  padding: 20px;
+}
+.editPostBox > form {
+  grid-template-columns: 50px auto 50px;
+  grid-template-rows: 50px auto;
+  grid-gap: 10px;
+  grid-template-areas: "pb-img pb-name pb-name"
+                       "pb-text pb-text pb-text"
+                       "p-photo p-photo p-photo"
+                       ". . pb-button";
+}
+
 
 .post {
+  position: relative;
   margin-top: 20px;
   display: grid;
   grid-template-columns: 50px auto 50px;
@@ -2281,3 +2341,7 @@ button {
   hyphens: auto;
 
 }
+.showFlex {
+  display: flex;
+}
+.showBlock {display: block;}
