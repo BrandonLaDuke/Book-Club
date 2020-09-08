@@ -11,7 +11,7 @@ if (isset($_POST['add-book-submit'])) {
   $chosenby = $_POST['chosenby'];
   $chapter = "";
   $pageNumber = 0;
-  $customGoal = "";
+  $customGoal = "Set Goal";
 
   $readingStatus = 2;
   // Read = 0
