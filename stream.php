@@ -71,7 +71,7 @@
               <button type="button" name="button" onclick="copyToClipboard('https://www.spinelessbound.com/post.php?post=<?php echo $row['postId'] ?>')">Copy post URL</button>
               <input type="hidden" name="username" value="<?php echo $row['uidUsers'] ?>">
               <input type="hidden" name="postId" value="<?php echo $row['postId'] ?>">
-              <button type="button" name="button" onclick="editPost(<?php echo $row['postId'] ?>)">Edit post</button>
+              <button type="button" name="button" onclick="deletePost(<?php echo $row['postId'] ?>)">Edit post</button>
               <button type="button" name="button" onclick="deletePost(<?php echo $row['postId'] ?>)">Delete post</button>
               <hr>
               <button onclick="closePostOptions(<?php echo $row['postId'] ?>)" type="button" name="dismiss">Close</button>
