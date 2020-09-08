@@ -124,7 +124,7 @@ if (!mysqli_stmt_prepare($stmtIsLiked, $havelikedSql)) {
             if ($SNRow['username'] == $postOwnerUN) {
 
               $notiHash = md5( rand(0,1000) );
-              $notiMessage = " has commented your post. \"".substr($commentText,0,90)."\"";
+              $notiMessage = " has commented on your post. \"".substr($commentText,0,90)."\"";
               $notiAction = "/post.php?post=".$postId."&notiStatusChange=read&notiId=".$notiHash;
               $notiStatus = "1";
               // Send Notification to OP
@@ -180,7 +180,7 @@ if (!mysqli_stmt_prepare($stmtIsLiked, $havelikedSql)) {
     }
   } else {
     $notiHash = md5( rand(0,1000) );
-    $notiMessage = " has commented your post. \"".substr($commentText,0,90)."\"";
+    $notiMessage = " has commented on your post. \"".substr($commentText,0,90)."\"";
     $notiAction = "/post.php?post=".$postId."&notiStatusChange=read&notiId=".$notiHash;
     $notiStatus = "1";
     // Send Notification to OP
