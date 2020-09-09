@@ -201,16 +201,7 @@ if ($_SESSION['admin']) { ?>
                 <i class="material-icons nav__icon">local_library</i>
                 <span class="nav__text">Library</span>
               </a>
-              <!-- onclick="openNotifications()" -->
-
-
-
-
-
-
-
-
-
+              
               <a href="notifications.php" class="nav__link <?php
               $sql = "SELECT *
               FROM notifications
@@ -236,9 +227,6 @@ if ($_SESSION['admin']) { ?>
                 <span class="nav__text">Settings</span>
               </a>
             </nav>
-            <!-- <section class="notificationPanelContainer">
-              <?php // require 'notifications.php'; ?>
-            </section> -->
 
         </div>
       <?php } ?>
