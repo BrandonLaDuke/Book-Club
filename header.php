@@ -103,8 +103,18 @@ $cookie = isset($_COOKIE['rememberme']) ? $_COOKIE['rememberme'] : '';
           mysqli_stmt_execute($stmtUpdateNoti);
         }
       }
-    } ?>
-    <?php if (isset($_SESSION['userId'])) { ?>
+    }
+    $sql = "SELECT announcement FROM announcements WHERE idAnnouncement=1;";
+    $result = mysqli_query($conn, $sql);
+    $resultCheck = mysqli_num_rows($result);
+    if ($row = mysqli_fetch_assoc($result)) { ?>
+      <?php if ($row['announcement'] != "") {
+        if ($_GET['success'] == "login") { ?>
+        <p class="bookworm-msg announcement dont-break-out"><?php echo $row['announcement'] ?></p>
+      <?php }
+            } ?>
+    <?php }
+     if (isset($_SESSION['userId'])) { ?>
       <button onclick="openAcctMenu()" class="header-account-btn btn lined thin">
         <img src="<?php echo $_SESSION['profilepic']; ?>" width="30px" height="30px;" alt="">
       </button>
@@ -112,14 +122,13 @@ $cookie = isset($_COOKIE['rememberme']) ? $_COOKIE['rememberme'] : '';
       <button onclick="openLogin()" class="header-login-btn">
         <span>Login</span>
       </button>
-    <?php } ?>
-
-<?php if (isset($_SESSION['userId'])) { ?>
+    <?php }
+    if (isset($_SESSION['userId'])) { ?>
     <div id="login" class="header-login-p"">
     <?php } else { ?>
       <div id="login" class="header-login">
-<?php } ?>
-    <?php if (isset($_SESSION['userId'])) { ?>
+<?php }
+ if (isset($_SESSION['userId'])) { ?>
       <?php
       $profilesql = "SELECT *
       FROM users
@@ -129,14 +138,13 @@ $cookie = isset($_COOKIE['rememberme']) ? $_COOKIE['rememberme'] : '';
       if ($profileResultCheck > 0) {
         $ProfileRow = mysqli_fetch_assoc($profileresult);
       }
-      ?>
-      <?php if (isset($ProfileRow['firstName'])) {
+      if (isset($ProfileRow['firstName'])) {
         echo "<p class=\"welcome-msg\">Welcome, " . $ProfileRow['firstName'] . "!</p>";
       } else { ?>
         <p class="welcome-msg">Welcome, <?php echo $_SESSION['userUid']; ?>!"</p>
 
-<?php  }?>
-  <?php if ($_SESSION['admin']) { ?>
+<?php  }
+if ($_SESSION['admin']) { ?>
 
           <a class="profile-btn" href="adminpanel.php">Control Panel</a>
 

@@ -61,21 +61,6 @@ if (isset($_GET['error'])) {
 
    ?>
   <?php if (isset($_SESSION['userId'])) { ?>
-    <?php
-    $sql = "SELECT announcement FROM announcements WHERE idAnnouncement=1;";
-    $result = mysqli_query($conn, $sql);
-    $resultCheck = mysqli_num_rows($result);
-    if ($row = mysqli_fetch_assoc($result)) { ?>
-      <?php if ($row['announcement'] != "") {
-        if ($_GET['success'] == "login") { ?>
-        <p class="bookworm-msg announcement dont-break-out"><?php echo $row['announcement'] ?></p>
-      <?php }
-            } ?>
-    <?php } ?>
-
-
-
-
 
 
     <section id="bladeUI_grid">
