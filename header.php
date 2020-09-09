@@ -159,7 +159,14 @@ $cookie = isset($_COOKIE['rememberme']) ? $_COOKIE['rememberme'] : '';
           <input type="password" name="pwd" placeholder="Password" augmented-ui="br-clip exe">
           <!-- <span class="desktopHidden">Remember me: <input type="checkbox" name="rememberme" value=""></span> -->
           <a class="forgot-pwd-desktop" href="passwordreset.php?resetrequest=true">Forgot password?</a>
-
+          <?php $currentPage = pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME);
+          $returnToUser = $_GET['book'];
+          $returnToPost = $_GET['post'];
+          $returnToUser = $_GET['user']; ?>
+          <input type="hidden" name="currentPage" value="<?php echo $currentPage ?>">
+          <input type="hidden" name="returnToBook" value="<?php echo $returnToBook ?>">
+          <input type="hidden" name="returnToPost" value="<?php echo $returnToPost ?>">
+          <input type="hidden" name="returnToUser" value="<?php echo $returnToUser ?>">
           <button type="submit" name="login-submit">Login</button>
 
           <a class="forgot-pwd-mobile" href="passwordreset.php?resetrequest=true">Forgot password?</a>

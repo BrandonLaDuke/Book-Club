@@ -9,6 +9,10 @@ if (isset($_POST['login-submit'])) {
   $mailuid = $_POST['mailuid'];
   $password = $_POST['pwd'];
   $rem = $_POST['rememberme'];
+  $currentPage = $_POST['currentPage'];
+  $returnToPost = $_POST['returnToPost'];
+  $returnToUser = $_POST['returnToUser'];
+  $returnToBook = $_POST['returnToBook'];
 
   if (empty($mailuid) || empty($password)) {
     header("Location: ../index.php?error=emptyfields");
@@ -54,7 +58,19 @@ if (isset($_POST['login-submit'])) {
             mysqli_stmt_prepare($stmt, $suts);
             mysqli_stmt_bind_param($stmt, "s", $user);
             mysqli_stmt_execute($stmt);
+            $currentPage = $_POST['currentPage'];
+            $returnToPost = $_POST['returnToPost'];
+            $returnToBook = $_POST['returnToBook'];
+            $returnToUser = $_POST['returnToUser'];
+            if ($currentPage == "post") {
+              header("Location: ../post.php?post=$returnToPost&success=login&user=$mailuid");
+            } else if ($currentPage == "book") {
+              header("Location: ../book.php?bookid=$returnToBook&success=login&user=$mailuid");
+            } else if ($currentPage == "user") {
+              header("Location: ../profile.php?user=$returnToUser&success=login&user=$mailuid");
+            } else {
             header("Location: ../index.php?success=login&user=$mailuid");
+          }
             exit();
           } else {
             header("Location: ../index.php?error=usernotverified&email=$mailuid");
