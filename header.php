@@ -110,7 +110,25 @@ $cookie = isset($_COOKIE['rememberme']) ? $_COOKIE['rememberme'] : '';
     if ($row = mysqli_fetch_assoc($result)) { ?>
       <?php if ($row['announcement'] != "") {
         if ($_GET['success'] == "login") { ?>
-        <p class="bookworm-msg announcement dont-break-out"><?php echo $row['announcement'] ?></p>
+        <p class="bookworm-msg announcement dont-break-out"><?php
+
+          // The Regular Expression filter
+          $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
+
+          // The Text you want to filter for urls
+          $announcement = $row['announcement'];
+
+          // Check if there is a url in the text
+          if (preg_match($reg_exUrl, $announcement, $url)) {
+
+             // make the urls hyper links
+             echo preg_replace($reg_exUrl, "<a href=\"".$url[0]."\">".$url[0]."</a> ", $announcement);
+
+          } else {
+             // if no urls in the text just return the text
+             echo $announcement;
+          }
+          ?>  </p>
       <?php }
             } ?>
     <?php }
@@ -201,7 +219,7 @@ if ($_SESSION['admin']) { ?>
                 <i class="material-icons nav__icon">local_library</i>
                 <span class="nav__text">Library</span>
               </a>
-              
+
               <a href="notifications.php" class="nav__link <?php
               $sql = "SELECT *
               FROM notifications
