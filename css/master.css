@@ -956,7 +956,8 @@ main {
 
 }
 .postComments > .post {
-  grid-gap: 0;
+  gap: 0;
+  margin: 0;
 }
 .postComments > .newcmtb {
   border-left: 2px solid red;
@@ -1040,8 +1041,25 @@ main {
 .postLikesContainer > .user > * {
   margin: auto 10px auto 0;
 }
+.signup-banner {
+  background-image: var(--key-color);
+  color: var(--black);
+  padding: 20px;
+  margin-top: 10px;
+}
+.signup-banner h2 {
+  font-size: 1.2rem;
+  margin-top: 2px;
+  margin-bottom: 0;
 
-
+}
+.signup-banner p {
+  margin-top: 5px;
+  margin-bottom: 0;
+}
+.signup-banner a {
+  color: blue;
+}
 
 
 

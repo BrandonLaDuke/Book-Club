@@ -1,4 +1,10 @@
 <?php require 'header.php'; ?>
+<?php if (isset($_SESSION['userId'])) {} else { ?>
+  <div class="signup-banner">
+    <h2>In order to interact with this post you must login.</h2>
+    <p>Don't have an account? <a href="https://spinelessbound.com">Sign up now</a></p>
+  </div>
+<?php } ?>
 <div class="sb-container">
 
   <?php $sql = "SELECT *
@@ -86,6 +92,7 @@
    $numberLiked = mysqli_num_rows($likeresult);
    ?>
           <div class="post__buttons">
+            <?php if (isset($_SESSION['userId'])) { ?>
             <form class="" action="includes/postaction.inc.php" method="post">
               <input type="hidden" name="userId" value="<?php echo $_SESSION['userId']; ?>">
               <input type="hidden" name="notiRecever" value="<?php echo $row['uidUsers'] ?>">
@@ -95,6 +102,7 @@
             </form>
             <button onclick="openCommentArea(<?php echo $row['postId'] ?>)" type="button" name="button"><span class="material-icons">comment</span> Comment</button>
             <?php
+          }
             if ($numberLiked > 1) { ?>
               <a onclick="showLikes(<?php echo $row['postId'] ?>)" class="post__num-liked"><?php echo $numberLiked; ?> Likes</a>
       <?php } else if ($numberLiked == 1) { ?>
@@ -131,6 +139,7 @@
           } ?></div>
           </div>
           </div>
+          <?php if (isset($_SESSION['userId'])) { ?>
           <form class="post__comment_area" action="includes/postaction.inc.php" id="comment<?php echo $row['postId'] ?>" method="post">
             <input type="hidden" name="postId" value="<?php echo $row['postId'] ?>">
             <input type="hidden" name="uidUsers" value="<?php echo $_SESSION['userUid'] ?>">
@@ -145,6 +154,7 @@
 
 
             <?php
+          }//not loged in
             $sqlCommentsList = "SELECT *
             FROM postComments
             WHERE postId = \"$row[postId]\"
