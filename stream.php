@@ -167,7 +167,7 @@
             <input type="hidden" name="uidUsers" value="<?php echo $_SESSION['userUid'] ?>">
             <input type="hidden" name="notiRecever" value="<?php echo $row['uidUsers'] ?>">
             <input type="hidden" name="notiUser" value="<?php echo $_SESSION['userUid'] ?>">
-            <textarea id="commentBox<?php echo $row['postId'] ?>" name="commentText" rows="2"></textarea>
+            <textarea id="commentBox<?php echo $row['postId'] ?>" name="commentText" rows="2" placeholder="Add a comment..."></textarea>
             <div class="commentButton">
               <button type="submit" name="addComment">Post</button>
             </div>
@@ -179,7 +179,7 @@
             $sqlCommentsList = "SELECT *
             FROM postComments
             WHERE postId = \"$row[postId]\"
-            ORDER BY commentId ASC";
+            ORDER BY commentId DESC";
             $resultCommentsList = mysqli_query($conn, $sqlCommentsList);
             $resultCheckCommentsList = mysqli_num_rows($resultCommentsList); ?>
             <div class="postComments">
@@ -187,9 +187,29 @@
               <?php
               if ($resultCheckCommentsList > 0) { ?>
                 <hr>
-                <span class="comment-title">Comments</span>
+                <span class="comment-title"><?php if ($resultCheckCommentsList > 1) { echo $resultCheckCommentsList; } ?> Comments</span>
                 <?php
-                while ($rowCommentsList = mysqli_fetch_assoc($resultCommentsList)) {
+                $i = 0;
+                while ($i < 3 && $rowCommentsList = mysqli_fetch_assoc($resultCommentsList)) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                  $commentCount = $resultCheckCommentsList;
 
                   $profileCsql = "SELECT *
                   FROM users
@@ -198,7 +218,8 @@
                   $profileResultCheckC = mysqli_num_rows($profileresultC);
                   if ($profileResultCheck > 0) {
                     $ProfileRowC = mysqli_fetch_assoc($profileresultC);
-                  } ?>
+                  }
+                  ?>
 
 
                   <div class="post">
@@ -232,7 +253,26 @@
 
                   </div>
                 <?php
+
+                $i = $i + 1;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
               }
+            }
+            if ($resultCheckCommentsList > 3) {
+              echo "<a class=\"viewmoreposts\" href=\"post.php?post=". $row['postId'] ."\"><span>See all comments</span></a>";
             } ?>
           </div>
           <!-- Edit post box -->

@@ -870,8 +870,9 @@ main {
                        "p-text p-text p-text"
                        "p-photo p-photo p-photo"
                        "p-buttons p-buttons p-buttons"
-                       "p-comments p-comments p-comments"
-                       "p-comm p-comm p-comm";
+
+                       "p-comm p-comm p-comm"
+                       "p-comments p-comments p-comments";
 
   padding: 10px;
   background-color: var(--post-color);
@@ -931,7 +932,9 @@ main {
 }
 .post__comment_area {
   grid-area: p-comments;
-  display: none;
+}
+.post__comment_area > textarea {
+  padding: 10px;
 }
 .openComment {
   display: block;
@@ -954,6 +957,8 @@ main {
 }
 .postComments > .post {
   grid-gap: 0;
+}
+.postComments > .newcmtb {
   border-left: 2px solid red;
 }
 .postComments > .post > .post__name {
@@ -964,7 +969,27 @@ main {
   margin: 10px 0 0 10px;
   font-size: 1.4em;
 }
-
+.viewmoreposts {
+  width: 100%;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50px;
+  background-image: var(--key-color);
+  padding: 2px;
+}
+.viewmoreposts > span {
+  color:var(--white);
+  display: block;
+  padding:10px;
+  border-radius: 50px;
+  width:100%;
+  background-color: var(--gray1);
+}
+.viewmoreposts > span:hover {
+  color: var(--black);
+  background:inherit;
+}
 
 .postLikesPanel {
   display: none;
