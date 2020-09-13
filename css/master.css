@@ -2271,25 +2271,21 @@ background: linear-gradient(to right, #566a6e, #6c7c85);
   margin: 0;
 }
 .notification_all_clear {
-  display: flex;
-  position: relative;
-}
-.notification_all_clear > svg {
-  text-align: center;
-  margin: auto;
-  width: 300px;
   display: block;
   position: relative;
-}
-.notification_all_clear::before {
-  content: "All caught up!";
-  position: absolute;
-  top: 140px; left: 60%;
-  text-align: center;
-  color: #fff;
   font-size: 1.8rem;
   font-family: 'Patrick Hand SC', sans-serif;
+  text-align: center;
 }
+.notification_all_clear > img {
+  filter: hue-rotate(270deg);
+}
+.notification_all_clear > span {
+  display: block;
+}
+
+
+
 
 input[type="submit"],
 input[type="reset"],

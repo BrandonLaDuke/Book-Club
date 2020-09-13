@@ -37,6 +37,7 @@ $resultCheck = mysqli_num_rows($result); ?>
   } else { ?>
     <div class="notification_all_clear">
       <img src="icons/sb-128.png" alt="Bookworm">
+      <span>All caught up!</span>
     </div>
   <?php } ?>
 </div> <!-- .notification_list -->
