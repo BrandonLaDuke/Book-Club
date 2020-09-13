@@ -39,12 +39,15 @@ $cookie = isset($_COOKIE['rememberme']) ? $_COOKIE['rememberme'] : '';
     <link rel="shortcut icon" href="icons/sb.jpg" />
     <link rel="apple-touch-icon" href="icons/sb.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:url"                content="https://www.spinelessbound.com" />
+    <?php $currentPage = pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME); ?>
+    <?php $currentPageFull = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>
+    <link rel="canonical" href="<?php echo $currentPageFull ?>" />
+    <meta property="og:url"                content="<?php echo $currentPageFull ?>" />
     <meta property="og:title"              content="Spineless Bound | Sullivan University Book Club" />
     <meta property="og:description"        content="A student-run club here to help fellow book worms find new and exciting books as well as make new friends." />
     <meta property="og:image"              content="https://www.spinelessbound.com/img/books.jpg" />
     <title>Spineless Bound | Sullivan University Book Club</title>
-    <meta name="description" content="Spineless Bound was founded by Sarah Hickerson in 2019 along with founding members Brandon LaDuke (Developer of this web app), Brooke Johnson and Thomas Hill. In January 2020 we were named the most active club at Sullivan University.">
+    <meta name="description" content="A student-run club here to help fellow book worms find new and exciting books as well as make new friends. Spineless Bound was founded by Sarah Hickerson in 2019 along with founding members Brandon LaDuke (Developer of this web app), Brooke Johnson and Thomas Hill. In January 2020 we were named the most active club at Sullivan University.">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
     <link rel="stylesheet" href="css/master.css">
@@ -71,6 +74,12 @@ $cookie = isset($_COOKIE['rememberme']) ? $_COOKIE['rememberme'] : '';
       <script type="text/javascript">
         var user = '<?php echo $_SESSION['userUid']; ?>';
       </script>
+
+
+<?php
+  // TODO: Create share img
+ ?>
+<meta property="og:image" content="<?php echo $ogImage ?>" />
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-66276915-6"></script>
@@ -185,7 +194,7 @@ if ($_SESSION['admin']) { ?>
           <input type="password" name="pwd" placeholder="Password" augmented-ui="br-clip exe">
           <!-- <span class="desktopHidden">Remember me: <input type="checkbox" name="rememberme" value=""></span> -->
           <a class="forgot-pwd-desktop" href="passwordreset.php?resetrequest=true">Forgot password?</a>
-          <?php $currentPage = pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME);
+          <?php
           $returnToUser = $_GET['book'];
           $returnToPost = $_GET['post'];
           $returnToUser = $_GET['user']; ?>
