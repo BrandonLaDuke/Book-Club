@@ -21,8 +21,8 @@
             <p class="card__name"><?php echo $row['uidUsers'] ?></p>
           <?php } ?>
             <p class="lastLogin">Active: <?php echo timeElapsed($row['lastLogin']) ?></p>
-            <a href="profile.php?user=<?php echo $row['uidUsers'] ?>" class="btn draw-border">View Profile</a>
-
+            <a href="profile.php?user=<?php echo $row['uidUsers'] ?>" class="library-btn">View Profile</a>
+            <br>
           </div>
 
 

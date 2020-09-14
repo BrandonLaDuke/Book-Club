@@ -1144,82 +1144,8 @@ main {
   border-radius: 50%;
   border: 5px solid #272133;
   margin-top: 20px;
-  box-shadow: 0 10px 50px #1cb4e3;
 }
 
-
-.draw-border {
-  box-shadow: inset 0 0 0 4px #58cdd1;
-  color: #58afd1;
-  -webkit-transition: color 0.25s 0.0833333333s;
-  transition: color 0.25s 0.0833333333s;
-  position: relative;
-  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
-}
-
-.draw-border::before,
-.draw-border::after {
-  border: 0 solid transparent;
-  box-sizing: border-box;
-  content: '';
-  pointer-events: none;
-  position: absolute;
-  width: 0rem;
-  height: 0;
-  bottom: 0;
-  right: 0;
-  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
-}
-
-.draw-border::before {
-  border-bottom-width: 4px;
-  border-left-width: 4px;
-}
-
-.draw-border::after {
-  border-top-width: 4px;
-  border-right-width: 4px;
-}
-
-.draw-border:hover {
-  color: #ffe593;
-}
-
-.draw-border:hover::before,
-.draw-border:hover::after {
-  border-color: #eb196e;
-  -webkit-transition: border-color 0s, width 0.25s, height 0.25s;
-  transition: border-color 0s, width 0.25s, height 0.25s;
-  width: 100%;
-  height: 100%;
-  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
-}
-
-.draw-border:hover::before {
-  -webkit-transition-delay: 0s, 0s, 0.25s;
-  transition-delay: 0s, 0s, 0.25s;
-}
-
-.draw-border:hover::after {
-  -webkit-transition-delay: 0s, 0.25s, 0s;
-  transition-delay: 0s, 0.25s, 0s;
-}
-
-.usercard .btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  line-height: 1.5;
-  font-size: 1rem;
-  letter-spacing: 0.05rem;
-  margin: 1em;
-  text-decoration: none;
-  text-align: center;
-}
-
-.usercard .btn:focus {
-  outline: 2px dotted #55d7dc;
-}
 .member-list > div {
   display: grid;
   grid-template-columns: 1fr 1fr;

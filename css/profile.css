@@ -43,8 +43,13 @@
   color: #fff;
   position: absolute;
 }
-.shortbio {
+.shortbio h3,
+.shortbio p {
   padding: 10px;
+  text-align: left;
+}
+.book-grid {
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 
