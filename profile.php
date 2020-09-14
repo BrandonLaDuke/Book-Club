@@ -10,16 +10,13 @@ if (isset($_GET['error'])) {
   }
 }
  ?>
-  <?php if (isset($_SESSION['userId'])) { ?>
-
-
-    <?php
+  <?php if (isset($_SESSION['userId'])) {
     $sql = "SELECT * FROM users;";
-$result = mysqli_query($conn, $sql);
-$resultCheck = mysqli_num_rows($result);
-$match = false;
-if ($resultCheck > 0) {
-  while ($row = mysqli_fetch_assoc($result)) {
+    $result = mysqli_query($conn, $sql);
+    $resultCheck = mysqli_num_rows($result);
+    $match = false;
+    if ($resultCheck > 0) {
+    while ($row = mysqli_fetch_assoc($result)) {
     if ($row['uidUsers'] == $_GET['user']) {
       $match = true; ?>
       <style media="screen">
@@ -34,88 +31,93 @@ if ($resultCheck > 0) {
          Coverphoto size will be cover.
          Set as a background image on coverphoto class
          PHP to style baised on user id -->
-         <div class="sb-container">
 
 
-    <div class="coverphoto"></div>
 
-    <div class="profileheader">
-      <div class="flex">
-        <img class="profilephoto card__image" src="<?php echo $row['profilepic']; ?>" alt="<?php echo $row['uidUsers']; ?>" />
-      </div>
-      <?php if ($row['uidUsers'] === $_SESSION['userUid']) {
-        ?>
-        <a class="btn lined thin editprofile" href="editprofile.php?user=<?php echo $row['uidUsers']; ?>">Edit Profile</a>
-        <?php
-      } ?>
-    </div>
-    <div class="profile-grid">
-      <div class="profile">
-        <div class="">
-          <?php if (!empty($row['firstName']) || !empty($row['lastName'])) { ?>
+         <div class="new-profile-grid">
+
+           <div class="coverphoto"></div>
+
+
+
+          <div class="profile-intro">
+            <img class="profilephoto card__image" src="<?php echo $row['profilepic']; ?>" alt="<?php echo $row['uidUsers']; ?>" />
+
+    <?php if ($row['uidUsers'] === $_SESSION['userUid']) { ?>
+            <a class="library-btn" href="editprofile.php?user=<?php echo $row['uidUsers']; ?>">Edit Profile</a>
+    <?php } ?>
+
+  <?php if (!empty($row['firstName']) || !empty($row['lastName'])) { ?>
             <h1 class="username"><?php echo $row['firstName'] . " " . $row['lastName']; ?></h1>
-          <?php } else { ?>
+  <?php } else { ?>
             <h1 class="username"><?php echo $row['uidUsers']; ?></h1>
-          <?php } ?>
-        </div>
+  <?php } ?>
 
-        <?php if (!empty($row['program'])) { ?>
-          <div class="program-container">
+  <?php if (!empty($row['program'])) { ?>
             <h2 class="program"><?php echo $row['program']; ?></h2>
-          </div>
-          <?php }
-          if (!empty($row['website'])) {?>
-          <div class="p-container">
+  <?php } ?>
+
+          </div> <!-- .profile-intro -->
+
+          <div class="about-info">
+  <?php if (!empty($row['about'])) { ?>
+            <p class="shortbio"><?php echo $row['about']; ?></p>
+  <?php }
+        if (!empty($row['website'])) {?>
             <a href="<?php echo $row['website']; ?>"><?php echo $row['website']; ?></a>
-          </div>
-          <?php }
-          if (!empty($row['goodreads'])) {?>
-            <br>
-          <div class="p-container">
+  <?php }
+        if (!empty($row['goodreads'])) {?>
             <a href="<?php echo $row['goodreads']; ?>">My Goodreads</a>
+  <?php } ?>
+          </div> <!-- .about-info -->
+          <div class="extras">
+            <iframe src="https://open.spotify.com/track/77bYSfqYlDMHoLrAaHUNBx" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
           </div>
 
-  <?php } ?>
-  <?php if (!empty($row['about'])) { ?>
-    <div class="shortbio">
-      <h3>About me</h3>
-      <p><?php echo $row['about']; ?></p>
-    </div>
-  <?php } ?>
+
+
+
+
 
       <div class="books-suggested">
-        <?php $sql = "SELECT * FROM books;";
+  <?php $sql = "SELECT * FROM books;";
         $result = mysqli_query($conn, $sql);
         $resultCheck = mysqli_num_rows($result); ?>
         <h1 class="head-txt">Books Suggested</h1>
         <div class="book-grid">
-        <?php if ($resultCheck > 0) {
+  <?php if ($resultCheck > 0) {
           while ($row1 = mysqli_fetch_assoc($result)) {
             if ($row1['chosenBy'] == $_GET['user']) {
-              $match = true; ?>
+              $match = true;
+              if ($resultCheck > 0) { ?>
+          <div class="book">
+            <a href="book.php?bookid=<?php echo $row1['bookId']; ?>">
+              <img src="<?php echo $row1['coverArtURL']; ?>" />
+              <h2><?php echo $row1['bookTitle']; ?></h2>
+              <h3><?php echo $row1['bookAuthor']; ?></h3>
+            </a>
+          </div> <!-- .book -->
+  <?php       }
+            }
+          }
+        } ?>
 
-          <?php
-          if ($resultCheck > 0) { ?>
-            <div class="book">
-              <a href="book.php?bookid=<?php echo $row1['bookId']; ?>">
-                <img src="<?php echo $row1['coverArtURL']; ?>" />
-                <h2><?php echo $row1['bookTitle']; ?></h2>
-                <h3><?php echo $row1['bookAuthor']; ?></h3>
-              </a>
-            </div>
-          <?php }
-        }}}
-          ?>
+        </div> <!-- .book-grid -->
+      </div> <!-- .books-suggested -->
 
+
+      <div class="stream">
+  <?php require 'profile_stream.php'; ?>
       </div>
-      </div>
+
+
+    </div> <!-- .new-profile-grid -->
+
+
+
 
     </div>
-    <div class="stream">
-      <?php // require 'stream.php'; ?>
     </div>
-</div>
-</div>
 
 
 
@@ -134,17 +136,18 @@ if ($resultCheck > 0) {
 
 
 
-<!-- End Content -->
-<?php
-}
-  }
-}
-if ($match === false) {
-  header("Location: index.php");
-  exit();
-}
- ?>
-    <!-- End Logged In View -->
+    <!-- End Content -->
+    <?php
+    }
+    }
+    }
+    if ($match === false) {
+    header("Location: index.php");
+    exit();
+    }
+    ?>
+
+<!-- End Logged In View -->
 
   <?php } else {
 
