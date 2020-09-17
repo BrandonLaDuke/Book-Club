@@ -43,10 +43,6 @@ if (isset($_GET['error'])) {
           <div class="profile-intro">
             <img class="profilephoto card__image" src="<?php echo $row['profilepic']; ?>" alt="<?php echo $row['uidUsers']; ?>" />
 
-    <?php if ($row['uidUsers'] === $_SESSION['userUid']) { ?>
-            <a class="library-btn" href="editprofile.php?user=<?php echo $row['uidUsers']; ?>">Edit Profile</a>
-    <?php } ?>
-
   <?php if (!empty($row['firstName']) || !empty($row['lastName'])) { ?>
             <h1 class="username"><?php echo $row['firstName'] . " " . $row['lastName']; ?></h1>
   <?php } else { ?>
@@ -57,6 +53,10 @@ if (isset($_GET['error'])) {
             <h2 class="program"><?php echo $row['program']; ?></h2>
   <?php } ?>
 
+  <?php if ($row['uidUsers'] === $_SESSION['userUid']) { ?>
+          <a class="library-btn editprofile" href="editprofile.php?user=<?php echo $row['uidUsers']; ?>"><span>Edit Profile</span></a>
+  <?php } ?>
+
           </div> <!-- .profile-intro -->
 
           <div class="about-info">
@@ -64,15 +64,16 @@ if (isset($_GET['error'])) {
             <p class="shortbio"><?php echo $row['about']; ?></p>
   <?php }
         if (!empty($row['website'])) {?>
-            <a href="<?php echo $row['website']; ?>"><?php echo $row['website']; ?></a>
+            <a href="<?php echo $row['website']; ?>"><i class="material-icons">language</i> <span><?php echo $row['website']; ?></span></a>
   <?php }
         if (!empty($row['goodreads'])) {?>
-            <a href="<?php echo $row['goodreads']; ?>">My Goodreads</a>
+            <a href="<?php echo $row['goodreads']; ?>"><i class="material-icons">menu_book</i><span>My Goodreads</span></a>
   <?php } ?>
+            <div class="extras">
+              <iframe src="https://open.spotify.com/track/77bYSfqYlDMHoLrAaHUNBx" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            </div>
           </div> <!-- .about-info -->
-          <div class="extras">
-            <iframe src="https://open.spotify.com/track/77bYSfqYlDMHoLrAaHUNBx" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-          </div>
+
 
 
 

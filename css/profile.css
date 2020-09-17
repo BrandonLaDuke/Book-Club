@@ -1,15 +1,75 @@
+
 .new-profile-grid {
-  margin: 0 30px;
+  margin: 0 20px;
 }
 .book-grid {
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
 }
-.profile-intro{grid-area:intro;}
-.coverphoto{grid-area:fphoto;background-size: cover;}
-.about-info{grid-area:info;}
+.profile-intro{
+  grid-area:intro;
+  margin-top: -75px;
+  text-align: center;
+  position: relative;
+}
+.coverphoto{grid-area:fphoto;
+  background-size: cover;
+  width: calc(100% + 40px);
+   margin-left: -20px;}
+.about-info{
+  grid-area:info;
+  text-align: center;
+  max-width: 80ch;
+  margin: auto;
+  gap:5px;
+}
+.about-info a {
+  vertical-align: middle;
+  font-size: 1.2rem;
+  display: inline-flex;
+  gap:10px;
+  color: var(--white);
+  margin-bottom: 10px;
+  text-decoration: none;
+}
+.about-info a:hover {
+  background: var(--key-color);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.about-info a .material-icons {
+  font-size: inherit;
+}
 .stream{grid-area:stream;}
 .books-suggested{grid-area:books;}
-.extras{grid-area:extras;}
+.books-suggested > h1 {
+  font-size: 1.2rem;
+}
+.extras{grid-area:extras;text-align: center;}
+.profile-intro > .editprofile {
+  display: block;
+  position: absolute;
+  top: 80px; right: 0;
+  padding: 0;
+}
+.profile-intro > .editprofile > span {
+  display: block;
+  margin: 1px;
+  padding: 10px;
+  border-radius: 50px;
+  background-color: var(--gray1);
+  color: var(--white);
+  font-size: 0.9rem;
+}
+.profile-intro > .editprofile > span:hover {
+  background-color: inherit;
+  color: var(--black);
+}
+.profile-intro > h1 {
+  font-size: 1.8rem;
+}
+.profile-intro > h2 {
+  font-size: 1.2rem;
+}
 
 /*Edit profile page*/
 
@@ -17,25 +77,39 @@
 
 @media (min-width:375px) {
   .coverphoto {
-    width: 100%;
     height: 200px;
   }
 }
-@media (min-width:600px) {
+@media (min-width:1100px) {
   .coverphoto {
     width: 100%;
+    margin-left: 0;
     height: 250px;
   }
-
   .new-profile-grid {
+    margin: 0 30px;
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
-    grid-auto-rows: auto;
+    grid-template-rows: auto;
+    grid-gap: 10px;
     grid-template-areas: "intro fphoto fphoto"
                          "info stream books"
-                         "extras stream books"
+                         "info stream books"
   }
 
+  .profile-intro {
+    margin: 0;
+    padding-top: 15px;
+  }
+  .profile-intro > .editprofile {
+    position: relative;
+    display: inline-block;
+    top: 0;
+  }
+  .about-info {
+    margin: 0;
+    text-align: left;
+  }
 
 
 }
