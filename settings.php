@@ -40,7 +40,7 @@
     </div> -->
     <div class="setting">
       <span class="setting__title">Spineless Bound Email List</span>
-      <p class="setting__description">Turn this off if you wish too no longer recieve email communications from Spinelessbound.</p>
+      <p class="setting__description">Turn this off if you wish to no longer recieve email communications from Spinelessbound.</p>
       <?php $sql = "SELECT notiEmail FROM users WHERE uidUsers = ?";
       $stmt = mysqli_stmt_init($conn);
 
