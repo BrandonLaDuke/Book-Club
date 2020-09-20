@@ -70,7 +70,7 @@ if (isset($_GET['error'])) {
             <a href="<?php echo $row['goodreads']; ?>"><i class="material-icons">menu_book</i><span>My Goodreads</span></a>
   <?php } ?>
             <div class="extras">
-              <iframe src="https://open.spotify.com/track/77bYSfqYlDMHoLrAaHUNBx" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+              <!-- <iframe src="https://open.spotify.com/track/77bYSfqYlDMHoLrAaHUNBx" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe> -->
             </div>
           </div> <!-- .about-info -->
 
