@@ -1307,7 +1307,7 @@ main {
   margin: 20px auto;
   display: block;
   width: 100%;
-  max-width: 1025px;
+  max-width: 80ch;
 }
 .user-card {
   background-color: var(--gray2);
@@ -2202,8 +2202,6 @@ main {
 @media (min-width: 900px) {
   .stream {
     grid-area:stream;
-    background-color: var(--box-color);
-    padding: 10px;
     border-radius: 5px;
   }
   .currentlyReading{
