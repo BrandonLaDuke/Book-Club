@@ -177,7 +177,7 @@ if ($_SESSION['admin']) { ?>
 
   <?php } ?>
           <a class="profile-btn profile_btn" href="profile.php?user=<?php echo $_SESSION['userUid']; ?>">My Profile</a>
-          <a class="profile-btn settings_btn" href="settings.php">Settings</a>
+          <a class="profile-btn settings_btn desktopHidden" href="settings.php">Settings</a>
           <form class="logout" action="includes/logout.inc.php" method="post">
               <button type="submit" class="profile-btn logout-btn" name="logout-submit">Logout</button>
           </form>
