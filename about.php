@@ -1,4 +1,5 @@
 <?php require "header.php"; ?>
+
 <main id="AboutUs" class="sb-container">
   <h1>Spineless Bound</h1>
   <h2>The Sullivan University Book Club</h2>

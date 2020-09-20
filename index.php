@@ -92,23 +92,77 @@ if (isset($_GET['error'])) {
 
 
   <?php } else { ?>
-    <main class="welcome-grid">
-      <div class="welcome-box__container">
-        <div class="welcome-box">
-          <h2>Welcome to the Book Club!</h2>
-          <h3>Sign up with your Sullivan University email</h3>
-
-          <form class="signup" action="includes/signup.inc.php" method="post">
-            <input type="text" name="uid" placeholder="Username or Sullivan ID" value="<?php echo $userN; ?>">
-            <input type="text" name="mail" placeholder="Sullivan E-mail" value="<?php echo $emailN ?>">
-            <input type="password" name="pwd" placeholder="Password">
-            <input type="password" name="pwd-repeat" placeholder="Repeat password">
-            <button class="library-btn" type="submit" name="signup-submit">Signup</button>
-          </form>
+    <section class="welcome-sb">
+      <div class="welcome">
+        <div>
+          <h1>Spineless Bound</h1>
+          <h2>The Sullivan University Book Club - Join the community</h2>
+          <a class="cAcct" href="#createAccount"><span>Create an account</span></a>
         </div>
       </div>
+      <?php
+      require 'includes/dbh.inc.php';
+       $sql = "SELECT *
+      FROM books
+      ORDER BY bookId DESC
+      limit 5";
+      $result = mysqli_query($conn, $sql);
+      $resultCheck = mysqli_num_rows($result); ?>
+      <div class="books">
+        <?php
+        if ($resultCheck > 0) { ?>
 
-  </main>
+    <?php   while ($row = mysqli_fetch_assoc($result)) { ?>
+        <div class="book">
+          <img src="<?php echo $row['coverArtURL']; ?>" alt="">
+          <h3><?php echo $row['bookTitle']; ?></h3>
+          <p><?php echo $row['bookAuthor']; ?></p>
+        </div>
+      <?php }
+    } ?>
+      </div>
+      <div class="bc-community">
+        <div class="text">
+          <h3>We're not just a <span>Book Club</span>, we're a <span>Community</span>.</h3>
+          <h3>A community built around our love of reading.</h3>
+          <h3>Here you can make friends, be yourself, read and discuss books together!</h3>
+        </div>
+        <figure>
+          <img src="https://spinelessbound.com/uploads/book2.jpg" alt="">
+          <caption>The founding members of Spineless Bound. From Left to Right: Sarah Hickerson, Brooke Johnson, Thomas Hill, and Brandon LaDuke</caption>
+        </figure>
+      </div>
+      <div class="sb-features">
+        <div class="fea">
+          <h2>When you join get access to:</h2>
+          <ul>
+            <li>A Customizable profile.</li>
+            <li>Social Stream.</li>
+            <li>See what we are reading and our current goals are.</li>
+            <li>A exclusive Discord server which is a perfect place to meet the other members.</li>
+            <li>Our weekly live meetings to discuss the book and hangout all in one place.</li>
+          </ul>
+        </div>
+        <div class="join">
+          <div class="welcome-box__container">
+            <div class="welcome-box">
+              <h2>Create an account</h2>
+              <h3>Sign up with your Sullivan University email</h3>
+              <a name="createAccount"></a>
+              <form class="signup" action="includes/signup.inc.php" method="post">
+                <input type="text" name="uid" placeholder="Username or Sullivan ID" value="<?php echo $userN; ?>">
+                <input type="text" name="mail" placeholder="Sullivan E-mail" value="<?php echo $emailN ?>">
+                <input type="password" name="pwd" placeholder="Password">
+                <input type="password" name="pwd-repeat" placeholder="Repeat password">
+                <button class="library-btn" type="submit" name="signup-submit">Signup</button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
   <?php } ?>
 
 

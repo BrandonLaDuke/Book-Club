@@ -40,7 +40,7 @@ if (isset($_POST['signup-submit'])) {
     $parts = explode('@', $emailp);
     $domain = array_pop($parts);
     if (!in_array($domain,$allowed)) {
-      header("Location: ../index.php?error=invalidmaildomain&uid=".$username);
+      header("Location: ../index.php?error=invalidmaildomain&uid=".$username."#createAccount");
       exit();
     }
   }
@@ -50,26 +50,26 @@ if (isset($_POST['signup-submit'])) {
     exit();
   }
   else if (!filter_var($email, FILTER_VALIDATE_EMAIL) && !preg_match("/^[a-zA-Z0-9]*$/", $username)) {
-    header("Location: ../index.php?error=invalidmailuid");
+    header("Location: ../index.php?error=invalidmailuid#createAccount");
     exit();
   }
   else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    header("Location: ../index.php?error=invalidmail&uid=".$username);
+    header("Location: ../index.php?error=invalidmail&uid=".$username."#createAccount");
     exit();
   }
   else if (!preg_match("/^[a-zA-Z0-9]*$/", $username)) {
-    header("Location: ../index.php?error=invaliduid&mail=".$email);
+    header("Location: ../index.php?error=invaliduid&mail=".$email."#createAccount");
     exit();
   }
   else if ($password !== $passwordRepeat) {
-    header("Location: ../index.php?error=passwordcheck&uid=".$username."&mail=".$email);
+    header("Location: ../index.php?error=passwordcheck&uid=".$username."&mail=".$email."#createAccount");
     exit();
   }
   else {
     $sql = "SELECT uidUsers FROM users WHERE uidUsers=?";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-      header("Location: ../index.php?error=sqlerror");
+      header("Location: ../index.php?error=sqlerror#createAccount");
       exit();
     } else {
       mysqli_stmt_bind_param($stmt, "s", $username);
@@ -77,7 +77,7 @@ if (isset($_POST['signup-submit'])) {
       mysqli_stmt_store_result($stmt);
       $resultCheck = mysqli_stmt_num_rows($stmt);
       if ($resultCheck > 0) {
-        header("Location: ../index.php?error=usertaken&mail=".$email);
+        header("Location: ../index.php?error=usertaken&mail=".$email."#createAccount");
         exit();
       } else {
         $sql = "SELECT emailUsers FROM users WHERE emailUsers=?";
@@ -91,19 +91,19 @@ if (isset($_POST['signup-submit'])) {
           mysqli_stmt_store_result($stmt);
           $resultCheck = mysqli_stmt_num_rows($stmt);
           if ($resultCheck > 0) {
-            header("Location: ../index.php?error=existingaccount&uid=".$username);
+            header("Location: ../index.php?error=existingaccount&uid=".$username."#createAccount");
             exit();
           } else {
             $sql = "INSERT INTO users (uidUsers, firstName, lastName, emailUsers, altEmail, pwdUsers, profilepic, about, program, website, goodreads, hash, active, admin, bkgColor, textColor, coverPhotoURL, coverPhotoPosition, endpoint, notiEmail) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             $stmt = mysqli_stmt_init($conn);
             if (!mysqli_stmt_prepare($stmt, $sql)) {
-              header("Location: ../index.php?error=sqlerror");
+              header("Location: ../index.php?error=sqlerror#createAccount");
               exit();
             } else {
               $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
               mysqli_stmt_bind_param($stmt, "ssssssssssssiisssssi", $username, $firstName, $lastName, $email, $altEmail, $hashedPwd, $profilepic, $about, $program, $website, $goodreads, $hash, $active, $admin, $bkgColor, $textColor, $coverPhotoURL, $coverPhotoPosition, $endpoint, $notiEmail);
               mysqli_stmt_execute($stmt);
-              
+
               // Return Success - Valid Email
               $msg = 'Your account has been made, <br /> please verify it by clicking the activation link that has been send to your email.';
               // Send verification link by email

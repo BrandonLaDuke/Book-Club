@@ -124,12 +124,25 @@ main {
   display: inline-block;
   font-size: 40px;
   font-family: 'Patrick Hand SC', cursive;
-  padding: 5px 0 0 20px;
+  margin: 0;
+  height: 70px;
+  background-color: var(--main-bkg-color);
+  position: relative;
+  z-index: 1;
+  border-bottom-right-radius: 15px;
+}
+#logo a {
+  display: inline-block;
+  font-size: 40px;
+  font-family: 'Patrick Hand SC', cursive;
+  padding: 5px 20px 0 20px;
   margin: 0;
   height: 70px;
   background: var(--key-color);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  position: relative;
+  z-index: 1;
 }
 #logo a {
   text-decoration: none;
@@ -205,7 +218,9 @@ main {
   /*End Navigation */
   .header-login-btn {
     display: none;
-    float: right;
+    position: absolute;
+    top: 0;
+    right: 0;
     font-size: 22px;
     font-family: sans-serif;
     padding: 7px 20px;
@@ -284,7 +299,7 @@ input[type="checkbox"] {
   }
   .header-login-p {
     grid-template-columns: 1fr 1fr;
-    grid-auto-rows: 1fr 1fr 1fr;
+    grid-auto-rows: 1fr auto 1fr 1fr;
     z-index: 500 !important;
     border-radius: 25px;
   }
@@ -300,8 +315,20 @@ input[type="checkbox"] {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-  .logout {
+  .cp_btn {
+    grid-row: 2;
+    grid-column: 1 / 3;
+  }
+  .profile_btn {
     grid-row: 3;
+    grid-column: 1 / 2;
+  }
+  .settings_btn {
+    grid-row: 3;
+    grid-column: 2 / 3;
+  }
+  .logout {
+    grid-row: 4;
     grid-column: 1 / 3;
     margin: 0;
   }
@@ -451,6 +478,187 @@ input[type="checkbox"] {
 
 
 /* Home page */
+.welcome-sb {
+
+  display: flex;
+  flex-direction: column;
+}
+.welcome {
+  text-align: center;
+  height: 30vw;
+  display: flex;
+  background-image: url('../img/books.jpg');
+}
+.welcome div {
+  margin: auto;
+
+}
+.welcome div h1 {
+  font-size: 9vw;
+  font-family: 'Patrick Hand SC', serif;
+  margin: 0;
+  text-shadow: #00000099 7px 7px 5px;
+}
+.welcome div h2 {
+  font-size: 1.5vw;
+  margin: 0;
+  text-shadow: #00000099 2px 2px 3px;
+}
+
+.welcome-sb .books {
+  display: none;
+  gap: 30px;
+  margin: 40px auto;
+}
+.welcome-sb .books .book img,
+.welcome-sb .books .book {
+  width: 10vw;
+  max-width: 200px;
+}
+.welcome-sb .books .book h3 {
+  font-size: 1.3vw;
+}
+.welcome-sb .books .book p {
+  font-size: 1vw;
+}
+@media (min-width:1300px) {
+  .welcome-sb .books .book h3 {
+    font-size: 14px;
+  }
+  .welcome-sb .books .book p {
+    font-size: 12px;
+  }
+}
+
+
+
+.bc-community {
+  display: flex;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  font-family: 'Patrick Hand SC', serif;
+  letter-spacing: 1.1px;
+  background-image: var(--key-color);
+  text-shadow: #00000099 1px 1px 4px;
+}
+.bc-community .text {
+  margin: auto;
+}
+.bc-community span {
+  text-decoration: underline;
+}
+.bc-community figure {
+  margin: 30px auto;
+  background-color: var(--main-bkg-color);
+}
+.bc-community figure {
+  padding: 10px;
+}
+.bc-community figure,
+.bc-community figure img {
+  width: 100%;
+  max-width: 750px;
+}
+
+.sb-features {
+  display: flex;
+  height: 500px;
+  max-width: 1200px;
+  margin: auto;
+  background-image: var(--green);
+}
+.sb-features .fea {
+  max-width: 750px;
+  margin: auto;
+}
+.sb-features .join {
+  margin: auto;
+}
+.cAcct {
+  display: inline-block;
+  background-image: var(--key-color);
+  border-radius: 50px;
+  margin: 20px;
+}
+.cAcct span {
+  display: inline-block;
+  margin: 5px;
+  padding: 15px;
+  border-radius: 50px;
+  background-color: var(--gray1);
+  color: var(--white);
+  font-size: 1.2rem;
+}
+.cAcct span:hover {
+  background-image: var(--key-color);
+  color: var(--gray1);
+}
+.sb-features h2 {
+  text-align: center;
+  font-size: 2rem;
+}
+.sb-features ul li {
+  font-size: 1.3rem;
+}
+@media (min-width: 800px) {
+  .bc-community {
+    padding: 20px;
+  }
+  .sb-features {
+    padding: 20px;
+  }
+  .welcome-sb .books {
+    display: flex;
+  }
+}
+@media (max-width: 799px) {
+  .welcome-sb {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: "welcome" "signup"
+  }
+  .welcome {
+    grid-area: welcome;
+  }
+  .sb-features {
+    height: auto;
+    padding-top: 20px;
+    grid-area: signup;
+    flex-direction: column-reverse;
+    padding: 20px 10px 0 10px;
+  }
+  .sb-features h2 {
+    font-size: 1.2rem;
+  }
+  .sb-features .fea ul li {
+    font-size: 0.9rem;
+  }
+  .welcome div h1 {
+    font-size: 13vw;
+  }
+  .welcome div h2 {
+    font-size: 3.5vw;
+  }
+  .bc-community {
+    flex-direction: column;
+    background-image: none;
+  }
+  .bc-community .text {
+    font-size: 16px;
+    text-align: center;
+    padding: 20px;
+  }
+  .bc-community figure {
+    font-size: 1rem;
+    line-height: 1;
+  }
+  .cAcct {
+    display: none;
+  }
+}
+
+
+
 
 main {
   display: flex;
@@ -500,6 +708,10 @@ main {
   grid-template-columns: 100%;
   grid-template-rows: auto auto auto auto 65px;
 }
+.signup {
+  margin: auto;
+  display: flex;
+}
 .signup > input {
   background-image: var(--key-color);
   -webkit-background-clip: text;
@@ -530,9 +742,15 @@ main {
   margin-top: 20px;
 }
 
-@media (min-width: 1000px) {
-  .welcome-grid {
-    margin-top: 40px;
+
+
+
+@media (min-width:1192px) {
+  .welcome-sb {
+    margin-top: -72px;
+  }
+  .welcome-sb > .welcome {
+    padding-left: 0;
   }
 }
 
@@ -1964,7 +2182,7 @@ main {
 /* New Blade UI */
 
 #bladeUI_grid {
-  display: grid;
+  display: block;
   grid-template-columns: 100%;
   grid-auto-rows: auto;
   grid-gap: 5px;
@@ -2029,6 +2247,7 @@ main {
     display: block;
   }
   #bladeUI_grid {
+    display: grid;
     margin: 10px;
     grid-gap: 10px;
     grid-template-columns: auto 350px;

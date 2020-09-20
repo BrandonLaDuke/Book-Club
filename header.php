@@ -173,10 +173,11 @@ $cookie = isset($_COOKIE['rememberme']) ? $_COOKIE['rememberme'] : '';
 <?php  }
 if ($_SESSION['admin']) { ?>
 
-          <a class="profile-btn" href="adminpanel.php">Control Panel</a>
+          <a class="profile-btn cp_btn" href="adminpanel.php">Control Panel</a>
 
   <?php } ?>
-          <a class="profile-btn" href="profile.php?user=<?php echo $_SESSION['userUid']; ?>">My Profile</a>
+          <a class="profile-btn profile_btn" href="profile.php?user=<?php echo $_SESSION['userUid']; ?>">My Profile</a>
+          <a class="profile-btn settings_btn" href="settings.php">Settings</a>
           <form class="logout" action="includes/logout.inc.php" method="post">
               <button type="submit" class="profile-btn logout-btn" name="logout-submit">Logout</button>
           </form>
