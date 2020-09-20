@@ -466,13 +466,17 @@ input[type="checkbox"] {
     display: none;
   }
 }
+.mobileHidden,
+.desktopHidden {
+  display: none;
+}
 @media (max-width: 999px) {
   .mobileHidden {
     display: none;
   }
 }
 @media (min-width:1000px) {
-  .desktopHidden {
+  .settings_btn {
     display: none;
   }
 }
