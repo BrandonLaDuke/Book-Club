@@ -479,7 +479,6 @@ input[type="checkbox"] {
 
 /* Home page */
 .welcome-sb {
-
   display: flex;
   flex-direction: column;
 }
@@ -488,6 +487,7 @@ input[type="checkbox"] {
   height: 30vw;
   display: flex;
   background-image: url('../img/books.jpg');
+  background-size: cover;
 }
 .welcome div {
   margin: auto;
