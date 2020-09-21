@@ -93,14 +93,14 @@
    ?>
           <div class="post__buttons">
             <?php if (isset($_SESSION['userId'])) { ?>
-            <form class="" action="includes/postaction.inc.php" method="post">
+            <form class="like-btn-form" action="includes/postaction.inc.php" method="post">
               <input type="hidden" name="userId" value="<?php echo $_SESSION['userId']; ?>">
               <input type="hidden" name="notiRecever" value="<?php echo $row['uidUsers'] ?>">
               <input type="hidden" name="notiUser" value="<?php echo $_SESSION['userUid'] ?>">
               <input type="hidden" name="postId" value="<?php echo $row['postId']; ?>">
-              <button type="submit" name="like"><span class="material-icons">thumb_up</span> Like</button>
+              <div><button type="submit" name="like"><span class="material-icons-outlined">thumb_up</span> Like</button></div>
             </form>
-            <button onclick="openCommentArea(<?php echo $row['postId'] ?>)" type="button" name="button"><span class="material-icons">comment</span> Comment</button>
+            <!-- <button onclick="openCommentArea(<?php echo $row['postId'] ?>)" type="button" name="button"><span class="material-icons">comment</span> Comment</button> -->
             <?php
           }
             if ($numberLiked > 1) { ?>

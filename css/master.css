@@ -1131,22 +1131,35 @@ main {
   grid-area: p-buttons;
   display: flex;
 }
+.commentButton {
+  display: inline-block;
+  margin-left: auto;
+  background-image: var(--key-color);
+  border-radius: 50px;
+  padding: 1px;
+}
 .post__buttons button,
 .commentButton button {
   font-size: 1.3em;
-  margin-right: 5px;
   padding: 5px 10px;
   border-radius: 50px;
-  border: var(--key-color);
   outline: none;
+  color: var(--white);
+  background: var(--main-bkg-color);
+}
+.like-btn-form > div {
+  display: inline-block;
+  padding: 1px;
+  border-radius: 50px;
+  background-image: var(--key-color);
+}
+.post__buttons button:hover,
+.commentButton button:hover {
+  color: var(--black);
   background: var(--key-color);
-
 }
 
-.commentButton {
-  display: flex;
-  width: 100%;
-}
+
 .commentButton button {
   margin: auto 0 auto auto;
 }
@@ -1155,6 +1168,9 @@ main {
 }
 .post__comment_area {
   grid-area: p-comments;
+  display: flex;
+  flex-direction: column;
+  gap:5px; 
 }
 .post__comment_area > textarea {
   padding: 10px;
@@ -1264,6 +1280,7 @@ main {
 .postLikesContainer > .user > * {
   margin: auto 10px auto 0;
 }
+
 .signup-banner {
   background-image: var(--key-color);
   color: var(--black);
