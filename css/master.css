@@ -3,31 +3,8 @@
 @import url(https://fonts.googleapis.com/css?family=Patrick+Hand+SC);
 
 
-/* colors */
-:root {
---gray1: #202226;
---gray2: #292b30;
---gray3: #303136;
---gray4: #8e9297;
---white: #ffffff;
---black: #000000;
---green: #0afb60;
-
---main-bkg-color: var(--gray1);
---box-color: var(--gray2);
---post-color: var(--gray3);
-
---key-color: linear-gradient(to right, #1eadf0, #0afb60);
-
---star-size: 35px;
---star-color: #fff;
---star-background: #fc0;
-
---good-button-bkg: linear-gradient(to right, #52ff75, #3ce312);
---bad-button-bkg: linear-gradient(to right, #d10000, #ff3939);
-}
 html {
-  color: var(--gray1);
+  color: var(--layer1);
 }
 
 
@@ -52,19 +29,10 @@ hr {
   margin: 0 1rem;
   -webkit-transition: all .5s ease;
   transition: all .5s ease;
-  color: #41403E;
+  color: var(--button-text-color);
   font-size: 2rem;
   letter-spacing: 1px;
   outline: none;
-  box-shadow: 20px 38px 34px -26px rgba(0, 0, 0, 0.2);
-  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
-  /*
-  Above is shorthand for:
-  border-top-left-radius: 255px 15px;
-  border-top-right-radius: 15px 225px;
-  border-bottom-right-radius: 225px 15px;
-  border-bottom-left-radius:15px 255px;
-  */
 }
 .border {
   border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
@@ -92,7 +60,7 @@ hr {
 }
 .library-btn {
   background-image: var(--key-color);
-  color: #000 !important;
+  color: var(--button-text-color) !important;
   text-decoration: none !important;
   border-radius: 50px;
   border: none;
@@ -108,7 +76,7 @@ body {
   display: block;
   margin: 0;
   background-color: var(--main-bkg-color);
-  color: #fff;
+  color: var(--text-color);
   min-height: 100vh;
   font-family: sans-serif;
   overflow-x: hidden;
@@ -157,27 +125,6 @@ main {
 
 /* Navigation */
 
-.menu {
-  background-color: yellow;
-  display: block;
-  width: 100%;
-  height: 94px;
-  margin: 0;
-}
-.menu a {
-  display: inline-block;
-  padding: 10px;
-  list-style: none;
-  text-decoration: none;
-  color: #000;
-  font-size: 20px;
-  font-family: 'Patrick Hand SC', cursive;
-}
-@media (min-width:533px) {
-  .menu {
-    height: 47px;
-  }
-}
 @media (min-width:1000px) {
   .vertical-pwd-grid span {
     padding-top: 3px;
@@ -191,25 +138,7 @@ main {
   .vertical-pwd-grid span {
     padding-left: 15px;
   }
-
 }
-.about-text {
-  background-color: #222e;
-  padding: 15px;
-  border-radius: 15px;
-}
-.about-text a {
-  color: #fff;
-}
-
-
-
-
-
-
-
-
-
 
  .shortacctbtn {
    display: none;
@@ -227,7 +156,7 @@ main {
     background-color: var(--main-bkg-color);
     border-radius: 0 0 0 15px;
     border:none;
-    color: #fff;
+    color: var(--button-text-color);
     cursor: pointer;
     height: 60px;
   }
@@ -242,7 +171,7 @@ main {
     font-size: 0;
     padding: 0px 0px;
     margin-top: 16px;
-    color: #fff;
+    color: var(--button-text-color);
     cursor: pointer;
   }
 @media screen and (max-width:999px) {
@@ -252,7 +181,7 @@ main {
     top: 10px;
     right: 0;
     display: none;
-    background-color: #000000;
+    background-color: var(--black);
     text-align: center;
     margin: 15px 25px;
     width: 300px;
@@ -269,11 +198,11 @@ main {
     padding: 5px;
     font-family: 'Patrick Hand SC', cursive;
     width: 250px;
-    color: #fff;
+    color: var(--white);
   }
   .header-login input {
     font-size: 20px;
-    color: #000;
+    color: var(--black);
   }
 input[type="checkbox"] {
     display: inline;
@@ -370,7 +299,7 @@ input[type="checkbox"] {
 .forgot-pwd-mobile {
   padding-top: 3px;
   margin-bottom: 15px;
-  color: #fff;
+  color: var(--white);
   text-decoration: underline;
   display: block;
   border: none !important;
@@ -397,7 +326,7 @@ input[type="checkbox"] {
   .header-login-p > form > button {
     border: none;
     border-radius: 50px;
-    color: var(--main-bkg-color);
+    color: var(--button-text-color);
     background: var(--key-color);
     padding: 15px;
     text-decoration: none;
@@ -444,7 +373,7 @@ input[type="checkbox"] {
     grid-column: 3;
     grid-row: 1;
     background: var(--key-color);
-    color: var(--main-bkg-color);
+    color: var(--button-text-color);
     border-radius: 50px;
     font-family: sans-serif;
     border: 0;
@@ -452,7 +381,7 @@ input[type="checkbox"] {
   }
   .forgot-pwd-desktop {
     padding-top: 3px;
-    color: #fff;
+    color: var(--white);
     text-decoration: underline;
     display: block;
   }
@@ -590,13 +519,13 @@ input[type="checkbox"] {
   margin: 5px;
   padding: 15px;
   border-radius: 50px;
-  background-color: var(--gray1);
+  background-color: var(--layer1);
   color: var(--white);
   font-size: 1.2rem;
 }
 .cAcct span:hover {
   background-image: var(--key-color);
-  color: var(--gray1);
+  color: var(--layer1);
 }
 .sb-features h2 {
   text-align: center;
@@ -694,7 +623,7 @@ main {
   display: grid;
   padding: 20px;
   width: 100%;
-  background-color: var(--gray1);
+  background-color: var(--layer1);
 }
 .welcome-box > h2 {
   background-image: var(--key-color);
@@ -723,12 +652,12 @@ main {
   -webkit-text-fill-color: transparent;
   outline: none;
   border: 0;
-  border-bottom: 1px solid var(--green);
+  border-bottom: 1px solid var(--accent);
   margin-top: 15px;
   font-size: 1.2em;
   text-align: center;
   position: relative;
-  caret-color: var(--white);
+  caret-color: var(--caret);
 }
 /* .signup > input:placeholder-shown {
   background-image: var(--white);
@@ -807,14 +736,8 @@ main {
   text-align: center;
   font-family: 'Patrick Hand SC', cursive;
 }
-.card .error {
-  font-family: 'Patrick Hand SC', cursive;
-  background-color: darkred;
-}
 .signup button {
-  font-size: 18px;
   padding: 10px;
-  background-color: lightblue;
 }
 
 /* Home page Currently Reading */
@@ -841,7 +764,7 @@ main {
   letter-spacing: 0.8px;
 }
 .currenty-reading a {
-  color: #fff;
+  color: var(--white);
 }
 .currenty-reading .cur-text h4 {
   text-decoration: underline;
@@ -856,11 +779,10 @@ main {
   background-image: var(--key-color);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  color: #000;
   padding: 0 3px;
   font-weight: 900;
   font-size: 1.4em;
-  border-bottom: var(--green) 2px solid;
+  border-bottom: var(--accent) 2px solid;
   cursor: pointer;
 }
 .currenty-reading > .book-cover-cur {
@@ -873,7 +795,7 @@ main {
 }
 .header-feature {
   display: block;
-  background-color: #7289da;
+  background-color: var(--discord);
   text-align: center;
   text-transform:uppercase;
   padding: 20px 0;
@@ -917,8 +839,8 @@ main {
 }
 .discord {
   display: inline-block;
-  border: solid white;
-  color: white;
+  border: solid var(--white);
+  color: var(--white);
   font-size: 1.3em;
   padding: 10px;
   margin-top: 10px;
@@ -937,7 +859,7 @@ main {
   background-color: var(--box-color);
   border-radius: 15px;
   margin: auto;
-  box-shadow: 0px 0px 60px #00ffff55;
+  box-shadow: 0px 0px 60px var(--accent);
   width: 350px;
 }
 .pointer {
@@ -1005,10 +927,10 @@ main {
   cursor: pointer;
 }
 .postbox__options:hover {
-  background-color: var(--gray4);
+  background-color: var(--layer4);
 }
 .postbox__options:focus {
-  background-color: var(--gray4);
+  background-color: var(--layer4);
 }
 .postbox__options_box {
   display: none;
@@ -1020,7 +942,7 @@ main {
 }
 .postbox__options_box > form {
   margin: 1px;
-  background: var(--gray1);
+  background: var(--layer1);
 }
 .postbox__options_box > form > button {
   display: block;
@@ -1033,7 +955,7 @@ main {
 }
 .postbox__options_box > form > button:hover {
   background-image: var(--key-color);
-  color: #000;
+  color: var(--button);
 }
 .postbox_open {
   display: block;
@@ -1144,7 +1066,7 @@ main {
   padding: 5px 10px;
   border-radius: 50px;
   outline: none;
-  color: var(--white);
+  color: var(--button-text-color-alt);
   background: var(--main-bkg-color);
 }
 .like-btn-form > div {
@@ -1155,7 +1077,7 @@ main {
 }
 .post__buttons button:hover,
 .commentButton button:hover {
-  color: var(--black);
+  color: var(--button-text-color-hover-alt);
   background: var(--key-color);
 }
 
@@ -1170,7 +1092,7 @@ main {
   grid-area: p-comments;
   display: flex;
   flex-direction: column;
-  gap:5px; 
+  gap:5px;
 }
 .post__comment_area > textarea {
   padding: 10px;
@@ -1199,7 +1121,7 @@ main {
   margin: 0;
 }
 .postComments > .newcmtb {
-  border-left: 2px solid red;
+  border-left: 2px solid var(--accent);
 }
 .postComments > .post > .post__name {
   margin-left: 10px;
@@ -1224,7 +1146,7 @@ main {
   padding:10px;
   border-radius: 50px;
   width:100%;
-  background-color: var(--gray1);
+  background-color: var(--layer1);
 }
 .viewmoreposts > span:hover {
   color: var(--black);
@@ -1250,7 +1172,7 @@ main {
   background-image: var(--key-color);
 }
 .postLikesContainer {
-  background-color: var(--gray1);
+  background-color: var(--layer1);
   padding: 30px;
   position: relative;
   max-height: 600px;
@@ -1327,7 +1249,7 @@ main {
   max-width: 80ch;
 }
 .user-card {
-  background-color: var(--gray2);
+  background-color: var(--layer2);
   display: flex;
   width: 100%;
   margin-bottom: 30px;
@@ -1359,13 +1281,13 @@ main {
   font-weight: normal;
 }
 .usercard {
-  background-color: #222831;
+  background-color: var(--layer2);
   border-radius: 5px;
   display: flex;
   flex-direction: column;
   align-items: center;
   box-shadow: rgba(0, 0, 0, 0.7);
-  color: white;
+  color: var(--text-color);
 }
 @media (max-width: 649px) {
   .usercard {
@@ -1382,7 +1304,6 @@ main {
   height: 110px;
   width: 110px;
   border-radius: 50%;
-  border: 5px solid #272133;
   margin-top: 20px;
 }
 
@@ -1469,6 +1390,14 @@ main {
   color: #fff;
   border-color: #fff;
 }
+.newbook > form > textarea {
+  width: 100%;
+  border-radius: 15px;
+  min-height: 100px;
+  padding: 10px;
+  outline: none;
+  border: 0;
+}
 
 
 
@@ -1485,12 +1414,11 @@ main {
 }
 .book-grid > .book {
   border-radius: 15px;
-  background-color: #fff;
+  background-color: var(--layer3);
   overflow: hidden;
-  color: #000;
 }
 .book-grid > .book > a {
-  color: #000;
+  color: var(--text-color);
   text-decoration: none;
   display: flex;
   flex-direction: column;
@@ -1505,6 +1433,7 @@ main {
   padding: 0;
 }
 .book-grid > .book > a > h2 {
+  margin-top: 5px;
   font-size: 1em;
 }
 .book-grid > .book > a > h3 {
@@ -1523,7 +1452,7 @@ main {
 }
 .selectBookForm button {
   background-image: var(--key-color);
-  color: #000;
+  color: var(--button-text-color);
   width: 100%;
   font-size: 1.2rem;
   padding: 10px;
@@ -1619,7 +1548,7 @@ main {
     width:30px;
     height:30px;
     text-align:center;
-    color:#FFF;
+    color: var(--text-color);
     font-size:30px;
     margin-right:2px;
     line-height:30px;
@@ -1630,7 +1559,7 @@ main {
 .rating span:hover label,
 .rating span.checked label,
 .rating span.checked ~ span label {
-    color:#F90;
+    color:var(--star-background);
 }
 .edit-rate-btn {
   margin: 15px auto 15px auto;
@@ -1745,7 +1674,7 @@ main {
   text-align: center;
 }
 .book-details a {
-  color: #fff;
+  color: var(--text-color);
 }
 .edt-btn-fix {
   display: flex;
@@ -1763,9 +1692,9 @@ main {
   margin: 10px;
 }
 .new-comment {
-  padding: 5px;
-  background-color: lightblue;
-  color: #000;
+  padding: 15px;
+  background-color: var(--layer2);
+  color: var(--text-color);
 }
 #newcmtimg {grid-area: newcmtuserimage;}
 #newcmtprourl {display: none;}
@@ -1784,8 +1713,8 @@ main {
 .createcmt > button {
   font-size: 1em;
   padding: 2px 10px;
-  color: #000;
-  border: #000 solid 2px !important;
+  color: var(--button-text-color);
+  border: var(--button-text-color) solid 2px !important;
 }
 .newcmt {
   width: 100%;
@@ -1795,24 +1724,6 @@ main {
   "newcmtuserimage newcmttext"
   "newcmtuserimage createcmt";
   grid-gap: 10px;
-}
-#cmtimg{grid-area:cmtimg}
-#cmtusr{grid-area:cmtusr}
-.cmttxt{grid-area:cmttxt;}
-.comments-stream {
-  margin-top: 10px;
-  padding: 10px;
-  background-color: white;
-  color: #000;
-}
-
-.comment-item {
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: 50px auto;
-  grid-template-areas: "cmtimg cmtusr"
-  "cmtimg cmttxt";
-  margin: 8px 0;
 }
 
 
@@ -1828,24 +1739,18 @@ main {
   height: 50px;
 }
 .spoiler {
-  background-color: #000;
-  color: #000;
+  background-color: var(--black);
+  color: var(--black);
   position: relative;
 }
-/* .spoiler::before {
-  content: "Comment may contain a spoiler. Click to View";
-  position: absolute;
-  display: inline;
-  color: #fff;
-} */
 @media (hover: none) and (pointer: coarse) {
   .spoiler:hover {
-    color: #fff;
+    color: var(--text-color);
     background-color: transparent;
   }
 }
 .spoiler:active {
-  color: #fff;
+  color: var(--text-color);
   background-color: transparent;
 }
 
@@ -1956,21 +1861,21 @@ main {
 
 
 /* Administrator Styles */
-#ControlPanel > *:not(:first-child) {background-color: var(--gray2); border-radius: 10px; padding: 10px;}
+#ControlPanel > *:not(:first-child) {background-color: var(--layer2); border-radius: 10px; padding: 10px;}
 #ControlPanel > h1 {grid-area: cp-t; margin: 10px 0 0 20px; }
 #ControlPanel_Navigation {grid-area: cp-nav;}
-#ControlPanel_Navigation > a {display: block; color: var(--white); padding: 10px; margin-bottom: 5px; text-decoration: none;}
-#ControlPanel_Navigation > a:hover {background: var(--key-color); color: var(--black);}
+#ControlPanel_Navigation > a {display: block; color: var(--text-color); padding: 10px; margin-bottom: 5px; text-decoration: none;}
+#ControlPanel_Navigation > a:hover {background: var(--key-color); color: var(--button-text-color);}
 #ControlPanel_Announcement {grid-area: cp-la;}
 #ControlPanel_Bookworm {grid-area: cp-bw;}
 #ControlPanel_EmailBlast {grid-area: cp-eb;}
 #ControlPanel_UserManagement {grid-area: cp-um; max-height: 600px; overflow-y: scroll;}
 #ControlPanel_Policy {grid-area: cp-pp}
-#ControlPanel_Policy > a {display: block; color: var(--white); padding: 10px; margin-bottom: 5px; text-decoration: none;}
-#ControlPanel_Policy > a:hover {background: var(--key-color); color: var(--black);}
+#ControlPanel_Policy > a {display: block; color: var(--text-color); padding: 10px; margin-bottom: 5px; text-decoration: none;}
+#ControlPanel_Policy > a:hover {background: var(--key-color); color: var(--button-text-color);}
 #ControlPanel_SiteContent {grid-area: cp-sc;}
-#ControlPanel_SiteContent > a {display: block; color: var(--white); padding: 10px; margin-bottom: 5px; text-decoration: none;}
-#ControlPanel_SiteContent > a:hover {background: var(--key-color); color: var(--black);}
+#ControlPanel_SiteContent > a {display: block; color: var(--text-color); padding: 10px; margin-bottom: 5px; text-decoration: none;}
+#ControlPanel_SiteContent > a:hover {background: var(--key-color); color: var(--button-text-color);}
 
 #ControlPanel {
   margin: 0 20px;
@@ -2049,7 +1954,7 @@ main {
     top: 0;
     right: 0;
     background-color: #fff;
-    border: seagreen solid 9px;
+    border: var(--accent) solid 9px;
     color: #000;
     padding: 26px 30px 24px 29px;
     max-width: 300px;
@@ -2080,7 +1985,7 @@ main {
   border: firebrick solid 9px;
 }
 .announcement {
-  border: red solid 9px;
+  border: var(--accent) solid 9px;
   animation-duration: 12s;
 }
 @keyframes bookworm-msg {
@@ -2157,7 +2062,7 @@ main {
   }
 
   .nav__link:hover {
-      background-color: var(--gray2);
+      background-color: #292b30;
   }
 
   .nav__link--active {
@@ -2311,7 +2216,7 @@ main {
 .cp_edituser__dialog {
   max-width: 800px;
   margin: auto;
-  background-color: var(--gray1);
+  background-color: var(--layer1);
   padding: 20px;
   border-radius: 15px;
 }
@@ -2332,10 +2237,12 @@ main {
 .cp_edituser__dialog .btn {
   padding: 15px;
   font-size: 1.1em;
-  color: var(--white);
+  color: var(--button-text-color);
+  border-radius: 50px;
 }
 .cp_edituser__dialog .save-ur {
-  background-color: var(--good-button-bkg);
+  background-image: var(--good-button-bkg);
+  color:#000;
   font-size: 1.3em;
 }
 .cp_edituser__delete {
@@ -2353,12 +2260,12 @@ main {
 .cp_deleteUser__dialog {
   max-width: 800px;
   margin: auto;
-  background-color: var(--gray1);
+  background-color: var(--layer1);
   padding: 20px;
   font-size: 1.2em;
 }
 .cp_deleteUser__dialog > h1 {
-  background-color: var(--bad-button-bkg);
+  background-image: var(--bad-button-bkg);
   text-align: center;
   padding: 15px;
   margin: 0;
@@ -2373,7 +2280,7 @@ main {
   padding: 0 5px;
   margin: 5px;
   font-size: inherit;
-  color: #fff;
+  color: var(--button-text-color);
 }
 .user-card tr:nth-child(2n+1) {
 background: linear-gradient(to right, #566a6e, #6c7c85);
@@ -2421,10 +2328,10 @@ background: linear-gradient(to right, #566a6e, #6c7c85);
   display: grid;
   grid-template-columns: 60px auto;
   margin-top: 1.3rem;
-  background-color: var(--gray2);
+  background-color: var(--layer2);
   border-radius: 20px;
   padding: 15px;
-  color: var(--white);
+  color: var(--text-color);
   text-decoration: none;
 }
 .notification_list > :first-child {
@@ -2460,9 +2367,7 @@ background: linear-gradient(to right, #566a6e, #6c7c85);
   font-family: 'Patrick Hand SC', sans-serif;
   text-align: center;
 }
-.notification_all_clear > img {
-  filter: hue-rotate(270deg);
-}
+
 .notification_all_clear > span {
   display: block;
 }
@@ -2490,7 +2395,7 @@ button {
 
 .btn-upload {
   background: var(--key-color);
-  color: #000;
+  color: var(--button-text-color);
   font-size: 20px;
   text-align: center;
   padding: 7px 10px;
