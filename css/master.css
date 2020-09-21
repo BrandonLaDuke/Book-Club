@@ -1246,7 +1246,7 @@ main {
   margin: 20px auto;
   display: block;
   width: 100%;
-  max-width: 80ch;
+  max-width: 1025px;
 }
 .user-card {
   background-color: var(--layer2);
