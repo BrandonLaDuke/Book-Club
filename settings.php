@@ -60,7 +60,7 @@
    <?php  } else { ?>
             <form class="sa-SBEL setting__action" action="includes/settings-action.inc.php" method="post">
               <input type="hidden" name="username" value="<?php echo $_SESSION['userUid'] ?>">
-              <button class="setting__button profile-btn btn lined thin" type="submit" name="turn-off-SBEL">Turn off</button>
+              <button class="setting__button btn" type="submit" name="turn-off-SBEL">Turn off</button>
             </form>
    <?php  }
         }
@@ -69,12 +69,15 @@
     <!-- <h2>My Account</h2>
     <div class="setting">
       <span class="setting__title">Suspend your Membership</span>
-      <button onclick="subscribe()" class="setting__button profile-btn btn lined thin" type="button" name="button">I want to suspend my membership</button>
       <p class="setting__description">Suspending your membership will deactivate your account and suspend your membership to the Spineless Bound Book Club. Your account will remain intact. If you would like to rejoin the club contact the the Spineless Bound Student Leader.</p>
+      <form class="sa-SBEL setting__action" action="includes/settings-action.inc.php" method="post">
+      <button onclick="subscribe()" class="setting__button btn" type="button" name="suspend-membership">I want to suspend my membership</button></form>
+
     </div>
+    <br>
     <div class="setting">
       <span class="setting__title">Delete your Account</span>
-      <button onclick="subscribe()" class="setting__button profile-btn btn lined thin" type="button" name="button">I want to Delete my Account</button>
+      <form class="sa-SBEL setting__action" action="includes/settings-action.inc.php" method="post"><button onclick="subscribe()" class="setting__button profile-btn btn lined thin" type="button" name="delete-account">I want to Delete my Account</button></form>
       <p class="setting__description">Deleting your account will delete all user data associated with your account, including your posts, comments, and ratings. This action in not reverseable.</p>
     </div> -->
   </div>

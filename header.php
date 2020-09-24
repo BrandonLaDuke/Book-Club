@@ -56,7 +56,9 @@ $cookie = isset($_COOKIE['rememberme']) ? $_COOKIE['rememberme'] : '';
     <link rel="stylesheet" href="css/master.css">
     <?php if ($_GET["user"]) { ?>
       <link rel="stylesheet" href="css/profile.css">
-      <?php }
+    <?php } else if ($_GET["bookid"]) { ?>
+      <link rel="stylesheet" href="css/book.css">
+    <?php }
       if (isset($_SESSION['userId'])) {
         ?>
         <style>
