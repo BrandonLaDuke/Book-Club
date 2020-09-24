@@ -1,0 +1,174 @@
+
+.new-profile-grid {
+  margin: 0 20px;
+  max-width: 1500px;
+}
+.bookCover {
+  max-width: 250px;
+}
+.book-details__title {
+  margin-bottom: 0;
+}
+.suggested-by {
+  margin-top: 10px;
+  display: block;
+}
+.suggested-by a {
+  color: inherit;
+}
+.book-grid {
+  grid-template-columns: 1fr 1fr;
+}
+.profile-intro{
+  grid-area:intro;
+  margin-top: -75px;
+  text-align: center;
+  position: relative;
+}
+.coverphoto{grid-area:fphoto;
+  background-size: cover;
+  width: calc(100% + 40px);
+   margin-left: -20px;}
+.about-info{
+  grid-area:info;
+  text-align: center;
+  max-width: 80ch;
+  margin: auto;
+  gap:5px;
+}
+.about-info a {
+  vertical-align: middle;
+  font-size: 1.2rem;
+  display: inline-flex;
+  gap:10px;
+  color: var(--text-color);
+  margin-bottom: 10px;
+  text-decoration: none;
+}
+.about-info a:hover {
+  background: var(--key-color);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.about-info a .material-icons {
+  font-size: inherit;
+}
+.stream{grid-area:stream;}
+.books-suggested{grid-area:books;}
+.books-suggested > h1 {
+  font-size: 1.2rem;
+}
+.extras{grid-area:extras;text-align: center;}
+.profile-intro > .editprofile {
+  display: block;
+  position: absolute;
+  top: 80px; right: 0;
+  padding: 0;
+}
+.profile-intro > .editprofile > span {
+  display: block;
+  margin: 1px;
+  padding: 10px;
+  border-radius: 50px;
+  background-color: var(--layer1);
+  color: var(--white);
+  font-size: 0.9rem;
+}
+.profile-intro > .editprofile > span:hover {
+  background-color: inherit;
+  color: var(--black);
+}
+.profile-intro > h1 {
+  font-size: 1.8rem;
+}
+.profile-intro > h2 {
+  font-size: 1.2rem;
+}
+
+/*Edit profile page*/
+
+
+
+@media (min-width:375px) {
+  .coverphoto {
+    height: 200px;
+  }
+}
+@media (min-width:1100px) {
+  .coverphoto {
+    width: 100%;
+    margin-left: 0;
+    height: 250px;
+  }
+  .book-details__title {
+    font-size: 2.3rem;
+  }
+  .new-profile-grid {
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    grid-template-rows: auto;
+    grid-gap: 20px;
+    grid-template-areas: "intro stream";
+  }
+
+  .profile-intro {
+    margin: 0;
+    padding-top: 15px;
+  }
+  .profile-intro > .editprofile {
+    position: relative;
+    display: inline-block;
+    top: 0;
+  }
+  .about-info {
+    margin: 0;
+    text-align: left;
+  }
+
+
+}
+@media (min-width:1000px) {
+  .coverphoto {
+    width: 100%;
+    height: 400px;
+  }
+
+}
+.rating-avg {
+  width: auto;
+}
+.rating-container {
+  width: 160px;
+  position: relative;
+}
+.rating-sel {
+  border: none;
+  font-size: 1.68rem;
+  width: 160px;
+  margin: auto;
+  text-align: center;
+}
+
+.rating > label {
+  color: #90A0A3;
+  float: right;
+  padding-left: 5px;
+}
+
+.rating > input {
+  display: none;
+}
+
+.rating > input:checked ~ label,
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+  color: #F79426;
+}
+
+.rating > input:checked + label:hover,
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label,
+.rating > input:checked ~ label:hover ~ label {
+  color: #FECE31;
+}

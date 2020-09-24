@@ -1,0 +1,31 @@
+:root {
+--layer1: #f1f1f1;
+--layer2: #ffffff;
+--layer3: #ffffff;
+--layer4: #ffffff;
+--white: #ffffff;
+--black: #000000;
+--accent: #0afb60;
+
+--main-bkg-color: var(--layer1);
+--box-color: var(--layer2);
+--post-color: var(--layer3);
+
+--key-color: linear-gradient(to top, #f43b47 0%, #453a94 100%);
+
+--star-size: 35px;
+--star-color: #fff;
+--star-background: #fc0;
+
+--text-color: var(--black);
+--button-text-color: var(--black);
+--button-text-color-alt: var(--black);
+
+--good-button-bkg: linear-gradient(to right, #52ff75, #3ce312);
+--bad-button-bkg: linear-gradient(to right, #d10000, #ff3939);
+
+--caret: var(--white);
+
+--discord: #7289da;
+
+}
