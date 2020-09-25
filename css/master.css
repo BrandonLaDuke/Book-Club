@@ -1419,7 +1419,7 @@ main {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 10px;
-  margin: 10px;
+  margin: 15px 10px;
 }
 .book-grid > .book {
   border-radius: 15px;
@@ -1578,6 +1578,28 @@ main {
   position: relative;
   text-decoration: none;
   font-size: 1.3em;
+}
+.lib-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  grid-gap: 15px;
+}
+.link-flex {
+  display: flex;
+  grid-gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+.link-tile {
+  background-color: var(--box-color);
+  text-decoration: none;
+  border-radius: 50px;
+}
+.link-tile h3 {
+  margin: 15px 10px;
+  background: var(--key-color);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 
