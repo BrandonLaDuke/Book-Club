@@ -136,11 +136,11 @@ $cookie = isset($_COOKIE['rememberme']) ? $_COOKIE['rememberme'] : '';
           if (preg_match($reg_exUrl, $announcement, $url)) {
 
              // make the urls hyper links
-             echo preg_replace($reg_exUrl, "<a href=\"".$url[0]."\">".$url[0]."</a> ", $announcement);
+             echo nl2br(preg_replace($reg_exUrl, "<a href=\"".$url[0]."\">".$url[0]."</a> ", $announcement));
 
           } else {
              // if no urls in the text just return the text
-             echo $announcement;
+             echo nl2br($announcement);
           }
           ?>  </p>
       <?php }

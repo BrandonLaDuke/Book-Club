@@ -253,7 +253,7 @@ if (isset($_GET['error'])) {
               <img src="<?php echo $row['coverArtURL'] ?>" width="50px" alt="">
               <span class="cp_editbook__title">Book Title:</span><br><input type="text" name="bookTitleE" value="<?php echo $row['bookTitle'] ?>" /><br>
               <span class="cp_editbook__author">Book Title:</span><br><input type="text" name="bookAuthorE" value="<?php echo $row['bookAuthor'] ?>" /><br>
-              <span class="cp_editbook__description">Description:</span><br><textarea type="text" name="bookDescriptionE"><?php echo $row['bookDescription'] ?></textarea><br>
+              <span class="cp_editbook__description">Description:</span><br><pre><textarea type="text" name="bookDescriptionE"><?php echo nl2br($row['bookDescription']) ?></textarea></pre><br>
               <span class="cp_editbook__buy">Store Link:</span><br><input type="text" name="bookStoreLinkE" value="<?php echo $row['whereToBuy'] ?>" /><br>
               
               <button class="btn save-ur" type="submit" name="editbook">Save changes</button>

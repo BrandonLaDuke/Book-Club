@@ -135,7 +135,7 @@
 
         } else { ?>
           <h4>Summary</h4>
-          <p class="bookDescription"><?php echo $row['bookDescription'] ?></p>
+          <p class="bookDescription"><?php echo nl2br($row['bookDescription']) ?></p>
   <?php }
 ?>
 
