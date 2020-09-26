@@ -61,7 +61,7 @@ if (isset($_GET['error'])) {
 
           <div class="about-info">
   <?php if (!empty($row['about'])) { ?>
-            <p class="shortbio"><?php echo $row['about']; ?></p>
+            <p class="shortbio"><?php echo nl2br($row['about']); ?></p>
   <?php }
         if (!empty($row['website'])) {?>
             <a href="<?php echo $row['website']; ?>"><i class="material-icons">language</i> <span><?php echo $row['website']; ?></span></a>
