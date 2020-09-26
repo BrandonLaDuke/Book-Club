@@ -20,19 +20,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 <div class="new-profile-grid">
   <?php $bookIdNum = $_GET['bookid'];
     $sql = "SELECT * FROM books;";
@@ -143,7 +130,15 @@
     <span class="suggested-by">Suggested by <a href="profile.php?user=<?php echo $row['chosenBy']; ?>"><?php echo $ProfileRow['firstName'] ?> <?php echo $ProfileRow['lastName'] ?></a></span>
 <?php   } else { ?>
     <span class="suggested-by">Suggested by <a href="profile.php?user=<?php echo $row['chosenBy']; ?>"><?php echo $row['chosenBy'] ?></a></span>
-<?php   } ?>
+<?php   } 
+        if ($row['bookDescription'] == "") {
+
+        } else { ?>
+          <h4>Summary</h4>
+          <p class="bookDescription"><?php echo $row['bookDescription'] ?></p>
+  <?php }
+?>
+
 
 <div class="book-comments">
   <h2>Comments</h2>

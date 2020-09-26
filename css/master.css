@@ -2019,6 +2019,9 @@ main {
   border: var(--accent) solid 9px;
   animation-duration: 12s;
 }
+.cp-coverArt img {
+  max-width: 50px;
+}
 @keyframes bookworm-msg {
   0% {
     transform: scale3d(0, 0, 0);
@@ -2264,6 +2267,16 @@ main {
   display: inline;
   font-size: 1.2rem;
   width: 2ch;
+}
+.cp_editbook__dialog > input {
+  width: 100%;
+  margin-bottom: 10px;
+}
+.cp_editbook__dialog > textarea {
+  width: 100%;
+  min-height: 5ch;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
 }
 .cp_edituser__dialog .btn {
   padding: 15px;

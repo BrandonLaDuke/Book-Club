@@ -94,6 +94,27 @@ function cancelDeleteUserCP(userId) {
   userDeletor.classList.remove("userDeleteOpen");
   userEditor.classList.remove("edituserOpen");
 }
+function editBookCP(bookId) {
+  var bookEditID = "bookID-" + bookId;
+  console.log(bookEditID);
+  var bookEditor = document.getElementById(bookEditID);
+  bookEditor.classList.add("edituserOpen");
+}
+function deleteBookCP(bookId) {
+  var deleteBookID = "deleteBookID-" + bookId;
+  console.log(deleteBookID);
+  var bookDeletor = document.getElementById(deleteBookID);
+  bookDeletor.classList.add("userDeleteOpen");
+}
+function cancelDeleteBookCP(bookId) {
+  var userBookID = "bookID-" + bookId;
+  var deleteBookID = "deleteBookID-" + bookId;
+  console.log(deleteBookID);
+  var bookDeletor = document.getElementById(deletebookID);
+  var bookEditor = document.getElementById(bookEditID);
+  bookDeletor.classList.remove("bookDeleteOpen");
+  bookEditor.classList.remove("edituserOpen");
+}
 document.querySelectorAll('textarea').forEach(el => {
   el.style.height = el.setAttribute('style', 'height: ' + el.scrollHeight + 'px');
   el.classList.add('auto');

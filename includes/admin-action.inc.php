@@ -68,6 +68,28 @@ if (isset($_POST['bookworm-message'])) {
     header("Location: ../adminpanel.php?success=userupdated");
   }
 
+} else if (isset($_POST['editbook'])) {
+
+  require 'dbh.inc.php';
+
+  $bookId = $_POST['bookId'];
+  $title = $_POST['bookTitleE'];
+  $author = $_POST['bookAuthorE'];
+  $description = $_POST['bookDescriptionE'];
+  $storeLink = $_POST['bookStoreLinkE'];
+
+  $sql = "UPDATE books
+  SET bookTitle = '$title', bookAuthor = '$author', bookDescription = '$description', whereToBuy = '$storeLink'
+  WHERE bookId = '$bookId'";
+  $stmt = mysqli_stmt_init($conn);
+  if (!mysqli_stmt_prepare($stmt, $sql)) {
+    header("Location: ../adminpanel.php?error=sqlerror");
+    exit();
+  } else {
+    mysqli_stmt_execute($stmt);
+    header("Location: ../adminpanel.php?success=bookupdated");
+  }
+
 } else if (isset($_POST['editusername'])) {
 
 

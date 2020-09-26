@@ -13,6 +13,8 @@ if (isset($_GET['error'])) {
     echo '<p class="bookworm-msg success">Announcement updated.</p>';
   } else if ($_GET['success'] == "userupdated") {
     echo '<p class="bookworm-msg success">User has been updated.</p>';
+  } else if ($_GET['success'] == "bookupdated") {
+    echo '<p class="bookworm-msg success">Book has been updated.</p>';
   } else if ($_GET['success'] == "userdeleted") {
     echo '<p class="bookworm-msg success">'. $_GET['username'] .' has been deleted.</p>';
   }
@@ -212,8 +214,76 @@ if (isset($_GET['error'])) {
     </form>
   </div>
 </div>
-<?php } //Temp keep out ?>
 
+
+<div id="ControlPanel_BookManagement">
+  <h2>Books</h2>
+  <?php $sql = "SELECT * FROM books ORDER BY bookid ASC;";
+  $result = mysqli_query($conn, $sql);
+  $resultCheck = mysqli_num_rows($result);
+   ?>
+    <table class="user-card">
+      <tr>
+        <th>Book Cover</th>
+        <th>Book Title</th>
+        <th>Author</th>
+        <th>Book selected by</th>
+        <th>Status</th>
+        <th>Where to buy</th>
+        <th>Description</th>
+        <th>Group Picture</th>
+      </tr>
+      <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+      <tr>
+        <td class="cp-coverArt"><img src="<?php echo $row['coverArtURL']; ?>" alt=""></td>
+        <td><?php echo $row['bookTitle']; ?></td>
+        <td><?php echo $row['bookAuthor']; ?></td>
+        <td><?php echo $row['chosenBy']; ?></td>
+        <td><?php if ($row['readingStatus'] == 2) { echo "Queued";} else if ($row['readingStatus'] == 1) {echo "Reading";} else {echo "Read";}; ?></td>
+        <td><?php echo $row['whereToBuy']; ?></td>
+        <td><?php echo $row['bookDescription']; ?></td>
+        <td class="cp-coverArt"><img src="<?php echo $row['groupPicture']; ?>" alt=""></td>
+
+        <td>
+          <a class="btn lined thin" onclick="editBookCP(<?php echo $row['bookId']; ?>)">Edit Book</a>
+          <form id="bookID-<?php echo $row['bookId'] ?>" class="cp_edituser" action="includes/admin-action.inc.php" method="post">
+            <div class="cp_edituser__dialog cp_editbook__dialog">
+
+              <input type="hidden" name="bookId" value="<?php echo $row['bookId'] ?>">
+              <img src="<?php echo $row['coverArtURL'] ?>" width="50px" alt="">
+              <span class="cp_editbook__title">Book Title:</span><br><input type="text" name="bookTitleE" value="<?php echo $row['bookTitle'] ?>" /><br>
+              <span class="cp_editbook__author">Book Title:</span><br><input type="text" name="bookAuthorE" value="<?php echo $row['bookAuthor'] ?>" /><br>
+              <span class="cp_editbook__description">Description:</span><br><textarea type="text" name="bookDescriptionE"><?php echo $row['bookDescription'] ?></textarea><br>
+              <span class="cp_editbook__buy">Store Link:</span><br><input type="text" name="bookStoreLinkE" value="<?php echo $row['whereToBuy'] ?>" /><br>
+              
+              <button class="btn save-ur" type="submit" name="editbook">Save changes</button>
+              <a class="btn" onclick="deleteBookCP(<?php echo $row['bookId']; ?>)">Delete user</a>
+              <div id="deleteBookID-<?php echo $row['bookId'] ?>" class="cp_edituser__delete">
+                <div class="cp_deleteUser__dialog">
+                  <h1>DANGER ZONE</h1>
+                  <p>Are you sure you want to delete book: <?php echo $row['bookTitle'] ?>?<br>Deleteing this book will:
+                    <ul>
+                      <li>Remove Book from Spineless Bound Library</li>
+                      <li>Delete all discussion comments from the book page</li>
+                    </ul>
+                    This action can not be undone.</p>
+                  <label for="confirmUsername">Type username of member chosen to confirm: <?php echo $row['chosenBy'] ?></label>
+                  <input id="confirmUsername" type="text" name="confirmUsername" value=""><br><br>
+                  <div class="b-grid">
+                    <button class="good" type="button"  name="cancelDeleteBook" onclick="cancelDeleteBookCP(<?php echo $row['bookId'] ?>)">Cancel</button>
+                    <button class="bad" type="submit" name="deleteBookConfirm">Yes, I want delete this user.</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </td>
+      </tr>
+    <?php } ?>
+
+</table>
+</div>
+<?php } //Temp keep out ?>
 </div> <!-- #ControlPanel -->
 
 
