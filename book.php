@@ -94,6 +94,10 @@
        <br>
        <button class="btn outlined-btn" type="submit" name="ratebook"><span>Add Rating</span></button>
      </form>
+     <?php if ($row['whereToBuy'] != "") { ?>
+     <br>
+     <a class="btn library-btn link-title" href="<?php echo $row['whereToBuy'] ?>"><span>Get Book</span></a>
+     <?php } ?>
    </div>
  </div>
 

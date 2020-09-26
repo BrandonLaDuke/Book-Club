@@ -1538,6 +1538,7 @@ main {
 }
 .to-rate {
   display: flex;
+  flex-direction: column;
 }
 .rating {
   margin: auto;

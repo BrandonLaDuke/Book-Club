@@ -73,10 +73,10 @@ if (isset($_POST['bookworm-message'])) {
   require 'dbh.inc.php';
 
   $bookId = $_POST['bookId'];
-  $title = $_POST['bookTitleE'];
-  $author = $_POST['bookAuthorE'];
-  $description = $_POST['bookDescriptionE'];
-  $storeLink = $_POST['bookStoreLinkE'];
+  $title = $conn -> real_escape_string($_POST['bookTitleE']);
+  $author = $conn -> real_escape_string($_POST['bookAuthorE']);
+  $description = $conn -> real_escape_string($_POST['bookDescriptionE']);
+  $storeLink = $conn -> real_escape_string($_POST['bookStoreLinkE']);
 
   $sql = "UPDATE books
   SET bookTitle = '$title', bookAuthor = '$author', bookDescription = '$description', whereToBuy = '$storeLink'
