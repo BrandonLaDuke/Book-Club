@@ -67,7 +67,7 @@
                 if(preg_match($reg_exUrl, $text, $url)) {
 
                    // make the urls hyper links
-                   echo nl2br(preg_replace($reg_exUrl, "<a href=\"".$url[0]."\">".$url[0]."</a> ", $text);
+                   echo nl2br(preg_replace($reg_exUrl, "<a href=\"".$url[0]."\">".$url[0]."</a> ", $text));
 
                 } else {
                    // if no urls in the text just return the text
