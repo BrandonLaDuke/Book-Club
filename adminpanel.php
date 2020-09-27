@@ -240,8 +240,8 @@ if (isset($_GET['error'])) {
         <td><?php echo $row['bookAuthor']; ?></td>
         <td><?php echo $row['chosenBy']; ?></td>
         <td><?php if ($row['readingStatus'] == 2) { echo "Queued";} else if ($row['readingStatus'] == 1) {echo "Reading";} else {echo "Read";}; ?></td>
-        <td><?php echo $row['whereToBuy']; ?></td>
-        <td><?php echo $row['bookDescription']; ?></td>
+        <td><textarea><?php echo $row['whereToBuy']; ?></textarea></td>
+        <td><textarea><?php echo $row['bookDescription']; ?></textarea></td>
         <td class="cp-coverArt"><img src="<?php echo $row['groupPicture']; ?>" alt=""></td>
 
         <td>
@@ -255,7 +255,7 @@ if (isset($_GET['error'])) {
               <span class="cp_editbook__author">Book Title:</span><br><input type="text" name="bookAuthorE" value="<?php echo $row['bookAuthor'] ?>" /><br>
               <span class="cp_editbook__description">Description:</span><br><pre><textarea type="text" name="bookDescriptionE"><?php echo nl2br($row['bookDescription']) ?></textarea></pre><br>
               <span class="cp_editbook__buy">Store Link:</span><br><input type="text" name="bookStoreLinkE" value="<?php echo $row['whereToBuy'] ?>" /><br>
-              
+
               <button class="btn save-ur" type="submit" name="editbook">Save changes</button>
               <a class="btn" onclick="deleteBookCP(<?php echo $row['bookId']; ?>)">Delete user</a>
               <div id="deleteBookID-<?php echo $row['bookId'] ?>" class="cp_edituser__delete">

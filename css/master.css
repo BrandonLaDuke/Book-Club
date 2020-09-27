@@ -21,7 +21,14 @@ hr {
   font-family: sans-serif;
   cursor: pointer;
 }
-
+.switch {
+  align-self: center;
+  background: transparent;
+  font-size: 1rem;
+}
+.switch > .material-icons {
+  font-size: 48px;
+}
 .btn {
   align-self: center;
   background: transparent;
@@ -1907,6 +1914,10 @@ main {
 #ControlPanel_SiteContent {grid-area: cp-sc;}
 #ControlPanel_SiteContent > a {display: block; color: var(--text-color); padding: 10px; margin-bottom: 5px; text-decoration: none;}
 #ControlPanel_SiteContent > a:hover {background: var(--key-color); color: var(--button-text-color);}
+#ControlPanel_BookManagement {grid-area: cp-bm;}
+#ControlPanel_BookManagement .user-card tbody tr td textarea {
+  max-height: 80px;
+}
 
 #ControlPanel {
   margin: 0 20px;
@@ -1924,6 +1935,7 @@ main {
                          "cp-nav cp-um cp-um"
                          "cp-nav cp-um cp-um"
                          "cp-nav cp-pp cp-sc"
+                         "cp-nav cp-bm cp-bm"
                          "cp-nav cp-bw .";
   }
 }
@@ -1934,6 +1946,7 @@ main {
                          "cp-nav cp-la cp-eb cp-eb"
                          "cp-nav cp-um cp-um cp-pp"
                          "cp-nav cp-um cp-um cp-sc"
+                         "cp-nav cp-bm cp-bm cp-bm"
                          "cp-nav cp-bw . .";
   }
 }
@@ -2256,7 +2269,6 @@ main {
 }
 .cp_edituser__dialog img {
   display: block;
-  border-radius: 50%;
   margin: 0 0 10px 0;
   text-align: center;
 }
@@ -2275,6 +2287,7 @@ main {
 .cp_editbook__dialog > pre > textarea {
   width: 100%;
   min-height: 5ch;
+  max-height: 350px;
   margin-bottom: 10px;
   font-size: 1.1rem;
 }

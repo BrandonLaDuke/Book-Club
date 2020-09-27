@@ -40,7 +40,7 @@
     </div> -->
     <div class="setting">
       <span class="setting__title">Spineless Bound Email List</span>
-      <p class="setting__description">Turn this off if you wish to no longer recieve email communications from Spinelessbound.</p>
+      <p class="setting__description">Recieve email communications from Spinelessbound.</p>
       <?php $sql = "SELECT notiEmail FROM users WHERE uidUsers = ?";
       $stmt = mysqli_stmt_init($conn);
 
@@ -55,12 +55,12 @@
           if ($row['notiEmail'] === 0) { ?>
             <form class="sa-SBEL setting__action" action="includes/settings-action.inc.php" method="post">
               <input type="hidden" name="username" value="<?php echo $_SESSION['userUid'] ?>">
-              <button class="setting__button profile-btn btn lined thin" type="submit" name="turn-on-SBEL">Turn on</button>
+              <button class="switch" type="submit" name="turn-on-SBEL"><span class="material-icons switch" style="color:#525252;">toggle_off</span></button>
             </form>
    <?php  } else { ?>
             <form class="sa-SBEL setting__action" action="includes/settings-action.inc.php" method="post">
               <input type="hidden" name="username" value="<?php echo $_SESSION['userUid'] ?>">
-              <button class="setting__button btn" type="submit" name="turn-off-SBEL">Turn off</button>
+              <button class="switch" type="submit" name="turn-off-SBEL"><span class="material-icons" style="color:#52ff75;">toggle_on</span></button>
             </form>
    <?php  }
         }
