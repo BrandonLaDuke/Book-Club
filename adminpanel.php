@@ -35,6 +35,7 @@ if (isset($_GET['error'])) {
   <?php } //Temp keep out ?>
   <a href="#ControlPanel_EmailBlast">Email Blast</a>
   <a href="#ControlPanel_UserManagement">User Management</a>
+  <a href="#ControlPanel_BookManagement">Book Management</a>
   <a href="#ControlPanel_Policy">Policies and Procedures</a>
   <a href="#ControlPanel_SiteContent">Site Content</a>
 </div>
@@ -214,7 +215,7 @@ if (isset($_GET['error'])) {
     </form>
   </div>
 </div>
-
+<?php } //Temp keep out ?>
 
 <div id="ControlPanel_BookManagement">
   <h2>Books</h2>
@@ -283,7 +284,7 @@ if (isset($_GET['error'])) {
 
 </table>
 </div>
-<?php } //Temp keep out ?>
+
 </div> <!-- #ControlPanel -->
 
 
