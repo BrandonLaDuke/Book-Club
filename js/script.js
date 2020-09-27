@@ -70,8 +70,16 @@ function closePostEdit(postID) {
   var postEditPanel = document.getElementById(postEditID);
   postEditPanel.classList.remove("showFlex");
 }
+function cancelPostDelete(postID) {
+  var postDeleteID = "deletePostBoxC" + postID;
+  console.log(postDeleteID);
+  var postDeletePanel = document.getElementById(postDeleteID);
+  postDeletePanel.classList.remove("showFlex");
+}
 function deletePost(postID) {
-  alert("Wow you discovered a feature that is currently in development! Come back later.");
+  var postDeleteID = "deletePostBoxC" + postID;
+  var deletePost = document.getElementById(postDeleteID);
+  deletePost.classList.add("showFlex");
 }
 function editUserCP(userId) {
   var userEditID = "userID-" + userId;

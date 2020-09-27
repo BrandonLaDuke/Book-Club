@@ -59,6 +59,17 @@ if (!mysqli_stmt_prepare($stmtIsLiked, $havelikedSql)) {
     mysqli_stmt_close($stmt);
     mysqli_close($conn);
   }
+} else if (isset($_POST['unlike'])) {
+  require 'dbh.inc.php';
+  $postId = $_POST['postId'];
+  $userId = $_POST['userId'];
+
+  $sqlRemoveLike = "DELETE FROM postsLikes WHERE userId = '$userId' AND postId = '$postId'";
+  $result = mysqli_query($conn, $sqlRemoveLike);
+
+  header("Location: ../index.php?success=postunliked");
+  mysqli_close($conn);
+
 } else if (isset($_POST['addComment'])) {
   require 'dbh.inc.php';
 

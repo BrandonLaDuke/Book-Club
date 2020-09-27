@@ -1545,8 +1545,7 @@ main {
   width: 160px;
   text-align: center;
 }
-.rating > span { float:right; position:relative;
-}
+.rating > span { float:right; position:relative; }
 .rating span input {
     position:absolute;
     top:0px;

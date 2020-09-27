@@ -54,6 +54,8 @@ if (isset($_GET['error'])) {
     echo '<p class="bookworm-msg success">Yahoo! Your password has been updated.</p>';
   } else if ($_GET['success'] == "signup") {
     echo '<p class="bookworm-msg success">Yay! Your accound has been created successfully!<br>Please verify it by clicking the activation link that has been sent to your Sullivan email.</p>';
+  } else if ($_GET['success'] == "postdeleted") {
+    echo '<p class="bookworm-msg success">The post has been deleted.</p>';
   }
 } else if (isset($_GET['logout'])) {
   echo '<p class="bookworm-msg success">See you next time!</p>';

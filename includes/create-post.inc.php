@@ -96,6 +96,18 @@ if (isset($_POST['post'])) {
   }
   mysqli_stmt_close($stmt);
   mysqli_close($conn);
+} else if (isset($_POST['delete'])) {
+  require 'dbh.inc.php';
+  // GET Variables
+  $username = $_POST['userUid'];
+  $postID = $_POST['postId'];
+
+  $sql = "DELETE FROM posts WHERE uidUsers = '$username' AND postId = '$postID'";
+  $result = mysqli_query($conn, $sql);
+
+  header("Location: ../index.php?success=postdeleted");
+
+  mysqli_close($conn);
 } else {
   header("Location: ../index.php");
   exit();

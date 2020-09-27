@@ -98,9 +98,19 @@
               <input type="hidden" name="notiRecever" value="<?php echo $row['uidUsers'] ?>">
               <input type="hidden" name="notiUser" value="<?php echo $_SESSION['userUid'] ?>">
               <input type="hidden" name="postId" value="<?php echo $row['postId']; ?>">
+              <?php
+              $sqlGetPostLikes = "SELECT *
+              FROM postsLikes
+              WHERE postId = \"$row[postId]\" AND userId = \"$_SESSION[userId]\"";
+              $getPostLikedResult = mysqli_query($conn, $sqlGetPostLikes);
+              $numberLikedMe = mysqli_num_rows($getPostLikedResult);
+              if ($numberLikedMe > 0) { ?>
+                <div><button type="submit" name="unlike"><span class="material-icons">thumb_up</span> Liked</button></div>
+              <?php   } else { ?>
               <div><button type="submit" name="like"><span class="material-icons-outlined">thumb_up</span> Like</button></div>
+              <?php } ?>
             </form>
-            <!-- <button onclick="openCommentArea(<?php echo $row['postId'] ?>)" type="button" name="button"><span class="material-icons">comment</span> Comment</button> -->
+            
             <?php
           }
             if ($numberLiked > 1) { ?>
@@ -256,6 +266,25 @@
               </form>
             </div>
           </div>
+
+          <!-- Delete post box -->
+          <div id="deletePostBoxC<?php echo $row['postId'] ?>" class="editPostBoxC">
+            <div class="editPostBox">
+              <form style="background-color: var(--main-bkg-color);" action="includes/create-post.inc.php" method="post" enctype="multipart/form-data">
+
+                <input type="hidden" name="userUid" value="<?php echo $_SESSION['userUid']; ?>">
+                <input type="hidden" name="postId" value="<?php echo $row['postId'] ?>">
+
+                <h2>Delete Post?</h2>
+                <p>Are you sure you want to delete this post?</p>
+
+                <button class="postbox__submit library-btn" type="submit" name="delete">Delete</button>
+                <button onclick="cancelPostDelete(<?php echo $row['postId'] ?>)" class="postbox__submit library-btn" type="button" name="cancel">Cancel</button>
+              </form>
+            </div>
+          </div>
+        </div>
+
         </div>
 <?php }
     } ?>
