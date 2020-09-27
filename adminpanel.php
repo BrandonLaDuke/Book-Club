@@ -240,8 +240,8 @@ if (isset($_GET['error'])) {
         <td><?php echo $row['bookAuthor']; ?></td>
         <td><?php echo $row['chosenBy']; ?></td>
         <td><?php if ($row['readingStatus'] == 2) { echo "Queued";} else if ($row['readingStatus'] == 1) {echo "Reading";} else {echo "Read";}; ?></td>
-        <td><textarea><?php echo $row['whereToBuy']; ?></textarea></td>
-        <td><textarea><?php echo $row['bookDescription']; ?></textarea></td>
+        <td><textarea contenteditable="false"><?php echo $row['whereToBuy']; ?></textarea></td>
+        <td><textarea contenteditable="false"><?php echo $row['bookDescription']; ?></textarea></td>
         <td class="cp-coverArt"><img src="<?php echo $row['groupPicture']; ?>" alt=""></td>
 
         <td>
