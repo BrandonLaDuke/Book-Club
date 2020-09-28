@@ -250,6 +250,10 @@ if ($_SESSION['admin']) { ?>
                 <i class="material-icons nav__icon">person</i>
                 <span class="nav__text">Profile</span>
               </a>
+              <!-- <a href="playground.php" class="nav__link" id="nav__link__profile">
+                <i class="material-icons nav__icon">pets</i>
+                <span class="nav__text">playground</span>
+              </a> -->
               <span class="desktop-only spacer"></span>
               <a href="about.php" class="nav__link spa desktop-only" id="nav__link__about">
                 <i class="material-icons nav__icon">info</i>

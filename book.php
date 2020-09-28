@@ -8,18 +8,16 @@
 } ?>
 
 
-  <?php if (isset($_SESSION['userId'])) {
-    if ($_GET['edit'] == "true") { ?>
-      <style media="screen">
-        .editmode {
-          display: block;
-        }
-      </style>
+
+
+
+
+<?php if (isset($_SESSION['userId'])) {} else { ?>
+  <div class="signup-banner">
+    <h2>In order to interact with this book you must login.</h2>
+    <p>Don't have an account? <a href="https://spinelessbound.com">Sign up now</a></p>
+  </div>
 <?php } ?>
-
-
-
-
 <div class="new-profile-grid">
   <?php $bookIdNum = $_GET['bookid'];
     $sql = "SELECT * FROM books;";
@@ -69,6 +67,7 @@
    <hr>
    <div class="rating">
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<?php if (isset($_SESSION['userId'])) { ?>
 
    <p>Your rating</p>
    <div class="to-rate">
@@ -94,11 +93,17 @@
        <br>
        <button class="btn outlined-btn" type="submit" name="ratebook"><span>Add Rating</span></button>
      </form>
-     <?php if ($row['whereToBuy'] != "") { ?>
-     <br>
-     <a class="btn library-btn link-title" href="<?php echo $row['whereToBuy'] ?>"><span>Get Book</span></a>
-     <?php } ?>
+
+
+
    </div>
+
+<?php } ?>
+
+   <?php if ($row['whereToBuy'] != "") { ?>
+   <br>
+   <a class="btn library-btn link-title" href="<?php echo $row['whereToBuy'] ?>"><span>Get Book</span></a>
+   <?php } ?>
  </div>
 
 
@@ -134,7 +139,7 @@
     <span class="suggested-by">Suggested by <a href="profile.php?user=<?php echo $row['chosenBy']; ?>"><?php echo $ProfileRow['firstName'] ?> <?php echo $ProfileRow['lastName'] ?></a></span>
 <?php   } else { ?>
     <span class="suggested-by">Suggested by <a href="profile.php?user=<?php echo $row['chosenBy']; ?>"><?php echo $row['chosenBy'] ?></a></span>
-<?php   } 
+<?php   }
         if ($row['bookDescription'] == "") {
 
         } else { ?>
@@ -143,7 +148,7 @@
   <?php }
 ?>
 
-
+<?php if (isset($_SESSION['userId'])) { ?>
 <div class="book-comments">
   <h2>Comments</h2>
   <div class="new-comment">
@@ -222,6 +227,9 @@
     } ?>
   </div>
 </div>
+
+<?php } ?> <!-- isset must be logged in -->
+
 </div>
 
 
@@ -248,6 +256,6 @@
     header("Location: index.php");
           exit();
 
-   } ?>
+    ?>
  </div>
 <?php require "footer.php"; ?>
