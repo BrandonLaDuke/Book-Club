@@ -50,7 +50,7 @@ if (isset($_POST['add-comment-submit'])) {
 
 
 
-      
+
       header("Location: ../book.php?bookid=".$idbook."&add_comment=success");
       exit();
       }

@@ -176,7 +176,7 @@ if (!mysqli_stmt_prepare($stmtIsLiked, $havelikedSql)) {
 
 
 
-               //why wont you work!?
+               
 
 
 
