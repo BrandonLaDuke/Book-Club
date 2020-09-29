@@ -19,34 +19,7 @@
 <main class="sb-container">
 <?php if (isset($_SESSION['userId'])) { ?>
   <h2 class="head-txt">Library</h2>
-  <div class="link-container">
-    <div class="link-flex">
-      <a class="link-tile" href="http://library.sullivan.edu/">
-        <h3>Sullivan Library</h3>
-        <!-- <p>library.sullivan.edu</p> -->
-      </a>
-      <a class="link-tile" href="https://sullivan.blackboard.com">
-        <h3>Blackboard</h3>
-        <!-- <p>sullivan.blackboard.com</p> -->
-      </a>
-      <a class="link-tile" href="https://my.sullivan.edu">
-        <h3>Student Portal</h3>
-        <!-- <p>my.sullivan.edu</p> -->
-      </a>
-      <a class="link-tile" href="http://mail.sullivan.edu">
-        <h3>Sullivan Email</h3>
-        <!-- <p>mail.sullivan.edu</p> -->
-      </a>
-      <a class="link-tile" href="https://desktop.sullivan.edu">
-        <h3>Virutal Desktop</h3>
-        <!-- <p>desktop.sullivan.edu</p> -->
-      </a>
-      <a class="link-tile" href="https://www.sullivan.edu/mobileapp/">
-        <h3>Sullivan App</h3>
-        <!-- <p>sullivan.edu/mobileapp</p> -->
-      </a>
-    </div>
-  </div>
+  
 
   <div class="lib-buttons">
     <a class="library-btn" href="library.php?queue">Add a book</a>
