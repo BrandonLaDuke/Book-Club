@@ -64,7 +64,34 @@ if (isset($_GET['error'])) {
    ?>
   <?php if (isset($_SESSION['userId'])) { ?>
 
-
+    <div class="link-container">
+      <div class="link-flex">
+        <a class="link-tile" href="http://library.sullivan.edu/">
+          <h3>Sullivan Library</h3>
+          <!-- <p>library.sullivan.edu</p> -->
+        </a>
+        <a class="link-tile" href="https://sullivan.blackboard.com">
+          <h3>Blackboard</h3>
+          <!-- <p>sullivan.blackboard.com</p> -->
+        </a>
+        <a class="link-tile" href="https://my.sullivan.edu">
+          <h3>Student Portal</h3>
+          <!-- <p>my.sullivan.edu</p> -->
+        </a>
+        <a class="link-tile" href="http://mail.sullivan.edu">
+          <h3>Sullivan Email</h3>
+          <!-- <p>mail.sullivan.edu</p> -->
+        </a>
+        <a class="link-tile" href="https://desktop.sullivan.edu">
+          <h3>Virutal Desktop</h3>
+          <!-- <p>desktop.sullivan.edu</p> -->
+        </a>
+        <a class="link-tile" href="https://www.sullivan.edu/mobileapp/">
+          <h3>Sullivan App</h3>
+          <!-- <p>sullivan.edu/mobileapp</p> -->
+        </a>
+      </div>
+    </div>
     <section id="bladeUI_grid">
 
       <div class="currentlyReading">
@@ -102,6 +129,7 @@ if (isset($_GET['error'])) {
           <a class="cAcct" href="#createAccount"><span>Create an account</span></a>
         </div>
       </div>
+      
       <?php
       require 'includes/dbh.inc.php';
        $sql = "SELECT *
@@ -110,6 +138,7 @@ if (isset($_GET['error'])) {
       limit 5";
       $result = mysqli_query($conn, $sql);
       $resultCheck = mysqli_num_rows($result); ?>
+
       <div class="books">
         <?php
         if ($resultCheck > 0) { ?>
@@ -162,7 +191,9 @@ if (isset($_GET['error'])) {
           </div>
         </div>
 
+
       </div>
+
     </section>
 
   <?php } ?>
