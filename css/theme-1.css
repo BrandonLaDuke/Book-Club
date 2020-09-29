@@ -31,7 +31,7 @@
 
 /* Scroll bars */
 body::-webkit-scrollbar {
-    width: 0.5em;
+    width: 0.25em;
 }
 body::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
