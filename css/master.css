@@ -856,6 +856,7 @@ main {
 .updategoal-window {
   display: none;
   position: fixed;
+  z-index: 1;
   top: 0;
   left: 0;
   width: 100%;
@@ -868,6 +869,8 @@ main {
   margin: auto;
   box-shadow: 0px 0px 60px var(--accent);
   width: 350px;
+
+
 }
 .pointer {
   cursor: pointer;
