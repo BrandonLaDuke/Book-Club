@@ -130,6 +130,8 @@ if (!mysqli_stmt_prepare($stmtIsLiked, $havelikedSql)) {
 
             // If the post owner is commenting
             // notify other commentors except commentor with also commented.
+            // notiUser is whos logged include
+            // 
 
 
             if ($SNRow['username'] == $postOwnerUN) {
@@ -176,7 +178,7 @@ if (!mysqli_stmt_prepare($stmtIsLiked, $havelikedSql)) {
 
 
 
-               
+
 
 
 

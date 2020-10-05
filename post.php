@@ -110,7 +110,7 @@
               <div><button type="submit" name="like"><span class="material-icons-outlined">thumb_up</span> Like</button></div>
               <?php } ?>
             </form>
-            
+
             <?php
           }
             if ($numberLiked > 1) { ?>
@@ -155,7 +155,7 @@
             <input type="hidden" name="uidUsers" value="<?php echo $_SESSION['userUid'] ?>">
             <input type="hidden" name="notiRecever" value="<?php echo $row['uidUsers'] ?>">
             <input type="hidden" name="notiUser" value="<?php echo $_SESSION['userUid'] ?>">
-            <textarea id="commentBox<?php echo $row['postId'] ?>" name="commentText" rows="2" placeholder="Add a comment..."></textarea>
+            <pre><textarea id="commentBox<?php echo $row['postId'] ?>" name="commentText" rows="2" placeholder="Add a comment..."></textarea></pre>
             <div class="commentButton">
               <button type="submit" name="addComment">Post</button>
             </div>
