@@ -86,10 +86,6 @@ if (isset($_GET['error'])) {
           <h3>Virutal Desktop</h3>
           <!-- <p>desktop.sullivan.edu</p> -->
         </a>
-        <a class="link-tile" href="https://www.sullivan.edu/mobileapp/">
-          <h3>Sullivan App</h3>
-          <!-- <p>sullivan.edu/mobileapp</p> -->
-        </a>
       </div>
     </div>
     <section id="bladeUI_grid">
@@ -129,7 +125,7 @@ if (isset($_GET['error'])) {
           <a class="cAcct" href="#createAccount"><span>Create an account</span></a>
         </div>
       </div>
-      
+
       <?php
       require 'includes/dbh.inc.php';
        $sql = "SELECT *
