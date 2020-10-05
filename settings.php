@@ -21,13 +21,13 @@
   $username = $_SESSION['userUid']; ?>
   <div class="settings-container">
     <h1>Settings</h1>
-    <!-- <h2>Notification Prefrences</h2>
+    <h2>Notification Prefrences</h2>
     <div class="setting">
       <span class="setting__title">Push Notifications</span>
       <button onclick="subscribe()" class="setting__button profile-btn btn lined thin" type="button" name="button">Enable Push Notifications</button>
       <p class="setting__description">Enabling push notifications will allow us to send you notifications to your device whenever someone Likes or comments on your post, rates your book, or when there is an important announcement.</p>
     </div>
-    <div class="setting">
+    <!-- <div class="setting">
       <span class="setting__title">Email Notifications</span>
       <button onclick="subscribe()" class="setting__button profile-btn btn lined thin" type="button" name="button">Enable Email Notifications</button>
       <p class="setting__description">Enabling Email notifications will allow us to send you notifications via email whenever someone Likes or comments on your post, rates your book, or when there is an important announcement.</p>

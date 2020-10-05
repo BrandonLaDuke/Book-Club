@@ -36,7 +36,6 @@ if (isset($_GET['error'])) {
   <a href="#ControlPanel_EmailBlast">Email Blast</a>
   <a href="#ControlPanel_UserManagement">User Management</a>
   <a href="#ControlPanel_BookManagement">Book Management</a>
-  <a href="#ControlPanel_Policy">Policies and Procedures</a>
   <a href="#ControlPanel_SiteContent">Site Content</a>
 </div>
 
@@ -150,36 +149,7 @@ if (isset($_GET['error'])) {
 </table>
 </div>
 
-<div id="ControlPanel_Policy">
-  <?php
-    $policy = "SELECT policy FROM announcements;";
-    $result = mysqli_query($conn, $policy);
-    $resultCheck = mysqli_num_rows($result);
-    while ($policyText = mysqli_fetch_assoc($result)) {
-  ?>
 
-  <a onclick="openPolicy()">Policy</a>
-  <div class="policy">
-    <?php echo $policyText['policy']; ?>
-  </div>
-  <pre><textarea><?php echo $policyText['policy']; ?></textarea></pre>
-
-  <?php
-}
-    $policy = "SELECT * FROM siteinfo;";
-    $result = mysqli_query($conn, $policy);
-    $resultCheck = mysqli_num_rows($result);
-    while ($policy = mysqli_fetch_assoc($result)) {
-  ?>
-  <p><?php echo $policy['book-selection']; ?></p>
-    <form class="" action="includes/admin-action.inc.php" method="post">
-      <pre><textarea name="announcement" rows="2"><?php echo $row['policy']; ?></textarea></pre>
-
-
-    </form>
-
-<?php } ?>
-</div>
 
 
 
@@ -189,7 +159,7 @@ if (isset($_GET['error'])) {
 
 <div id="ControlPanel_SiteContent">
   <h2>Site Content</h2>
-  <a href="contenteditor.php?edit=welcometext">Welcome Text</a>
+  <!-- <a href="contenteditor.php?edit=welcometext">Welcome Text</a> -->
   <a href="contenteditor.php?edit=aboutIntro">About Spineless Bound</a>
   <a href="contenteditor.php?edit=policy">Policies and Procedures</a>
   <a href="contenteditor.php?edit=faq">FAQ's</a>
