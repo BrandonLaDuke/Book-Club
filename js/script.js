@@ -143,8 +143,12 @@ function clearNotifications() {
 
 tinymce.init({
   selector: '#mce',
-  height: 500,
+  height: 400,
   menubar: false,
   skin: 'oxide-dark',
-  content_css:"dark"
+  content_css:"dark",
+  browser_spellcheck: true,
+  plugins: 'lists advlist emoticons',
+  toolbar_mode: 'scrolling',
+  toolbar: 'undo redo | styleselect bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | forecolor | numlist bullist | outdent indent | emoticons | removeformat'
 });
