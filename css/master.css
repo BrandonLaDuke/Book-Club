@@ -1113,7 +1113,7 @@ main {
   flex-direction: column;
   gap:5px;
 }
-.post__comment_area > textarea {
+.post__comment_area > pre > textarea {
   padding: 10px;
 }
 .openComment {
@@ -1126,7 +1126,7 @@ main {
   cursor: pointer;
   text-decoration: underline;
 }
-.post__comment_area > textarea {
+.post__comment_area > pre > textarea {
   width: 100%;
   min-height: 40px;
   font-size: 1.15em;
@@ -1409,7 +1409,7 @@ main {
   color: #fff;
   border-color: #fff;
 }
-.newbook > form > textarea {
+.newbook > form > pre > textarea {
   width: 100%;
   border-radius: 15px;
   min-height: 100px;
@@ -1924,14 +1924,11 @@ main {
 #ControlPanel_Bookworm {grid-area: cp-bw;}
 #ControlPanel_EmailBlast {grid-area: cp-eb;}
 #ControlPanel_UserManagement {grid-area: cp-um; max-height: 600px; overflow-y: scroll;}
-#ControlPanel_Policy {grid-area: cp-pp}
-#ControlPanel_Policy > a {display: block; color: var(--text-color); padding: 10px; margin-bottom: 5px; text-decoration: none;}
-#ControlPanel_Policy > a:hover {background: var(--key-color); color: var(--button-text-color);}
 #ControlPanel_SiteContent {grid-area: cp-sc;}
 #ControlPanel_SiteContent > a {display: block; color: var(--text-color); padding: 10px; margin-bottom: 5px; text-decoration: none;}
 #ControlPanel_SiteContent > a:hover {background: var(--key-color); color: var(--button-text-color);}
 #ControlPanel_BookManagement {grid-area: cp-bm;}
-#ControlPanel_BookManagement .user-card tbody tr td textarea {
+#ControlPanel_BookManagement .user-card tbody tr td pre textarea {
   max-height: 80px;
 }
 
@@ -1950,7 +1947,7 @@ main {
                          "cp-nav cp-eb cp-eb"
                          "cp-nav cp-um cp-um"
                          "cp-nav cp-um cp-um"
-                         "cp-nav cp-pp cp-sc"
+                         "cp-nav cp-sc cp-sc"
                          "cp-nav cp-bm cp-bm"
                          "cp-nav cp-bw .";
   }
@@ -1960,7 +1957,7 @@ main {
     grid-template-columns: 1fr 2fr 2fr 2fr;
     grid-template-areas: "cp-t cp-t cp-t cp-t"
                          "cp-nav cp-la cp-eb cp-eb"
-                         "cp-nav cp-um cp-um cp-pp"
+                         "cp-nav cp-um cp-um cp-sc"
                          "cp-nav cp-um cp-um cp-sc"
                          "cp-nav cp-bm cp-bm cp-bm"
                          "cp-nav cp-bw . .";
@@ -1997,7 +1994,7 @@ main {
 .admin-announcement {
   width: 100%;
 }
-.admin-announcement > form > textarea {
+.admin-announcement > form > pre > textarea {
   width: 100%;
   display: block;
   font-size: 1.2em;

@@ -34,7 +34,7 @@ if (isset($_POST['bookworm-message'])) {
       $subject = $_POST['subject'];
       $message = $msg . '
 
-      If you wish to stop reciving these messages, you may unsubscribe from the Spineless Bound Email List in the Settings menu: https://www.spinelessbound.com/settings.php 
+      If you wish to stop reciving these messages, you may unsubscribe from the Spineless Bound Email List in the Settings menu: https://www.spinelessbound.com/settings.php
 
       Spineless Bound
       Sullivan University
@@ -154,6 +154,164 @@ if (isset($_POST['bookworm-message'])) {
     }
   }
 
+
+} else if (isset($_POST['savePolicy'])) {
+
+  require 'dbh.inc.php';
+
+  $sql = "SELECT policy FROM announcements;";
+  $result = mysqli_query($conn, $sql);
+  $resultCheck = mysqli_num_rows($result);
+  $match = false;
+  if ($resultCheck > 0) {
+  while ($row = mysqli_fetch_assoc($result)) {
+
+    $match = true;
+    $idAnnouncement = 1;
+    $policy = $conn -> real_escape_string($_POST['policyText']);
+
+
+    $sql2 = "SELECT policy FROM announcements WHERE idAnnouncement=1";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql2)) {
+      header("Location: ../adminpanel.php?error=sqlerror");
+      exit();
+    } else {
+        $sql3 = "UPDATE announcements
+        SET policy = '$policy'
+        WHERE idAnnouncement = $idAnnouncement";
+        $stmt2 = mysqli_stmt_init($conn);
+        if (!mysqli_stmt_prepare($stmt2, $sql3)) {
+          header("Location: ../adminpanel.php?error=sqlerror");
+          exit();
+        } else {
+          mysqli_stmt_execute($stmt2);
+          header("Location: ../adminpanel.php?success=updatedpolicy");
+        }
+      }
+    }
+
+  }
+  mysqli_stmt_close($stmt);
+  mysqli_close($conn);
+
+} else if (isset($_POST['saveAbout'])) {
+
+  require 'dbh.inc.php';
+
+  $sql = "SELECT about FROM announcements;";
+  $result = mysqli_query($conn, $sql);
+  $resultCheck = mysqli_num_rows($result);
+  $match = false;
+  if ($resultCheck > 0) {
+  while ($row = mysqli_fetch_assoc($result)) {
+
+    $match = true;
+    $idAnnouncement = 1;
+    $about = $conn -> real_escape_string($_POST['aboutText']);
+
+
+    $sql2 = "SELECT about FROM announcements WHERE idAnnouncement=1";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql2)) {
+      header("Location: ../adminpanel.php?error=sqlerror");
+      exit();
+    } else {
+        $sql3 = "UPDATE announcements
+        SET about = '$about'
+        WHERE idAnnouncement = $idAnnouncement";
+        $stmt2 = mysqli_stmt_init($conn);
+        if (!mysqli_stmt_prepare($stmt2, $sql3)) {
+          header("Location: ../adminpanel.php?error=sqlerror");
+          exit();
+        } else {
+          mysqli_stmt_execute($stmt2);
+          header("Location: ../adminpanel.php?success=updatedabout");
+        }
+      }
+    }
+
+  }
+  mysqli_stmt_close($stmt);
+  mysqli_close($conn);
+} else if (isset($_POST['saveFAQ'])) {
+
+  require 'dbh.inc.php';
+
+  $sql = "SELECT faq FROM announcements;";
+  $result = mysqli_query($conn, $sql);
+  $resultCheck = mysqli_num_rows($result);
+  $match = false;
+  if ($resultCheck > 0) {
+  while ($row = mysqli_fetch_assoc($result)) {
+
+    $match = true;
+    $idAnnouncement = 1;
+    $faq = $conn -> real_escape_string($_POST['faqText']);
+
+
+    $sql2 = "SELECT faq FROM announcements WHERE idAnnouncement=1";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql2)) {
+      header("Location: ../adminpanel.php?error=sqlerror");
+      exit();
+    } else {
+        $sql3 = "UPDATE announcements
+        SET faq = '$faq'
+        WHERE idAnnouncement = $idAnnouncement";
+        $stmt2 = mysqli_stmt_init($conn);
+        if (!mysqli_stmt_prepare($stmt2, $sql3)) {
+          header("Location: ../adminpanel.php?error=sqlerror");
+          exit();
+        } else {
+          mysqli_stmt_execute($stmt2);
+          header("Location: ../adminpanel.php?success=updatedfaq");
+        }
+      }
+    }
+
+  }
+  mysqli_stmt_close($stmt);
+  mysqli_close($conn);
+} else if (isset($_POST['saveLegal'])) {
+
+  require 'dbh.inc.php';
+
+  $sql = "SELECT legal FROM announcements;";
+  $result = mysqli_query($conn, $sql);
+  $resultCheck = mysqli_num_rows($result);
+  $match = false;
+  if ($resultCheck > 0) {
+  while ($row = mysqli_fetch_assoc($result)) {
+
+    $match = true;
+    $idAnnouncement = 1;
+    $legal = $conn -> real_escape_string($_POST['legalText']);
+
+
+    $sql2 = "SELECT legal FROM announcements WHERE idAnnouncement=1";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql2)) {
+      header("Location: ../adminpanel.php?error=sqlerror");
+      exit();
+    } else {
+        $sql3 = "UPDATE announcements
+        SET legal = '$legal'
+        WHERE idAnnouncement = $idAnnouncement";
+        $stmt2 = mysqli_stmt_init($conn);
+        if (!mysqli_stmt_prepare($stmt2, $sql3)) {
+          header("Location: ../adminpanel.php?error=sqlerror");
+          exit();
+        } else {
+          mysqli_stmt_execute($stmt2);
+          header("Location: ../adminpanel.php?success=updatedlegal");
+        }
+      }
+    }
+
+  }
+  mysqli_stmt_close($stmt);
+  mysqli_close($conn);
 
 } else {
   header("Location: ../index.php");

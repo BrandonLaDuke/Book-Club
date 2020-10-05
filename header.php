@@ -80,7 +80,7 @@ $cookie = isset($_COOKIE['rememberme']) ? $_COOKIE['rememberme'] : '';
         var user = '<?php echo $_SESSION['userUid']; ?>';
       </script>
 
-
+      <script src="https://cdn.tiny.cloud/1/0j16m3sszjotse9gzy55qz4c9bomefix8y0ule6jj0ffdlmf/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 <?php
   // TODO: Create share img
  ?>

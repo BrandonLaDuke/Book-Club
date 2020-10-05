@@ -45,3 +45,5 @@ includes/bookworm.inc.php
 images/
 discord_widget.php
 gulpfile.js
+playground.php
+playground.inc.php

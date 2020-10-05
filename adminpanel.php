@@ -44,7 +44,7 @@ if (isset($_GET['error'])) {
 
 <div id="ControlPanel_Announcement">
   <?php
-    $announce = "SELECT * FROM announcements;";
+    $announce = "SELECT announcement FROM announcements;";
     $result = mysqli_query($conn, $announce);
     $resultCheck = mysqli_num_rows($result);
     while ($row = mysqli_fetch_assoc($result)) {
@@ -52,7 +52,7 @@ if (isset($_GET['error'])) {
   <h2>Login Announcements</h2>
   <div class="admin-announcement">
     <form class="" action="includes/create-announcement.inc.php" method="post">
-      <textarea name="announcement" rows="2"><?php echo $row['announcement']; ?></textarea>
+      <pre><textarea name="announcement" rows="2"><?php echo $row['announcement']; ?></textarea></pre>
       <div class="b-grid">
         <button class="good" type="submit" name="createannouncement">Update Announcement</button>
         <button class="bad" type="submit" name="deleteannouncement">Delete Announcement</button>
@@ -73,7 +73,7 @@ if (isset($_GET['error'])) {
       <label for="subject">Subject</label><br>
       <input type="text" name="subject" value=""><br>
       <label for="body">Body</label><br>
-      <textarea name="body" rows="2"></textarea>
+      <pre><textarea name="body" rows="2"></textarea></pre>
       <div class="b-grid">
         <button class="good" type="submit" name="email-blast">Send email</button>
         <?php if ($_GET["emailblast"] == "sent") { ?><p style="padding-left: 20px;">Message Sent</p><?php } ?>
@@ -151,12 +151,21 @@ if (isset($_GET['error'])) {
 </div>
 
 <div id="ControlPanel_Policy">
-  <h2>Policies and Procedures</h2>
-  <pre>Comming Soon</pre>
-  <!-- <a href="#">Book Selection Policy</a>
-  <a href="#">Inactive Account Procedure</a>
-  <a href="#">Book Order Procedure</a> -->
   <?php
+    $policy = "SELECT policy FROM announcements;";
+    $result = mysqli_query($conn, $policy);
+    $resultCheck = mysqli_num_rows($result);
+    while ($policyText = mysqli_fetch_assoc($result)) {
+  ?>
+
+  <a onclick="openPolicy()">Policy</a>
+  <div class="policy">
+    <?php echo $policyText['policy']; ?>
+  </div>
+  <pre><textarea><?php echo $policyText['policy']; ?></textarea></pre>
+
+  <?php
+}
     $policy = "SELECT * FROM siteinfo;";
     $result = mysqli_query($conn, $policy);
     $resultCheck = mysqli_num_rows($result);
@@ -164,15 +173,15 @@ if (isset($_GET['error'])) {
   ?>
   <p><?php echo $policy['book-selection']; ?></p>
     <form class="" action="includes/admin-action.inc.php" method="post">
-      <textarea name="announcement" rows="2"><?php echo $row['policy']; ?></textarea>
-      <div class="b-grid">
-        <button class="good" type="submit" name="createannouncement">Update Announcement</button>
-        <button class="bad" type="submit" name="deleteannouncement">Delete Announcement</button>
-      </div>
+      <pre><textarea name="announcement" rows="2"><?php echo $row['policy']; ?></textarea></pre>
+
+
     </form>
 
 <?php } ?>
 </div>
+
+
 
 
 
@@ -180,26 +189,16 @@ if (isset($_GET['error'])) {
 
 <div id="ControlPanel_SiteContent">
   <h2>Site Content</h2>
-  <pre>Comming Soon</pre>
-  <!-- <a href="#">Welcome</a>
-  <a href="#">FAQ</a> -->
-  <?php
-    $policy = "SELECT * FROM siteinfo;";
-    $result = mysqli_query($conn, $policy);
-    $resultCheck = mysqli_num_rows($result);
-    while ($policy = mysqli_fetch_assoc($result)) {
-  ?>
-  <p><?php echo $policy['book-selection']; ?></p>
-    <form class="" action="includes/admin-action.inc.php" method="post">
-      <textarea name="announcement" rows="2"><?php echo $row['policy']; ?></textarea>
-      <div class="b-grid">
-        <button class="good" type="submit" name="createannouncement">Update Announcement</button>
-        <button class="bad" type="submit" name="deleteannouncement">Delete Announcement</button>
-      </div>
-    </form>
-
-<?php } ?>
+  <a href="contenteditor.php?edit=welcometext">Welcome Text</a>
+  <a href="contenteditor.php?edit=aboutIntro">About Spineless Bound</a>
+  <a href="contenteditor.php?edit=policy">Policies and Procedures</a>
+  <a href="contenteditor.php?edit=faq">FAQ's</a>
+  <a href="contenteditor.php?edit=legal">Legal</a>
 </div>
+
+
+
+
 
 
 <?php if ($_SESSION['userUid'] == "bladuk8617" || $_SESSION['userUid'] == "bjohns6325") { ?>
@@ -207,7 +206,7 @@ if (isset($_GET['error'])) {
   <h2>Bookworm Message</h2>
   <div class="admin-announcement">
     <form class="" action="includes/admin-action.inc.php" method="post">
-      <textarea name="announcement" rows="2"><?php echo $row['msg']; ?></textarea>
+      <pre><textarea name="announcement" rows="2"><?php echo $row['msg']; ?></textarea></pre>
       <div class="b-grid">
         <button class="good" type="submit" name="bookworm-message">Send Message</button>
         <?php if ($_GET["bookworm"] == "sent") { ?><p style="padding-left: 20px;">Message Sent</p><?php } ?>
@@ -241,8 +240,8 @@ if (isset($_GET['error'])) {
         <td><?php echo $row['bookAuthor']; ?></td>
         <td><?php echo $row['chosenBy']; ?></td>
         <td><?php if ($row['readingStatus'] == 2) { echo "Queued";} else if ($row['readingStatus'] == 1) {echo "Reading";} else {echo "Read";}; ?></td>
-        <td><textarea contenteditable="false"><?php echo $row['whereToBuy']; ?></textarea></td>
-        <td><textarea contenteditable="false"><?php echo $row['bookDescription']; ?></textarea></td>
+        <td><pre><textarea contenteditable="false"><?php echo $row['whereToBuy']; ?></textarea></pre></td>
+        <td><pre><textarea contenteditable="false"><?php echo $row['bookDescription']; ?></textarea></pre></td>
         <td class="cp-coverArt"><img src="<?php echo $row['groupPicture']; ?>" alt=""></td>
 
         <td>

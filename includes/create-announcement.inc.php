@@ -4,7 +4,7 @@ error_reporting(E_ALL);
 if (isset($_POST['createannouncement'])) {
   require 'dbh.inc.php';
 
-  $sql = "SELECT * FROM announcements;";
+  $sql = "SELECT announcement FROM announcements;";
   $result = mysqli_query($conn, $sql);
   $resultCheck = mysqli_num_rows($result);
   $match = false;
@@ -13,7 +13,7 @@ if (isset($_POST['createannouncement'])) {
 
     $match = true;
     $idAnnouncement = 1;
-    $announcement = $_POST['announcement'];
+    $announcement = $conn -> real_escape_string($_POST['announcement']);
 
 
     $sql2 = "SELECT announcement FROM announcements WHERE idAnnouncement=1";

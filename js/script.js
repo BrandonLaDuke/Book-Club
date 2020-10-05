@@ -139,3 +139,12 @@ function openNotifications() {
 function clearNotifications() {
   alert("This functionality is coming soon. Stay tuned.");
 }
+
+
+tinymce.init({
+  selector: '#mce',
+  height: 500,
+  menubar: false,
+  skin: 'oxide-dark',
+  content_css:"dark"
+});

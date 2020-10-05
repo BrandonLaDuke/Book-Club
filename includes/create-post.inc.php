@@ -82,7 +82,7 @@ if (isset($_POST['post'])) {
   // GET Variables
   $username = $_POST['userUid'];
   $postID = $_POST['postId'];
-  $posttext = $_POST['posttext'];
+  $posttext = $conn -> real_escape_string($_POST['posttext']);
 
   $sql = "UPDATE posts SET postText = '$posttext' WHERE postId = '$postID'";
   $stmt = mysqli_stmt_init($conn);
