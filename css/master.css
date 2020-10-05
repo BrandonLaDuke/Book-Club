@@ -1957,8 +1957,8 @@ main {
     grid-template-columns: 1fr 2fr 2fr 2fr;
     grid-template-areas: "cp-t cp-t cp-t cp-t"
                          "cp-nav cp-la cp-eb cp-eb"
-                         "cp-nav cp-um cp-um cp-sc"
-                         "cp-nav cp-um cp-um cp-sc"
+                         "cp-nav cp-sc cp-eb cp-eb"
+                         "cp-nav cp-um cp-um cp-um"
                          "cp-nav cp-bm cp-bm cp-bm"
                          "cp-nav cp-bw . .";
   }
