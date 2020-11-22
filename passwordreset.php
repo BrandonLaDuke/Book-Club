@@ -1,7 +1,7 @@
 <?php require "header.php"; ?>
   <?php if ($_GET["resetrequest"] == "true") { ?>
 
-    <!-- Logged In View -->
+
     <div class="forgotpassword">
       <form class="profilepic-update" action="includes/signup.inc.php" method="post">
         <label for="">To get a password reset link, please enter an email that is associated with your Spineless Bound account</label>

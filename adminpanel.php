@@ -72,7 +72,7 @@ if (isset($_GET['error'])) {
       <label for="subject">Subject</label><br>
       <input type="text" name="subject" value=""><br>
       <label for="body">Body</label><br>
-      <pre><textarea id="mce" name="body" rows="2"></textarea></pre>
+      <pre><textarea name="body" rows="2"></textarea></pre>
       <div class="b-grid">
         <button class="good" type="submit" name="email-blast">Send email</button>
         <?php if ($_GET["emailblast"] == "sent") { ?><p style="padding-left: 20px;">Message Sent</p><?php } ?>
