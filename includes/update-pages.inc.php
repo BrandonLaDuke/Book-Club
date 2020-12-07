@@ -187,17 +187,17 @@ if (isset($_POST['updatepgnum'])) {
 
           $rand = rand(1,5);
           if ($rand == 1) {
-            $msg = "$username has updated the reading goal for this week to **$customGoal**";
+            $msg = "@everyone $username has updated the reading goal for this week to **$customGoal**";
           } else if ($rand == 2) {
-            $msg = "New reading goal this week! $username told me that the reading goal for this week will be to **$customGoal**";
+            $msg = "@everyone New reading goal this week! $username told me that the reading goal for this week will be to **$customGoal**";
           } else if ($rand == 3) {
-            $msg = "Howdy guys! The reading goal for this week will be to **$customGoal**";
+            $msg = "@everyone Howdy guys! The reading goal for this week will be to **$customGoal**";
           } else if ($rand == 4) {
-            $msg = "Hi! The reading goal for this week will be to **$customGoal**";
+            $msg = "@everyone Hi! The reading goal for this week will be to **$customGoal**";
           } else if ($rand == 5) {
-            $msg = "AHOY Friends! The reading goal for this week will be to **$customGoal**";
+            $msg = "@everyone AHOY Friends! The reading goal for this week will be to **$customGoal**";
           } else {
-            $msg = "The reading goal for this week will be to **$customGoal**";
+            $msg = "@everyone The reading goal for this week will be to **$customGoal**";
           }
 
           // $msg = "Hi everyone, my name is **Book Worm**. It is great to meet you! I am a bot created by Brandon LaDuke to bring you updates from the SpinelessBound website right into Discord!";
