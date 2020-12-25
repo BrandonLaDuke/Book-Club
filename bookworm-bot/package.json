@@ -1,0 +1,19 @@
+{
+  "name": "bookworm-bot",
+  "version": "1.0.0",
+  "description": "Bookworm chat bot for use in the Spineless Bound Discord Server.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "bookworm"
+  ],
+  "author": "Brandon LaDuke",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.5.1",
+    "eslint": "^7.16.0",
+    "xmlhttprequest": "^1.8.0"
+  }
+}
