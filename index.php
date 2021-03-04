@@ -128,7 +128,7 @@ if (isset($_GET['error'])) {
 
       <div class="event">
         <figure class="round">
-          <img src="images/SB-BM-p2.jpg" alt="">
+          <img src="img/SB-BM-p2.jpg" alt="">
           <caption>Vote for your favorite on the post in the Sullivan App!</caption>
         </figure>
         <figure class="bracket">
