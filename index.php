@@ -126,6 +126,17 @@ if (isset($_GET['error'])) {
         </div>
       </div>
 
+      <div class="event">
+        <figure class="round">
+          <img src="images/SB-BM-p2.jpg" alt="">
+          <caption>Vote for your favorite on the post in the Sullivan App!</caption>
+        </figure>
+        <figure class="bracket">
+          <img src="https://spinelessbound.com/images/SB-Bracket.jpg" alt="">
+          <caption>Spineless Bound Book Madness Bracket</caption>
+        </figure>
+      </div>
+
       <?php
       require 'includes/dbh.inc.php';
        $sql = "SELECT *

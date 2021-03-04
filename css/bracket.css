@@ -1,0 +1,205 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-size: 0px;
+}
+input[type="radio"] {
+  display: none;
+}
+#m1-1:checked ~ .round label .m1-1 {
+  color: red;
+}
+#m1-1:checked ~ .round label .m5-1 {
+  display: block;
+}
+#m1-2:checked ~ .round label .m1-2 {
+  color: red;
+}
+#m1-2:checked ~ .round label .m5-2 {
+  display: block;
+}
+#m2-1:checked ~ .round label .m2-1 {
+  color: red;
+}
+#m2-1:checked ~ .round label .m5-3 {
+  display: block;
+}
+#m2-2:checked ~ .round label .m2-2 {
+  color: red;
+}
+#m2-2:checked ~ .round label .m5-4 {
+  display: block;
+}
+#m3-1:checked ~ .round label .m3-1 {
+  color: red;
+}
+#m3-1:checked ~ .round label .m6-1 {
+  display: block;
+}
+#m3-2:checked ~ .round label .m3-2 {
+  color: red;
+}
+#m3-2:checked ~ .round label .m6-2 {
+  display: block;
+}
+#m4-1:checked ~ .round label .m4-1 {
+  color: red;
+}
+#m4-1:checked ~ .round label .m6-3 {
+  display: block;
+}
+#m4-2:checked ~ .round label .m4-2 {
+  color: red;
+}
+#m4-2:checked ~ .round label .m6-4 {
+  display: block;
+}
+#m1-1:checked ~ #m5-1:checked ~ .round label .m5-1 {
+  color: red;
+}
+#m1-1:checked ~ #m5-1:checked ~ .round label .m7-1 {
+  display: block;
+}
+#m1-2:checked ~ #m5-2:checked ~ .round label .m5-2 {
+  color: red;
+}
+#m1-2:checked ~ #m5-2:checked ~ .round label .m7-2 {
+  display: block;
+}
+#m2-1:checked ~ #m5-3:checked ~ .round label .m5-3 {
+  color: red;
+}
+#m2-1:checked ~ #m5-3:checked ~ .round label .m7-3 {
+  display: block;
+}
+#m2-2:checked ~ #m5-4:checked ~ .round label .m5-4 {
+  color: red;
+}
+#m2-2:checked ~ #m5-4:checked ~ .round label .m7-4 {
+  display: block;
+}
+#m3-1:checked ~ #m6-1:checked ~ .round label .m6-1 {
+  color: red;
+}
+#m3-1:checked ~ #m6-1:checked ~ .round label .m7-5 {
+  display: block;
+}
+#m3-2:checked ~ #m6-2:checked ~ .round label .m6-2 {
+  color: red;
+}
+#m3-2:checked ~ #m6-2:checked ~ .round label .m7-6 {
+  display: block;
+}
+#m4-1:checked ~ #m6-3:checked ~ .round label .m6-3 {
+  color: red;
+}
+#m4-1:checked ~ #m6-3:checked ~ .round label .m7-7 {
+  display: block;
+}
+#m4-2:checked ~ #m6-4:checked ~ .round label .m6-4 {
+  color: red;
+}
+#m4-2:checked ~ #m6-4:checked ~ .round label .m7-8 {
+  display: block;
+}
+#m1-1:checked ~ #m5-1:checked ~ #m7-1:checked ~ .round label .m7-1 {
+  color: red;
+}
+#m1-1:checked ~ #m5-1:checked ~ #m7-1:checked ~ .round label .w1 {
+  display: block;
+}
+#m1-2:checked ~ #m5-2:checked ~ #m7-2:checked ~ .round label .m7-2 {
+  color: red;
+}
+#m1-2:checked ~ #m5-2:checked ~ #m7-2:checked ~ .round label .w2 {
+  display: block;
+}
+#m2-1:checked ~ #m5-3:checked ~ #m7-3:checked ~ .round label .m7-3 {
+  color: red;
+}
+#m2-1:checked ~ #m5-3:checked ~ #m7-3:checked ~ .round label .w3 {
+  display: block;
+}
+#m2-2:checked ~ #m5-4:checked ~ #m7-4:checked ~ .round label .m7-4 {
+  color: red;
+}
+#m2-2:checked ~ #m5-4:checked ~ #m7-4:checked ~ .round label .w4 {
+  display: block;
+}
+#m3-1:checked ~ #m6-1:checked ~ #m7-5:checked ~ .round label .m7-5 {
+  color: red;
+}
+#m3-1:checked ~ #m6-1:checked ~ #m7-5:checked ~ .round label .w5 {
+  display: block;
+}
+#m3-2:checked ~ #m6-2:checked ~ #m7-6:checked ~ .round label .m7-6 {
+  color: red;
+}
+#m3-2:checked ~ #m6-2:checked ~ #m7-6:checked ~ .round label .w6 {
+  display: block;
+}
+#m4-1:checked ~ #m6-3:checked ~ #m7-7:checked ~ .round label .m7-7 {
+  color: red;
+}
+#m4-1:checked ~ #m6-3:checked ~ #m7-7:checked ~ .round label .w7 {
+  display: block;
+}
+#m4-2:checked ~ #m6-4:checked ~ #m7-8:checked ~ .round label .m7-8 {
+  color: red;
+}
+#m4-2:checked ~ #m6-4:checked ~ #m7-8:checked ~ .round label .w8 {
+  display: block;
+}
+.sf,
+.fr,
+.win {
+  display: none;
+}
+.win {
+  color: blue;
+}
+.round {
+  width: 25%;
+  display: inline-block;
+  vertical-align: top;
+}
+.match {
+  padding: 0 20px;
+}
+.round-1 .match {
+  height: 25vh;
+  padding-top: calc(12.5vh - 20px);
+}
+.round-2 .match {
+  height: 50vh;
+  padding-top: calc(25vh - 20px);
+}
+.round-3 .match {
+  height: 100vh;
+  padding-top: calc(50vh - 20px);
+}
+.round-4 .match {
+  height: 100vh;
+  padding-top: calc(50vh - 10px);
+}
+label {
+  cursor: pointer;
+}
+.player {
+  background: green;
+  height: 20px;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 0 10px;
+  width: 100%;
+  transition: all 400ms;
+}
+.player:hover {
+  background: #1eadf0;
+}
+.player:first-of-type {
+  border-bottom: solid 1px white;
+}

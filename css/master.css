@@ -501,6 +501,36 @@ input[type="checkbox"] {
   max-width: 750px;
 }
 
+.event {
+  display: flex;
+  grid-template-columns: 1fr 2fr;
+  gap:10px;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  font-family: 'Patrick Hand SC', serif;
+  letter-spacing: 1.1px;
+  background-image: var(--key-color);
+  text-shadow: #00000099 1px 1px 4px;
+}
+.event .text {
+  margin: auto;
+}
+.event span {
+  text-decoration: underline;
+}
+.event figure {
+  margin: 30px auto;
+  background-color: var(--main-bkg-color);
+}
+.event figure {
+  padding: 10px;
+}
+.event figure,
+.event figure img {
+  width: 100%;
+  max-width: 750px;
+}
+
 .sb-features {
   display: flex;
   height: 500px;
