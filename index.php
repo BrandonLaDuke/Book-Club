@@ -132,7 +132,7 @@ if (isset($_GET['error'])) {
           <caption>Vote for your favorite on the post in the Sullivan App!</caption>
         </figure>
         <figure class="bracket">
-          <img src="https://spinelessbound.com/images/SB-Bracket.jpg" alt="">
+          <img src="img/SB-Bracket.jpg" alt="">
           <caption>Spineless Bound Book Madness Bracket</caption>
         </figure>
       </div>
