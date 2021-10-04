@@ -122,11 +122,11 @@ if (isset($_GET['error'])) {
         <div>
           <h1>Spineless Bound</h1>
           <h2>The Sullivan University Book Club - Join the community</h2>
-          <a class="cAcct" href="#createAccount"><span>Create an account</span></a>
+          <a class="cAcct" href="https://discord.gg/PwAkagnxW3"><span>To Join! Find us in the Sullivan Hub!</span></a>
         </div>
       </div>
 
-      <div class="event">
+      <!-- <div class="event">
         <figure class="round">
           <img src="img/SB-BM-p2.jpg" alt="">
           <caption>Vote for your favorite on the post in the Sullivan App!</caption>
@@ -135,7 +135,7 @@ if (isset($_GET['error'])) {
           <img src="img/SB-Bracket.jpg" alt="">
           <caption>Spineless Bound Book Madness Bracket</caption>
         </figure>
-      </div>
+      </div> -->
 
       <?php
       require 'includes/dbh.inc.php';
