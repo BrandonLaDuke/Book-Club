@@ -47,13 +47,14 @@ $cookie = isset($_COOKIE['rememberme']) ? $_COOKIE['rememberme'] : '';
     <meta property="og:description"        content="A student-run club here to help fellow book worms find new and exciting books as well as make new friends." />
     <meta property="og:image"              content="https://www.spinelessbound.com/img/books.jpg" />
     <title>Spineless Bound | Sullivan University Book Club</title>
-    <meta name="description" content="A student-run club here to help fellow book worms find new and exciting books as well as make new friends. Spineless Bound was founded by Sarah Hickerson in 2019 along with founding members Brandon LaDuke (Developer of this web app), Brooke Johnson and Thomas Hill. In January 2020 we were named the most active club at Sullivan University.">
+    <meta name="description" content="A student-run club here to help fellow book worms find new and exciting books as well as make new friends. In January 2020 we were named the most active club at Sullivan University.">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined"
       rel="stylesheet">
 
     <!-- <link rel="stylesheet" href="css/theme-4.css"> -->
     <link rel="stylesheet" href="css/theme-1.css">
     <link rel="stylesheet" href="css/master.css">
+    <link rel="stylesheet" href="css/bracket.css">
     <?php if ($_GET["user"]) { ?>
       <link rel="stylesheet" href="css/profile.css">
     <?php } else if ($_GET["bookid"]) { ?>

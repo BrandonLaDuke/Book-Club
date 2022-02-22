@@ -227,7 +227,7 @@ if (isset($_GET['error'])) {
               <span class="cp_editbook__buy">Store Link:</span><br><input type="text" name="bookStoreLinkE" value="<?php echo $row['whereToBuy'] ?>" /><br>
 
               <button class="btn save-ur" type="submit" name="editbook">Save changes</button>
-              <a class="btn" onclick="deleteBookCP(<?php echo $row['bookId']; ?>)">Delete user</a>
+              <a class="btn" onclick="deleteBookCP(<?php echo $row['bookId']; ?>)">Delete book</a>
               <div id="deleteBookID-<?php echo $row['bookId'] ?>" class="cp_edituser__delete">
                 <div class="cp_deleteUser__dialog">
                   <h1>DANGER ZONE</h1>
@@ -241,7 +241,7 @@ if (isset($_GET['error'])) {
                   <input id="confirmUsername" type="text" name="confirmUsername" value=""><br><br>
                   <div class="b-grid">
                     <button class="good" type="button"  name="cancelDeleteBook" onclick="cancelDeleteBookCP(<?php echo $row['bookId'] ?>)">Cancel</button>
-                    <button class="bad" type="submit" name="deleteBookConfirm">Yes, I want delete this user.</button>
+                    <button class="bad" type="submit" name="deleteBookConfirm">Yes, I want delete this book.</button>
                   </div>
                 </div>
               </div>
