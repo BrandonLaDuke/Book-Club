@@ -104,7 +104,7 @@
     <div id="lines-7-2"></div>
 
     <div class="bookBracketInfo">
-      <h2>Welcome to the 2<sup>nd</sup> annual March Maddness Book Bracket!</h2>
+      <h2>Welcome to the 2<sup>nd</sup> annual March Madness Book Bracket!</h2>
       <p>Our current match up is between</p>
       <span>Lord of the Flies</span>
       <span>&</span>
